@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wurfl_patch>
+  <devices>
+<!--Added myself: the trophy is the european version of the spark, so I made a copy>paste with a different header -->
+  <device id="htc_trophy_ver1" user_agent="Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; HTC; 7 Trophy T8686)" fall_back="generic_ms_phone_os7" actual_device_root="true">
+    <group id="product_info">
+      <capability name="mobile_browser_version" value="7.0"/>
+      <capability name="uaprof" value="http://www.htcmms.com.tw/voda/Spark-1.0.xml"/>
+      <capability name="model_name" value="Spark"/>
+      <capability name="brand_name" value="HTC"/>
+      <capability name="marketing_name" value="7 Trophy"/>
+      <capability name="release_date" value="2010_july"/>
+    </group>
+    <group id="wml_ui">
+      <capability name="table_support" value="true"/>
+    </group>
+    <group id="markup">
+      <capability name="wml_1_1" value="true"/>
+    </group>
+    <group id="display">
+      <capability name="columns" value="16"/>
+      <capability name="max_image_width" value="400"/>
+      <capability name="rows" value="36"/>
+      <capability name="resolution_width" value="480"/>
+      <capability name="resolution_height" value="800"/>
+      <capability name="max_image_height" value="720"/>
+    </group>
+    <group id="image_format">
+      <capability name="jpg" value="true"/>
+      <capability name="gif" value="true"/>
+      <capability name="bmp" value="true"/>
+      <capability name="wbmp" value="true"/>
+      <capability name="png" value="true"/>
+      <capability name="colors" value="65536"/>
+    </group>
+    <group id="wta">
+      <capability name="nokia_voice_call" value="true"/>
+      <capability name="wta_phonebook" value="true"/>
+    </group>
+    <group id="wap_push">
+      <capability name="wap_push_support" value="true"/>
+    </group>
+    <group id="mms">
+      <capability name="mms_png" value="true"/>
+      <capability name="mms_max_size" value="614400"/>
+      <capability name="mms_max_width" value="1600"/>
+      <capability name="mms_max_height" value="1600"/>
+      <capability name="mms_gif_static" value="true"/>
+      <capability name="mms_wav" value="true"/>
+      <capability name="mms_bmp" value="true"/>
+      <capability name="mms_jpeg_baseline" value="true"/>
+    </group>
+    <group id="sound_format">
+      <capability name="wav" value="true"/>
+      <capability name="sp_midi" value="true"/>
+      <capability name="midi_monophonic" value="true"/>
+    </group>
+  </device>
+  <device id="htc_spark_ver1" user_agent="Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0) HTC;Spark" fall_back="generic_ms_phone_os7" actual_device_root="true">
+    <group id="product_info">
+      <capability name="mobile_browser_version" value="7.0"/>
+      <capability name="uaprof" value="http://www.htcmms.com.tw/voda/Spark-1.0.xml"/>
+      <capability name="model_name" value="Spark"/>
+      <capability name="brand_name" value="HTC"/>
+      <capability name="marketing_name" value="7 Trophy"/>
+      <capability name="release_date" value="2010_july"/>
+    </group>
+    <group id="wml_ui">
+      <capability name="table_support" value="true"/>
+    </group>
+    <group id="markup">
+      <capability name="wml_1_1" value="true"/>
+    </group>
+    <group id="display">
+      <capability name="columns" value="16"/>
+      <capability name="max_image_width" value="400"/>
+      <capability name="rows" value="36"/>
+      <capability name="resolution_width" value="480"/>
+      <capability name="resolution_height" value="800"/>
+      <capability name="max_image_height" value="720"/>
+    </group>
+    <group id="image_format">
+      <capability name="jpg" value="true"/>
+      <capability name="gif" value="true"/>
+      <capability name="bmp" value="true"/>
+      <capability name="wbmp" value="true"/>
+      <capability name="png" value="true"/>
+      <capability name="colors" value="65536"/>
+    </group>
+    <group id="wta">
+      <capability name="nokia_voice_call" value="true"/>
+      <capability name="wta_phonebook" value="true"/>
+    </group>
+    <group id="wap_push">
+      <capability name="wap_push_support" value="true"/>
+    </group>
+    <group id="mms">
+      <capability name="mms_png" value="true"/>
+      <capability name="mms_max_size" value="614400"/>
+      <capability name="mms_max_width" value="1600"/>
+      <capability name="mms_max_height" value="1600"/>
+      <capability name="mms_gif_static" value="true"/>
+      <capability name="mms_wav" value="true"/>
+      <capability name="mms_bmp" value="true"/>
+      <capability name="mms_jpeg_baseline" value="true"/>
+    </group>
+    <group id="sound_format">
+      <capability name="wav" value="true"/>
+      <capability name="sp_midi" value="true"/>
+      <capability name="midi_monophonic" value="true"/>
+    </group>
+  </device>
+  </devices>
+</wurfl_patch>

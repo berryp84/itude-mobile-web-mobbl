@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+                                "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib>
+ <namespace>http://itude.com/facelets</namespace>
+ <function>
+  <function-name>componentType</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String componentType(com.itude.mobile.mobbl2.client.core.view.MBComponent)</function-signature>
+ </function>
+ <function>
+  <function-name>handleOutcome</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String handleOutcome(java.lang.String)</function-signature>
+ </function>
+ <function>
+  <function-name>value</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String value(com.itude.mobile.mobbl2.client.core.view.MBField)</function-signature>
+ </function>
+ <function>
+  <function-name>size</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.Integer size(java.util.Collection)</function-signature>
+ </function>
+ <function>
+  <function-name>getStyleClassFor</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String getStyleClassFor(com.itude.mobile.mobbl2.client.core.view.MBField)</function-signature>
+ </function>
+ <function>
+  <function-name>nonHiddenChildren</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String nonHiddenChildren(com.itude.mobile.mobbl2.client.core.view.MBComponentContainer)</function-signature>
+ </function>
+ <function>
+  <function-name>doHTML</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String doHTML(java.lang.String)</function-signature>
+ </function>
+ <function>
+  <function-name>unescapeHTML</function-name>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
+  <function-signature>java.lang.String unescapeHTML(java.lang.String)</function-signature>
+ </function>
+ <function>
+  <function-name>textForKey</function-name>
+  <function-class>com.itude.mobile.template.jsf.InitialBean</function-class>
+  <function-signature>java.lang.String textForKey(java.lang.String)</function-signature>
+ </function>
+ <tag>
+  <tag-name>component</tag-name>
+  <handler-class>com.itude.mobile.template.jsf.handlers.ComponentTagHandler</handler-class>
+ </tag>
+</facelet-taglib>

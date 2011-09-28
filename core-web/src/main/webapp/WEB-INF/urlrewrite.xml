@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "urlrewrite3.2.dtd">
+
+<!-- Configuration file for UrlRewriteFilter http://tuckey.org/urlrewrite/ -->
+<urlrewrite>
+
+	<rule>
+		<from>^/$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_home</to>
+	</rule>
+
+	<rule>
+		<from>^/\?(.*+)$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_home&amp;$1</to>
+	</rule>
+
+	<rule>
+		<from>^/realtones/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_realtones</to>
+	</rule>
+	
+	<rule>
+		<from>^/truetones/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_truetones</to>
+	</rule>
+	
+	<rule>
+		<from>^/polytones/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_polytones</to>
+	</rule>
+	
+	<rule>
+		<from>^/games/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_javagames</to>
+	</rule>
+	
+	<rule>
+		<from>^/wallpapers/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_wallpapers</to>
+	</rule>
+	
+	<rule>
+		<from>^/videos/?$</from>
+		<to last="true">/link.jsf?outcome=OUTCOME-page_minimovies</to>
+	</rule>
+	
+	<rule>
+		<from>^/about$</from>
+		<to last="true">/about.jsf</to>
+	</rule>
+
+</urlrewrite>
+

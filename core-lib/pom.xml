@@ -23,6 +23,7 @@
 	</developers>
 	
 	<dependencies>
+		<!-- 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -40,13 +41,6 @@
 			<groupId>com.itude.commons</groupId>
 			<artifactId>itude-commons-webutil</artifactId>
 			<version>1.0.20</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>jfree</groupId>
-			<artifactId>jfreechart</artifactId>
-			<version>1.0.13</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -76,6 +70,14 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
+		</dependency>
+		  -->
+		<!-- This used to be the parent, but since this isn't possible anymore, it is now just a dependency -->
+		<dependency>
+		   <groupId>com.itude.poms</groupId>
+			<artifactId>itude-webcomponent</artifactId>
+			<version>1.6-jsf2</version>
+		   <type>pom</type>
 		</dependency>
 	</dependencies>
 
