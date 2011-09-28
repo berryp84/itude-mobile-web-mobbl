@@ -3,13 +3,8 @@
     <wb-module deploy-name="itude-mobile-web-mobbl-core-web">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/itude-mobile-web-mobbl-core-lib/itude-mobile-web-mobbl-core-lib">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <property name="context-root" value="itude-mobile-web-mobbl-core-web"/>
         <property name="java-output-path" value="/itude-mobile-web-mobbl-core-web/src/main/webapp/WEB-INF/classes"/>
+        <property name="context-root" value="mobblweb"/>
     </wb-module>
 </project-modules>

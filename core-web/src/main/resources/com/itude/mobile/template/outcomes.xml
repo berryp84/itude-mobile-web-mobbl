@@ -1,0 +1,68 @@
+<Configuration xmlns="http://itude.com/schemas/MB/2.0">
+	<Controller>
+        <Wiring>
+            <Outcome origin="*" name="OUTCOME-page_home" action="GetHomePageContent"/>
+            <Outcome origin="GetHomePageContent" name="OUTCOME-page_home" action="PAGE-page_home" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_realtones" action="GetRealtones"/>
+            <Outcome origin="*" name="OUTCOME-page_realtones_next" action="GetRealtones"/>
+            <Outcome origin="*" name="OUTCOME-page_realtones_previous" action="GetRealtones"/>
+            <Outcome origin="GetRealtones" name="OUTCOME-page_realtones" action="PAGE-page_realtones" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_polytones" action="GetPolytones"/>
+            <Outcome origin="*" name="OUTCOME-page_polytones_next" action="GetPolytones"/>
+            <Outcome origin="*" name="OUTCOME-page_polytones_previous" action="GetPolytones"/>
+            <Outcome origin="GetPolytones" name="OUTCOME-page_polytones" action="PAGE-page_polytones" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_truetones" action="GetTruetones"/>
+            <Outcome origin="*" name="OUTCOME-page_truetones_next" action="GetTruetones"/>
+            <Outcome origin="*" name="OUTCOME-page_truetones_previous" action="GetTruetones"/>
+            <Outcome origin="GetTruetones" name="OUTCOME-page_truetones" action="PAGE-page_truetones" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_javagames" action="GetJavagames"/>
+            <Outcome origin="*" name="OUTCOME-page_javagames_next" action="GetJavagames"/>
+            <Outcome origin="*" name="OUTCOME-page_javagames_previous" action="GetJavagames"/>
+            <Outcome origin="GetJavagames" name="OUTCOME-page_javagames" action="PAGE-page_javagames" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_wallpapers" action="GetWallpapers"/>
+            <Outcome origin="*" name="OUTCOME-page_wallpapers_next" action="GetWallpapers"/>
+            <Outcome origin="*" name="OUTCOME-page_wallpapers_previous" action="GetWallpapers"/>
+            <Outcome origin="GetWallpapers" name="OUTCOME-page_wallpapers" action="PAGE-page_wallpapers" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_minimovies" action="GetMinimovies"/>
+            <Outcome origin="*" name="OUTCOME-page_minimovies_next" action="GetMinimovies"/>
+            <Outcome origin="*" name="OUTCOME-page_minimovies_previous" action="GetMinimovies"/>
+            <Outcome origin="GetMinimovies" name="OUTCOME-page_minimovies" action="PAGE-page_minimovies" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_login" action="PAGE-page_login"/>
+            <Outcome origin="PAGE-page_login" name="OUTCOME-page_login" action="LoginAction"/>
+            <Outcome origin="LoginAction" name="OUTCOME-page_login_failed" action="PAGE-page_login_failed" transferDocument="TRUE"/>
+            <Outcome origin="LoginAction" name="OUTCOME-page_login_succeeded" action="PAGE-page_login_succeeded" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_logout" action="LogoutAction"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_terms_general" action="PAGE-page_terms_general"/>
+            <Outcome origin="*" name="OUTCOME-page_terms_specific" action="PAGE-page_terms_specific"/>
+            <Outcome origin="*" name="OUTCOME-page_privacy_policy" action="PAGE-page_privacy_policy"/>
+            <Outcome origin="*" name="OUTCOME-page_contact" action="PAGE-page_contact"/>
+            
+            <Outcome origin="*" name="orderform" action="OrderFormAction"/>
+            <Outcome origin="OrderFormAction" name="OUTCOME-page_member_orderform" action="PAGE-page_member_orderform" transferDocument="TRUE"/>
+            <Outcome origin="OrderFormAction" name="OUTCOME-page_orderform" action="PAGE-page_orderform" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="requestcontent" action="RequestContentAction"/>
+            <Outcome origin="RequestContentAction" name="OUTCOME-page_member_download_content" action="PAGE-page_member_download_content" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="OUTCOME-page_search" action="SearchAction"/>
+            <Outcome origin="SearchAction" name="OUTCOME-page_search" action="PAGE-page_search" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="limit_reached" action="PAGE-page_limit_reached"/>
+            <Outcome origin="*" name="download_content" action="DownloadContentAction"/>
+            <Outcome origin="DownloadContentAction" name="download_content" action="PAGE-page_download_content" transferDocument="TRUE"/>
+            
+            <Outcome origin="*" name="db_unsupported" action="PAGE-page_db_unsupported"/>
+            <Outcome origin="*" name="db_thanks" action="PAGE-page_db_thanks"/>
+            
+        </Wiring>
+    </Controller>
+</Configuration>

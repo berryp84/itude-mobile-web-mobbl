@@ -1,0 +1,18 @@
+<Configuration xmlns="http://itude.com/schemas/MB/2.0">
+	<Controller>
+        <Actions>
+        	<Action name="GetHomePageContent" className="GetHomePageContent"/>
+        	<Action name="GetRealtones" className="GetRealtones"/>
+        	<Action name="GetPolytones" className="GetPolytones"/>
+        	<Action name="GetTruetones" className="GetTruetones"/>
+        	<Action name="GetJavagames" className="GetJavagames"/>
+        	<Action name="GetWallpapers" className="GetWallpapers"/>
+        	<Action name="GetMinimovies" className="GetMinimovies"/>
+        	<Action name="OrderFormAction" className="OrderFormAction"/>
+        	<Action name="SearchAction" className="SearchAction"/>
+        	<Action name="LoginAction" className="LoginAction"/>
+        	<Action name="LogoutAction" className="LogoutAction"/>
+        	<Action name="DownloadContentAction" className="DownloadContentAction"/>
+		</Actions>
+	</Controller>
+</Configuration>

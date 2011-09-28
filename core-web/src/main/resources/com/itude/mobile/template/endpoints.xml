@@ -1,0 +1,27 @@
+<EndPoints xmlns="http://itude.com/schemas/MB/1.0">
+
+    <ResultListeners>
+    </ResultListeners>
+	
+	<EndPoint documentOut="ApplicationTextResponse" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/frontend_texts/whatsringing_mobi?locale=nl"/>
+	
+	<EndPoint documentOut="realtones" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/realtone.xml"/>
+	<EndPoint documentOut="truetones" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/truetone.xml"/>
+	<EndPoint documentOut="polytones" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/polytone.xml"/>
+	<EndPoint documentOut="javagames" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/javagame.xml"/>
+	<EndPoint documentOut="wallpapers" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/wallpaper.xml"/>
+	<EndPoint documentOut="minimovies" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/content_partner/1/minimovie.xml"/>
+	
+	<EndPoint documentOut="results" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/search.xml"/>
+	
+	<EndPoint documentOut="realtone" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	<EndPoint documentOut="truetone" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	<EndPoint documentOut="polytone" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	<EndPoint documentOut="javagame" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	<EndPoint documentOut="wallpaper" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	<EndPoint documentOut="minimovie" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/api/contents/lookup.xml"/>
+	
+	<EndPoint documentOut="client" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/clients/login"/>
+	
+	<EndPoint documentOut="downloadContent" cacheable="true" ttl="0" timeout="15" endPoint="http://rv3.govannon.net/clients/show.xml"/>
+</EndPoints> 

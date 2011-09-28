@@ -1,0 +1,649 @@
+/*
+	Begin MCDS
+*/
+.RICH {
+	
+}
+
+.nav {
+	background-color: #EDF4F6;
+}
+
+.titleLeftSpan {
+}
+	
+.titleLeft {
+	text-align:center;
+}
+
+.titleRight {
+	display: none;
+}
+
+.TITLEMAIN {
+	margin-left: 0.40em;
+	color: #8AD600;
+	font-family: "Arial";
+    font-size: 10px;
+	font-weight: bold;
+}
+
+.TITLESUB1 {
+	margin-left: 0.40em;
+	color: #6FD7EE;
+	font-family: "Arial";
+    font-size: 10px;
+	font-weight: bold;
+}
+
+.TITLESUB2 {
+	margin-left: 0.40em;
+	color: #00DDA5;
+	font-family: "Arial";
+    font-size: 10px;
+	font-weight: bold;
+}
+
+.ROWLINK {
+	color: #4b8b9b;
+    font-size: 10px;
+	text-decoration: none;
+}
+
+.DOWNLOADLINK {
+	color: #4b8b9b;
+    font-size: 10px;
+	text-decoration: underline;
+}
+
+.LIST {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #8AD600;
+}
+
+.PREVIEWTOPLIST {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #8AD600;
+	margin-bottom: 2px;
+}
+
+.PREVIEWTOPLIST .LEFT {
+	margin-left: 0.75em;
+	float: left;
+	width: 35%;
+}
+
+.PREVIEWTOPLIST .RIGHT {
+	overflow: auto;
+	padding-left: 45px;
+}
+
+.PREVIEWTOPLIST img {
+	margin-left: 8px;
+}
+
+.PREVIEWLIST img {
+	margin-left: 8px;
+}
+
+.PREVIEWLIST {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #8AD600;
+	margin-bottom: 2px;
+}
+
+.TOPLIST {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #8AD600;
+	margin-bottom: 2px;
+}
+
+.TOPLIST .LEFT {
+	float: left;
+	width: 50%;
+}
+
+.TOPLIST .RIGHT {
+	border-left: 2px solid #8AD600;
+	overflow: auto;
+	padding-left: 5px;
+}
+
+.TOPLISTROWLINK-REF {
+	border-top: 1px solid #8AD600;
+}
+
+.TOPLISTNAVIGATIONROWLINK-REF {
+	border-top: 1px solid #8AD600;
+	text-align: center;
+}
+
+.ORDERFORM .TOP {
+}
+
+.ORDERFORM .LEFT {
+	float: left;
+}
+
+.ORDERFORM .RIGHT {
+	padding-left: 9px;
+	overflow: auto;
+}
+
+.ORDERFORM .ROW {
+	border-bottom: 0px solid #DBDBDB;
+}
+
+.ORDERFORM .RIGHT input[type="submit"],input[type="button"] {
+	border: 1px solid #000;
+	background-color: #8AD600;
+	color: white;
+	font-weight: bold;
+	width: 50%;
+	float: left;
+}
+
+.ORDERFORM .RIGHT input[type="text"],input[type="password"],input[type="checkbox"],input[type="email"],input[type="number"],input[type="tel"],select
+{
+	border: 1px solid #ABADB3;
+	padding: 1px 0;
+	width: 75%;
+	font-size: 11pt;
+}
+
+.ORDERFORM .BOTTOM {
+	clear: both;
+}
+
+.menuBar {
+	overflow: auto;
+	text-align: center;
+	background-color: #8AD600;
+}
+
+.menuBar a {
+	display: inline-block;
+	color: black;
+	font-family: "Arial";
+    font-size: 9px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.searchBar {
+	height: 22px;
+	padding-top: 1px;
+}
+
+.searchBarLeft {
+	width:65%;
+	float:left;
+}
+
+.innerSearchBarLeft {
+	margin-right: 3px;
+}
+
+.searchBarRight {
+	width:35%;
+	float:left;
+}
+
+.searchBar input[type="text"],input[type="password"],input[type="checkbox"],input[type="email"],input[type="number"],input[type="tel"],select
+{
+	border: 1px solid #ABADB3;
+	width:100%;
+}
+
+.searchBar input[type="submit"],input[type="button"] {
+	border: 1px solid #000;
+	background-color: #8AD600;
+	color: white;
+	font-weight: bold;
+	margin-top: 0;
+}
+
+input[type="submit"],input[type="button"] {
+	border: 1px solid #000;
+	background-color: #8AD600;
+	color: white;
+	font-weight: bold;
+	width: 100%;
+}
+
+.footer,.footer2 {
+	text-align: center;
+	font-size: 9px;
+}
+
+.footer p {
+	margin: 0.5em 0;
+	}
+
+.footer a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.footer2 {
+	margin: 0.4em 0;
+}
+
+.imageArea{
+	padding: 2px 0;
+}
+
+/*
+	End MCDS
+*/
+
+/*
+	HTML elements
+*/
+body {
+	font-family: verdana, arial, helvetica;
+	margin: 0;
+	font-size: 9pt;
+	background-color: #FFFFFF;
+	color: #594c46;
+	overflow-x: hidden;
+}
+
+th {
+	font-weight: normal;
+	text-align: left;
+	height: 2em;
+	line-height: 2em;
+}
+
+table {
+	border-top: 1px dotted #DBDBDB;
+	background-color: white;
+	width: 100%;
+	padding-left: 0.9em;
+}
+
+img {
+	border-style: none;
+}
+
+/* Because IE7 and below doesn't support box-sizing: border-box; we add all inputs in this container.
+   The padding should equal the total of borders and paddings */
+.inputContainer {
+	padding-right: 2px;
+}
+
+input[type="checkbox"] {
+	width: 20px;
+}
+
+input[disabled] {
+	background-color: #F0F0F0;
+}
+
+form {
+	margin: 0;
+}
+
+/* General stuff */
+.error {
+	background-color: white;
+	border: 2px solid #D40026;
+	padding: 0.5em 0.75em;
+	color: #D40026;
+}
+
+.NETWORK {
+	float: right;
+}
+
+.topheader,.ACTION {
+	background-image: url('../img/topgradient_reverse.png');
+	background-repeat: repeat-x;
+	background-position: bottom;
+	background-color: #FFF;
+}
+
+.ROW {
+	background-color: #FFF;
+	display: block;
+	height: 3.5em;
+	line-height: 3.5em;
+	border-bottom: 1px dotted #DBDBDB;
+}
+
+.ROWLINK-REF {
+	float: right;
+}
+
+.ROWLINK-REF img {
+	vertical-align: middle;
+}
+
+.ROWLINK-TITLE {
+	float: left;
+	clear: right;
+	line-height: 1.75em;
+	display: block;
+}
+
+.ROW-TITLE>span {
+	text-decoration: none;
+	color: #594c46;
+	float: left;
+	clear: both;
+	line-height: 1.75em;
+	display: block;
+	white-space: nowrap;
+}
+
+.ROW-CONTENT,.mainLinkSelected,.mainLinkUnselected,.mainTitle {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #4b8b9b;
+	font-family: "Arial";
+    font-size: 9px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.ROW-CONTENT .WL {
+	float: right;
+}
+
+.ROW-CONTENT .INF {
+	width: 50%;
+	float: right;
+}
+
+.ROW-CONTENT .COL-WRAPPER {
+	clear: left;
+	float: left;
+	width: 100%;
+	color: #594c46;
+}
+
+.COL0,.COL1 {
+	line-height: 1.75em;
+	float: left;
+	width: 100%;
+}
+
+.COL2,.COL4,.COL41 {
+	line-height: 1.75em;
+	float: left;
+	width: 50%;
+}
+
+.COL3,.COL31,.COL5,.COL51,.COL14,.COL141 {
+	line-height: 1.75em;
+	float: left;
+	width: 33%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.COL41 {
+	text-align: right;
+}
+
+.BOLD {
+	font-weight: bold;
+}
+
+
+.halfMore {
+	height: 3.5em;
+	padding-right: 1em;
+	overflow: hidden;
+}
+
+.lessImage {
+	margin-right: 0.5em;
+}
+
+.overflowAuto {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.header {
+	display: block;
+	/*
+	border-bottom: 1px dotted #DBDBDB;
+	margin-top:-5px;
+	line-height: 30pt;
+	*/
+	padding: 5px 0 5px 5px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #4B8B9B
+}
+
+.header>.ROWLINK-REF {
+	margin-right: 1em;
+}
+
+.TEXTBACKGROUND {
+	background-color: #FFF;
+	padding: 1em;
+}
+
+.hundredPercentWidth {
+	width: 100%;
+}
+
+/* unused stuff */
+
+/*
+.largeLink {
+	padding: 0 1em;
+	background-color: white;
+	display: block;
+	height: 3em;
+	line-height: 3em;
+	font-size: 9pt;
+	border-top: 1px dotted #DBDBDB;
+	color: #594c46;
+	text-decoration: underline;
+	line-height: 3em;
+}
+
+.moreArea {
+	display: block;
+	float: right;
+	padding-right: 0.5em;
+}
+
+.moreArea img {
+	vertical-align: middle;
+}
+
+.contentLink {
+	color: #0078d4;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.linkrow {
+	border-bottom: 1px dotted #DBDBDB;
+	background-color: white;
+}
+
+.rowlinkMore img {
+	vertical-align: middle;
+}
+
+.rowlinkMore {
+	display: block;
+	float: right;
+	padding-right: 0.5em;
+}
+
+.link-noinfo {
+	height: 3.5em;
+	line-height: 3.5em;
+}
+
+.linkPositive {
+	display: block;
+	float: right;
+	color: green;
+}
+
+.matrixtitle {
+	background-image: url('../img/alex_vmap.png');
+	background-position: 0 -100px;
+	background-repeat: repeat-x;
+	background-color: #F8F8F8;
+	font-weight: bold;
+	height: 3em;
+	line-height: 3em;
+	padding-left: 0.9em;
+	border-top: 1px solid #BBBBBB;
+}
+
+.topmatrixtitle {
+	background-image: url('../img/matrixtitlebg.png');
+	background-position: bottom;
+	background-repeat: repeat-x;
+	background-color: #FBFBFB;
+	font-weight: bold;
+	height: 2.6em;
+	line-height: 2.6em;
+	padding-left: 0.9em;
+}
+
+.LINKCOLOR {
+	color: #0078d4 !important;
+}
+
+.POSITIVE {
+	color: #73B100 !important;
+	font-weight: bold;
+}
+
+.NEGATIVE {
+	color: #FF0000 !important;
+	font-weight: bold;
+}
+
+.NEUTRAL {
+	color: #594c46;
+}
+
+.PERCENTAGE:after {
+	content: "%";
+}
+
+.VALUE-POS:before {
+	content: "+";
+}
+
+.VALUE-NEG:before {
+	content: "-";
+}
+
+
+.NORMAL {
+	font-weight: bold;
+}
+
+.MATRIX {
+	width: 100%;
+}
+
+.MATRIX-ROW {
+	height: 3.5em;
+	padding: 0 1em;
+	border-bottom: 1px dotted #DBDBDB;
+	background-color: #FFF;
+}
+
+.MATRIX-ROW-SMALL {
+	height: 2.25em;
+	padding: 0.45em 1em 0em 1em;
+	border-bottom: 1px dotted #DBDBDB;
+	background-color: #FFF;
+}
+
+.MATRIX-HEADER {
+	font-size: 8pt !important;
+}
+
+.MATRIX-SOURCE {
+	text-align: right;
+	line-height: 1.75em;
+}
+
+.MATRIX-CELL {
+	float: left;
+	height: 3.5em;
+	width: 50%;
+}
+
+.MATRIX-CELL>.ROW-TITLE {
+	display: block;
+	padding-right: 1em;
+}
+
+.ROW-TITLE>input,.ROW-TITLE>select,.ROW-TITLE>.inputContainer>input,.ROW-TITLE>.inputContainer>select
+	{
+	margin-top: 0.25em
+}
+
+.ROW-TITLE>input[type="submit"] {
+	margin-top: 1.90em !important;
+}
+
+.BIG>.MATRIX-ROW {
+	height: 4.5em;
+}
+
+.ACTION {
+	height: 3.5em;
+	background-color: #FFF;
+}
+
+.ACTION .LEFT {
+	float: left;
+	width: 50%;
+}
+
+.ACTION .RIGHT {
+	overflow: auto;
+	padding-left: 5px;
+}
+
+.ACTION>div {
+	padding: 0em 1em;
+	overflow: hidden;
+}
+
+.CANCEL {
+	background-color: #E61C40 !important;
+	border: 1px solid #594c46 !important;
+}
+
+.BTNLINK {
+	background-color: #ecebeb !important;
+	color: #000 !important;
+	border: 1px solid #aaaaaa !important;
+}
+
+.halfLink {
+	width: 50%;
+	float: left;
+}
+
+.halfLink a {
+	text-decoration: none;
+	display: block;
+}
+*/

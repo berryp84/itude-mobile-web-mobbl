@@ -1,0 +1,507 @@
+<Configuration xmlns="http://itude.com/schemas/MB/2.0">
+	<View>
+		<Page xmlns="" name="PAGE-page_home" document="HomePageContentDocument" title="Whatsringing">
+            <Panel type="PREVIEWTOPLIST" title="LABEL_TOP10_REALTONES">
+				<ForEach value="/realtones[0]/realtone" suppressRowComponent="TRUE">
+					<Panel type="TOPLISTROWIMAGE">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="realtone"/>
+					</Panel>
+					<Panel type="TOPLISTROW" title="LABEL_TOP10_REALTONES">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="SUBLABEL" path="./artist[0]/@text()" />
+						<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="realtone"/>
+					</Panel>
+				</ForEach>
+				<Panel type="MOREROW" title="LABEL_MORE">
+                  	<Field type="LINK" outcome="OUTCOME-page_realtones" path="."/>
+				</Panel>
+            </Panel>
+            <Panel type="PREVIEWLIST" title="LABEL_TOP_JAVAGAMES">
+				<ForEach value="/javagames[0]/javagame" suppressRowComponent="TRUE">
+					<Panel type="PREVIEWROWIMAGE">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="javagame"/>
+					</Panel>
+				</ForEach>
+				<Panel type="MOREROW" title="LABEL_MORE">
+                  	<Field type="LINK" outcome="OUTCOME-page_javagames" path="."/>
+				</Panel>
+            </Panel>
+            <Panel type="TOPLIST" title="LABEL_TOP10_TRUETONES">
+				<ForEach value="/truetones[0]/truetone" suppressRowComponent="TRUE">
+					<Panel type="TOPLISTROW">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="SUBLABEL" path="./artist[0]/@text()" />
+						<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="truetone"/>
+					</Panel>
+				</ForEach>
+				<Panel type="MOREROW" title="LABEL_MORE">
+                  	<Field type="LINK" outcome="OUTCOME-page_truetones" path="."/>
+				</Panel>
+			</Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_realtones" document="realtones" title="LABEL_REALTONES">
+            <Panel type="PREVIEWNAVIGATIONTOPLIST" title="LABEL_REALTONES">
+				<ForEach value="/realtone" suppressRowComponent="TRUE">
+					<Panel type="TOPLISTROWIMAGE">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="realtone"/>
+					</Panel>
+					<Panel type="TOPLISTROW">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="SUBLABEL" path="./artist[0]/@text()" />
+						<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="realtone"/>
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_realtones"/>
+						<Field type="STYLE" path="./realtone[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_truetones" document="truetones" title="LABEL_TRUETONES">
+            <Panel type="PREVIEWNAVIGATIONTOPLIST" title="LABEL_TRUETONES">
+				<ForEach value="/truetone" suppressRowComponent="TRUE">
+					<Panel type="TOPLISTROWIMAGE">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="truetone"/>
+					</Panel>
+					<Panel type="TOPLISTROW">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="SUBLABEL" path="./artist[0]/@text()" />
+						<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="truetone"/>
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_truetones"/>
+						<Field type="STYLE" path="./truetone[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_polytones" document="polytones" title="LABEL_POLYTONES">
+            <Panel type="PREVIEWNAVIGATIONTOPLIST" title="LABEL_POLYTONES">
+				<ForEach value="/polytone" suppressRowComponent="TRUE">
+					<Panel type="TOPLISTROWIMAGE">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="polytone"/>
+					</Panel>
+					<Panel type="TOPLISTROW">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="SUBLABEL" path="./artist[0]/@text()" />
+						<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="polytone"/>
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_polytones"/>
+						<Field type="STYLE" path="./polytone[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_javagames" document="javagames" title="LABEL_JAVAGAMES">
+            <Panel type="GRIDNAVIGATIONTOPLIST" title="LABEL_JAVAGAMES">
+				<ForEach value="/javagame" suppressRowComponent="TRUE">
+					<Panel type="GRIDITEM">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="javagame"/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="LABEL" path="./@position" />
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_javagames"/>
+						<Field type="STYLE" path="./javagame[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_wallpapers" document="wallpapers" title="LABEL_WALLPAPERS">
+            <Panel type="GRIDNAVIGATIONTOPLIST" title="LABEL_WALLPAPERS">
+				<ForEach value="/wallpaper" suppressRowComponent="TRUE">
+					<Panel type="GRIDITEM">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="wallpaper"/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="LABEL" path="./@position" />
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_wallpapers"/>
+						<Field type="STYLE" path="./wallpaper[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_minimovies" document="minimovies" title="LABEL_MINIMOVIES">
+            <Panel type="GRIDNAVIGATIONTOPLIST" title="LABEL_MINIMOVIES">
+				<ForEach value="/minimovie" suppressRowComponent="TRUE">
+					<Panel type="GRIDITEM">
+                   	    <Field type="LINK" outcome="orderform" path="."/>
+						<Field type="LABEL" path="./thumbnail[0]/@text()"/>
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="minimovie"/>
+						<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+						<Field type="LABEL" path="./@position" />
+					</Panel>
+				</ForEach>
+				<Panel type="TOPLISTNAVIGATION">
+                  	    <Field type="LINK" outcome="OUTCOME-page_minimovies"/>
+						<Field type="STYLE" path="./minimovie[0]/@position" />
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_terms_general" document="MBEmptyDoc" title="LABEL_TERMS_GENERAL">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_TERMS_GENERAL">
+                    <Panel type="TEXTBACKGROUND">
+                        <Field type="ECSAPEDHTML" label="TEXT_TERMS_GENERAL"/>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_terms_specific" document="MBEmptyDoc" title="LABEL_TERMS_SPECIFIC">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_TERMS_SPECIFIC">
+					<Panel type="TEXTBACKGROUND">
+						<Field type="ECSAPEDHTML" label="TEXT_TERMS_SPECIFIC" />
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_privacy_policy" document="MBEmptyDoc" title="LABEL_PRIVACY_POLICY">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_PRIVACY_POLICY">
+					<Panel type="TEXTBACKGROUND">
+						<Field type="ECSAPEDHTML" label="TEXT_PRIVACY_POLICY" />
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_contact" document="MBEmptyDoc" title="LABEL_CONTACT">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_CONTACT">
+                    <Panel type="TEXTBACKGROUND">
+                        <Field type="ECSAPEDHTML" label="TEXT_CONTACT"/>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_member_orderform" document="OrderContentDocument" title="LABEL_ORDER">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_ORDER">
+                    <Panel type="ORDERFORM">
+                        <Field type="LABEL" path="./ContentData[0]/@image"/>
+                        <Field type="LABEL" label="LABEL_ARTIST"/>
+                        <Field type="LABEL" path="./ContentData[0]/@artist"/>
+                        <Field type="LABEL" label="LABEL_TITLE"/>
+                        <Field type="LABEL" path="./ContentData[0]/@title"/>
+                        <Field type="LABEL" label="LABEL_PRICE"/>
+                        <Field type="LABEL" label="TEXT_PRICE"/>
+                        <Field type="LABEL" label="TEXT_PRICE_CREDITS"/>
+                        <Field type="LABEL" label="LABEL_CREDIT"/>
+                        <Field type="LABEL"  path="./UserData[0]/@credits"/>
+                        <Field type="LABEL" label="LABEL_ORDER"/>
+                    	<Field type="BUTTON" label="LABEL_ORDER" style="NETWORK" outcome="requestcontent" path="."/>
+	                    
+	                    <Panel type="TEXTBACKGROUND">
+	                        <Field type="ECSAPEDHTML" label="TEXT_TERMS_ORDER"/>
+	                    </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Page>
+        <Page xmlns="" name="PAGE-page_orderform" document="OrderContentDocument" title="LABEL_ORDER">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_ORDER">
+                    <Panel type="ORDERFORM">
+                        <Field type="LABEL" path="./ContentData[0]/@image"/>
+                        <Field type="LABEL" label="LABEL_ARTIST"/>
+                        <Field type="LABEL" path="./ContentData[0]/@artist"/>
+                        <Field type="LABEL" label="LABEL_TITLE"/>
+                        <Field type="LABEL" path="./ContentData[0]/@title"/>
+                        <Field type="LABEL" label="LABEL_PRICE"/>
+                        <Field type="LABEL" label="TEXT_PRICE"/>
+                        <Field type="LABEL" label="TEXT_PRICE_CREDITS"/>
+                        <Field type="LABEL" label="LABEL_CREDIT"/>
+                        <Field type="LABEL"  path="./UserData[0]/@credits"/>
+                        <Field type="LABEL" label="LABEL_PHONENUMBER"/>
+                    	<Panel type="FORM" style="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/wap_invite/Z4_jlbFv2iwHCzP4aGwS">
+							<Field type="INPUT" name="msisdn" path="./UserData[0]/@msisdn"/>
+							<Field type="HIDDEN" name="scenario_id" path="./UserData[0]/@scenarioId"/>
+							<Field type="HIDDEN" name="shortcode" path="./UserData[0]/@shortcode"/>
+							<Field type="HIDDEN" name="keyword" path="./ContentData[0]/@keyword"/>
+							<Field type="HIDDEN" name="third_party_id" path="./ContentData[0]/@thirdPartyId"/>
+							<Field type="HIDDEN" name="token" path="./UserData[0]/@token"/>
+							<Field type="HIDDEN" name="referrer" path="./UserData[0]/@referrer"/>
+							<Field type="HIDDEN" name="click_id" path="./UserData[0]/@clickId"/>
+							<Field type="HIDDEN" name="content_partner_name" path="./UserData[0]/@contentPartnerName"/>
+							<Field type="HIDDEN" name="source" path="./UserData[0]/@source"/>
+							<Field type="HIDDEN" name="ip" path="./UserData[0]/@msisdn"/>
+						</Panel>
+	                    <Panel type="TEXTBACKGROUND">
+	                        <Field type="ECSAPEDHTML" label="TEXT_TERMS_ORDER"/>
+	                    </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_search" document="results" title="Whatsringing">
+			<Panel type="SECTION">
+	            <Panel type="TOPLIST" title="LABEL_REALTONES">
+	            	<Panel type="ROW" preCondition="${/realtones[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/realtones[0]/realtone" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="./artist[0]/@text()" />
+							<Field type="STYLE" path="./@position" />
+							<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+							<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+				</Panel>
+				<Panel type="TOPLIST" title="LABEL_TRUETONES">
+	            	<Panel type="ROW" preCondition="${/truetones[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/truetones[0]/truetone" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="./artist[0]/@text()" />
+							<Field type="STYLE" path="./@position" />
+							<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+							<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+				</Panel>
+	            <Panel type="TOPLIST" title="LABEL_POLYTONES">
+	            	<Panel type="ROW" preCondition="${/polytones[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/polytones[0]/polytone" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="./artist[0]/@text()" />
+							<Field type="STYLE" path="./@position" />
+						<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+						<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+	            </Panel>
+	            <Panel type="TOPLIST" title="LABEL_JAVAGAMES">
+	            	<Panel type="ROW" preCondition="${/javagames[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/javagames[0]/javagame" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="" />
+							<Field type="STYLE" path="./@position" />
+							<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+							<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+	            </Panel>
+	            <Panel type="TOPLIST" title="LABEL_WALLPAPERS">
+	            	<Panel type="ROW" preCondition="${/wallpapers[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/wallpapers[0]/wallpaper" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="" />
+							<Field type="STYLE" path="./@position" />
+							<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+							<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+	            </Panel>
+	            <Panel type="TOPLIST" title="LABEL_MINIMOVIES">
+	            	<Panel type="ROW" preCondition="${/minimovies[0]/@count}&lt;1">
+						<Field type="LABEL" label="TEXT_NO_RESULTS" />
+	            	</Panel>
+					<ForEach value="/minimovies[0]/minimovie" suppressRowComponent="TRUE">
+						<Panel type="TOPLISTROW">
+	                   	    <Field type="LINK" outcome="orderform" path="."/>
+							<Field type="LABEL" path="./title[0]/@text()" style="LINK BOLD" />
+							<Field type="SUBLABEL" path="" />
+							<Field type="STYLE" path="./@position" />
+							<Field type="LABEL" path="./third-party-id[0]/@text()"/>
+							<Field type="LABEL" label="realtone"/>
+						</Panel>
+					</ForEach>
+	            </Panel>
+	    	</Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_login" document="LoginUserDocument" title="LABEL_LOGIN">
+            <Panel type="LIST">
+				<Panel type="TINYSCREEN">
+					<Field type="LABEL" label="LABEL_LOGIN" style="header"/>
+					<Field type="LABEL" label="LABEL_USERNAME" style="ROW-CONTENT"/>
+					<Field type="INPUTFIELD" path="/LoginUser[0]/@username" style="hundredPercentWidth"/>
+					<Field type="LABEL" label="LABEL_PASSWORD" style="ROW-CONTENT"/>
+					<Field type="INPUTFIELD" path="/LoginUser[0]/@password" style="hundredPercentWidth"/>
+					<Field type="BUTTON" label="LABEL_LOGIN" style="NETWORK" outcome="OUTCOME-page_login" path="."/>
+				</Panel>
+				<Panel type="NOTINYSCREEN">
+					<Panel type="SECTION" title="LABEL_LOGIN">
+						<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_USERNAME" />
+							<Field type="INPUTFIELD" path="/LoginUser[0]/@username"/>
+						</Panel>
+						<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_PASSWORD" />
+							<Field type="INPUTFIELD" path="/LoginUser[0]/@password"/>
+						</Panel>
+	                    <Panel type="ROW">
+	                        <Field type="BUTTON" label="LABEL_LOGIN" style="NETWORK" outcome="OUTCOME-page_login" path="."/>
+	                    </Panel>
+	                </Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_login_succeeded" document="client" title="LABEL_PROFILE">
+            <Panel type="LIST">
+           	 	<Panel type="TINYSCREEN">
+					<Panel>
+						<Field type="LABEL" label="LABEL_PROFILE" style="header"/>
+					</Panel>
+					<Panel type="ROW-CONTENT">
+						<Field type="LABEL" label="LABEL_USERNAME" style="ROW-CONTENT"/>
+						<Field type="LABEL" label=" " style="ROW-CONTENT"/>
+						<Field type="LABEL" path="/msisdn[0]/@text()" style="ROW-CONTENT"/>
+					</Panel>
+					<Panel type="ROW-CONTENT">
+						<Field type="LABEL" label="LABEL_CREDIT" style="ROW-CONTENT"/>
+						<Field type="LABEL" label=" " style="ROW-CONTENT"/>
+						<Field type="LABEL" path="/available_credits[0]/@text()" style="ROW-CONTENT"/>
+					</Panel>
+					<Panel type="ROW-CONTENT">
+	                        <Field type="BUTTON" label="LABEL_CONTINUE" style="NETWORK" outcome="OUTCOME-page_home" path="."/>
+					</Panel>
+				</Panel>
+				<Panel type="NOTINYSCREEN">
+					<Panel type="SECTION" title="LABEL_PROFILE">
+						<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_USERNAME" />
+							<Field type="SUBLABEL" path="/msisdn[0]/@text()"/>
+						</Panel>
+						<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_CREDIT" />
+							<Field type="SUBLABEL" path="/available_credits[0]/@text()"/>
+						</Panel>
+						<Panel type="ROW">
+	                        <Field type="BUTTON" label="LABEL_CONTINUE" style="NETWORK" outcome="OUTCOME-page_home" path="."/>
+						</Panel>
+	                </Panel>
+	            </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_login_failed" document="MBEmptyDoc" title="LABEL_LOGIN_FAILED">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_LOGIN_FAILED">
+					<Panel type="ROW">
+						<Field type="LABEL" label="TEXT_LOGIN_FAILED" />
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_limit_reached" document="MBEmptyDoc" title="LABEL_LIMIT_REACHED">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="TEXT_LIMIT_REACHED">
+					<Panel type="ROW">
+						<Panel type="AHREFLINK">
+							<Field type="LINK" outcome="OUTCOME-page_home" />
+							<Field type="LABEL" label="LABEL_LINK_HOME"/>
+						</Panel>
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+        <Page xmlns="" name="PAGE-page_member_download_content" document="OrderResponseDocument" title="LABEL_DOWNLOAD_CONTENT">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_DOWNLOAD_CONTENT">
+					<Panel type="ROW">
+						<Panel type="DOWNLOADLINKCHILD">
+							<Field type="LABEL" label="LINK_DOWNLOAD_CONTENT"/>
+							<Field type="LABEL" path="DownloadLink[0]/@text()"></Field>
+						</Panel>
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_download_content" document="downloadContent" title="LABEL_DOWNLOAD_CONTENT">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_DOWNLOAD_CONTENT">
+					<Panel type="ROW">
+						<Panel type="DOWNLOADLINK">
+							<Field type="LABEL" label="LINK_DOWNLOAD_CONTENT"/>
+						</Panel>
+					</Panel>
+					<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_USERNAME"/>
+							<Field type="SUBLABEL" path="/msisdn[0]/@text()"/>
+					</Panel>
+					<Panel type="ROW">
+							<Field type="LABEL" label="LABEL_PASSWORD"/>
+							<Field type="SUBLABEL" path="/password[0]/@text()"/>
+					</Panel>
+					<Panel type="ROW">
+							<Field type="BUTTON" label="LABEL_LOGIN" style="NETWORK" outcome="OUTCOME-page_login" path="."/>
+					</Panel>
+                </Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_db_unsupported" document="MBEmptyDoc" title="LABEL_DB_UNSUPPORTED">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_DB_UNSUPPORTED">
+					<Panel type="TEXTBACKGROUND">
+						<Field type="ECSAPEDHTML" label="TEXT_DB_UNSUPPORTED"/>
+					</Panel>
+				</Panel>
+            </Panel>
+        </Page>
+		<Page xmlns="" name="PAGE-page_db_thanks" document="MBEmptyDoc" title="LABEL_DOWNLOAD_CONTENT">
+            <Panel type="LIST">
+				<Panel type="SECTION" title="LABEL_DOWNLOAD_CONTENT">
+					<Panel type="TEXTBACKGROUND">
+						<Field type="ECSAPEDHTML" label="TEXT_DB_THANKS"/>
+					</Panel>
+				</Panel>
+            </Panel>
+        </Page>
+    </View>
+</Configuration>

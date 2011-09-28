@@ -4,8 +4,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:i="http://itude.com/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite/components">
 <h:body>
-	<h:outputText value="hoi" />
+	<f:metadata>
+		<f:viewParam name="docId" value="#{currentView.docId}" />
+	</f:metadata>
+		
+	<ui:composition template="/templates/main.xhtml">
+	
+		<ui:define name="title">
+			<h:outputText value="Whatsringing" />
+		</ui:define>
+		
+		<ui:define name="search">
+			<h:form id="SearchForm">
+ 	 			<h:inputText value="#{initialBean.searchQuery}" />
+  				<h:commandButton action="#{initialBean.search}" value="#{i:textForKey('LABEL_SEARCH')}" />
+   			</h:form>
+		</ui:define>
+		
+		<ui:define name="menu">
+			<cc:link outcome="OUTCOME-page_home">
+				<h:outputText value="#{i:textForKey('LABEL_HOME')}" />
+			</cc:link> | 
+			<h:outputLink value="#{env.path}/realtones">
+				<h:outputText value="#{i:textForKey('LABEL_REALTONES')}" />
+			</h:outputLink> | 
+			<h:outputLink value="#{env.path}/truetones">
+				<h:outputText value="#{i:textForKey('LABEL_TRUETONES')}" />
+			</h:outputLink> | 
+			<h:outputLink value="#{env.path}/polytones">
+				<h:outputText value="#{i:textForKey('LABEL_POLYTONES')}" />
+			</h:outputLink>
+			<br/>
+			<h:outputLink value="#{env.path}/games">
+				<h:outputText value="#{i:textForKey('LABEL_JAVAGAMES')}" />
+			</h:outputLink> | 
+			<h:outputLink value="#{env.path}/wallpapers">
+				<h:outputText value="#{i:textForKey('LABEL_WALLPAPERS')}" />
+			</h:outputLink> | 
+			<h:outputLink value="#{env.path}/videos">
+				<h:outputText value="#{i:textForKey('LABEL_MINIMOVIES')}" />
+			</h:outputLink>
+		</ui:define>
+
+		<ui:define name="content">
+			<!-- Doesn't work because it is a redirect and requestMap.put("sessionExpired", true);
+			apparently doesn't work when redirects are involved
+			<h:outputText value="Session expired!" rendered="#{sessionExpired}" />
+			 -->
+			<cc:page page="#{pageBean}" />
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

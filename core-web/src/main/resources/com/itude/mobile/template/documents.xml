@@ -1,0 +1,1718 @@
+<Configuration xmlns="http://itude.com/schemas/MB/2.0">
+	<Model>
+        <Documents>
+            <Document autoCreate="TRUE" name="ApplicationTextResponse" dataManager="MCDSGetDataHandler">
+				<Element name="Text">
+					<Attribute name="key" type="string"/>
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="SearchDocument" dataManager="MBMemoryDataHandler">
+				<Element name="Query" minOccurs="1">
+					<Attribute name="text()" type="string"/>
+				</Element>
+			</Document>
+            <Document autoCreate="TRUE" name="HomePageContentDocument" dataManager="MBMemoryDataHandler">
+				<Element name="realtones">
+					<Element name="realtone">
+						<Attribute name="position" type="string"/>
+						<Element name="artist">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="content-partner-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="image">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="preview">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="rank">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="record-label">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="title">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="tone-type">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="mp3">
+							<Attribute name="text()" type="string"/>
+						</Element>
+					</Element>
+				</Element>
+				<Element name="javagames">
+					<Element name="javagame">
+						<Attribute name="position" type="string"/>
+						<Element name="artist">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="content-partner-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="image">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="rank">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="title">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="description">
+							<Attribute name="text()" type="string"/>
+						</Element>
+					</Element>
+				</Element>
+				<Element name="truetones">
+					<Element name="truetone">
+						<Attribute name="position" type="string"/>
+						<Element name="artist">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="content-partner-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="image">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="preview">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="rank">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="record-label">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="title">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="tone-type">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="mp3">
+							<Attribute name="text()" type="string"/>
+						</Element>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="realtones" dataManager="MCDSGetDataHandler">
+				<Element name="realtone">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="preview">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="record-label">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="tone-type">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="mp3">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="polytones" dataManager="MCDSGetDataHandler">
+				<Element name="polytone">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="preview">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="record-label">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="tone-type">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="mp3">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="truetones" dataManager="MCDSGetDataHandler">
+				<Element name="truetone">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="preview">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="record-label">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="tone-type">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="mp3">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="javagames" dataManager="MCDSGetDataHandler">
+				<Element name="javagame">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="description">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="wallpapers" dataManager="MCDSGetDataHandler">
+				<Element name="wallpaper">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="minimovies" dataManager="MCDSGetDataHandler">
+				<Element name="minimovie">
+					<Attribute name="position" type="string"/>
+					<Element name="artist">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="content-partner-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="image">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="preview">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="uncensored_preview">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="rank">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="third-party-id">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="thumbnail">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="title">
+						<Attribute name="text()" type="string"/>
+					</Element>
+					<Element name="description">
+						<Attribute name="text()" type="string"/>
+					</Element>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="realtone" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="record-label">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="tone-type">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="polytone" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="record-label">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="tone-type">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="truetone" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="mp3-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="record-label">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="tone-type">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="javagame" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="copyright">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image-lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="publisher">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="description">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="wallpaper" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="minimovie" dataManager="MCDSGetDataHandler">
+				<Element name="active">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="be">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="content-partner-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="iphone">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="length-in-seconds">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="lookup-failed">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-en-au">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-es">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-fr">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-nl">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="rank-pt">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="third-party-id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="uncensored-preview">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="title">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="search-keywords">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="description">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="artist">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="image">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="thumbnail">
+					<Attribute name="text()" type="string"/>
+				</Element>
+            </Document>
+            <Document autoCreate="TRUE" name="results" dataManager="MCDSGetDataHandler">
+	            <Element name="Query" minOccurs="1">
+					<Attribute name="text()" type="string"/>
+				</Element>
+	            <Element name="minimovies">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="minimovie">
+						<Attribute name="position" type="string"/>
+						<Element name="artist">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="length-in-seconds">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="preview">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="uncensored-preview">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="description">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+	            <Element name="wallpapers">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="wallpaper">
+						<Attribute name="position" type="string"/>
+						<Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+	            <Element name="realtones">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="realtone">
+						<Attribute name="position" type="string"/>
+			            <Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="preview">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en-au">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="record-label">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="tone-type">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="artist">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+	            <Element name="truetones">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="truetone">
+						<Attribute name="position" type="string"/>
+			            <Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="preview">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en-au">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="record-label">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="tone-type">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="artist">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+	            <Element name="polytones">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="polytone">
+						<Attribute name="position" type="string"/>
+			            <Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="mp3-lookup-failed">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="preview">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en-au">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="record-label">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="tone-type">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="artist">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+	            <Element name="javagames">
+					<Attribute name="count" type="string"/>
+					<Attribute name="type" type="string"/>
+					<Element name="javagame">
+						<Attribute name="position" type="string"/>
+						<Element name="active">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="be">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="content-partner-id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="copyright">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="created-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="id">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="image">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="iphone">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="publisher">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-en">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-es">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-fr">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-nl">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="rank-pt">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="third-party-id">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="thumbnail">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="updated-at">
+							<Attribute name="type" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="title">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="search-keywords">
+							<Attribute name="nil" type="string"/>
+							<Attribute name="text()" type="string"/>
+			            </Element>
+			            <Element name="description">
+							<Attribute name="text()" type="string"/>
+			            </Element>
+					</Element>
+	            </Element>
+            </Document>
+            <Document autoCreate="TRUE" name="OrderContentDocument" dataManager="MBMemoryDataHandler">
+            	<Element name="UserData">
+					<Attribute name="referrer" type="string"/>
+					<Attribute name="clickId" type="string"/>
+					<Attribute name="msisdn" type="string"/>
+					<Attribute name="ip" type="string"/>
+					<Attribute name="credits" type="string"/>
+					<Attribute name="source" type="string"/>
+					<Attribute name="shortcode" type="string"/>
+					<Attribute name="contentPartnerName" type="string"/>
+					<Attribute name="token" type="string"/>
+					<Attribute name="scenarioId" type="string"/>
+            	</Element>
+				<Element name="ContentData">
+					<Attribute name="artist" type="string"/>
+					<Attribute name="id" type="string"/>
+					<Attribute name="image" type="string"/>
+					<Attribute name="thirdPartyId" type="string"/>
+					<Attribute name="title" type="string"/>
+					<Attribute name="keyword" type="string"/>
+	            </Element>
+            </Document>
+            <Document autoCreate="TRUE" name="OrderResponseDocument" dataManager="MBMemoryDataHandler">
+            	<Element name="Error" minOccurs="1">
+					<Attribute name="text()" type="string"/>
+            	</Element>
+            	<Element name="DownloadLink" minOccurs="1">
+					<Attribute name="text()" type="string"/>
+            	</Element>
+            </Document>
+			<Document name="LoginUserDocument" dataManager="MBMemoryDataHandler" autoCreate="TRUE">
+				<Element name="LoginUser" minOccurs="1">
+					<Attribute name="username" type="string" defaultValue="31" />
+					<Attribute name="password" type="string" defaultValue="" />
+				</Element>
+			</Document>
+			<Document name="client" dataManager="MCDSPostDataHandler" autoCreate="TRUE">
+				<Element name="msisdn">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="password">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="scenario_id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="available_credits">
+					<Attribute name="text()" type="string"/>
+				</Element>
+			</Document>
+			<Document name="downloadContent" dataManager="MCDSGetDataHandler" autoCreate="TRUE" rootElement="client">
+				<Element name="asid">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="country">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="created-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="id">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="msisdn">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="operator">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="password">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="test-number">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="updated-at">
+					<Attribute name="text()" type="string"/>
+				</Element>
+				<Element name="subscriptions">
+					<Element name="subscription">
+						<Element name="accepted-contract-at">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="active">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="asid">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="available-credits">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="client-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="cookie-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="created-at">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="data">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="fallback">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="fetched-welcome-content">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="ip">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="keyword">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="last-billed-at">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="pin">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="provider-name">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="referrer">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="scenario-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="shortcode">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="source">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="status">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="terminated-contract-at">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="the-mobile-session-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="updated-at">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="welcome-content-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="welcome-content-partner-id">
+							<Attribute name="text()" type="string"/>
+						</Element>
+						<Element name="welcome-content-type">
+							<Attribute name="text()" type="string"/>
+						</Element>
+					</Element>
+	            </Element>
+			</Document>
+        </Documents>
+    </Model>
+</Configuration>

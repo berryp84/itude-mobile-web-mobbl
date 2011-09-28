@@ -1,0 +1,65 @@
+<!-- Documents definitions in this file are packaged during deployment and cannot be changed later -->
+<Configuration xmlns="http://itude.com/schemas/MB/2.0">
+<Model>
+	<Documents>
+		<!-- special documents: deploy to all clients -->
+		<Document name="MBMobbl1Request" dataManager="MBMemoryDataHandler" autoCreate="TRUE">
+			<Element name="StrayClient" minOccurs="1">
+				<Attribute name="xmlns" type="string"/>
+				<Attribute name="command" type="string"/>
+				<Attribute name="universeID" type="string"/>
+				<Attribute name="applicationID" type="string"/>
+				<Attribute name="iPhoneUID" type="string"/>
+				<Attribute name="messageID" type="string"/>
+				<Attribute name="dateTime" type="date"/>
+				<Element name="SendDataDetails" minOccurs="1">
+					<Element name="request" minOccurs="1">
+						<Element name="parameter">
+							<Attribute name="key" type="string"/>
+							<Attribute name="value" type="string"/>
+							<Element name="subparameter">
+								<Attribute name="key" type="string"/>
+								<Attribute name="value" type="string"/>
+							</Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+		</Document>
+		
+		<Document name="MBGenericRequest" dataManager="MBMemoryDataHandler" autoCreate="TRUE">
+			<Element name="Request" minOccurs="1">
+				<Attribute name="name" type="string" />
+				<Element name="Parameter">
+					<Attribute name="key" type="string"/>
+					<Attribute name="value" type="string"/>
+					<Element name="Subparameter">
+						<Attribute name="key" type="string"/>
+						<Attribute name="value" type="string"/>
+					</Element>
+				</Element>
+			</Element>
+		</Document>
+
+		<Document name="MBEmptyDoc" dataManager="MBMemoryDataHandler" autoCreate="TRUE">
+			<Element name="Parameters" minOccurs="1">
+				<Attribute name="name" type="string" />
+				<Element name="Parameter">
+					<Attribute name="key" type="string"/>
+					<Attribute name="value" type="string"/>
+				</Element>
+			</Element>
+
+		</Document>
+
+
+		<Document name="InitialOutcomes" dataManager="MBFileDataHandler" autoCreate="TRUE">
+                <Element name="Outcome" minOccurs="1">
+                    <Attribute name="action" type="string"/>
+                    <Attribute name="dialog" type="string"/>
+				</Element>
+			</Document>		
+		</Documents>
+		
+	</Model>
+</Configuration>

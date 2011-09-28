@@ -1,10 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
+		<groupId>com.itude.poms</groupId>
+		<artifactId>itude-webcomponent</artifactId>
+		<version>1.4-jsf2</version>
+		<!-- 
 		<groupId>com.itude.mobile.web.mobbl</groupId>
 		<artifactId>mobbl-core</artifactId>
 		<version>0.0.1.0-SNAPSHOT</version>
+		 -->
 	</parent>
+	<version>0.0.1.0-SNAPSHOT</version>
 	<artifactId>mobbl-core-lib</artifactId>
 	<packaging>jar</packaging>
 	<name>Web Mobbl Core lib</name>
@@ -25,25 +31,18 @@
 	<dependencies>
 		<!-- 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.itude.commons</groupId>
-			<artifactId>itude-commons-util</artifactId>
-			<version>1.0.28</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
+			<groupId>com.itude.poms</groupId>
+			<artifactId>itude-webcomponent</artifactId>
+			<version>1.4-jsf2</version>
+			<type>pom</type>
+		</dependency> -->
 		<dependency>
 			<groupId>com.itude.commons</groupId>
 			<artifactId>itude-commons-webutil</artifactId>
 			<version>1.0.20</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>net.sourceforge.wurfl</groupId>
 			<artifactId>wurfl</artifactId>
@@ -61,6 +60,20 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.1</version>
 		</dependency>
+		<!--
+		<dependency>
+			<groupId>com.itude.commons</groupId>
+			<artifactId>itude-commons-util</artifactId>
+			<version>1.0.28</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.tuckey</groupId>
 			<artifactId>urlrewritefilter</artifactId>
@@ -71,14 +84,7 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
-		  -->
-		<!-- This used to be the parent, but since this isn't possible anymore, it is now just a dependency -->
-		<dependency>
-		   <groupId>com.itude.poms</groupId>
-			<artifactId>itude-webcomponent</artifactId>
-			<version>1.6-jsf2</version>
-		   <type>pom</type>
-		</dependency>
+		 -->
 	</dependencies>
 
 	<scm>
