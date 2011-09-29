@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="itude-mobile-web-mobbl-core-web">
+    <wb-module deploy-name="itude-mobile-template-site">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <property name="java-output-path" value="/itude-mobile-web-mobbl-core-web/src/main/webapp/WEB-INF/classes"/>
-        <property name="context-root" value="mobblweb"/>
+        <dependent-module archiveName="mobbl-core-lib-0.0.1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/itude-mobile-web-mobbl-core-lib/itude-mobile-web-mobbl-core-lib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/itude-mobile-template-site/target/classes"/>
+        <property name="context-root" value="template"/>
     </wb-module>
 </project-modules>

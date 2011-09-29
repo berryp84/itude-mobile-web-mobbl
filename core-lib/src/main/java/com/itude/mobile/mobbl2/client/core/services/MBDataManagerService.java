@@ -15,9 +15,7 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBMemor
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBMobbl1ServerDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBRESTServiceDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBResourceDataHandler;
-import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBSystemDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.exceptions.MBNoDataManagerException;
-import com.itude.mobile.template.jsf.EnvironmentForm;
 
 @Alternative
 public class MBDataManagerService implements Serializable
@@ -41,7 +39,7 @@ public class MBDataManagerService implements Serializable
 
     // TODO: these might need to be persisted somewhere
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_FILE);
-    registerDataHandler(new MBSystemDataHandler("applicationproperties_" + EnvironmentForm.getStaticEnvironment() + ".xml"), DATA_HANDLER_SYSTEM);
+//    registerDataHandler(new MBSystemDataHandler("applicationproperties_" + EnvironmentForm.getStaticEnvironment() + ".xml"), DATA_HANDLER_SYSTEM);
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_MEMORY);
     registerDataHandler(new MBRESTServiceDataHandler(), DATA_HANDLER_WS_REST);
     registerDataHandler(new MBMobbl1ServerDataHandler(), DATA_HANDLER_WS_MOBBL);

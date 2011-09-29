@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.itude.poms</groupId>
-		<artifactId>itude-webcomponent</artifactId>
-		<version>1.4-jsf2</version>
+		<groupId>com.itude.mobile.web.mobbl</groupId>
+		<artifactId>mobbl-core</artifactId>
+		<version>0.0.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>mobbl-core-web</artifactId>
 	<packaging>war</packaging>
@@ -26,78 +26,81 @@
         <dependency>
 			<groupId>com.itude.mobile.web.mobbl</groupId>
 			<artifactId>mobbl-core-lib</artifactId>
-			<version>0.0.1.0-SNAPSHOT</version>
-		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.itude.commons</groupId>
-			<artifactId>itude-commons-util</artifactId>
-			<version>1.0.28</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.itude.commons</groupId>
-			<artifactId>itude-commons-webutil</artifactId>
-			<version>1.0.20</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>jfree</groupId>
-			<artifactId>jfreechart</artifactId>
-			<version>1.0.13</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.wurfl</groupId>
-			<artifactId>wurfl</artifactId>
-			<version>1.2.2</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>rhino</groupId>
-			<artifactId>js</artifactId>
-			<version>1.7R1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.1</version>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>el-impl</artifactId>
+			<version>2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.tuckey</groupId>
 			<artifactId>urlrewritefilter</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-		 -->
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>el-impl</artifactId>
-			<version>2.2</version>
-		</dependency>
 	</dependencies>
 
-	<!-- TODO: what does this do? -->
 	<scm>
 		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</connection>
 		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</developerConnection>
 		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</url>
 	</scm>
 
-	<!-- TODO: what does this do? -->
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<nosuffix>true</nosuffix>
+					<aggregations>
+						<aggregation>
+							<insertNewLine>true</insertNewLine>
+							<output>${project.build.directory}/${project.build.finalName}/css/style_template_${project.version}.css</output>
+							<includes>
+								<include>**/style_template.css</include>
+							</includes>
+						</aggregation>
+						<aggregation>
+							<insertNewLine>true</insertNewLine>
+							<output>${project.build.directory}/${project.build.finalName}/css/style_template_simple_${project.version}.css</output>
+							<includes>
+								<include>**/style_template_simple.css</include>
+							</includes>
+						</aggregation>
+					</aggregations>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>write-project-properties</goal>
+						</goals>
+						<configuration>
+							<!-- The properties who are written are the ones between <properties> 
+								and </properties> below -->
+							<outputFile>
+								${project.build.outputDirectory}/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties
+			              </outputFile>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
