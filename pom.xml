@@ -57,7 +57,6 @@
 	</scm>
 
 	<build>
-        <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
@@ -80,7 +79,6 @@
 					<version>2.7</version>
 				</plugin>
             </plugins>
-        </pluginManagement>
     </build>
     
     <properties>
