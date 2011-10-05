@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:i="http://itude.com/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:cc="http://java.sun.com/jsf/composite/components"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="panel" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<c:if test="#{!cc.attrs.panel.hidden}" >
+	<c:choose>
+		<c:when test="#{cc.attrs.panel.type eq 'MATRIX'}">
+			<div class="MATRIX #{cc.attrs.panel.style}">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'MATRIX-ROW'}">
+			<div class="#{cc.attrs.panel.children[0].type eq 'MATRIX-CELL' ? 'MATRIX-ROW' : 'MATRIX-ROW-SMALL'} #{cc.attrs.panel.style}">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="childCount">
+						<c:choose>
+							<c:when test="#{i:size(cc.attrs.panel.children) > 2}">
+								<div class="COL#{i:size(cc.attrs.panel.children)}#{childCount.index eq 1 ? '1' : ''} overflowAuto">
+									<cc:component component="#{child}" />
+								</div>
+							</c:when>
+							<c:otherwise>
+								<cc:component component="#{child}" />
+							</c:otherwise>
+						</c:choose>
+				</c:forEach>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'MATRIX-CELL'}">
+			<div class="MATRIX-CELL">
+				<span class="ROW-TITLE">
+					<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child">
+						<cc:component component="#{child}" />
+					</c:forEach>
+				</span>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'MATRIX-HEADER'}">
+			<div class="header">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'SECTION'}">
+			<c:if test="#{!empty cc.attrs.panel.title}">
+				<c:set var="header" value="#{currentView.topLevel and i:componentType(cc.attrs.panel.parent.children[0]) eq 'panel' and cc.attrs.panel.parent.children[0].title eq cc.attrs.panel.title and currentView.currentDialog ne 'HOME' and cc.attrs.panel.parent.type ne 'LIST' ? 'topheader' : ''}" />
+				<div class="header #{header} #{currentView.currentDialog ne 'HOME' ? cc.attrs.panel.style : ''}">
+					<h:outputText value="#{cc.attrs.panel.title}" />
+					<c:if test="#{cc.attrs.panel.parent ne null and cc.attrs.panel.parent.type eq 'LINK'}">
+						<div class="ROWLINK-REF">
+							&#160; <h:graphicImage value="/img/headermore.png" alt=">" width="8" height="13"/>
+						</div>
+					</c:if>
+				</div>
+			</c:if>
+
+			<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+				var="child">
+				<cc:component component="#{child}" />
+			</c:forEach>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'ACTION'}">
+			<div class="ACTION #{cc.attrs.panel.style}">
+				<div>
+					<div class="LEFT">
+						<div style="padding-right:5px;">
+							<cc:component component="#{cc.attrs.panel.children[0]}" />
+						</div>
+					</div>
+					<div class="RIGHT">
+						<cc:component component="#{cc.attrs.panel.children[1]}" />
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'ROW'}">
+			<div class="ROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="rowpanel" />
+				<c:choose>
+					<c:when test="#{i:componentType(rowpanel.parent) eq 'panel' and rowpanel.parent.type eq 'LINK' and rowpanel.children[0].outcomeName ne null}">
+						<div class="ROWLINK-REF">
+							<c:set value="#{rowpanel.children[0]}" var="linkref" scope="request" />
+							<cc:component component="#{linkref}" />
+						</div>
+						<div class="ROW-CONTENT">
+							<c:set value="#{rowpanel.children[1]}" var="linktitle" scope="request" />
+							<c:if test="#{rowpanel.document.documentName eq 'EXT-KoersenTopStijgersDalersGetResponse'}">
+								<div class="WL">
+									<cc:component component="#{rowpanel.children[2]}" />
+								</div>
+							</c:if>
+							<div class="overflowAuto #{i:size(rowpanel.children) gt 3 ? 'ROWLINK-TITLE' : ''}">
+								<cc:component component="#{linktitle}" />
+							</div>
+							<c:if test="#{rowpanel.document.documentName ne 'EXT-KoersenTopStijgersDalersGetResponse' and i:nonHiddenChildren(rowpanel) ne 0}">
+								<div class="COL-WRAPPER">
+									<c:forEach transient="true" items="#{rowpanel.children}" var="child" begin="2">
+										<c:if test="#{!child.hidden}">
+											<div class="COL#{i:nonHiddenChildren(rowpanel)}">
+												<cc:component component="#{child}" />
+											</div>
+										</c:if>
+									</c:forEach>
+								</div>
+							</c:if>
+						</div>
+					</c:when>
+					<c:when test="#{i:componentType(rowpanel.children[0]) eq 'panel' and rowpanel.children[0].type eq 'LINK'}" >
+						<c:forEach transient="true" items="#{rowpanel.children}"
+							var="child">
+							<cc:component
+								component="#{child}" />
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="ROW-CONTENT">
+							<c:set value="#{rowpanel.children[0]}" var="rowtitle" />
+							<c:set value="#{(i:componentType(rowpanel.parent.parent) eq 'panel' and rowpanel.parent.parent.type eq 'LINK') or rowpanel.children[1].type ne 'LABEL' ? 'ht' : 'vt'}" var="rowlayout" />
+							<c:if test="#{rowlayout eq 'ht' and rowpanel.children[1] ne null}">
+								<div class="#{rowpanel.children[1].type ne 'LABEL' ? 'INF' : 'WL'}">
+									<cc:component component="#{rowpanel.children[1]}" />
+								</div>
+							</c:if>
+							<div class="#{i:size(rowpanel.children) lt 3 ? rowlayout eq 'vt' ? 'ROW-TITLE' : '' : 'ROW-TITLE'} overflowAuto">
+								<cc:component component="#{rowtitle}" />
+							</div>
+							<c:if test="#{rowlayout eq 'vt'}">
+								<c:forEach transient="true" items="#{rowpanel.children}" var="child" begin="1">
+									<div class="COL#{i:nonHiddenChildren(rowpanel)}">
+										<cc:component component="#{child}" />
+									</div>
+								</c:forEach>
+							</c:if>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'LINK'}">
+			<c:choose>
+				<c:when test="#{cc.attrs.panel.style eq 'HALF'}">
+					<c:if test="#{cc.attrs.panel.parent.children[0].hidden}">
+						<div class="halfLink">
+							<div class="halfMore">
+								&#160;<h:outputText value="Geen opties" style="color:#CCCCCC"/>
+							</div>
+						</div>
+					</c:if>
+					<div class="halfLink">
+						<c:if test="#{cc.attrs.panel.parent.children[0] ne cc.attrs.panel}">
+							<div style="float:left;border-left:1px dotted #cccccc;width:1em">&#160;</div>
+						</c:if>
+						<div style="overflow:hidden">
+						<h:link outcome="link" includeViewParams="yes">
+							<f:param name="docId" value="#{currentView.docId}" />
+							<f:param name="outcome"
+								value="#{cc.attrs.panel.children[0].outcomeName}" />
+							<f:param name="path"
+								value="#{cc.attrs.panel.children[0].path}" />
+							<div style="float:#{cc.attrs.panel.children[0].style eq 'BACK' ? 'left' : 'right'}">
+								<cc:component component="#{cc.attrs.panel.children[0]}" />
+							</div>
+							<div style="overflow:auto;">
+								<cc:component component="#{cc.attrs.panel.children[1]}" />
+							</div>
+						</h:link>
+						</div>
+					</div>
+				</c:when>
+				<c:when
+					test="#{cc.attrs.panel.children[1] ne null and i:componentType(cc.attrs.panel.children[1]) eq 'panel' and cc.attrs.panel.children[1].type eq 'SECTION'}">
+					<h:link outcome="link" includeViewParams="yes" style="text-decoration:none">
+						<f:param name="docId" value="#{currentView.docId}" />
+						<f:param name="outcome"
+							value="#{cc.attrs.panel.children[0].outcomeName}" />
+						<c:set value="#{cc.attrs.panel.children[1]}" var="child1"
+							scope="request" />
+						<cc:component component="#{child1}" />
+					</h:link>
+				</c:when>
+				<c:when
+					test="#{cc.attrs.panel.children[0].children[0].outcomeName ne null}">
+					<div class="ROWLINK"><h:link outcome="link"
+						includeViewParams="yes">
+						<f:param name="docId" value="#{currentView.docId}" />
+						<f:param name="outcome"
+							value="#{cc.attrs.panel.children[0].children[0].outcomeName}" />
+						<f:param name="path"
+							value="#{cc.attrs.panel.children[0].children[0].absoluteDataPath}" />
+						<c:set value="#{cc.attrs.panel.children[0]}" var="child0"
+							scope="request" />
+						<cc:component component="#{child0}" />
+					</h:link></div>
+				</c:when>
+				<c:otherwise>
+					<c:set value="#{cc.attrs.panel.children[0]}" var="child0"
+						scope="request" />
+					<cc:component component="#{child0}" />
+				</c:otherwise>
+			</c:choose>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'TEXTBACKGROUND'}">
+			<div class="TEXTBACKGROUND">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'PAGE'}">
+			<div class="#{cc.attrs.panel.style}">
+			<div></div>
+			<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+				var="child">
+				<cc:component component="#{child}" />
+			</c:forEach></div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'PREVIEWTOPLIST'}">
+			<div class="PREVIEWTOPLIST #{cc.attrs.panel.style}">
+				<div class="TITLEMAIN">
+			 		<h:outputText value="#{cc.attrs.panel.title}" />
+			 	</div>
+				<c:if test="#{capacityBean.alwaysShowImages}">
+					<div class="RICH imageArea">
+						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt capacityBean.topImageIndex}">
+								<c:set value="#{child.children[2].value}" var="third_party_id" />
+								<c:set value="#{child.children[3].label}" var="keyword" />
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:outputLink>
+								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+									<f:param name="docId" value="#{currentView.docId}" />
+									<f:param name="outcome"
+										value="#{child.children[0].outcomeName}" />
+									<f:param name="path"
+										value="#{child.children[0].absoluteDataPath}" />
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:link>
+							</c:if>
+						</c:forEach>
+						<br/>
+				 	</div>
+			 	</c:if>
+				<!--div class="RIGHT"-->
+					<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+						<c:if test="#{child.type eq 'TOPLISTROW' or child.type eq 'MOREROW'}">
+							<cc:component component="#{child}" />
+						</c:if>
+					</c:forEach>
+				<!--/div-->
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'PREVIEWNAVIGATIONTOPLIST'}">
+			<div class="PREVIEWTOPLIST #{cc.attrs.panel.style}">
+				<div class="TITLEMAIN">
+			 		<h:outputText value="#{cc.attrs.panel.title}" />
+			 	</div>
+				<c:if test="#{capacityBean.alwaysShowImages}">
+					<div class="RICH imageArea">
+						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt capacityBean.topImageIndex}">
+								<c:set value="#{child.children[2].value}" var="third_party_id" />
+								<c:set value="#{child.children[3].label}" var="keyword" />
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:outputLink>
+								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+									<f:param name="docId" value="#{currentView.docId}" />
+									<f:param name="outcome"
+										value="#{child.children[0].outcomeName}" />
+									<f:param name="path"
+										value="#{child.children[0].absoluteDataPath}" />
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:link>
+							</c:if>
+						</c:forEach>
+						<br/>
+				 	</div>
+			 	</c:if>
+				<!--div class="RIGHT"-->
+					<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+						<c:if test="#{child.type eq 'TOPLISTROW'}">
+							<cc:component component="#{child}" />
+						</c:if>
+					</c:forEach>
+				<!--/div-->
+				<cc:component component="#{cc.attrs.panel.children[i:size(cc.attrs.panel.children)-1]}" />
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'NAVIGATIONTOPIMAGES'}">
+			<div class="PREVIEWTOPLIST #{cc.attrs.panel.style}">
+				<div class="TITLEMAIN">
+			 		<h:outputText value="#{cc.attrs.panel.title}" />
+			 	</div>
+				<c:if test="#{!capacityBean.simplePhone}">
+					<!-- Large area in case of games, wallpapers or videos -->
+					<div class="RICH imageArea">
+						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+							<c:if test="#{child.type eq 'TOPLISTROWIMAGE'}">
+								<c:set value="#{child.children[2].value}" var="third_party_id" />
+								<c:set value="#{child.children[3].label}" var="keyword" />
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:outputLink>
+								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+									<f:param name="docId" value="#{currentView.docId}" />
+									<f:param name="outcome"
+										value="#{child.children[0].outcomeName}" />
+									<f:param name="path"
+										value="#{child.children[0].absoluteDataPath}" />
+									<h:graphicImage value="#{child.children[1].value}"/>
+								</h:link>
+							</c:if>
+							<!-- h:
+							<c:if test="((pageCounter%3) == 0)">
+	                        	<tr>
+							</c:if-->
+						</c:forEach>
+						<br/>
+				 	</div>
+				 </c:if>
+				<div class="SIMPLE">
+					<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+						<c:if test="#{child.type eq 'TOPLISTROW'}">
+							<cc:component component="#{child}" />
+						</c:if>
+					</c:forEach>
+				</div>
+				<cc:component component="#{cc.attrs.panel.children[i:size(cc.attrs.panel.children)-1]}" />
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'PREVIEWLIST'}">
+				<div class="RICH">
+					<div class="PREVIEWLIST #{cc.attrs.panel.style}">
+						<div class="TITLEMAIN">
+					 		<h:outputText value="#{cc.attrs.panel.title}" />
+					 	</div>
+						<div class="imageArea">
+							<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status" end="#{(capacityBean.topImageIndex / 2) - 1}">
+								<c:if test="#{child.type eq 'PREVIEWROWIMAGE'}">
+									<c:set value="#{child.children[2].value}" var="third_party_id" />
+									<c:set value="#{child.children[3].label}" var="keyword" />
+									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+										<h:graphicImage value="#{child.children[1].value}"/>
+									</h:outputLink>
+									<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+										<f:param name="docId" value="#{currentView.docId}" />
+										<f:param name="outcome"
+											value="#{child.children[0].outcomeName}" />
+										<f:param name="path"
+											value="#{child.children[0].absoluteDataPath}" />
+										<h:graphicImage value="#{child.children[1].value}"/>
+									</h:link>
+								</c:if>
+							</c:forEach>
+						</div>
+						<cc:component component="#{cc.attrs.panel.children[i:size(cc.attrs.panel.children)-1]}" />
+					</div>
+				</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'TOPLIST'}">
+			<div class="TOPLIST #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="panel" />
+				<c:choose>
+					<c:when test="#{i:size(panel.children) gt 1 and i:size(panel.children) lt 3}">
+						<div class="LEFT">
+							<div class="TITLESUB1">
+								<h:outputText value="#{panel.children[0].title}" />
+							</div>
+							<c:forEach transient="true" items="#{panel.children[0].children}" var="child" varStatus="status">
+								<cc:component component="#{child}" />
+							</c:forEach>
+						</div>
+						<div class="RIGHT">
+							<div class="TITLESUB2">
+								<h:outputText value="#{panel.children[1].title}" />
+							</div>
+							<c:forEach transient="true" items="#{panel.children[1].children}" var="child" varStatus="status">
+								<cc:component component="#{child}" />
+							</c:forEach>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="TITLEMAIN">
+							<h:outputText value="#{panel.title}" />
+						</div>
+						<c:forEach transient="true" items="#{panel.children}" var="child" varStatus="status">
+							<cc:component component="#{child}" />
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'TOPLISTROW'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
+				<div class="TOPLISTROWLINK-REF">
+					<c:set value="#{child.children[4].value}" var="third_party_id" />
+					<c:set value="#{child.children[5].label}" var="keyword" />
+					<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+						<c:set value="#{toplistrowpanel.children[1]}" var="child1"
+							scope="request" />
+						<c:set value="#{toplistrowpanel.children[2]}" var="child2"
+							scope="request" />
+						<c:set value="#{toplistrowpanel.children[3]}" var="child3"/>
+						<b><h:outputText value="#{child3.value}. " /></b><cc:component component="#{child1}" />
+						<br/>
+						<cc:component component="#{child2}" />
+					 </h:outputLink>
+					<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+						<f:param name="docId" value="#{currentView.docId}" />
+						<f:param name="outcome"
+							value="#{toplistrowpanel.children[0].outcomeName}" />
+						<f:param name="path"
+							value="#{toplistrowpanel.children[0].absoluteDataPath}" />
+						<c:set value="#{toplistrowpanel.children[1]}" var="child1"
+							scope="request" />
+						<c:set value="#{toplistrowpanel.children[2]}" var="child2"
+							scope="request" />
+						<c:set value="#{toplistrowpanel.children[3]}" var="child3"/>
+						<b><h:outputText value="#{child3.value}. " /></b><cc:component component="#{child1}" />
+						<br/>
+						<cc:component component="#{child2}" />
+					</h:link>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'TOPLISTNAVIGATION'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
+				<div class="TOPLISTNAVIGATIONROWLINK-REF">
+					<c:choose>
+						<c:when test="#{toplistrowpanel.children[1].value gt 1}">
+							<h:link outcome="link" includeViewParams="yes" class="ROWLINK">
+								<f:param name="docId" value="#{currentView.docId}" />
+								<f:param name="outcome"
+									value="#{toplistrowpanel.children[0].outcomeName}_previous" />
+								<b><h:outputText value="#{i:textForKey('LABEL_PREVIOUS')}" /></b>
+							</h:link>
+							<h:outputText value=" - " />
+						</c:when>
+						<c:otherwise>
+							<h:outputText value="#{i:textForKey('LABEL_PREVIOUS')}" />
+							<h:outputText value=" - " />
+						</c:otherwise>
+					</c:choose>
+					<h:link outcome="link" includeViewParams="yes" class="ROWLINK">
+						<f:param name="docId" value="#{currentView.docId}" />
+						<f:param name="outcome"
+							value="#{toplistrowpanel.children[0].outcomeName}_next" />
+						<b><h:outputText value="#{i:textForKey('LABEL_NEXT')}" /></b>
+					</h:link>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'MOREROW'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="morerowpanel" />
+				<div class="TOPLISTROWLINK-REF">
+						<cc:button label="#{cc.attrs.panel.title}"
+							outcome="#{morerowpanel.children[0].outcomeName}"
+							path="." />
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'AHREFLINK'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
+				<div class="TOPLISTROWLINK-REF">
+					<h:link outcome="link" includeViewParams="yes" class="ROWLINK">
+						<f:param name="docId" value="#{currentView.docId}" />
+						<f:param name="outcome"
+							value="#{toplistrowpanel.children[0].outcomeName}" />
+						<b><h:outputText value="#{toplistrowpanel.children[1].label}" /></b>
+					</h:link>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'DOWNLOADLINK'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
+				<div class="TOPLISTROWLINK-REF">
+					<c:set value="#{sessionBean.param}" var="code" />
+					<h:outputLink value="http://dl.whatsringing.mobi/downloads/${code}" class="DOWNLOADLINK">
+						<b><h:outputText value="#{toplistrowpanel.children[0].label}" /></b>
+					 </h:outputLink>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'DOWNLOADLINKCHILD'}">
+			<div class="TOPLISTROW #{cc.attrs.panel.style}">
+				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
+				<div class="TOPLISTROWLINK-REF">
+					<c:set value="#{sessionBean.param}" var="code" />
+					<h:outputLink value="#{i:value(toplistrowpanel.children[1])}" class="DOWNLOADLINK">
+						<b><h:outputText value="#{toplistrowpanel.children[0].label}" /></b>
+					 </h:outputLink>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'ORDERFORM'}">
+			<div class="ORDERFORM #{cc.attrs.panel.style}">
+				<div class="TOP">
+					<c:if test="#{!capacityBean.simplePhone}">
+						<div class="RICH">
+							<div class="LEFT">
+								<h:graphicImage value="#{cc.attrs.panel.children[0].value}"/>
+							</div>
+						</div>
+					</c:if>
+					<div class="RIGHT">
+						<b><h:outputText value="#{cc.attrs.panel.children[3].label}: " /></b>
+						<h:outputText value="#{cc.attrs.panel.children[4].value}" /><br/>
+						<b><h:outputText value="#{cc.attrs.panel.children[1].label}: " /></b>
+						<h:outputText value="#{cc.attrs.panel.children[2].value}" /><br/>
+						<b><h:outputText value="#{cc.attrs.panel.children[5].label}: " /></b>
+						<c:if test="#{!sessionBean.loggedOn}">
+							<h:outputText value="#{cc.attrs.panel.children[6].label}" /><br/>
+						</c:if>
+						<c:if test="#{sessionBean.loggedOn}">
+							<h:outputText value="#{cc.attrs.panel.children[7].label}" /><br/>
+						</c:if>
+						<c:if test="#{sessionBean.loggedOn}">
+							<b><h:outputText value="#{cc.attrs.panel.children[8].label} " /></b>
+							<h:outputText value="#{cc.attrs.panel.children[9].value}" /><br/>
+						</c:if>
+						<b><h:outputText value="#{cc.attrs.panel.children[10].label}: " /></b><br/>
+						<cc:component component="#{cc.attrs.panel.children[11]}" />
+					</div>
+				</div>
+				<div class="BOTTOM">
+					<cc:component component="#{cc.attrs.panel.children[12]}" />
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'FORM'}">
+			<div class="ORDERFORM">
+				<div class="TOP">
+					<div class="RIGHT">
+						<form id="orderform" method="post" action="#{cc.attrs.panel.style}">
+							<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+								<cc:component component="#{child}" />
+							</c:forEach>
+							<input type="submit" value="Download" id="submitbutton" disabled="disabled"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'GRIDNAVIGATIONTOPLIST'}">
+			<div class="PREVIEWTOPLIST #{cc.attrs.panel.style}">
+				<div class="TITLEMAIN">
+			 		<h:outputText value="#{cc.attrs.panel.title}" />
+			 	</div>
+				<div class="RICH">
+					<h:panelGrid id="panel" columns="3" border="0">
+						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+							<c:if test="#{child.type eq 'GRIDITEM'}">
+    							<h:panelGroup style="display:block; text-align:center">
+									<c:set value="#{child.children[2].value}" var="third_party_id" />
+									<c:set value="#{child.children[3].label}" var="keyword" />
+									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+										<h:graphicImage value="#{child.children[1].value}"/>
+										<br/>
+										<h:outputText value="#{child.children[5].value}. #{child.children[4].value}" />
+									</h:outputLink>
+									<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+										<f:param name="docId" value="#{currentView.docId}" />
+										<f:param name="outcome"
+											value="#{child.children[0].outcomeName}" />
+										<f:param name="path"
+											value="#{child.children[0].absoluteDataPath}" />
+										<h:graphicImage value="#{child.children[1].value}"/>
+										<br/>
+										<h:outputText value="#{child.children[5].value}. #{child.children[4].value}" />
+									</h:link>
+								</h:panelGroup>
+							</c:if>
+						</c:forEach>
+					</h:panelGrid>
+					<br/>
+			 	</div>
+				<div class="SIMPLE">
+					<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
+					 	<c:if test="#{i:size(cc.attrs.panel.children) gt status.count}">
+							<c:set value="#{child.children[2].value}" var="third_party_id" />
+							<c:set value="#{child.children[3].label}" var="keyword" />
+							<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+								<b><h:outputText value="#{child.children[5].value}. #{child.children[4].value}" /></b>
+								<br/>
+							</h:outputLink>
+							<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
+								<f:param name="docId" value="#{currentView.docId}" />
+								<f:param name="outcome"
+									value="#{child.children[0].outcomeName}" />
+								<f:param name="path"
+									value="#{child.children[0].absoluteDataPath}" />
+								<b><h:outputText value="#{child.children[5].value}. #{child.children[4].value}" /></b>
+								<br/>
+							</h:link>
+					 	</c:if>
+					</c:forEach>
+				</div>
+				<cc:component component="#{cc.attrs.panel.children[i:size(cc.attrs.panel.children)-1]}" />
+			</div>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'TINYSCREEN'}">
+			<c:if test="#{capacityBean.hasTinyScreen}">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="status">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</c:if>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'NOTINYSCREEN'}">
+			<c:if test="#{!capacityBean.hasTinyScreen}">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="status">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</c:if>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'SCRIPT'}">
+			<div id="script" style="display:none">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="status">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</div>
+			<script type="text/javascript">
+				document.getElementById('script').style.display="";
+			</script>
+		</c:when>
+		<c:when test="#{cc.attrs.panel.type eq 'NOSCRIPT'}">
+			<noscript>
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="status">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</noscript>
+		</c:when>
+		<c:otherwise>
+			<div class="#{cc.attrs.panel.type} #{cc.attrs.panel.style}">
+				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
+					var="child" varStatus="status">
+					<cc:component component="#{child}" />
+				</c:forEach>
+			</div>
+		</c:otherwise>
+	</c:choose>
+	</c:if>
+</composite:implementation>
+</html>

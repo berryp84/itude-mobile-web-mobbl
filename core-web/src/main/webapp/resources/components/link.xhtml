@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="label" />
+	<composite:attribute name="outcome" />
+	<composite:attribute name="path" />
+	<composite:attribute name="styleClass" />
+	<composite:attribute name="rendered" />
+	<composite:attribute name="acesskey" />
+	<composite:attribute name="param" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<h:link outcome="link" value="#{cc.attrs.label}"
+		styleClass="#{cc.attrs.styleClass}" accesskey="#{cc.attrs.acesskey}"
+		rendered="#{cc.attrs.rendered}" includeViewParams="true">
+		<f:param name="param" value="#{cc.attrs.param}" />
+		<f:param name="outcome" value="#{cc.attrs.outcome}" />
+		<f:param name="path" value="#{cc.attrs.path}" /><composite:insertChildren/></h:link>
+</composite:implementation>
+
+</html>

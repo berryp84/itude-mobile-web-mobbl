@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:i="http://itude.com/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:cc="http://java.sun.com/jsf/composite/components"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<!-- INTERFACE -->
+<composite:interface>
+	<composite:attribute name="component" />
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+	<i:component definition="#{cc.attrs.component}">
+	<c:choose>
+		<c:when test="#{i:componentType(comp) eq 'panel'}">
+			<cc:panel panel="#{comp}" />
+		</c:when>
+		<c:when test="#{i:componentType(comp) eq 'field'}">
+			<cc:field field="#{comp}" />
+		</c:when>
+		<c:when test="#{i:componentType(comp) eq 'forEach'}">
+			<c:forEach transient="true" items="#{comp.children}"
+				var="child">
+				<cc:component component="#{child}" />
+			</c:forEach>
+			<c:forEach transient="true" items="#{comp.rows}"
+				var="child">
+				<cc:component component="#{child}" />
+			</c:forEach>
+		</c:when>
+		<c:when test="#{i:componentType(comp) eq 'row'}">
+			<cc:row row="#{comp}" />
+		</c:when>
+		<c:when test="#{i:componentType(comp) eq 'page'}">
+			<cc:panel panel="#{comp}" />
+		</c:when>
+	</c:choose>
+	</i:component>
+</composite:implementation>
+</html>
