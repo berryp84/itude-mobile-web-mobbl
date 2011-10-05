@@ -28,7 +28,7 @@ import com.itude.mobile.template.annotations.PageQualifier;
 
 @RequestScoped
 @Named
-public class InitialController {
+public abstract class InitialController {
 	private Logger _log = Logger.getLogger(InitialController.class);
 
 	@Inject
@@ -51,10 +51,7 @@ public class InitialController {
 	@Any
 	private Instance<MBViewController> _viewControllers;
 
-	public void initialize() {
-//		MBLocalizationService.getInstance().setInstance(
-//				new MCDSLocalizationService());
-	}
+	public abstract void initialize();
 
 	public void setInitialView() {
 		_view.clear();

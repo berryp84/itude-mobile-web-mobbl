@@ -1,10 +1,10 @@
 package com.itude.mobile.mobbl2.client.core.controller;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 
 public class MBApplicationFactory
 {
-
   private static MBApplicationFactory _instance = null;
 
   public static MBApplicationFactory getInstance()
@@ -25,10 +25,13 @@ public class MBApplicationFactory
   {
     // TODO: should be done more elegantly
     // TODO: make abstract?
+
+    // TODO: restore
 //    if ("BinckSoapFaultListener".equals(listenerClassName)) return new BinckSoapFaultListener();
 //    else if ("TimedOutResultListener".equals(listenerClassName)) return new TimedOutResultListener();
-//    else 
-    return null;
+//    else
+    
+    throw new ItudeRuntimeException("Unknown resultListener "+ listenerClassName);
 
   }
 

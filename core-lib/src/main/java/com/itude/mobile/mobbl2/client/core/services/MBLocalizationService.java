@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.itude.commons.environment.ItudeEnvironment;
 import com.itude.mobile.mobbl2.client.core.util.MBProperties;
 
 public class MBLocalizationService
@@ -16,15 +15,21 @@ public class MBLocalizationService
   
   private final Map<String, Map<String, String>> _languages;      //DictionaryofDictionaries(languagecode->(key->value))
   private String                                 _currentLanguage;
-  private Map<String, String>                    _currentLanguageMap;
+  protected Map<String, String>                  _currentLanguageMap;
   private String                                 _localeCode;
 
   private static MBLocalizationService           _instance;
 
-  private MBLocalizationService()
+  protected MBLocalizationService()
   {
     _languages = new Hashtable<String, Map<String, String>>();
     setCurrentLanguage("nl");
+  }
+
+  public void setInstance(MBLocalizationService instance)
+  {
+    if (instance != null)
+          _instance = instance;
   }
 
   public static MBLocalizationService getInstance()
@@ -88,15 +93,9 @@ public class MBLocalizationService
     String text = dict.get(key);
     if (text == null)
     {
-      if(ItudeEnvironment.getEnvironment().getName().equals("dev"))
-      {
-        // When developing, give a single warning when the key is not found.
-        // Don't do this when not developing as the HashMap will keep on growing which might cause problems.
-        
-        _log.warn("Warning: no translation defined for key '" + key + "' using languageCode=" + getCurrentLanguage());
-        // add the missing translation to prevent future warnings
-        dict.put(key, key);
-      }
+      _log.warn("Warning: no translation defined for key '" + key + "' using languageCode=" + getCurrentLanguage());
+      // add the missing translation to prevent future warnings
+      dict.put(key, key);
       text = key;
     }
 
