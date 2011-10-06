@@ -19,7 +19,7 @@
 	<context-param>
 		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
 		<!-- Set to -1 when going to production (this is about reloading facelets) -->
-		<param-value>-1</param-value>
+		<param-value>1</param-value>
 	</context-param>
 	<context-param>
 		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
@@ -97,7 +97,6 @@
         <filter-name>whitespaceFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-	<!-- 
 	<filter>
 		<filter-name>UrlRewriteFilter</filter-name>
 		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
@@ -110,7 +109,6 @@
 		<filter-name>UrlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	 -->
 	<filter-mapping>
 		<filter-name>ReplyHeaderFilterNoMaxAge</filter-name>
 		<url-pattern>*.png</url-pattern>
