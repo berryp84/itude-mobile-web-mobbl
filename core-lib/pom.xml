@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>com.itude.commons</groupId>
 			<artifactId>itude-commons-webutil</artifactId>
-			<version>1.0.20</version>
+			<version>1.0.55</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
