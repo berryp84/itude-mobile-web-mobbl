@@ -1,4 +1,6 @@
 <Resources>
+  <Resource id="config" url="resource:com/itude/mobile/template/config.xml"/>
+  <Resource id="endpoints" url="resource:com/itude/mobile/template/endpoints.xml"/>
   <!-- 
   You might want to add language bundles like this
   <Bundle languageCode="nl" url="resource:com/itude/mobile/binck/texts-nl.xml"/>

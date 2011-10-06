@@ -121,6 +121,8 @@
 		<filter-name>ReplyHeaderFilter</filter-name>
 		<url-pattern>*.css</url-pattern>
 	</filter-mapping>
+	<!-- 
+	TODO: find a way to make this work again
 	<filter-mapping>
 		<filter-name>ErrorLoggerFilter</filter-name>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -128,6 +130,7 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
 	</filter-mapping>
+	 -->
 	<filter-mapping>
 		<filter-name>ThreadContextFilter</filter-name>
 		<servlet-name>Faces Servlet</servlet-name>
