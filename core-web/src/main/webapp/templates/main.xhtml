@@ -24,7 +24,7 @@
 	<!-- When developing -->
 	<c:if test="#{env.projectVersion eq 'unknown'}">
 		<c:choose>
-			<c:when test="#{!capacityBean.simplePhone}">
+			<c:when test="#{!mcdsCapacityBean.simplePhone}">
 				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}.css" />
 			</c:when>
 			<c:otherwise>
@@ -36,7 +36,7 @@
 	<!-- When in production -->
 	<c:if test="#{env.projectVersion ne 'unknown'}">
 		<c:choose>
-			<c:when test="#{!capacityBean.simplePhone or capacityBean.android}">
+			<c:when test="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}">
 				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}_#{env.projectVersion}.css" />
 			</c:when>
 			<c:otherwise>
@@ -45,7 +45,7 @@
 		</c:choose>
 	</c:if>
 	
-	<c:if test="#{capacityBean.blackBerry and !capacityBean.webkit}">
+	<c:if test="#{mcdsCapacityBean.blackBerry and !mcdsCapacityBean.webkit}">
 		<style type="text/css">
 			/* This is here because BB OS 5 doesn't let 2 divs with width:50% and float:left end up on the same line */
 			.LEFT,.MATRIX-CELL {
@@ -82,7 +82,7 @@
 		
 	<!-- h:outputText value="REF = #{param['ref']}" /-->
 	<c:choose >
-		<c:when test="#{capacityBean.simplePhone and capacityBean.hasTinyScreen}">
+		<c:when test="#{mcdsCapacityBean.simplePhone and mcdsCapacityBean.hasTinyScreen}">
 			<div class="nav titleLeft">
 				<cc:link outcome="OUTCOME-page_home">
 					<h:graphicImage value="/img/WR_Logo-Left_tiny.png" width="64" height="18"/>
@@ -95,8 +95,8 @@
 					<div class="mainTitle">
 						<div class="titleLeft">
 							<cc:link outcome="OUTCOME-page_home">
-								<h:graphicImage value="/img/WR_Logo-Left.png" width="145" height="40" rendered="#{!capacityBean.simplePhone or capacityBean.android}"/>
-								<h:graphicImage value="/img/WR_Logo-Left_smaller.png" width="128" height="40" rendered="#{capacityBean.simplePhone and !capacityBean.android}"/>
+								<h:graphicImage value="/img/WR_Logo-Left.png" width="145" height="40" rendered="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}"/>
+								<h:graphicImage value="/img/WR_Logo-Left_smaller.png" width="128" height="40" rendered="#{mcdsCapacityBean.simplePhone and !mcdsCapacityBean.android}"/>
 							</cc:link>
 						</div>
 						<div class="titleRight" />
@@ -107,7 +107,7 @@
 	</c:choose>
 	
 	
-	<c:if test="#{!capacityBean.simplePhone or capacityBean.android}">
+	<c:if test="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}">
 		<div class="RICH">
 			<div class="menuBar">
 				<ui:insert name="menu"/>

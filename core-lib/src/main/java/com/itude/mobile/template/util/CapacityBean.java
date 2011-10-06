@@ -62,16 +62,6 @@ public class CapacityBean implements Serializable
 
   }
 
-  public boolean isSimplePhone()
-  {
-    return _width < 320;
-  }
-
-  public boolean isHasTinyScreen()
-  {
-    return _width < 240;
-  }
-
   public int getWidth()
   {
     return _width;
@@ -101,23 +91,5 @@ public class CapacityBean implements Serializable
   {
     return _android;
   }
-  
-  public int getTopImageIndex()
-  {
-    if(!isSimplePhone() || isAndroid())
-    {
-      // normal stylesheet
-      return ((_imageWidth - 26) / 48) * 2;
-    }
-    else
-    {
-      // simple stylesheet
-      return ((_imageWidth - 4) / 48) * 2;
-    }
-  }
-  
-  public boolean isAlwaysShowImages()
-  {
-    return _height >= 320;
-  }
+
 }

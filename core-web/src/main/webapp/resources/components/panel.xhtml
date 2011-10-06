@@ -238,10 +238,10 @@
 				<div class="TITLEMAIN">
 			 		<h:outputText value="#{cc.attrs.panel.title}" />
 			 	</div>
-				<c:if test="#{capacityBean.alwaysShowImages}">
+				<c:if test="#{mcdsCapacityBean.alwaysShowImages}">
 					<div class="RICH imageArea">
 						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
-							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt capacityBean.topImageIndex}">
+							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt mcdsCapacityBean.topImageIndex}">
 								<c:set value="#{child.children[2].value}" var="third_party_id" />
 								<c:set value="#{child.children[3].label}" var="keyword" />
 								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
@@ -274,10 +274,10 @@
 				<div class="TITLEMAIN">
 			 		<h:outputText value="#{cc.attrs.panel.title}" />
 			 	</div>
-				<c:if test="#{capacityBean.alwaysShowImages}">
+				<c:if test="#{mcdsCapacityBean.alwaysShowImages}">
 					<div class="RICH imageArea">
 						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
-							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt capacityBean.topImageIndex}">
+							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt mcdsCapacityBean.topImageIndex}">
 								<c:set value="#{child.children[2].value}" var="third_party_id" />
 								<c:set value="#{child.children[3].label}" var="keyword" />
 								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
@@ -311,7 +311,7 @@
 				<div class="TITLEMAIN">
 			 		<h:outputText value="#{cc.attrs.panel.title}" />
 			 	</div>
-				<c:if test="#{!capacityBean.simplePhone}">
+				<c:if test="#{!mcdsCapacityBean.simplePhone}">
 					<!-- Large area in case of games, wallpapers or videos -->
 					<div class="RICH imageArea">
 						<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
@@ -355,7 +355,7 @@
 					 		<h:outputText value="#{cc.attrs.panel.title}" />
 					 	</div>
 						<div class="imageArea">
-							<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status" end="#{(capacityBean.topImageIndex / 2) - 1}">
+							<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status" end="#{(mcdsCapacityBean.topImageIndex / 2) - 1}">
 								<c:if test="#{child.type eq 'PREVIEWROWIMAGE'}">
 									<c:set value="#{child.children[2].value}" var="third_party_id" />
 									<c:set value="#{child.children[3].label}" var="keyword" />
@@ -520,7 +520,7 @@
 		<c:when test="#{cc.attrs.panel.type eq 'ORDERFORM'}">
 			<div class="ORDERFORM #{cc.attrs.panel.style}">
 				<div class="TOP">
-					<c:if test="#{!capacityBean.simplePhone}">
+					<c:if test="#{!mcdsCapacityBean.simplePhone}">
 						<div class="RICH">
 							<div class="LEFT">
 								<h:graphicImage value="#{cc.attrs.panel.children[0].value}"/>
@@ -624,7 +624,7 @@
 			</div>
 		</c:when>
 		<c:when test="#{cc.attrs.panel.type eq 'TINYSCREEN'}">
-			<c:if test="#{capacityBean.hasTinyScreen}">
+			<c:if test="#{mcdsCapacityBean.hasTinyScreen}">
 				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
 					var="child" varStatus="status">
 					<cc:component component="#{child}" />
@@ -632,7 +632,7 @@
 			</c:if>
 		</c:when>
 		<c:when test="#{cc.attrs.panel.type eq 'NOTINYSCREEN'}">
-			<c:if test="#{!capacityBean.hasTinyScreen}">
+			<c:if test="#{!mcdsCapacityBean.hasTinyScreen}">
 				<c:forEach transient="true" items="#{cc.attrs.panel.children}"
 					var="child" varStatus="status">
 					<cc:component component="#{child}" />
