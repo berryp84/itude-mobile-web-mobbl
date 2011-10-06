@@ -12,25 +12,25 @@ import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.template.annotations.HttpParam;
-import com.itude.mobile.template.controllers.InitialController;
+import com.itude.mobile.template.controllers.ApplicationController;
 
 @Named(value = "initialBean")
 @SessionScoped
 public class InitialBean implements Serializable
 {
-  private static final long    serialVersionUID = 1L;
+  private static final long     serialVersionUID = 1L;
 
   @Inject
   @HttpParam("searchquery")
-  private String               _searchquery;
+  private String                _searchquery;
 
   @Inject
-  private MBDataManagerService _dataManagerService;
+  private MBDataManagerService  _dataManagerService;
 
   @Inject
-  private InitialController    _applicationController;
+  private ApplicationController _applicationController;
 
-private boolean              _initialized     = false;
+  private boolean               _initialized     = false;
 
   public boolean isInitialized()
   {

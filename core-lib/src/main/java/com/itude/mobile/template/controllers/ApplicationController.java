@@ -28,7 +28,7 @@ import com.itude.mobile.template.annotations.PageQualifier;
 
 @RequestScoped
 @Named
-public class ApplicationController
+public abstract class ApplicationController
 {
   private Logger                     _log = Logger.getLogger(ApplicationController.class);
 
@@ -51,13 +51,10 @@ public class ApplicationController
   @Inject
   @Any
   private Instance<MBViewController> _viewControllers;
-
-  public void setInitialView()
-  {
-    _view.clear();
-    MBOutcome outcome = new MBOutcome("OUTCOME-page_login", _dataManagerService.loadDocument("MBEmptyDoc"));
-    handleOutcome(outcome);
-  }
+  
+  public abstract void initialize();
+  
+  public abstract void setInitialView();
 
   public void initializeTab()
   {
@@ -247,5 +244,15 @@ public class ApplicationController
       refined = _viewControllers.select(new NamedQualifier("Default"));
       return refined.get();
     }
+  }
+  
+  public CurrentView getView()
+  {
+    return _view;
+  }
+  
+  public MBDataManagerService getDataManagerService()
+  {
+    return _dataManagerService;
   }
 }
