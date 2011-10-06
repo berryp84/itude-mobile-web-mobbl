@@ -33,6 +33,12 @@ public class AlertBean implements Serializable
   {
     _shown = shown;
   }
+  
+  public boolean isDoHide()
+  {
+    _shown = false;
+    return false;
+  }
 
   public String getTitle()
   {
@@ -53,11 +59,4 @@ public class AlertBean implements Serializable
   {
     _message = message;
   }
-
-  public boolean isDoHide()
-  {
-    _shown = false;
-    return false;
-  }
-
 }

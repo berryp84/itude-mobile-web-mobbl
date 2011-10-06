@@ -31,13 +31,6 @@ public abstract class AbstractRefreshableViewController extends MBViewController
     if (document != null) handleUpdate(document);
   }
 
-  @Override
-  public void processException(Exception e)
-  {
-    // TODO Auto-generated method stub
-
-  }
-
   protected abstract void handleUpdate(MBDocument document);
 
 }
