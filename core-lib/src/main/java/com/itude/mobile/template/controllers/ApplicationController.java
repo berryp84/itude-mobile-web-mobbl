@@ -25,6 +25,7 @@ import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
 import com.itude.mobile.mobbl2.client.core.view.MBPage;
 import com.itude.mobile.template.annotations.NamedQualifier;
 import com.itude.mobile.template.annotations.PageQualifier;
+import com.itude.mobile.template.jsf.AlertBean;
 
 @RequestScoped
 @Named
