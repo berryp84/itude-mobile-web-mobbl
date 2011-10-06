@@ -14,21 +14,23 @@
 			<to-view-id>/link.jsf</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<!-- 
 	<render-kit>
 		<render-kit-id>HTML_BASIC</render-kit-id>
+		<!-- 
 		<renderer>
 			<display-name>MOBBLButtonRenderer</display-name>
 			<component-family>javax.faces.Command</component-family>
 			<renderer-type>javax.faces.Button</renderer-type>
 			<renderer-class>com.itude.mobile.template.jsf.renderers.ButtonRenderer</renderer-class>
 		</renderer>
+		 -->
 		<renderer>
-			<display-name>MOBBLHtmlBasicInputRenderer</display-name>
+			<display-name>HtmlBasicInputRenderer</display-name>
 			<component-family>javax.faces.Input</component-family>
 			<renderer-type>javax.faces.Text</renderer-type>
 			<renderer-class>com.itude.mobile.template.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
 		</renderer>
+		<!--
 		<renderer>
 			<display-name>MOBBLHiddenRenderer</display-name>
 			<component-family>javax.faces.Input</component-family>
@@ -53,7 +55,9 @@
 			<renderer-type>javax.faces.Menu</renderer-type>
 			<renderer-class>com.itude.mobile.template.jsf.renderers.MenuRenderer</renderer-class>
 		</renderer>
+		-->
 	</render-kit>
+	<!-- 
 	<factory>
 		<exception-handler-factory>com.itude.mobile.template.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
 	</factory>
