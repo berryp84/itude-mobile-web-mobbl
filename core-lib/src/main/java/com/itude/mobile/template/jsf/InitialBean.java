@@ -10,7 +10,6 @@ import javax.inject.Named;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
-import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.template.annotations.HttpParam;
 import com.itude.mobile.template.controllers.ApplicationController;
 
@@ -41,11 +40,6 @@ public class InitialBean implements Serializable
       _initialized = true;
     }
     return _initialized;
-  }
-
-  public static String textForKey(String key)
-  {
-    return MBLocalizationService.getInstance().getTextForKey(key);
   }
 
   public void setSearchQuery(String _searchquery)

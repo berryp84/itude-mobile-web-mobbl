@@ -3,6 +3,7 @@ package com.itude.mobile.template.util;
 import java.util.Collection;
 
 import com.itude.commons.jsf.util.ELUtil;
+import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl2.client.core.view.MBComponent;
 import com.itude.mobile.mobbl2.client.core.view.MBComponentContainer;
 import com.itude.mobile.mobbl2.client.core.view.MBField;
@@ -124,5 +125,10 @@ public class PageHelper
     String newHtmlString = htmlString.replaceAll("&lt;", "<");
     newHtmlString = newHtmlString.replaceAll("&gt;", ">");
     return newHtmlString;
+  }
+  
+  public static String textForKey(String key)
+  {
+    return MBLocalizationService.getInstance().getTextForKey(key);
   }
 }

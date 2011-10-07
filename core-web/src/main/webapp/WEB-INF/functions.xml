@@ -45,7 +45,7 @@
  </function>
  <function>
   <function-name>textForKey</function-name>
-  <function-class>com.itude.mobile.template.jsf.InitialBean</function-class>
+  <function-class>com.itude.mobile.template.util.PageHelper</function-class>
   <function-signature>java.lang.String textForKey(java.lang.String)</function-signature>
  </function>
  <tag>
