@@ -1,4 +1,4 @@
-package com.itude.mobile.template.jsf;
+package com.itude.mobile.mcds.jsf;
 
 import java.io.Serializable;
 
@@ -6,30 +6,24 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.itude.mobile.template.controllers.ApplicationController;
-import com.itude.mobile.template.controllers.CurrentView;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.model.MBSessionInterface;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
+import com.itude.mobile.template.controllers.CurrentView;
 
 @SessionScoped
 @Named
 public class SessionBean implements Serializable, MBSessionInterface
 {
-  private static final long     serialVersionUID = 1L;
+  private static final long    serialVersionUID = 1L;
 
-  private MBDocument            _document;
-
-  @Inject
-  private MBDataManagerService  _dataManagerService;
+  private MBDocument           _document;
 
   @Inject
-  private ApplicationController _applicationController;
+  private MBDataManagerService _dataManagerService;
 
   @Inject
-  private CurrentView           _view;
-
-  private boolean               _initialized     = false;
+  private CurrentView          _view;
 
   private String               _param;
 
@@ -37,16 +31,6 @@ public class SessionBean implements Serializable, MBSessionInterface
   {
     if (_document == null) _document = _dataManagerService.loadDocument("SessionState");
     return _document;
-  }
-
-  public boolean isExists()
-  {
-    if (!_initialized)
-    {
-      _applicationController.setInitialView();
-      _initialized = true;
-    }
-    return _initialized;
   }
 
   public void logOn(String msisdn, String credits)
@@ -77,31 +61,32 @@ public class SessionBean implements Serializable, MBSessionInterface
   {
     return getDocument().getValueForPath("Session[0]/@loggedIn").equals("true");
   }
-  
+
   public String getParam()
   {
     return _param;
   }
 
-  public void set_param(String _param) {
-	this._param = _param;
+  public void set_param(String _param)
+  {
+    this._param = _param;
   }
 
   public String getReferrer()
   {
-	MBDocument sessionDoc = getDocument();
-    return (String)sessionDoc.getValueForPath("Session[0]/@referrer");
+    MBDocument sessionDoc = getDocument();
+    return (String) sessionDoc.getValueForPath("Session[0]/@referrer");
   }
-  
+
   public String getIp()
   {
-	MBDocument sessionDoc = getDocument();
-	return (String)sessionDoc.getValueForPath("Session[0]/@ip");
+    MBDocument sessionDoc = getDocument();
+    return (String) sessionDoc.getValueForPath("Session[0]/@ip");
   }
-  
+
   public String getClickId()
   {
     MBDocument sessionDoc = getDocument();
-    return (String)sessionDoc.getValueForPath("Session[0]/@clickId");
+    return (String) sessionDoc.getValueForPath("Session[0]/@clickId");
   }
 }

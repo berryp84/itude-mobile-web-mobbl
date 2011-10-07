@@ -1,4 +1,4 @@
-package com.itude.mobile.template.jsf;
+package com.itude.mobile.mcds.jsf;
 
 import java.util.Map;
 
@@ -18,6 +18,7 @@ import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.template.annotations.HttpParam;
 import com.itude.mobile.template.controllers.ApplicationController;
 import com.itude.mobile.template.controllers.CurrentView;
+import com.itude.mobile.template.jsf.PageBean;
 
 @RequestScoped
 @Named

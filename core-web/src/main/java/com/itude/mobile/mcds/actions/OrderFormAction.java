@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
+import com.itude.mobile.mcds.jsf.SessionBean;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
@@ -29,7 +30,7 @@ public class OrderFormAction extends GenericAction
   private String              _thirdPartyId;
 
   @Inject
-  private GetHomePageContent  _getHomePageContent;
+  private SessionBean _session;
 
   @Override
   public MBOutcome execute(MBDocument document, String path)
@@ -65,7 +66,7 @@ public class OrderFormAction extends GenericAction
     String keyword = (String) content.getName();
     contentDataElement.setAttributeValue(keyword, "keyword");
 
-    MBDocument sessionDoc = getSession().getDocument();
+    MBDocument sessionDoc = _session.getDocument();
     MBElement userDataElement = orderDoc.createElementWithName("UserData");
     String referrer = ((String) sessionDoc.getValueForPath("/Session[0]/@referrer") != null) ? (String) sessionDoc
         .getValueForPath("/Session[0]/@referrer") : "";
@@ -166,7 +167,7 @@ public class OrderFormAction extends GenericAction
   private MBElement locateContentByThirdPartyId()
   {
     // If document is null for some reason or the OrderContentDocument already exists, search for the content
-    MBDocument sessionDoc = getSession().getDocument();
+    MBDocument sessionDoc = _session.getDocument();
     String thirdPartyId = ((String) sessionDoc.getValueForPath("/Session[0]/@third_party_id") != null) ? (String) sessionDoc
         .getValueForPath("/Session[0]/@third_party_id") : "";
     String contentType = ((String) sessionDoc.getValueForPath("/Session[0]/@content_type") != null) ? (String) sessionDoc

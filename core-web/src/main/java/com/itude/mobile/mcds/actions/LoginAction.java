@@ -1,9 +1,11 @@
 package com.itude.mobile.mcds.actions;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.itude.mobile.template.actions.GenericAction;
 import com.itude.mobile.template.util.Utilities;
+import com.itude.mobile.mcds.jsf.SessionBean;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 
@@ -11,6 +13,9 @@ import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 public class LoginAction extends GenericAction 
 {
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private SessionBean _session;
 
 	@Override
 	public MBOutcome execute(MBDocument document, String path) 
@@ -35,7 +40,7 @@ public class LoginAction extends GenericAction
 	    if(loginResultsDoc.getElements().size() > 1)
 	    {
 			outcome = new MBOutcome("OUTCOME-page_login_succeeded", loginResultsDoc);
-			getSession().logOn((String)loginResultsDoc.getValueForPath("/msisdn[0]/@text()"), (String)loginResultsDoc.getValueForPath("/available_credits[0]/@text()"));
+			_session.logOn((String)loginResultsDoc.getValueForPath("/msisdn[0]/@text()"), (String)loginResultsDoc.getValueForPath("/available_credits[0]/@text()"));
 	    }
 	    return outcome;
 	}

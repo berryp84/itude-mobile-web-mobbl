@@ -8,7 +8,6 @@ import com.itude.mobile.mobbl2.client.core.controller.MBAction;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
-import com.itude.mobile.template.jsf.SessionBean;
 
 public abstract class GenericAction implements MBAction, Serializable
 {
@@ -20,13 +19,6 @@ public abstract class GenericAction implements MBAction, Serializable
   @Inject
   private MBMetadataService    _metadataService;
 
-  @Inject
-  private SessionBean          _session;
-
-  protected SessionBean getSession()
-  {
-    return _session;
-  }
 
   protected MBDataManagerService getDataManagerService()
   {
