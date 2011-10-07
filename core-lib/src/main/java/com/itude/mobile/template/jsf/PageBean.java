@@ -19,8 +19,6 @@ public class PageBean implements Serializable
 {
   private static final long serialVersionUID = 1L;
 
-  //private Map<String, Object>    _inputs;
-
   @Inject
   private CurrentView       _view;
 
@@ -35,7 +33,6 @@ public class PageBean implements Serializable
   public void setViewController(MBViewController controller)
   {
     _viewController = controller;
-    //    _inputs = new PageMap(_viewController != null ? _viewController.getDocument() : null);
   }
 
   public void handleOutcome(ActionEvent ev)
@@ -44,17 +41,6 @@ public class PageBean implements Serializable
     String path = (String) ev.getComponent().getAttributes().get("path");
     if (_viewController != null) _viewController.handleOutcome(outcomeName, path);
   }
-
-  /*
-  public Map<String, Object> getInputs()
-  {
-    return _inputs;
-  }
-
-  public void setInputs(Map<String, Object> inputs)
-  {
-    _inputs = inputs;
-  }*/
 
   public MBPage getPage()
   {

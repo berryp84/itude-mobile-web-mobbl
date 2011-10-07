@@ -18,13 +18,12 @@ import com.itude.mobile.mobbl2.client.core.services.exceptions.MBBundleNotFoundE
 import com.itude.mobile.mobbl2.client.core.services.exceptions.MBResourceNotDefinedException;
 import com.itude.mobile.mobbl2.client.core.util.DataUtil;
 import com.itude.mobile.mobbl2.client.core.util.MBBundleDefinition;
-import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
 public class MBResourceService
 {
   private static final Logger      _log                      = Logger.getLogger(MBResourceService.class);
 
-  public static final String       RESOURCE_CONFIG_FILE_NAME = MobblEnvironment.getResourcesFile();
+  public static final String       RESOURCE_CONFIG_FILE_NAME = getResourcesFile();
 
   private MBResourceConfiguration  _config;
 
@@ -34,6 +33,15 @@ public class MBResourceService
   {
 
   }
+  
+  /**
+   * Returns the name of the resources file. You may want to override this function to determine this dynamically.
+   */
+  public static String getResourcesFile()
+  {
+    return "resources.xml";
+  }
+  
 
   public static MBResourceService getInstance()
   {

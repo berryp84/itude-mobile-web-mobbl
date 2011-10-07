@@ -25,10 +25,10 @@
 	<c:if test="#{env.projectVersion eq 'unknown'}">
 		<c:choose>
 			<c:when test="#{!mcdsCapacityBean.simplePhone}">
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}.css" />
+				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template.css" />
 			</c:when>
 			<c:otherwise>
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}_simple.css" />
+				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_simple.css" />
 			</c:otherwise>
 		</c:choose>
 	</c:if>
@@ -37,10 +37,10 @@
 	<c:if test="#{env.projectVersion ne 'unknown'}">
 		<c:choose>
 			<c:when test="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}">
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}_#{env.projectVersion}.css" />
+				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_#{env.projectVersion}.css" />
 			</c:when>
 			<c:otherwise>
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_#{env.environment}_simple_#{env.projectVersion}.css" />
+				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_simple_#{env.projectVersion}.css" />
 			</c:otherwise>
 		</c:choose>
 	</c:if>

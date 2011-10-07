@@ -63,8 +63,4 @@
 		</plugins>
 	</build>
 
-	<properties>
-		<environment>template</environment>
-	</properties>
-
 </project>
