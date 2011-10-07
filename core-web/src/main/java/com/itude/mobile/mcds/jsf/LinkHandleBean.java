@@ -2,13 +2,11 @@ package com.itude.mobile.mcds.jsf;
 
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
 
 import com.itude.commons.util.ComparisonUtil;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
@@ -18,11 +16,12 @@ import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.template.annotations.HttpParam;
 import com.itude.mobile.template.controllers.ApplicationController;
 import com.itude.mobile.template.controllers.CurrentView;
+import com.itude.mobile.template.jsf.AbstractLinkHandleBean;
 import com.itude.mobile.template.jsf.PageBean;
 
 @RequestScoped
 @Named
-public class LinkHandleBean
+public class LinkHandleBean extends AbstractLinkHandleBean
 {
   @Inject
   @HttpParam("ref")
@@ -84,15 +83,11 @@ public class LinkHandleBean
   @Inject
   private PageBean              _pageBean;
 
-  @PostConstruct
-  protected void init()
+  @Override
+  protected void doInit(FacesContext fc, boolean newSession)
   {
-    FacesContext fc = FacesContext.getCurrentInstance();
     NavigationHandler nav = fc.getApplication().getNavigationHandler();
-
-    HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-    boolean newSession = session == null || session.isNew();
-
+    
     // Store referrer and ymid
     MBDocument sessionDoc = _sessionBean.getDocument();
     if (_ref != null) sessionDoc.setValue(_ref, "Session[0]/@referrer");
@@ -161,10 +156,5 @@ public class LinkHandleBean
       _controller.handleOutcome(outcome);
       nav.handleNavigation(fc, null, "default");
     }
-  }
-
-  public boolean isExists()
-  {
-    return true;
   }
 }
