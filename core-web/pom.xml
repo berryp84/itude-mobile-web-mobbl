@@ -107,7 +107,7 @@
 	</build>
 	
 	<properties>
-		<!-- In order to make #{env.version} work -->
+		<!-- In order to make #{env.projectVersion} work -->
 		<version>${project.version}</version>
 	</properties>
 
