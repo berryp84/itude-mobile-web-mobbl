@@ -172,6 +172,9 @@ public class OrderFormAction extends GenericAction
         .getValueForPath("/Session[0]/@third_party_id") : "";
     String contentType = ((String) sessionDoc.getValueForPath("/Session[0]/@content_type") != null) ? (String) sessionDoc
         .getValueForPath("/Session[0]/@content_type") : "";
+    
+    // This shouldn't be needed, but it beats communicating with MCDS again.
+    contentType = contentType.toLowerCase();
 
     MBDocument lookupResultsRequestDoc = loadDocument("MBGenericRequest");
     Utilities.setRequestParameter(thirdPartyId, "third_party_id", lookupResultsRequestDoc);
