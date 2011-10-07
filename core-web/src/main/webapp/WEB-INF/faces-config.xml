@@ -16,21 +16,14 @@
 	</navigation-rule>
 	<render-kit>
 		<render-kit-id>HTML_BASIC</render-kit-id>
-		<!-- 
+		
+		<!-- These renderers change the id from j_idt64:j_idt65 or worse to a shorter Base64 version -->
 		<renderer>
 			<display-name>MOBBLButtonRenderer</display-name>
 			<component-family>javax.faces.Command</component-family>
 			<renderer-type>javax.faces.Button</renderer-type>
 			<renderer-class>com.itude.mobile.template.jsf.renderers.ButtonRenderer</renderer-class>
 		</renderer>
-		 -->
-		<renderer>
-			<display-name>HtmlBasicInputRenderer</display-name>
-			<component-family>javax.faces.Input</component-family>
-			<renderer-type>javax.faces.Text</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
-		</renderer>
-		<!--
 		<renderer>
 			<display-name>MOBBLHiddenRenderer</display-name>
 			<component-family>javax.faces.Input</component-family>
@@ -55,7 +48,14 @@
 			<renderer-type>javax.faces.Menu</renderer-type>
 			<renderer-class>com.itude.mobile.template.jsf.renderers.MenuRenderer</renderer-class>
 		</renderer>
-		-->
+		
+		<!-- Also adds support for setting the placeholder, autocomplete and type attributes -->
+		<renderer>
+			<display-name>HtmlBasicInputRenderer</display-name>
+			<component-family>javax.faces.Input</component-family>
+			<renderer-type>javax.faces.Text</renderer-type>
+			<renderer-class>com.itude.mobile.template.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
+		</renderer>
 	</render-kit>
 	<!-- 
 	<factory>

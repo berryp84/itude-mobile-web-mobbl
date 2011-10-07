@@ -58,7 +58,7 @@ public class HtmlBasicInputRenderer extends com.sun.faces.renderkit.html_basic.T
       writer.writeAttribute("placeholder", placeHolder, "placeholder");
     }
 
-    if (null != styleClass)
+    if (null != styleClass && !styleClass.isEmpty())
     {
       writer.writeAttribute("class", styleClass, "styleClass");
     }
