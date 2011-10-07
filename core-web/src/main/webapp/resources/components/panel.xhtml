@@ -244,7 +244,7 @@
 							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt mcdsCapacityBean.topImageIndex}">
 								<c:set value="#{child.children[2].value}" var="third_party_id" />
 								<c:set value="#{child.children[3].label}" var="keyword" />
-								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 									<h:graphicImage value="#{child.children[1].value}"/>
 								</h:outputLink>
 								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
@@ -280,7 +280,7 @@
 							<c:if test="#{child.type eq 'TOPLISTROWIMAGE' and status.index lt mcdsCapacityBean.topImageIndex}">
 								<c:set value="#{child.children[2].value}" var="third_party_id" />
 								<c:set value="#{child.children[3].label}" var="keyword" />
-								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 									<h:graphicImage value="#{child.children[1].value}"/>
 								</h:outputLink>
 								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
@@ -318,7 +318,7 @@
 							<c:if test="#{child.type eq 'TOPLISTROWIMAGE'}">
 								<c:set value="#{child.children[2].value}" var="third_party_id" />
 								<c:set value="#{child.children[3].label}" var="keyword" />
-								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+								<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 									<h:graphicImage value="#{child.children[1].value}"/>
 								</h:outputLink>
 								<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
@@ -359,7 +359,7 @@
 								<c:if test="#{child.type eq 'PREVIEWROWIMAGE'}">
 									<c:set value="#{child.children[2].value}" var="third_party_id" />
 									<c:set value="#{child.children[3].label}" var="keyword" />
-									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 										<h:graphicImage value="#{child.children[1].value}"/>
 									</h:outputLink>
 									<h:link rendered="#{sessionBean.loggedOn}" outcome="link" includeViewParams="yes" class="ROWLINK">
@@ -416,7 +416,7 @@
 				<div class="TOPLISTROWLINK-REF">
 					<c:set value="#{child.children[4].value}" var="third_party_id" />
 					<c:set value="#{child.children[5].label}" var="keyword" />
-					<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+					<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 						<c:set value="#{toplistrowpanel.children[1]}" var="child1"
 							scope="request" />
 						<c:set value="#{toplistrowpanel.children[2]}" var="child2"
@@ -578,7 +578,7 @@
     							<h:panelGroup style="display:block; text-align:center">
 									<c:set value="#{child.children[2].value}" var="third_party_id" />
 									<c:set value="#{child.children[3].label}" var="keyword" />
-									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+									<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 										<h:graphicImage value="#{child.children[1].value}"/>
 										<br/>
 										<h:outputText value="#{child.children[5].value}. #{child.children[4].value}" />
@@ -604,7 +604,7 @@
 					 	<c:if test="#{i:size(cc.attrs.panel.children) gt status.count}">
 							<c:set value="#{child.children[2].value}" var="third_party_id" />
 							<c:set value="#{child.children[3].label}" var="keyword" />
-							<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{env.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
+							<h:outputLink rendered="#{!sessionBean.loggedOn}" value="http://dl.whatsringing.mobi/scenarios/whatsringing_direct_billing/detect_asid/Z4_jlbFv2iwHCzP4aGwS?keyword=#{keyword}&amp;third_party_id=#{third_party_id}&amp;source=nl.whatsringing.mobi&amp;ip=127.0.0.1&amp;referrer=#{sessionBean.referrer}&amp;click_id=#{sessionBean.clickId}#{mcdsEnv.itudeTest ? '&amp;itude-test=true' : ''}" class="ROWLINK">
 								<b><h:outputText value="#{child.children[5].value}. #{child.children[4].value}" /></b>
 								<br/>
 							</h:outputLink>

@@ -5,9 +5,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import com.itude.commons.environment.ItudeEnvironment;
 import com.itude.commons.util.VersionUtil;
-import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 
 @Named(value = "env")
 @ApplicationScoped
@@ -33,21 +31,17 @@ public class EnvironmentForm
     return _projectVersion;
   }
   
-  
-  
-  public boolean isItudeTest()
+  // You want to override this function when this isn't correct
+  // This should be made abstract in case all projects override this
+  protected String getGroupId()
   {
-    String environmentName = ItudeEnvironment.getEnvironment().getName();
-    return environmentName.equals("dev");
+    return "com.itude.mobile.web.mobbl";
   }
   
-  public String getCallText()
+  // You want to override this function when this isn't correct
+  // This should be made abstract in case all projects override this
+  protected String getArtifactId()
   {
-    return MBLocalizationService.getInstance().getTextForKey("CallNowMessage");
-  }
-  
-  public String getCallPhoneNumber()
-  {
-    return MBLocalizationService.getInstance().getTextForKey("CallNowPhoneNumber");
+    return "mobbl-core";
   }
 }
