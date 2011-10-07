@@ -105,5 +105,10 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<properties>
+		<!-- In order to make #{env.version} work -->
+		<version>${project.version}</version>
+	</properties>
 
 </project>
