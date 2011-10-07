@@ -5,9 +5,11 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import com.itude.mobile.template.jsf.CapacityBean;
+
 @RequestScoped
 @Named
-public class McdsCapacityBean extends com.itude.mobile.template.util.CapacityBean implements Serializable
+public class McdsCapacityBean extends CapacityBean implements Serializable
 {
   private static final long serialVersionUID = 1L;
 
