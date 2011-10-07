@@ -14,7 +14,7 @@ import com.itude.mobile.mobbl2.client.core.model.exceptions.MBCannotAssignExcept
 import com.itude.mobile.mobbl2.client.core.model.exceptions.MBInvalidAttributeNameException;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
-public class MBElement extends MBElementContainer implements Comparable<MBElement>
+public class MBElement extends MBElementContainer
 
 {
   private static final Logger       _log           = Logger.getLogger(MBElement.class);
@@ -327,11 +327,5 @@ public class MBElement extends MBElementContainer implements Comparable<MBElemen
   {
     return asXmlWithLevel(0);
   }
-
-@Override
-public int compareTo(MBElement arg0) {
-	// TODO Auto-generated method stub
-	return 0;
-}
 
 }

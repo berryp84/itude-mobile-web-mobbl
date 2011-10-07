@@ -1,8 +1,5 @@
 package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
-import java.util.Hashtable;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBDocumentDefinition;
@@ -17,21 +14,21 @@ public class MBMemoryDataHandler extends MBDataHandlerBase
 {
   private static final Logger           _log = Logger.getLogger(MBMemoryDataHandler.class);
 
-  private final Map<String, MBDocument> _dictionary;
+//  private final Map<String, MBDocument> _dictionary;
 
   public MBMemoryDataHandler()
   {
     super();
-    _dictionary = new Hashtable<String, MBDocument>();
+//    _dictionary = new Hashtable<String, MBDocument>();
   }
 
   @Override
   public MBDocument loadDocument(String documentName)
   {
     // TODO: disabled dictonary for now
-    MBDocument doc = null;// = _dictionary.get(documentName);
-    if (doc == null)
-    {
+//    MBDocument doc = _dictionary.get(documentName);
+//    if (doc == null)
+//    {
       // Not yet in the store; handle default construction of the document using a file as template
       String fileName = "documents/" + documentName + ".xml";
       byte[] data = null;
@@ -45,8 +42,8 @@ public class MBMemoryDataHandler extends MBDataHandlerBase
       }
       MBDocumentDefinition docDef = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
       return MBDocumentFactory.getInstance().getDocumentWithData(data, MBDocumentFactory.PARSER_XML, docDef);
-    }
-    return doc;
+//    }
+//    return doc;
   }
 
   @Override
@@ -58,7 +55,7 @@ public class MBMemoryDataHandler extends MBDataHandlerBase
   @Override
   public void storeDocument(MBDocument document)
   {
-    _dictionary.put(document.getName(), document);
+//    _dictionary.put(document.getName(), document);
   }
 
 }

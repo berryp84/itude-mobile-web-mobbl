@@ -12,7 +12,6 @@ import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBPageDefinition.MB
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.exceptions.MBInvalidPathException;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.model.MBDocumentDiff;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
 public class MBPage extends MBPanel
@@ -23,16 +22,9 @@ public class MBPage extends MBPanel
   private String                                                 _rootPath;
   private String                                                 _dialogName;
   private MBDocument                                             _document;
-  //  private MBApplicationController                                _controller;
-  private Object                                                 _viewController;
-  private List                                                   _childViewControllers;
-  private MBDocumentDiff                                         _documentDiff;
   private final Map<String, List<MBValueChangeListenerProtocol>> _valueChangedListeners;
   private final List<MBOutcomeListenerProtocol>                  _outcomeListeners;
   private MBPageDefinition.MBPageType                            _pageType;
-  private Object                                                 _maxBounds;
-
-  //  private final MBViewManager.MBViewState                        _viewState;
 
   public MBPage(MBPageDefinition definition, MBDocument document, String rootPath, Object viewState)
   {
@@ -79,26 +71,6 @@ public class MBPage extends MBPanel
   public void setDocument(MBDocument document)
   {
     _document = document;
-  }
-
-  public MBDocumentDiff getDocumentDiff()
-  {
-    return _documentDiff;
-  }
-
-  public void setDocumentDiff(MBDocumentDiff documentDiff)
-  {
-    _documentDiff = documentDiff;
-  }
-
-  public List getChildViewControllers()
-  {
-    return _childViewControllers;
-  }
-
-  public void setChildViewControllers(List childViewControllers)
-  {
-    _childViewControllers = childViewControllers;
   }
 
   public MBPageDefinition.MBPageType getPageType()
@@ -204,32 +176,6 @@ public class MBPage extends MBPanel
 
   }
 
-  public Object getView()
-  {
-    // TODO UIViewController is an objective C class, what should be the Android implementation of it?
-    return null;
-  }
-
-  // TODO UIViewController is an objective C class, what should be the Android implementation of it?
-  public void setViewController(Object viewController)
-  {
-  }
-
-  // TODO UIViewController is an objective C class, what should be the Android implementation of it?
-  public Object getViewController()
-  {
-    return null;
-  }
-
-  public MBDocumentDiff diffDocument(MBDocument other)
-  {
-
-    MBDocumentDiff diff = new MBDocumentDiff(getDocument(), other);
-    setDocumentDiff(diff);
-
-    return getDocumentDiff();
-  }
-
   public List<MBValueChangeListenerProtocol> getListenersForPath(String path)
   {
     if (!path.startsWith("/"))
@@ -302,19 +248,6 @@ public class MBPage extends MBPanel
 
   }
 
-  public void registerOutcomeListener(MBOutcomeListenerProtocol listener)
-  {
-    if (!_outcomeListeners.contains(listener))
-    {
-      _outcomeListeners.add(listener);
-    }
-  }
-
-  public void unregisterOutcomeListener(MBOutcomeListenerProtocol listener)
-  {
-    _outcomeListeners.remove(listener);
-  }
-
   @Override
   public void rebuild()
   {
@@ -324,46 +257,15 @@ public class MBPage extends MBPanel
 
   public void rebuildView()
   {
-    // Make sure we clear the cache of all related documents:
+    // No need to rebuild the view in case of a website, just rebuild
     rebuild();
-    // TODO UIViewController stuff
-    //    CGRect bounds = [UIScreen mainScreen].applicationFrame; 
-    //    self.viewController.view = [self buildViewWithMaxBounds: bounds viewState: _viewState];
   }
+
 
   @Override
   public MBPage getPage()
   {
     return this;
-  }
-
-  // TODO hideKeyboard method doesn't need to be implemented, or does it?
-
-  public void handleException(Exception exception)
-  {
-    MBOutcome outcome = new MBOutcome(getPageName(), _document);
-  }
-
-  public void unregisterAllViewControllers()
-  {
-    setChildViewControllers(null);
-  }
-
-  // TODO UIViewController is an objective C class, what should be the Android implementation of it?
-  //  - (void) registerViewController:(UIViewController*) controller {
-  //    if(self.childViewControllers == nil) self.childViewControllers = [[NSMutableArray new] autorelease];
-  //    if(![self.childViewControllers containsObject: controller]) [self.childViewControllers addObject:controller];
-  //}
-
-  // TODO UIViewController is an objective C class, what should be the Android implementation of it?
-  public Object getViewControllerOfType(Class clazz)
-  {
-    if (getChildViewControllers() != null)
-    {
-
-    }
-
-    return null;
   }
 
   @Override
@@ -379,9 +281,10 @@ public class MBPage extends MBPanel
 
     return result;
   }
-  
+
   @Override
-  public String evaluateExpression(String variableName) {
+  public String evaluateExpression(String variableName)
+  {
     return (String) getDocument().getValueForPath(variableName);
   }
 
@@ -390,5 +293,9 @@ public class MBPage extends MBPanel
   {
     return asXmlWithLevel(0);
   }
-
+  
+  // The following function haven't been implemented:
+  // getDocumentDiff, setDocumentDiff, getChildViewControllers, getView, setViewController, getViewController, getViewControllerOfType, diffDocument
+  // registerOutcomeListener, unregisterOutcomeListener, handleException, unregisterAllViewControllers, registerViewController
+  // They need to be implemented when needed.
 }
