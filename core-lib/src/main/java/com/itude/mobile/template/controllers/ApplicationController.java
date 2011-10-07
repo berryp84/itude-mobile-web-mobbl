@@ -57,21 +57,7 @@ public abstract class ApplicationController
   
   public abstract void setInitialView();
 
-  public void initializeTab()
-  {
-    String outcomeName = null;
-    if ("SHARES".equals(_view.getCurrentDialog())) outcomeName = "OUTCOME-tab_shares";
-    else if ("SEARCH".equals(_view.getCurrentDialog())) outcomeName = "OUTCOME-SearchAction";
-    else if ("ACCOUNT".equals(_view.getCurrentDialog())) outcomeName = "OUTCOME-tab_my_account";
-    else if ("HOME".equals(_view.getCurrentDialog())) outcomeName = "OUTCOME-tab_home";
-    else if ("INFO".equals(_view.getCurrentDialog())) outcomeName = "OUTCOME-page_info";
-
-    if (outcomeName != null)
-    {
-      MBOutcome outcome = new MBOutcome(outcomeName, _dataManagerService.loadDocument("MBEmptyDoc"));
-      handleOutcome(outcome);
-    }
-  }
+  public abstract void initializeTab();
 
   public void handleOutcome(String outcomeName)
   {
