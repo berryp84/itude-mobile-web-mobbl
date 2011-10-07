@@ -6,7 +6,7 @@ import javax.inject.Named;
 import com.itude.commons.environment.ItudeEnvironment;
 import com.itude.mobile.template.jsf.EnvironmentForm;
 
-@Named(value = "mcdsEnv")
+@Named(value = "env")
 @ApplicationScoped
 public class McdsEnvironmentForm extends EnvironmentForm
 {
@@ -14,5 +14,11 @@ public class McdsEnvironmentForm extends EnvironmentForm
   {
     String environmentName = ItudeEnvironment.getEnvironment().getName();
     return environmentName.equals("dev");
+  }
+
+  @Override
+  protected String getArtifactId()
+  {
+    return "mobbl-core-web";
   }
 }
