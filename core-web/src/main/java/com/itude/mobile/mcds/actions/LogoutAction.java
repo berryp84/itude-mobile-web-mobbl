@@ -3,10 +3,10 @@ package com.itude.mobile.mcds.actions;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.itude.mobile.template.actions.GenericAction;
 import com.itude.mobile.mcds.jsf.SessionBean;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
+import com.itude.mobile.web.actions.GenericAction;
 
 @Named("LogoutAction")
 public class LogoutAction extends GenericAction 

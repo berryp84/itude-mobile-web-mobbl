@@ -13,11 +13,11 @@ import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
-import com.itude.mobile.template.annotations.HttpParam;
-import com.itude.mobile.template.controllers.ApplicationController;
-import com.itude.mobile.template.controllers.CurrentView;
-import com.itude.mobile.template.jsf.AbstractLinkHandleBean;
-import com.itude.mobile.template.jsf.PageBean;
+import com.itude.mobile.web.annotations.HttpParam;
+import com.itude.mobile.web.controllers.ApplicationController;
+import com.itude.mobile.web.controllers.CurrentView;
+import com.itude.mobile.web.jsf.AbstractLinkHandleBean;
+import com.itude.mobile.web.jsf.PageBean;
 
 @RequestScoped
 @Named

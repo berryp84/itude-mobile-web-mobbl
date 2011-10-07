@@ -4,7 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 import com.itude.commons.environment.ItudeEnvironment;
-import com.itude.mobile.template.jsf.EnvironmentForm;
+import com.itude.mobile.web.jsf.EnvironmentForm;
 
 @Named(value = "env")
 @ApplicationScoped

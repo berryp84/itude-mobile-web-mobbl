@@ -10,7 +10,7 @@ import com.itude.mobile.mobbl.server.http.HttpResponse;
 import com.itude.mobile.mobbl.server.util.XpathUtil;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.template.actions.GenericAction;
+import com.itude.mobile.web.actions.GenericAction;
 
 @Named("RequestContentAction")
 public class RequestContentAction extends GenericAction 

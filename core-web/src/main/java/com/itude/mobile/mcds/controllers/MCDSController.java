@@ -3,7 +3,7 @@ package com.itude.mobile.mcds.controllers;
 import com.itude.mobile.mcds.services.MCDSLocalizationService;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
-import com.itude.mobile.template.controllers.ApplicationController;
+import com.itude.mobile.web.controllers.ApplicationController;
 
 public class MCDSController extends ApplicationController
 {

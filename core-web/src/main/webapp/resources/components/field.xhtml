@@ -116,7 +116,7 @@
 						<f:attribute name="onchange" value="this.form.submit ();disableFields()" />
 						<f:attribute name="immediate" value="#{true}" />
 						<f:valueChangeListener
-							type="com.itude.mobile.template.jsf.ValueChangeListener" />
+							type="com.itude.mobile.web.jsf.ValueChangeListener" />
 					</c:if>
 				</h:selectBooleanCheckbox>
 				<h:outputLabel value="#{cc.attrs.field.custom2 ne null ? i:textForKey(cc.attrs.field.custom2) : cc.attrs.field.label}" for="cb" />
@@ -129,7 +129,7 @@
 						<f:attribute name="onchange" value="this.form.submit ();disableFields();" />
 						<f:attribute name="immediate" value="#{true}" />
 						<f:valueChangeListener
-							type="com.itude.mobile.template.jsf.ValueChangeListener" />
+							type="com.itude.mobile.web.jsf.ValueChangeListener" />
 					</c:if>
 					<c:forEach items="#{cc.attrs.field.domain.domainValidators}"
 						transient="true" var="value">

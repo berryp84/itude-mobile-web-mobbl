@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-import com.itude.mobile.template.jsf.CapacityBean;
+import com.itude.mobile.web.jsf.CapacityBean;
 
 @RequestScoped
 @Named

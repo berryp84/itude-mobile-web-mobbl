@@ -14,9 +14,9 @@ import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
 import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
-import com.itude.mobile.template.actions.GenericAction;
-import com.itude.mobile.template.annotations.HttpParam;
-import com.itude.mobile.template.util.Utilities;
+import com.itude.mobile.web.actions.GenericAction;
+import com.itude.mobile.web.annotations.HttpParam;
+import com.itude.mobile.web.util.Utilities;
 
 @Named("OrderFormAction")
 public class OrderFormAction extends GenericAction

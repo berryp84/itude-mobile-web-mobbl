@@ -1,66 +1,65 @@
 <?xml version="1.0"?>
-<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-	<navigation-rule>
-		<display-name>default</display-name>
-		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>default</from-outcome>
-			<to-view-id>/index.jsf</to-view-id>
-			<redirect include-view-params="true" />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>link</from-outcome>
-			<to-view-id>/link.jsf</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<render-kit>
-		<render-kit-id>HTML_BASIC</render-kit-id>
-		
-		<!-- These renderers change the id from j_idt64:j_idt65 or worse to a shorter Base64 version -->
-		<renderer>
-			<display-name>MOBBLButtonRenderer</display-name>
-			<component-family>javax.faces.Command</component-family>
-			<renderer-type>javax.faces.Button</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.ButtonRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<display-name>MOBBLHiddenRenderer</display-name>
-			<component-family>javax.faces.Input</component-family>
-			<renderer-type>javax.faces.Hidden</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.HiddenRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<display-name>MOBBLSecretRenderer</display-name>
-			<component-family>javax.faces.Input</component-family>
-			<renderer-type>javax.faces.Secret</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.SecretRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<display-name>MOBBLFormRenderer</display-name>
-			<component-family>javax.faces.Form</component-family>
-			<renderer-type>javax.faces.Form</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.FormRenderer</renderer-class>
-		</renderer>
-		<renderer>
-			<display-name>MOBBLMenuRenderer</display-name>
-			<component-family>javax.faces.SelectOne</component-family>
-			<renderer-type>javax.faces.Menu</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.MenuRenderer</renderer-class>
-		</renderer>
-		
-		<!-- Also adds support for setting the placeholder, autocomplete and type attributes -->
-		<renderer>
-			<display-name>HtmlBasicInputRenderer</display-name>
-			<component-family>javax.faces.Input</component-family>
-			<renderer-type>javax.faces.Text</renderer-type>
-			<renderer-class>com.itude.mobile.template.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
-		</renderer>
-	</render-kit>
-	<factory>
-		<exception-handler-factory>com.itude.mobile.mcds.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
-	</factory>
-	<lifecycle>
-		<phase-listener>com.itude.mobile.template.jsf.HistoryPhaseListener</phase-listener>
-	</lifecycle>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <navigation-rule>
+  <display-name>default</display-name>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>default</from-outcome>
+   <to-view-id>/index.jsf</to-view-id>
+   <redirect include-view-params="true"/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>link</from-outcome>
+   <to-view-id>/link.jsf</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <render-kit>
+  <render-kit-id>HTML_BASIC</render-kit-id>
+  <!-- These renderers change the id from j_idt64:j_idt65 or worse to a shorter Base64 version -->
+  <renderer>
+   <display-name>MOBBLButtonRenderer</display-name>
+   <component-family>javax.faces.Command</component-family>
+   <renderer-type>javax.faces.Button</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.ButtonRenderer</renderer-class>
+  </renderer>
+  <renderer>
+   <display-name>MOBBLHiddenRenderer</display-name>
+   <component-family>javax.faces.Input</component-family>
+   <renderer-type>javax.faces.Hidden</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.HiddenRenderer</renderer-class>
+  </renderer>
+  <renderer>
+   <display-name>MOBBLSecretRenderer</display-name>
+   <component-family>javax.faces.Input</component-family>
+   <renderer-type>javax.faces.Secret</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.SecretRenderer</renderer-class>
+  </renderer>
+  <renderer>
+   <display-name>MOBBLFormRenderer</display-name>
+   <component-family>javax.faces.Form</component-family>
+   <renderer-type>javax.faces.Form</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.FormRenderer</renderer-class>
+  </renderer>
+  <renderer>
+   <display-name>MOBBLMenuRenderer</display-name>
+   <component-family>javax.faces.SelectOne</component-family>
+   <renderer-type>javax.faces.Menu</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.MenuRenderer</renderer-class>
+  </renderer>
+  <!-- Also adds support for setting the placeholder, autocomplete and type attributes -->
+  <renderer>
+   <display-name>HtmlBasicInputRenderer</display-name>
+   <component-family>javax.faces.Input</component-family>
+   <renderer-type>javax.faces.Text</renderer-type>
+   <renderer-class>com.itude.mobile.web.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
+  </renderer>
+ </render-kit>
+ <factory>
+  <exception-handler-factory>com.itude.mobile.mcds.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
+ </factory>
+ <lifecycle>
+  <phase-listener>com.itude.mobile.web.jsf.HistoryPhaseListener</phase-listener>
+ </lifecycle>
 </faces-config>

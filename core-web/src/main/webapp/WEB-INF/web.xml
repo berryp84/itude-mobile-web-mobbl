@@ -52,12 +52,12 @@
 	</filter>
 	<filter>
 		<filter-name>CacheControlFilter</filter-name>
-		<filter-class>com.itude.mobile.template.servlets.CacheControlFilter</filter-class>
+		<filter-class>com.itude.mobile.web.servlets.CacheControlFilter</filter-class>
 	</filter>
 	<filter>
 		<description>Adds caching to content output files.</description>
 		<filter-name>ReplyHeaderFilter</filter-name>
-		<filter-class>com.itude.mobile.template.servlets.ReplyHeaderFilter</filter-class>
+		<filter-class>com.itude.mobile.web.servlets.ReplyHeaderFilter</filter-class>
 		<init-param>
 			<param-name>Cache-Control</param-name>
 			<param-value>public,max-age=31556926</param-value>
@@ -70,7 +70,7 @@
 	<filter>
 		<description>Adds caching to content output files.</description>
 		<filter-name>ReplyHeaderFilterNoMaxAge</filter-name>
-		<filter-class>com.itude.mobile.template.servlets.ReplyHeaderFilter</filter-class>
+		<filter-class>com.itude.mobile.web.servlets.ReplyHeaderFilter</filter-class>
 		<init-param>
 			<param-name>Cache-Control</param-name>
 			<param-value>public</param-value>
@@ -91,7 +91,7 @@
             It's not that much, but it's worth the trouble.
         </description>
         <filter-name>whitespaceFilter</filter-name>
-        <filter-class>com.itude.mobile.template.servlets.WhitespaceFilter</filter-class>
+        <filter-class>com.itude.mobile.web.servlets.WhitespaceFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>whitespaceFilter</filter-name>
@@ -154,7 +154,7 @@
 	</servlet>
 	<servlet>
 		<servlet-name>File Servlet</servlet-name>
-		<servlet-class>com.itude.mobile.template.servlets.FileServlet</servlet-class>
+		<servlet-class>com.itude.mobile.web.servlets.FileServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

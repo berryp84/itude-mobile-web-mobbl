@@ -9,7 +9,7 @@ import javax.inject.Named;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
-import com.itude.mobile.template.controllers.ApplicationController;
+import com.itude.mobile.web.controllers.ApplicationController;
 
 @Named
 @RequestScoped

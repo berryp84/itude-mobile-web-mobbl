@@ -10,7 +10,7 @@ import com.itude.mobile.mcds.services.datahandlers.MCDSGetDataHandler;
 import com.itude.mobile.mcds.services.datahandlers.MCDSPostDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
-import com.itude.mobile.template.handlers.SessionDataHandler;
+import com.itude.mobile.web.handlers.SessionDataHandler;
 
 @ApplicationScoped
 public class MobblProvider implements Serializable

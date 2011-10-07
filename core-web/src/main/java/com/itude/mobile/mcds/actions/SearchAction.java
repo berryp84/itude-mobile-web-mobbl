@@ -6,8 +6,8 @@ import com.itude.mobile.mcds.util.MCDSUtilities;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
-import com.itude.mobile.template.actions.GenericAction;
-import com.itude.mobile.template.util.Utilities;
+import com.itude.mobile.web.actions.GenericAction;
+import com.itude.mobile.web.util.Utilities;
 
 @Named("SearchAction")
 public class SearchAction extends GenericAction 

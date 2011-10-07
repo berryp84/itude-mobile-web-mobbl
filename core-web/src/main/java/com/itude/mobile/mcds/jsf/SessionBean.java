@@ -9,7 +9,7 @@ import javax.inject.Named;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.model.MBSessionInterface;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
-import com.itude.mobile.template.controllers.CurrentView;
+import com.itude.mobile.web.controllers.CurrentView;
 
 @SessionScoped
 @Named
