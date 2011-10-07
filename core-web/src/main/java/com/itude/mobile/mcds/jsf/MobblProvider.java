@@ -1,4 +1,4 @@
-package com.itude.mobile.template.jsf;
+package com.itude.mobile.mcds.jsf;
 
 import java.io.Serializable;
 

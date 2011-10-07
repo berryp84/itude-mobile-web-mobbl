@@ -1,4 +1,4 @@
-package com.itude.mobile.template.util;
+package com.itude.mobile.mcds.util;
 
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;

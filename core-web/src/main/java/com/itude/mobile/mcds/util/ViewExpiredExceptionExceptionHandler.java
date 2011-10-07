@@ -1,4 +1,4 @@
-package com.itude.mobile.template.util;
+package com.itude.mobile.mcds.util;
 
 import java.util.Iterator;
 import java.util.Map;
