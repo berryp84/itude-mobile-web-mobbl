@@ -21,8 +21,8 @@
 		
 		<ui:define name="search">
 			<h:form id="SearchForm">
- 	 			<h:inputText value="#{initialBean.searchQuery}" />
-  				<h:commandButton action="#{initialBean.search}" value="#{i:textForKey('LABEL_SEARCH')}" />
+ 	 			<h:inputText value="#{searchBean.searchQuery}" />
+  				<h:commandButton action="#{searchBean.search}" value="#{i:textForKey('LABEL_SEARCH')}" />
    			</h:form>
 		</ui:define>
 		
