@@ -57,10 +57,10 @@
 			<renderer-class>com.itude.mobile.template.jsf.renderers.HtmlBasicInputRenderer</renderer-class>
 		</renderer>
 	</render-kit>
-	<!-- 
 	<factory>
 		<exception-handler-factory>com.itude.mobile.template.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
 	</factory>
+	<!-- 
 	<lifecycle>
 		<phase-listener>com.itude.mobile.template.jsf.HistoryPhaseListener</phase-listener>
 	</lifecycle>
