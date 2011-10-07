@@ -100,7 +100,7 @@ public class MCDSGetDataHandler extends MBRESTServiceDataHandler
         }
         else
         {
-          _log.info("Decoding using the following charset: " + Charset.defaultCharset().name());
+          _log.debug("Decoding using the following charset: " + Charset.defaultCharset().name());
           dataString = new String(bos.toByteArray());
         }
       }
