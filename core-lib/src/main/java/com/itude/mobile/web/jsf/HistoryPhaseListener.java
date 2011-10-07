@@ -21,8 +21,6 @@ public class HistoryPhaseListener implements PhaseListener
   @Override
   public void afterPhase(PhaseEvent event)
   {
-    // TODO Auto-generated method stub
-
   }
 
   @Override

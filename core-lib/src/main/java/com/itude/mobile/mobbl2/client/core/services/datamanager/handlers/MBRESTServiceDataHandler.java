@@ -8,6 +8,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -44,6 +45,9 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.excepti
 public class MBRESTServiceDataHandler extends MBWebserviceDataHandler
 {
   private static final Logger  _log                      = Logger.getLogger(MBRESTServiceDataHandler.class);
+  
+  @Inject
+  MBApplicationFactory _applicationFactory;
 
   // TODO: put in config file
   protected static final int     MAX_CONNECTIONS_PER_ROUTE = 20;
@@ -145,7 +149,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler
         {
           if (lsnr.matches(dataString))
           {
-            MBResultListener rl = MBApplicationFactory.getInstance().createResultListener(lsnr.getName());
+            MBResultListener rl = _applicationFactory.createResultListener(lsnr.getName());
             rl.handleResult(dataString, args, lsnr);
             serverErrorHandled = true;
           }

@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
+import javax.inject.Inject;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -29,6 +31,9 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.excepti
 public class MCDSGetDataHandler extends MBRESTServiceDataHandler
 {
   private static final Logger _log = Logger.getLogger(MCDSGetDataHandler.class);
+  
+  @Inject
+  MBApplicationFactory _applicationFactory;
 
   @Override
   public MBDocument loadDocument(String documentName, MBDocument args)
@@ -110,7 +115,7 @@ public class MCDSGetDataHandler extends MBRESTServiceDataHandler
       {
         if (lsnr.matches(dataString))
         {
-          MBResultListener rl = MBApplicationFactory.getInstance().createResultListener(lsnr.getName());
+          MBResultListener rl = _applicationFactory.createResultListener(lsnr.getName());
           rl.handleResult(dataString, args, lsnr);
           serverErrorHandled = true;
         }

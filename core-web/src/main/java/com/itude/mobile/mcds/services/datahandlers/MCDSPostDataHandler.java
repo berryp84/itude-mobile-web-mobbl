@@ -1,5 +1,7 @@
 package com.itude.mobile.mcds.services.datahandlers;
 
+import javax.inject.Inject;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.log4j.Logger;
@@ -21,6 +23,9 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.excepti
 public class MCDSPostDataHandler extends MBRESTServiceDataHandler {
 	private static final Logger _log = Logger
 			.getLogger(MCDSPostDataHandler.class);
+	
+	@Inject
+	MBApplicationFactory _applicationFactory;
 
 	@SuppressWarnings("unused")
 	@Override
@@ -75,8 +80,7 @@ public class MCDSPostDataHandler extends MBRESTServiceDataHandler {
 				for (MBResultListenerDefinition lsnr : endPoint
 						.getResultListeners()) {
 					if (lsnr.matches(dataString)) {
-						MBResultListener rl = MBApplicationFactory
-								.getInstance().createResultListener(
+						MBResultListener rl = _applicationFactory.createResultListener(
 										lsnr.getName());
 						rl.handleResult(dataString, args, lsnr);
 						serverErrorHandled = true;

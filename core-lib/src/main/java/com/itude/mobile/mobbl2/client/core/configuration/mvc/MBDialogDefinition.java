@@ -60,7 +60,6 @@ public class MBDialogDefinition extends MBDefinition
 
   public String getGroupName()
   {
-    // TODO Auto-generated method stub
     return _groupName;
   }
   
@@ -70,7 +69,6 @@ public class MBDialogDefinition extends MBDefinition
 
   public String getPosition()
   {
-    // TODO Auto-generated method stub
     return _position;
   }
 
