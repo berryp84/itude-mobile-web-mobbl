@@ -62,26 +62,26 @@
 							outcome="#{cc.attrs.field.outcomeName}"
 							path="#{cc.attrs.field.absoluteDataPath}" /></td>
 					</c:when>
-					<c:otherwise><div>
-						<div style="width:100%;padding-top:0.8em;height:3.5em;line-height:normal;">
+					<c:otherwise>
 						<cc:button label="#{cc.attrs.field.label}"
 							styleClass="#{change} #{cc.attrs.field.style}"
 							outcome="#{cc.attrs.field.outcomeName}"
-							path="#{cc.attrs.field.absoluteDataPath}" /></div></div>
+							path="#{cc.attrs.field.absoluteDataPath}" />
 					</c:otherwise>
 				</c:choose>
 			</c:when>
-			<c:when test="#{cc.attrs.field.type eq 'EMAIL'}">
+			
+			<c:when test="#{cc.attrs.field.type eq 'EMAILFIELD'}">
 				<div class="inputContainer">
 					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="email"/>
 				</div>
 			</c:when>
-			<c:when test="#{cc.attrs.field.type eq 'TEL'}">
+			<c:when test="#{cc.attrs.field.type eq 'TELFIELD'}">
 				<div class="inputContainer">
 					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="tel"/>
 				</div>
 			</c:when>
-			<c:when test="#{cc.attrs.field.type eq 'NUMBER'}">
+			<c:when test="#{cc.attrs.field.type eq 'NUMBERFIELD'}">
 				<div class="inputContainer">
 					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="number"/>
 				</div>
