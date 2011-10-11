@@ -1,12 +1,16 @@
 package com.itude.mobile.web.annotations;
 
+import java.io.Serializable;
+
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletRequest;
 
-class HttpParams
+class HttpParams implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Produces
   @HttpParam("")
   String getParamValue(ServletRequest request, InjectionPoint ip)
