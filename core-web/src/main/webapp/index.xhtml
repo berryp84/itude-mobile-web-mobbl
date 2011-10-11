@@ -16,46 +16,22 @@
 	<ui:composition template="/templates/main.xhtml">
 	
 		<ui:define name="title">
-			<h:outputText value="Whatsringing" />
-		</ui:define>
-		
-		<ui:define name="search">
-			<h:form id="SearchForm">
- 	 			<h:inputText value="#{searchBean.searchQuery}" />
-  				<h:commandButton action="#{searchBean.search}" value="#{i:textForKey('LABEL_SEARCH')}" />
-   			</h:form>
+			<h:outputText value="#{pageBean.page.title}" />
 		</ui:define>
 		
 		<ui:define name="menu">
 			<cc:link outcome="OUTCOME-page_home">
-				<h:outputText value="#{i:textForKey('LABEL_HOME')}" />
+				<h:outputText value="#{i:textForKey('HomePage')}" />
 			</cc:link> | 
-			<h:outputLink value="#{env.path}/realtones">
-				<h:outputText value="#{i:textForKey('LABEL_REALTONES')}" />
-			</h:outputLink> | 
-			<h:outputLink value="#{env.path}/truetones">
-				<h:outputText value="#{i:textForKey('LABEL_TRUETONES')}" />
-			</h:outputLink> | 
-			<h:outputLink value="#{env.path}/polytones">
-				<h:outputText value="#{i:textForKey('LABEL_POLYTONES')}" />
-			</h:outputLink>
-			<br/>
-			<h:outputLink value="#{env.path}/games">
-				<h:outputText value="#{i:textForKey('LABEL_JAVAGAMES')}" />
-			</h:outputLink> | 
-			<h:outputLink value="#{env.path}/wallpapers">
-				<h:outputText value="#{i:textForKey('LABEL_WALLPAPERS')}" />
-			</h:outputLink> | 
-			<h:outputLink value="#{env.path}/videos">
-				<h:outputText value="#{i:textForKey('LABEL_MINIMOVIES')}" />
-			</h:outputLink>
+			<cc:link outcome="OUTCOME-page_login" rendered="#{!sessionBean.loggedOn}">
+				<h:outputText value="#{i:textForKey('Login')}" />
+			</cc:link>
+			<cc:link outcome="OUTCOME-page_logout" rendered="#{sessionBean.loggedOn}">
+				<h:outputText value="#{i:textForKey('Logout')}" />
+			</cc:link>
 		</ui:define>
 
 		<ui:define name="content">
-			<!-- Doesn't work because it is a redirect and requestMap.put("sessionExpired", true);
-			apparently doesn't work when redirects are involved
-			<h:outputText value="Session expired!" rendered="#{sessionExpired}" />
-			 -->
 			<cc:page page="#{pageBean}" />
 		</ui:define>
 	</ui:composition>

@@ -23,29 +23,15 @@
 	
 	<!-- When developing -->
 	<c:if test="#{env.projectVersion eq 'unknown'}">
-		<c:choose>
-			<c:when test="#{!mcdsCapacityBean.simplePhone}">
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template.css" />
-			</c:when>
-			<c:otherwise>
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_simple.css" />
-			</c:otherwise>
-		</c:choose>
+		<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template.css" />
 	</c:if>
 	
 	<!-- When in production -->
 	<c:if test="#{env.projectVersion ne 'unknown'}">
-		<c:choose>
-			<c:when test="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}">
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_#{env.projectVersion}.css" />
-			</c:when>
-			<c:otherwise>
-				<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_simple_#{env.projectVersion}.css" />
-			</c:otherwise>
-		</c:choose>
+		<link type="text/css" rel="stylesheet" href="#{env.path}/css/style_template_#{env.projectVersion}.css" />
 	</c:if>
 	
-	<c:if test="#{mcdsCapacityBean.blackBerry and !mcdsCapacityBean.webkit}">
+	<c:if test="#{capacityBean.blackBerry and !capacityBean.webkit}">
 		<style type="text/css">
 			/* This is here because BB OS 5 doesn't let 2 divs with width:50% and float:left end up on the same line */
 			.LEFT,.MATRIX-CELL {
@@ -53,71 +39,28 @@
 			}
 		</style>
 	</c:if>
-	
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_home'}">
-		<link rel="canonical" href="#{env.path}/" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_realtones'}">
-		<link rel="canonical" href="#{env.path}/realtones" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_truetones'}">
-		<link rel="canonical" href="#{env.path}/truetones" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_polytones'}">
-		<link rel="canonical" href="#{env.path}/polytones" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_javagames'}">
-		<link rel="canonical" href="#{env.path}/games" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_wallpapers'}">
-		<link rel="canonical" href="#{env.path}/wallpapers" />
-	</ui:fragment>
-	<ui:fragment rendered="#{pageBean.page.name eq 'PAGE-page_minimovies'}">
-		<link rel="canonical" href="#{env.path}/videos" />
-	</ui:fragment>
 </h:head>
 
 <body>
 	<c:if test="#{initialBean.initialized}" />
 		
-	<!-- h:outputText value="REF = #{param['ref']}" /-->
-	<c:choose >
-		<c:when test="#{mcdsCapacityBean.simplePhone and mcdsCapacityBean.hasTinyScreen}">
-			<div class="nav titleLeft">
-				<cc:link outcome="OUTCOME-page_home">
-					<h:graphicImage value="/img/WR_Logo-Left_tiny.png" width="64" height="18"/>
-				</cc:link>
-			</div>
-		</c:when>
-		<c:otherwise >
-			<div class="nav">
-				<div class="overflowAuto">
-					<div class="mainTitle">
-						<div class="titleLeft">
-							<cc:link outcome="OUTCOME-page_home">
-								<h:graphicImage value="/img/WR_Logo-Left.png" width="145" height="40" rendered="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}"/>
-								<h:graphicImage value="/img/WR_Logo-Left_smaller.png" width="128" height="40" rendered="#{mcdsCapacityBean.simplePhone and !mcdsCapacityBean.android}"/>
-							</cc:link>
-						</div>
-						<div class="titleRight" />
-					</div>
+	<div class="nav">
+		<div class="overflowAuto">
+			<div class="mainTitle">
+				<div class="titleLeft">
+					<cc:link outcome="OUTCOME-page_home">
+						<h:graphicImage value="/img/example.png" width="145" height="40"/>
+					</cc:link>
 				</div>
-			</div>
-		</c:otherwise>
-	</c:choose>
-	
-	
-	<c:if test="#{!mcdsCapacityBean.simplePhone or mcdsCapacityBean.android}">
-		<div class="RICH">
-			<div class="menuBar">
-				<ui:insert name="menu"/>
+				<div class="titleRight" />
 			</div>
 		</div>
-	</c:if>
+	</div>
 	
-	<!-- div class="RICH"-->
-		<cc:search bean="#{searchBean}"/>
-	<!-- /div-->
+	<div class="menuBar">
+		<ui:insert name="menu"/>
+	</div>
+	
 	<ui:insert name="content" />
 	
 	<div class="menuBar">
@@ -125,44 +68,13 @@
 	</div>
 
 	<div class="footer">
-		<p>
 		<cc:link outcome="OUTCOME-page_login" rendered="#{!sessionBean.loggedOn}">
-			<h:outputText value="#{i:textForKey('LABEL_LOGIN')}" />
+			<h:outputText value="#{i:textForKey('Login')}" />
 		</cc:link>
 		<cc:link outcome="OUTCOME-page_logout" rendered="#{sessionBean.loggedOn}">
-			<h:outputText value="#{i:textForKey('LABEL_LOGOUT')}" />
-		</cc:link>
-		</p>
-		<cc:link outcome="OUTCOME-page_terms_general" >
-			<h:outputText value="#{i:textForKey('LABEL_TERMS_GENERAL')}" />
-		</cc:link> | 
-		<cc:link outcome="OUTCOME-page_terms_specific">
-			<h:outputText value="#{i:textForKey('LABEL_TERMS_SPECIFIC')}" />
-		</cc:link> | 
-		<cc:link outcome="OUTCOME-page_privacy_policy">
-			<h:outputText value="#{i:textForKey('LABEL_PRIVACY_POLICY')}" />
-		</cc:link> | 
-		<cc:link outcome="OUTCOME-page_contact">
-			<h:outputText value="#{i:textForKey('LABEL_CONTACT')}" />
+			<h:outputText value="#{i:textForKey('Logout')}" />
 		</cc:link>
 	</div>
-	<div class="footer2">
-		<h:outputText value="#{i:textForKey('LABEL_COPYRIGHT')}" />
-	</div>
-	
-	<!-- This fixes the placeholders for the mobile phones who do support jquery, but don't support the placeholder attribute. 
-			Unfortunately, this requires jquery which is 85 kb large, but since it is loaded at the end of the page, I think it will be OK-->
-	<script type="text/javascript">
-		var placeholder_support = !!("placeholder" in document.createElement( "input" ));
-
-		if(!placeholder_support)
-		{
-			var fileref=document.createElement('script');
-			fileref.setAttribute("type","text/javascript");
-			fileref.setAttribute("src", "js/jquery-1.5.1.min.and.placeholder.js");
-			document.getElementsByTagName("head")[0].appendChild(fileref);
-		}
-	</script>
 			 
 </body>
 

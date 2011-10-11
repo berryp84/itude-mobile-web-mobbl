@@ -1,16 +1,14 @@
 package com.itude.mobile.mcds.controllers;
 
-import com.itude.mobile.mcds.services.MCDSLocalizationService;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
-import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.web.controllers.ApplicationController;
 
-public class MCDSController extends ApplicationController
+public class TemplateController extends ApplicationController
 {
   @Override
   public void initialize()
   {
-    MBLocalizationService.getInstance().setInstance(new MCDSLocalizationService());
+    
   }
   
   @Override
@@ -24,6 +22,8 @@ public class MCDSController extends ApplicationController
   @Override
   public void initializeTab()
   {
+    // TODO: do something like this:
+    /*
     String outcomeName = null;
     if ("SHARES".equals(getView().getCurrentDialog())) outcomeName = "OUTCOME-tab_shares";
     else if ("SEARCH".equals(getView().getCurrentDialog())) outcomeName = "OUTCOME-SearchAction";
@@ -36,6 +36,7 @@ public class MCDSController extends ApplicationController
       MBOutcome outcome = new MBOutcome(outcomeName, getDataManagerService().loadDocument("MBEmptyDoc"));
       handleOutcome(outcome);
     }
+    */
   }
   
   

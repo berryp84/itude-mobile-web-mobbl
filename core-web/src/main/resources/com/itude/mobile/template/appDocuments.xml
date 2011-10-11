@@ -11,20 +11,7 @@
 		</Document>
 		<Document name="SessionState" dataManager="SessionDataHandler" autoCreate="TRUE">
 			<Element name="Session" minOccurs="1">
-				<Attribute name="page" type="string" defaultValue="1"/>
 				<Attribute name="loggedIn" type="string" defaultValue="false"/>
-				<Attribute name="referrer" type="string" />
-				<Attribute name="clickId" type="string" />
-				<Attribute name="msisdn" type="string" />
-				<Attribute name="credits" type="string" />
-				<Attribute name="ip" type="string" />
-				<Attribute name="content_type" type="string" />
-				<Attribute name="third_party_id" type="string" />
-			</Element>
-		</Document>
-		<Document name="ApplicationState" dataManager="MBFileDataHandler" autoCreate="TRUE">
-			<Element name="Application" minOccurs="1">
-				<Attribute name="page" type="string" defaultValue="1"/>
 			</Element>
 		</Document>
 	</Documents>

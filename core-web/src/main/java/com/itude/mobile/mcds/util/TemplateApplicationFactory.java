@@ -4,7 +4,7 @@ import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.controller.MBApplicationFactory;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 
-public class MCDSApplicationFactory extends MBApplicationFactory
+public class TemplateApplicationFactory extends MBApplicationFactory
 {
 
   @Override

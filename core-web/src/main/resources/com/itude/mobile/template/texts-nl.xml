@@ -1,0 +1,14 @@
+<MBBundle>
+	<Text key="HomePage" value="Home page" />
+	<Text key="Login" value="Log in" />
+	<Text key="Logout" value="Log uit" />
+	
+	<Text key="Username" value="Gebruikersnaam" />
+	<Text key="Password" value="Wachtwoord" />
+	<Text key="LoginFailed" value="Inloggen mislukt" />
+	<Text key="LoginFailedText" value="Helaas, het inloggen is mislukt" />
+	
+	<Text key="Profile" value="Profiel" />
+	<Text key="Continue" value="Doorgaan" />
+	
+</MBBundle>
