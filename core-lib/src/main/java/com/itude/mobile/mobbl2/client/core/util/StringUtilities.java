@@ -151,7 +151,7 @@ public class StringUtilities
       result.append('/').append(component);
     }
 
-    if (isRelative && result.charAt(0) == '/')
+    if (isRelative && result.length() > 0 && result.charAt(0) == '/')
     {
       return result.substring(1);
     }
