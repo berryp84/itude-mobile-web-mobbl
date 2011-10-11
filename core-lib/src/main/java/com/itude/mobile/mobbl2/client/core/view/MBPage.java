@@ -137,10 +137,6 @@ public class MBPage extends MBPanel
     {
       path = "";
     }
-    else if (!path.endsWith("/"))
-    {
-      path = path + "/";
-    }
 
     if (path.length() > 0)
     {
