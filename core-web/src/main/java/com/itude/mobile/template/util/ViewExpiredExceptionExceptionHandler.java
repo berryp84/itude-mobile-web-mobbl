@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.util;
+package com.itude.mobile.template.util;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -13,7 +13,7 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
 import com.itude.commons.jsf.util.ELUtil;
-import com.itude.mobile.mcds.jsf.SessionBean;
+import com.itude.mobile.template.jsf.SessionBean;
 
 public class ViewExpiredExceptionExceptionHandler extends ExceptionHandlerWrapper
 {

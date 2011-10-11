@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.util;
+package com.itude.mobile.template.util;
 
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;

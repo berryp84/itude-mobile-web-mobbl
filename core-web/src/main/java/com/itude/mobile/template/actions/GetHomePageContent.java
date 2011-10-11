@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.actions;
+package com.itude.mobile.template.actions;
 
 import javax.inject.Named;
 

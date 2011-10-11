@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.jsf;
+package com.itude.mobile.template.jsf;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;

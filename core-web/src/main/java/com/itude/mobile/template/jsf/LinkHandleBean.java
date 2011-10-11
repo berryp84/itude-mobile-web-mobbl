@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.jsf;
+package com.itude.mobile.template.jsf;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.itude.mobile.mcds.controllers;
+package com.itude.mobile.template.controllers;
 
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.web.controllers.ApplicationController;
