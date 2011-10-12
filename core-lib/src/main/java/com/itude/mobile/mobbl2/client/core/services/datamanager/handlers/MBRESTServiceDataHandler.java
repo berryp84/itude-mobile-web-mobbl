@@ -2,13 +2,13 @@ package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -42,18 +42,18 @@ import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListenerDefinition;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.exceptions.MBServerErrorException;
 
-public class MBRESTServiceDataHandler extends MBWebserviceDataHandler
+public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements Serializable
 {
+  private static final long    serialVersionUID          = 1L;
   private static final Logger  _log                      = Logger.getLogger(MBRESTServiceDataHandler.class);
-  
-  @Inject
-  MBApplicationFactory _applicationFactory;
+
+  MBApplicationFactory         _applicationFactory = MBApplicationFactory.getInstance();
 
   // TODO: put in config file
-  protected static final int     MAX_CONNECTIONS_PER_ROUTE = 20;
-  protected static final int     MAX_TOTAL_CONNECTIONS     = 20;
-  protected static final int     DEFAULT_TIMEOUT_SOCKET    = 30000;
-  protected static final int     DEFAULT_TIMEOUTCONNECTION = 30000;
+  protected static final int   MAX_CONNECTIONS_PER_ROUTE = 20;
+  protected static final int   MAX_TOTAL_CONNECTIONS     = 20;
+  protected static final int   DEFAULT_TIMEOUT_SOCKET    = 30000;
+  protected static final int   DEFAULT_TIMEOUTCONNECTION = 30000;
   private static final boolean ALLOW_ANY_CERTIFICATE     = true;
 
   private String               _documentFactoryType;

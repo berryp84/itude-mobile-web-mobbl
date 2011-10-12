@@ -160,7 +160,7 @@ public abstract class ApplicationController
    // _view.replaceView(_view.getView());
   }
 
-  private void handleException(MBOutcome outcome, Exception e)
+  protected void handleException(MBOutcome outcome, Exception e)
   {
       _log.warn("________EXCEPTION RAISED______________________________________________________________");
       _log.warn(e.getClass().getSimpleName() + ": " + e.getMessage());
