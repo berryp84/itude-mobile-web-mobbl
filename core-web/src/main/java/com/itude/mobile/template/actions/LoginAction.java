@@ -17,12 +17,6 @@ public class LoginAction extends GenericAction
 	private SessionBean _session;
 
 	@Override
-	public MBOutcome execute(MBDocument document, String path) 
-	{	
-		return this.execute(document, path, null);
-	}
-
-	@Override
 	public MBOutcome execute(MBDocument document, String path, String outcomeName) 
 	{
 		String username = document.getValueForPath("/LoginUser[0]/@username");

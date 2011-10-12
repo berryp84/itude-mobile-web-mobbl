@@ -13,12 +13,6 @@ public class GetHomePageContent extends GenericAction
   private static final long serialVersionUID = 1L;
 
   @Override
-  public MBOutcome execute(MBDocument document, String path)
-  {
-    return this.execute(document, path, null);
-  }
-
-  @Override
   public MBOutcome execute(MBDocument document, String path, String outcomeName)
   {
     // TODO: you'll want to do something like this (or delete this action)
