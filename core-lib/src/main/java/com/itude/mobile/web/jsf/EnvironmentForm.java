@@ -4,13 +4,14 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import com.itude.commons.util.VersionUtil;
+import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
 /**
  * This form should be extended. When you extend this, please use the following:
  * @Named(value = "env")
  * @ApplicationScoped
  */
-public abstract class EnvironmentForm
+public class EnvironmentForm
 {
   private static String              _projectVersion;
 
@@ -32,11 +33,13 @@ public abstract class EnvironmentForm
     return _projectVersion;
   }
   
-  // You want to override this function when this isn't correct
   protected String getGroupId()
   {
-    return "com.itude.mobile.web.mobbl";
+    return MobblEnvironment.getGroupId();
   }
   
-  protected abstract String getArtifactId();
+  protected String getArtifactId()
+  {
+    return MobblEnvironment.getArtifactId();
+  }
 }

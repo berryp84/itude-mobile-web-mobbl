@@ -13,4 +13,14 @@ public class MobblEnvironment extends ItudeEnvironment
   {
     return getRequiredProperty("resultlistener."+ resultListenerName);
   }
+
+  public static String getGroupId()
+  {
+    return getRequiredProperty("pom.groupid");
+  }
+
+  public static String getArtifactId()
+  {
+    return getRequiredProperty("pom.artifactid");
+  }
 }
