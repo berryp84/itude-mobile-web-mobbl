@@ -1,10 +1,14 @@
 package com.itude.mobile.template.controllers;
 
+import java.io.Serializable;
+
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.web.controllers.ApplicationController;
 
-public class TemplateController extends ApplicationController
+public class TemplateController extends ApplicationController implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Override
   public void initialize()
   {
