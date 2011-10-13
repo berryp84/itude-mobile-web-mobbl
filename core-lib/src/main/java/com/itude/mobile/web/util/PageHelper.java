@@ -112,6 +112,20 @@ public class PageHelper
     return nonHidden;
   }
   
+  public static Integer nonHiddenChildren2(MBComponentContainer row)
+  {
+    int nonHidden = 0;
+    for (MBComponent child : row.getChildren())
+    {
+      if (child instanceof MBField)
+      {
+        MBField field = (MBField) child;
+        if (!field.isHidden()) nonHidden++;
+      }
+    }
+    return nonHidden;
+  }
+  
   public static String doHTML(String htmlString)
   {
     String newHtmlString = htmlString.replaceAll("<br />", "\n");
