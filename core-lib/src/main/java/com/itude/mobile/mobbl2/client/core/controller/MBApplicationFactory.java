@@ -1,11 +1,15 @@
 package com.itude.mobile.mobbl2.client.core.controller;
 
+import java.io.Serializable;
+
 import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
-public class MBApplicationFactory
+public class MBApplicationFactory implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+  
   private static MBApplicationFactory _mApplicationFactory;
   
   public static MBApplicationFactory getInstance()

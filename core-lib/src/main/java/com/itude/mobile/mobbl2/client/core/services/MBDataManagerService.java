@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.enterprise.inject.Alternative;
 
-import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBDocumentDefinition;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperation;
@@ -15,6 +14,7 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBMemor
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBMobbl1ServerDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBRESTServiceDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBResourceDataHandler;
+import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBSystemDataHandler;
 import com.itude.mobile.mobbl2.client.core.services.exceptions.MBNoDataManagerException;
 
 @Alternative
@@ -39,7 +39,7 @@ public class MBDataManagerService implements Serializable
 
     // TODO: these might need to be persisted somewhere
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_FILE);
-//    registerDataHandler(new MBSystemDataHandler("applicationproperties_" + EnvironmentForm.getStaticEnvironment() + ".xml"), DATA_HANDLER_SYSTEM);
+    registerDataHandler(new MBSystemDataHandler(), DATA_HANDLER_SYSTEM);
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_MEMORY);
     registerDataHandler(new MBRESTServiceDataHandler(), DATA_HANDLER_WS_REST);
     registerDataHandler(new MBMobbl1ServerDataHandler(), DATA_HANDLER_WS_MOBBL);
@@ -54,12 +54,6 @@ public class MBDataManagerService implements Serializable
     }
 
     return _instance;
-  }
-
-  private MBDocument createDocument(String documentName)
-  {
-    MBDocumentDefinition def = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
-    return new MBDocument(def);
   }
 
   private MBDocumentOperation getLoaderForDocumentName(String documentName, MBDocument arguments)
