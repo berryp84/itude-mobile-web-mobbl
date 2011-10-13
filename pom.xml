@@ -46,6 +46,7 @@
             <id>release</id>
             <modules>
                 <module>core-lib</module>
+                <module>core-web</module>
             </modules>
         </profile>
     </profiles>
