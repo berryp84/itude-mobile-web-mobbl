@@ -91,7 +91,6 @@ public class MBXmlDocumentParser extends DefaultHandler
           _rootElementName = _definition.getName();
         }
 
-        System.out.println(new String(data));
         parser.parse(new ByteArrayInputStream(data), this);
       }
       catch (Exception e)

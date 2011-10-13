@@ -1,5 +1,6 @@
 package com.itude.mobile.mobbl2.client.core.controller;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
@@ -32,15 +33,15 @@ public class MBApplicationFactory
     }
     catch (InstantiationException e)
     {
-      System.out.println(e);
+      throw new ItudeRuntimeException(e);
     }
     catch (IllegalAccessException e)
     {
-      System.out.println(e);
+      throw new ItudeRuntimeException(e);
     }
     catch (ClassNotFoundException e)
     {
-      System.out.println(e);
+      throw new ItudeRuntimeException(e);
     }
     return object;
   }
