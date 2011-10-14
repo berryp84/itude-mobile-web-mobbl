@@ -190,9 +190,9 @@ public class HttpDelegate
           offset += i;
         response.setResponseBody(body);
       }
-      catch (Throwable t)
+      catch (Exception e)
       {
-        logger.error("Could not read entire response body", t);
+        logger.error("Could not read entire response body", e);
       }
       finally
       {
@@ -217,9 +217,9 @@ public class HttpDelegate
         response.setResponseBody(body.toByteArray());
         response.setContentLength(body.size());
       }
-      catch (Throwable t)
+      catch (Exception e)
       {
-        logger.error("Could not read entire response body", t);
+        logger.error("Could not read entire response body", e);
       }
       finally
       {
