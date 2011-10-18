@@ -1,5 +1,6 @@
 package com.itude.mobile.web.controllers;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperationDelegate;
 
@@ -32,5 +33,11 @@ public abstract class AbstractRefreshableViewController extends MBViewController
   }
 
   protected abstract void handleUpdate(MBDocument document);
+
+  @Override
+  public void processException(Exception e)
+  {
+    throw new ItudeRuntimeException(e);
+  }
 
 }
