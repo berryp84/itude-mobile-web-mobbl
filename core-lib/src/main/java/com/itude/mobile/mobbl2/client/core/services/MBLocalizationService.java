@@ -23,7 +23,7 @@ public class MBLocalizationService
   protected MBLocalizationService()
   {
     _languages = new Hashtable<String, Map<String, String>>();
-    setCurrentLanguage("nl");
+    setCurrentLanguage(getLocale().getLanguage());
   }
 
   public void setInstance(MBLocalizationService instance)
