@@ -35,7 +35,6 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
       if (result != null) return result;
     }
 
-    // TODO: Retrieve these settings from a property file somewhere
     String universeID = MBProperties.getInstance().getValueForProperty("mobblUniverseID");
     String UIDPrefix = MBProperties.getInstance().getValueForProperty("UIDPrefix");
     String UID = UIDPrefix + DeviceUtil.getInstance().getUniqueID();
