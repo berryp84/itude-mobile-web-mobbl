@@ -16,6 +16,7 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
 public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
 {
+  private static final long serialVersionUID = 1L;
 
   //
   //expects an argument Document of type MBMobbl1Request
