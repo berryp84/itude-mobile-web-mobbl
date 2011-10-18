@@ -27,7 +27,6 @@ public class MBField extends MBComponent
   private MBDomainDefinition    _domainDefinition;
   private String                _translatedPath;
   private String                _label;
-  private String                _type;
   private String                _dataType;
   private String                _formatMask;
   private String                _alignment;
@@ -115,11 +114,6 @@ public class MBField extends MBComponent
   public void setLabel(String label)
   {
     _label = label;
-  }
-
-  public void setType(String type)
-  {
-    _type = type;
   }
 
   public String getDataType()
