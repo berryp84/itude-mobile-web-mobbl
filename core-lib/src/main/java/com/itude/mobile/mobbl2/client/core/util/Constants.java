@@ -5,9 +5,9 @@ public interface Constants
 
   public static String       APPLICATION_NAME         = "MOBBL";
 
-  public static String       C_SPLASHSCREEN           = "whitelabel-splashscreen";
+//  public static String       C_SPLASHSCREEN           = "whitelabel-splashscreen";
   public static String       C_ENCODING               = "UTF-8";
-  public static String       C_ARROW                  = "arrow";
+//  public static String       C_ARROW                  = "arrow";
 
   //container types
   public static final String C_SECTION                = "SECTION";
