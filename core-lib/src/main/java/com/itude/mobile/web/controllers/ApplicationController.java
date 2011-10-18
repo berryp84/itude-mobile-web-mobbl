@@ -1,5 +1,6 @@
 package com.itude.mobile.web.controllers;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -29,8 +30,10 @@ import com.itude.mobile.web.jsf.AlertBean;
 
 @RequestScoped
 @Named
-public abstract class ApplicationController
+public abstract class ApplicationController implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   private Logger                     _log = Logger.getLogger(ApplicationController.class);
 
   @Inject
