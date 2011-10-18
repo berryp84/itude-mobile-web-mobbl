@@ -40,6 +40,13 @@ public class PageHelper
 
     else return "";
   }
+  
+  public static String getTranslatedPathValue(MBField field)
+  {
+    String path = field.getAbsoluteDataPath();
+    String originalValue = (String) field.getDocument().getValueForPath(path);
+    return MBLocalizationService.getInstance().getTextForKey(originalValue);
+  }
 
   public static Integer size(Collection<?> component)
   {
