@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.util.MBProperties;
 
 public class MBLocalizationService
@@ -23,7 +24,12 @@ public class MBLocalizationService
   protected MBLocalizationService()
   {
     _languages = new Hashtable<String, Map<String, String>>();
-    setCurrentLanguage(getLocale().getLanguage());
+    String languageCode = MBProperties.getInstance().getValueForProperty("languageCode");
+    if (languageCode == null)
+    {
+      languageCode = "nl";
+    }
+    setCurrentLanguage(languageCode);
   }
 
   public void setInstance(MBLocalizationService instance)
@@ -109,7 +115,8 @@ public class MBLocalizationService
       _localeCode = MBProperties.getInstance().getValueForProperty("localeCode");
       if (_localeCode == null)
       {
-        _localeCode = Locale.getDefault().toString();
+        // Using the default locale is unwise for a webapp: this changes depending on which server it runs on
+        throw new ItudeRuntimeException("Property with name localeCode not found!");
       }
     }
     return _localeCode;
