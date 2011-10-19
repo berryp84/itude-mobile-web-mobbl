@@ -36,7 +36,8 @@ public class MBProperties
     {
       String path = "/Application[0]/Property[name='" + key + "']/@value";
       value = (String) _propertiesDoc.getValueForPath(path);
-      _propertiesCache.put(key, value);
+      if(value != null)
+        _propertiesCache.put(key, value);
     }
     return value;
   }
