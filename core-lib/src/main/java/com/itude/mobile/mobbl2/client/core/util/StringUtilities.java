@@ -260,7 +260,7 @@ public class StringUtilities
 
   }
 
-  public synchronized static Date dateFromXML(String stringToFormat)
+  public static synchronized Date dateFromXML(String stringToFormat)
   {
     try
     {
