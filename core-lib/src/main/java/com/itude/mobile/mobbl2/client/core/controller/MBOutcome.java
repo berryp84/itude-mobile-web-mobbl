@@ -143,7 +143,6 @@ public class MBOutcome
 
   public MBOutcome(MBOutcome outcome)
   {
-    ;
     _originName = outcome.getOriginName();
     _outcomeName = outcome.getOutcomeName();
     _originDialogName = outcome.getOriginDialogName();
@@ -160,7 +159,6 @@ public class MBOutcome
 
   public MBOutcome(MBOutcomeDefinition definition)
   {
-    ;
     _originName = definition.getOrigin();
     _outcomeName = definition.getName();
     _dialogName = definition.getDialog();

@@ -133,7 +133,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
           InputStream inStream = entity.getContent();
           ByteArrayOutputStream bos = new ByteArrayOutputStream();
           byte[] buffer = new byte[1024];
-          int i = inStream.read(buffer);;
+          int i = inStream.read(buffer);
           while (i > -1)
           {
             bos.write(buffer, 0, i);
