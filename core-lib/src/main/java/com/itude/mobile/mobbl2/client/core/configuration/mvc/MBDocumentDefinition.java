@@ -106,7 +106,7 @@ public class MBDocumentDefinition extends MBDefinition
     // If there is a ':' in the name of the first component; we might need a different document than 'self'
     if (pathComponents.size() > 0)
     {
-      int location = path.indexOf(":");
+      int location = path.indexOf(':');
 
       if (location > -1)
       {
@@ -136,7 +136,7 @@ public class MBDocumentDefinition extends MBDefinition
 
   public MBAttributeDefinition getAttributeWithPath(String path)
   {
-    int location = path.indexOf("@");
+    int location = path.indexOf('@');
 
     if (location == -1)
     {

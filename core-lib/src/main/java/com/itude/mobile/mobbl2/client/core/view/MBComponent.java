@@ -154,7 +154,7 @@ public class MBComponent
       result += expression.substring(0, position);
       expression = expression.substring(position + 2);
 
-      if ((subPartPosition = expression.indexOf("}")) != -1)
+      if ((subPartPosition = expression.indexOf('}')) != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
         singleExpression = expression.substring(0, subPartPosition);

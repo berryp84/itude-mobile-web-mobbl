@@ -32,7 +32,7 @@ public class MBForEach extends MBComponentContainer
     else
     {
       String fullPath = _value;
-      if (!fullPath.startsWith("/") && fullPath.indexOf(":") == -1)
+      if (!fullPath.startsWith("/") && fullPath.indexOf(':') == -1)
       {
         fullPath = parent.getAbsoluteDataPath() + "/" + _value;
       }

@@ -42,8 +42,7 @@ public class MBPageDefinition extends MBPanelDefinition
 
   public void setDocumentName(String name)
   {
-
-    int location = name.indexOf("/");
+    int location = name.indexOf('/');
     if (location > -1)
     {
       _documentName = name.substring(0, location);

@@ -320,7 +320,7 @@ public class MBElementContainer
         String idxStr = rootNameParts[1];
         idxStr = StringUtilities.stripCharacters(idxStr, "]");
 
-        if (idxStr.indexOf("=") > -1)
+        if (idxStr.indexOf('=') > -1)
         {
           idx = evaluateIndexExpression(idxStr, childElementName);
         }
@@ -438,7 +438,7 @@ public class MBElementContainer
       result += expression.substring(0, position);
       expression = expression.substring(position + 2);
 
-      if ((subPartPosition = expression.indexOf("}")) != -1)
+      if ((subPartPosition = expression.indexOf('}')) != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
         
