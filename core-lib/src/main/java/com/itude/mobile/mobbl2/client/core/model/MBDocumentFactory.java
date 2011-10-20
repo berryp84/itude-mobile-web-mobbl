@@ -5,10 +5,9 @@ import com.itude.mobile.mobbl2.client.core.model.exceptions.MBUnknownDataTypeExc
 
 public class MBDocumentFactory
 {
-
-  public static String             PARSER_XML    = "XML";
-  public static String             PARSER_JSON   = "JSON";
-  public static String             PARSER_MOBBL1 = "MOBBL1";
+  public static final String             PARSER_XML    = "XML";
+  public static final String             PARSER_JSON   = "JSON";
+  public static final String             PARSER_MOBBL1 = "MOBBL1";
 
   private static MBDocumentFactory _instance;
 

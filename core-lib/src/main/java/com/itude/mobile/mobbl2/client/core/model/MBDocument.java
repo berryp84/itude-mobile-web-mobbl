@@ -11,7 +11,7 @@ import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperationDelegate;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
-public class MBDocument extends MBElementContainer
+public class MBDocument extends MBElementContainer implements Cloneable
 {
   private MBDocumentDefinition         _definition;
   private Map<String, MBDocument>      _sharedContext;
@@ -30,16 +30,6 @@ public class MBDocument extends MBElementContainer
     _definition = documentDefinition;
     _sharedContext = new HashMap<String, MBDocument>();
     _pathCache = new HashMap<String, MBElement>();
-  }
-
-  @Override
-  public MBDocument clone()
-  {
-    MBDocument newDoc = new MBDocument(_definition);
-    copyChildrenInto(newDoc);
-    if (_argumentsUsed != null) newDoc.setArgumentsUsed(_argumentsUsed.clone());
-
-    return newDoc;
   }
 
   @Override
@@ -211,5 +201,14 @@ public class MBDocument extends MBElementContainer
   {
     return this;
   }
+  
+  @Override
+  public MBDocument clone()
+  {
+    MBDocument newDoc = new MBDocument(_definition);
+    copyChildrenInto(newDoc);
+    if (_argumentsUsed != null) newDoc.setArgumentsUsed(_argumentsUsed.clone());
 
+    return newDoc;
+  }
 }

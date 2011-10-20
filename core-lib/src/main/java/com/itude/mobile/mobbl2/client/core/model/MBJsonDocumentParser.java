@@ -26,7 +26,7 @@ public class MBJsonDocumentParser
     catch (Exception e)
     {
       String message = "Error parsing document " + definition.getName() + " : " + e.getMessage();
-      throw new MBParseErrorException(message);
+      throw new MBParseErrorException(message, e);
     }
 
   }
@@ -57,7 +57,7 @@ public class MBJsonDocumentParser
     catch (Exception e)
     {
       String message = "Error parsing document " + definition.getName() + " : " + e.getMessage();
-      throw new MBParseErrorException(message);
+      throw new MBParseErrorException(message, e);
     }
 
   }
@@ -160,7 +160,7 @@ public class MBJsonDocumentParser
       catch (Exception e)
       {
         String message = "Error parsing document " + definition.getName() + " : " + e.getMessage();
-        throw new MBParseErrorException(message);
+        throw new MBParseErrorException(message, e);
       }
 
     }

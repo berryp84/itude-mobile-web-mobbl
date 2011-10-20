@@ -236,7 +236,7 @@ public class MBField extends MBComponent
   
   public String getValue()
   {
-    if (_cachedValueSet == true)
+    if (_cachedValueSet)
     {
       return _cachedValue;
     }

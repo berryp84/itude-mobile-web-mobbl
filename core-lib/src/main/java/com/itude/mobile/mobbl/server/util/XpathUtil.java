@@ -16,7 +16,7 @@ public class XpathUtil
   public static String getValueForKey(byte[] document, String xPath)
   {
     Object result = doEvaluate(document, xPath, XPathConstants.STRING);
-    if (result != null && result instanceof String && ((String)result).length() > 0)
+    if (result instanceof String && ((String)result).length() > 0)
       return (String)result;
 
     return null;
@@ -25,7 +25,7 @@ public class XpathUtil
   public static NodeList getNodeList(byte[] document, String xPath)
   {
     Object result = doEvaluate(document, xPath, XPathConstants.NODESET);
-    if (result != null && result instanceof NodeList && ((NodeList)result).getLength() > 0)
+    if (result instanceof NodeList && ((NodeList)result).getLength() > 0)
       return (NodeList)result;
 
     return null;

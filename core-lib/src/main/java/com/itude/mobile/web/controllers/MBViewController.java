@@ -95,7 +95,7 @@ public abstract class MBViewController implements Serializable, MBValueChangeLis
 
     if (document == null) document = _dataManagerService.loadDocument(pageDefinition.getDocumentName());
     setDocument(document);
-    MBPage page = new MBPage(pageDefinition, document, outcome.getPath(), null);
+    MBPage page = new MBPage(pageDefinition, document, outcome.getPath());
     setPage(page);
   }
 

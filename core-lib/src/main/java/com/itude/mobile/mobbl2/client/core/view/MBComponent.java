@@ -26,6 +26,7 @@ public class MBComponent
 
   public MBComponent(MBDefinition definition, MBDocument document, MBComponentContainer parent)
   {
+    // NOTE: document is unused. We might want to remove this attribute
     _definition = definition;
     _parent = parent;
 
@@ -153,8 +154,9 @@ public class MBComponent
     {
       result += expression.substring(0, position);
       expression = expression.substring(position + 2);
-
-      if ((subPartPosition = expression.indexOf('}')) != -1)
+      subPartPosition = expression.indexOf('}');
+      
+      if (subPartPosition != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
         singleExpression = expression.substring(0, subPartPosition);
@@ -170,9 +172,7 @@ public class MBComponent
         {
           evalToNil = true;
         }
-
       }
-
     }
 
     result += subPart;

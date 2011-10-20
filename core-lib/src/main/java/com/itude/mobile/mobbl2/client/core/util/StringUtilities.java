@@ -35,12 +35,12 @@ public class StringUtilities
                                                               }
                                                             };
 
-  private static void setupFormatter(DecimalFormat formatter, int p_numDec)
+  private static void setupFormatter(DecimalFormat formatter, int numDec)
   {
     formatter.setDecimalFormatSymbols(new DecimalFormatSymbols(getDefaultFormattingLocale()));
     formatter.setMinimumIntegerDigits(1);
-    formatter.setMinimumFractionDigits(p_numDec);
-    formatter.setMaximumFractionDigits(p_numDec);
+    formatter.setMinimumFractionDigits(numDec);
+    formatter.setMaximumFractionDigits(numDec);
     formatter.setGroupingUsed(true);
     formatter.setGroupingSize(3);
   }
@@ -176,16 +176,16 @@ public class StringUtilities
   /**
    * Appends spaces to the supplied StringBuffer, returns the same StringBuffer.
    * 
-   * @param p_appendToMe
+   * @param appendToMe
    * @param level
    * @return the same StringBuffer given as a param, useful for chaining calls
    */
-  public static StringBuffer appendIndentString(StringBuffer p_appendToMe, int level)
+  private static StringBuffer appendIndentString(StringBuffer appendToMe, int level)
   {
     while (level-- > 0)
-      p_appendToMe.append(' ');
+      appendToMe.append(' ');
 
-    return p_appendToMe;
+    return appendToMe;
   }
 
   //returns a string formatted as a number with the original amount of decimals assuming the receiver is a float 
@@ -498,16 +498,9 @@ public class StringUtilities
     return result.toString();
   }
 
-  public static boolean isEmpty(String value)
+  private static boolean isEmpty(String value)
   {
-    if (value == null || value.length() == 0)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    return (value == null || value.length() == 0);
   }
 
 }

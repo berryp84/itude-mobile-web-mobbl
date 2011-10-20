@@ -13,7 +13,8 @@ public class MBScriptService
 {
   private static MBScriptService _instance = null;
   
-  private static final int MAX_ENTRIES = 1000;
+  private static final int      MAX_ENTRIES     = 1000;
+  private static final String   ERROR_MARKER    = "SCRIPT_ERROR: ";
 
   private MBScriptService()
   {
@@ -72,7 +73,6 @@ public class MBScriptService
     String result = KNOWN_EXPRESSIONS.get(expression);
     if (result != null)
       return result;
-    String ERROR_MARKER = "SCRIPT_ERROR: ";
     String stub = "function x(){ try { return " + expression + "; } catch(e) { return '" + ERROR_MARKER + "'+e; } } x(); ";
     result = "";
 

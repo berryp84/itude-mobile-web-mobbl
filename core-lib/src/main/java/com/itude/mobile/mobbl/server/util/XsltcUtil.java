@@ -107,7 +107,7 @@ public class XsltcUtil
   public ByteArrayOutputStream transform(InputStream inStream, String xsltName, String xsltContents, String encoding, HashMap<String, String> parameters)
   {
     logger.debug("XsltcUtil.transform()");
-    if (encoding == null) throw new NullPointerException("XsltcUtil.transform(): encoding may not be null");
+    if (encoding == null) throw new IllegalArgumentException("XsltcUtil.transform(): encoding may not be null");
     
     ByteArrayOutputStream outBytes = new ByteArrayOutputStream();
 

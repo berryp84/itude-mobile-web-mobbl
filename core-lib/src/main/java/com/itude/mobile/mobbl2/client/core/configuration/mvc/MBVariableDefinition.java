@@ -9,8 +9,7 @@ public class MBVariableDefinition extends MBDefinition
 
   public String asXmlWithLevel(int level)
   {
-    String result = StringUtilities.getIndentStringWithLevel(level)+"<Variable name='"+getName()+"' expression='"+_expression+"'/>\n";
-    return result;
+    return StringUtilities.getIndentStringWithLevel(level)+"<Variable name='"+getName()+"' expression='"+_expression+"'/>\n";
   }
 
   public String getExpression()

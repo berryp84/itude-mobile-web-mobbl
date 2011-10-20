@@ -133,8 +133,7 @@ public class DataUtil
     }
 
     // Get the decompressed data 
-    byte[] decompressedData = bos.toByteArray();
-    return decompressedData;
+    return bos.toByteArray();
   }
 
 }

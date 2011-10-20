@@ -23,8 +23,7 @@ public class SessionDataHandler implements MBDataHandler
   @Override
   public MBDocument loadDocument(String documentName)
   {
-    MBDocument document = (MBDocument) getSessionMap().get(determineKey(documentName));
-    return document;
+    return (MBDocument) getSessionMap().get(determineKey(documentName));
   }
 
   @Override

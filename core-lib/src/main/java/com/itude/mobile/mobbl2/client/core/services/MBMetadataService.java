@@ -41,7 +41,7 @@ public class MBMetadataService implements Serializable
     return FacesContext.getCurrentInstance().getExternalContext().getRequestMap();
   }
 
-  private MBMetadataService(Object obj)
+  private MBMetadataService()
   {
     MBMvcConfigurationParser parser = new MBMvcConfigurationParser();
     _cfg = (MBConfigurationDefinition) parser.parseData(MBResourceService.getInstance().getResourceByID(CONFIG_NAME), CONFIG_NAME);
@@ -51,7 +51,7 @@ public class MBMetadataService implements Serializable
   {
     if (_instance == null)
     {
-      _instance = new MBMetadataService(null);
+      _instance = new MBMetadataService();
     }
 
     return _instance;

@@ -26,7 +26,7 @@ public class MBPage extends MBPanel
   private final List<MBOutcomeListenerProtocol>                  _outcomeListeners;
   private MBPageDefinition.MBPageType                            _pageType;
 
-  public MBPage(MBPageDefinition definition, MBDocument document, String rootPath, Object viewState)
+  public MBPage(MBPageDefinition definition, MBDocument document, String rootPath)
   {
     super(definition, document, null, false);
 

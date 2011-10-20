@@ -4,11 +4,14 @@ import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBPageDefinition;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.view.helpers.MBBounds;
 
+/**
+ * MBConditionalPage is probably used in android, but it isn't in mobile web
+ */
 public class MBConditionalPage extends MBPage
 {
   public MBConditionalPage(MBPageDefinition definition, MBDocument document, String rootPath, Object viewState, MBBounds bounds)
   {
-    super(definition, document, rootPath, viewState);
+    super(definition, document, rootPath);
   }
 
   private MBPageDefinition _definitionWhenFalse;

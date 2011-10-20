@@ -46,7 +46,6 @@ public class MBElementContainer
 
   public void addAllPathsTo(Set<String> set, String currentPath)
   {
-
     for (String elementName : _elements.keySet())
     {
       int idx = 0;
@@ -56,7 +55,6 @@ public class MBElementContainer
         element.addAllPathsTo(set, path);
       }
     }
-
   }
 
   public int evaluateIndexExpression(String combinedExpression, String elementName)
@@ -437,8 +435,9 @@ public class MBElementContainer
     {
       result += expression.substring(0, position);
       expression = expression.substring(position + 2);
-
-      if ((subPartPosition = expression.indexOf('}')) != -1)
+      subPartPosition = expression.indexOf('}');
+      
+      if (subPartPosition != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
         

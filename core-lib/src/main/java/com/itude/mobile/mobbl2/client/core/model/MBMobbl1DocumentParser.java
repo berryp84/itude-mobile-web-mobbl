@@ -50,7 +50,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      _log.error(e);
     }
 
     return null;

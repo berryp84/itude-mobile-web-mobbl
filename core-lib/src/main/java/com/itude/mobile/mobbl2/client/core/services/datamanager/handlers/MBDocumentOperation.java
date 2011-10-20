@@ -86,7 +86,6 @@ public class MBDocumentOperation implements Runnable
 
   public MBDocument load()
   {
-
     long now = new Date().getTime();
 
     MBDocument doc = null;
