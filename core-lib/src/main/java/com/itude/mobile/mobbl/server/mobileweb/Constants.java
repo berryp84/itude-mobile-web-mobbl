@@ -3,19 +3,19 @@ package com.itude.mobile.mobbl.server.mobileweb;
 public interface Constants
 {
 
-  public final static String baseUrl                     = "m";
-  public final static String BASEURL_ATT                 = "baseUrl";
+  public static final String baseUrl                     = "m";
+  public static final String BASEURL_ATT                 = "baseUrl";
   public static final String DATASOURCE                  = "jdbc/localDB";
   public static final String ENCODING                    = "UTF-8";
-  public final static String MENU_FILENAME               = "menu.xml";
-  public final static String MENU_STORE                  = "infomidlet";
+  public static final String MENU_FILENAME               = "menu.xml";
+  public static final String MENU_STORE                  = "infomidlet";
   public static final int    NOT_REGISTERED              = 2;
   public static final int    OK                          = 1;
   public static final int    QUOTA_REACHED               = 3;
 
   //ADDED
-  public final static String DENIEDPAGE                  = "deniedPage";
-  public final static String XHTMLLEVEL                  = "xhtmlLevel";
+  public static final String DENIEDPAGE                  = "deniedPage";
+  public static final String XHTMLLEVEL                  = "xhtmlLevel";
 
   //  
   // HTML tags
