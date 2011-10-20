@@ -134,7 +134,7 @@ public class MBDocumentDefinition extends MBDefinition
     return getElementWithPathComponents(pathComponents);
   }
 
-  public MBAttributeDefinition getAttributeWithPath(String path) throws MBInvalidPathException
+  public MBAttributeDefinition getAttributeWithPath(String path)
   {
     int location = path.indexOf("@");
 
