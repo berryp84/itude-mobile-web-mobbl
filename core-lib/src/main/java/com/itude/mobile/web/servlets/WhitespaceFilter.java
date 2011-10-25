@@ -68,6 +68,7 @@ public class WhitespaceFilter implements Filter
   // You may want to replace this by init-param and initialize in init() instead.
   static final String[] START_TRIM_AFTER = {"<html", "</textarea", "</pre"};
   static final String[] STOP_TRIM_AFTER  = {"</html", "<textarea", "<pre"};
+  private static final String SPACE = " ";
 
   // Actions ------------------------------------------------------------------------------------
 
@@ -154,13 +155,13 @@ public class WhitespaceFilter implements Filter
               }
               else if (trim)
               {
-                if (line.endsWith(" "))
+                if (line.endsWith(SPACE))
                 {
-                  out.write(line.trim() + " ");
+                  out.write(line.trim() + SPACE);
                 }
-                else if (line.startsWith(" "))
+                else if (line.startsWith(SPACE))
                 {
-                  out.write(" " + line.trim());
+                  out.write(SPACE + line.trim());
                 }
                 else
                 {
