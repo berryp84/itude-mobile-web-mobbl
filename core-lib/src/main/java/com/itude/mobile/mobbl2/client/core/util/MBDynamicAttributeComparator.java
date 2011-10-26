@@ -1,16 +1,16 @@
 package com.itude.mobile.mobbl2.client.core.util;
 
 import java.util.Comparator;
-import java.util.Vector;
+import java.util.List;
 
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
 
 public class MBDynamicAttributeComparator implements Comparator<Object>
 {
 
-  private final Vector<Object[]> trace;
+  private final List<Object[]> trace;
 
-  public MBDynamicAttributeComparator(Vector<Object[]> trace)
+  public MBDynamicAttributeComparator(List<Object[]> trace)
   {
     this.trace = trace;
   }
