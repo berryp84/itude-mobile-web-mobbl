@@ -32,7 +32,7 @@ public class MBConfigurationParser extends DefaultHandler
   private static final Logger _log = Logger.getLogger(MBConfigurationParser.class);
 
   private Stack<MBDefinition> _stack;
-  private StringBuffer        _characters;
+  private StringBuilder        _characters;
   private String              _documentName;
 
   public String getDocumentName()
@@ -47,9 +47,8 @@ public class MBConfigurationParser extends DefaultHandler
 
   public MBDefinition parseData(byte[] data, String documentName)
   {
-
     _stack = new Stack<MBDefinition>();
-    _characters = new StringBuffer();
+    _characters = new StringBuilder();
 
     try
     {
@@ -200,7 +199,7 @@ public class MBConfigurationParser extends DefaultHandler
   @Override
   public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
   {
-    _characters = new StringBuffer();
+    _characters = new StringBuilder();
 
     if (isConcreteElement(localName))
     {

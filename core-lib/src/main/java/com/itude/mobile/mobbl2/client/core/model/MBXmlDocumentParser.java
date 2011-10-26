@@ -26,7 +26,7 @@ public class MBXmlDocumentParser extends DefaultHandler
   private Stack<MBElementContainer> _stack;
   private Stack<String>             _pathStack;
   private MBDocumentDefinition      _definition;
-  private StringBuffer              _characters;
+  private StringBuilder             _characters;
   private String                    _rootElementName;
   private MBElementContainer        _rootElement;
   private boolean                   _copyRootAttributes;
@@ -71,7 +71,7 @@ public class MBXmlDocumentParser extends DefaultHandler
         _stack = new Stack<MBElementContainer>();
         _pathStack = new Stack<String>();
         _definition = (MBDocumentDefinition) document.getDefinition();
-        _characters = new StringBuffer();
+        _characters = new StringBuilder();
         _copyRootAttributes = copyRootAttributes;
 
         if (rootPath != null)
@@ -175,7 +175,7 @@ public class MBXmlDocumentParser extends DefaultHandler
       _pathStack.pop();
     }
 
-    _characters = new StringBuffer();
+    _characters = new StringBuilder();
   }
 
   @Override

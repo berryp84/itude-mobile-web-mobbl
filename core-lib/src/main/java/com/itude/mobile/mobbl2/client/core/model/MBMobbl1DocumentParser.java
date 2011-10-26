@@ -19,7 +19,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
 
   private Stack<MBDocument>    _stack;
   private MBDocumentDefinition _definition;
-  private StringBuffer         _characters;
+  private StringBuilder        _characters;
 
   public static MBDocument getDocumentWithData(byte[] data, MBDocumentDefinition definition)
   {
@@ -40,7 +40,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
 
       _stack = new Stack<MBDocument>();
       _definition = definition;
-      _characters = new StringBuffer();
+      _characters = new StringBuilder();
 
       parser.parse(new ByteArrayInputStream(data), this);
 
@@ -59,7 +59,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
   @Override
   public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
   {
-    _characters = new StringBuffer();
+    _characters = new StringBuilder();
   }
 
   @Override
@@ -67,7 +67,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
   {
     if (_characters == null)
     {
-      _characters = new StringBuffer();
+      _characters = new StringBuilder();
     }
     _characters.append(ch, start, length);
   }

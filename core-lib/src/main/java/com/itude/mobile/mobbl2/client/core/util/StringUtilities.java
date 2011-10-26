@@ -169,7 +169,7 @@ public class StringUtilities
    */
   public static String getIndentStringWithLevel(int level)
   {
-    StringBuffer rt = new StringBuffer(level);
+    StringBuilder rt = new StringBuilder(level);
     return appendIndentString(rt, level).toString();
   }
 
@@ -180,7 +180,7 @@ public class StringUtilities
    * @param level
    * @return the same StringBuffer given as a param, useful for chaining calls
    */
-  private static StringBuffer appendIndentString(StringBuffer appendToMe, int level)
+  private static StringBuilder appendIndentString(StringBuilder appendToMe, int level)
   {
     while (level-- > 0)
       appendToMe.append(' ');
