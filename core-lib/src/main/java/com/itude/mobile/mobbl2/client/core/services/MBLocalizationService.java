@@ -32,7 +32,7 @@ public class MBLocalizationService
     setCurrentLanguage(languageCode);
   }
 
-  public void setInstance(MBLocalizationService instance)
+  public static void setInstance(MBLocalizationService instance)
   {
     if (instance != null)
           _instance = instance;
