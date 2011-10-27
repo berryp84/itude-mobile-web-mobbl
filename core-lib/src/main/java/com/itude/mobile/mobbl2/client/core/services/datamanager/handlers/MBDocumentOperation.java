@@ -1,7 +1,5 @@
 package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
-import java.util.Date;
-
 import org.apache.log4j.Logger;
 
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBDocumentDefinition;
@@ -86,7 +84,7 @@ public class MBDocumentOperation implements Runnable
 
   public MBDocument load()
   {
-    long now = new Date().getTime();
+    long startTime = System.currentTimeMillis();
 
     MBDocument doc = null;
     if (this.getArguments() == null) doc = getDataHandler().loadDocument(getDocumentName());
@@ -101,7 +99,7 @@ public class MBDocumentOperation implements Runnable
       if (docDef.getAutoCreate()) doc = docDef.createDocument();
     }
     doc.setArgumentsUsed(getArguments());
-    _log.debug("Loading of document " + getDocumentName() + " took " + (new Date().getTime() - now) / 1000 + " seconds");
+    _log.debug("Loading of document " + getDocumentName() + " took " + (System.currentTimeMillis() - startTime) + " ms");
     return doc;
   }
 
