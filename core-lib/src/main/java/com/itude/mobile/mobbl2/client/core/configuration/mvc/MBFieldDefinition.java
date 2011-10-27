@@ -27,7 +27,7 @@ public class MBFieldDefinition extends MBConditionalDefinition
   public String asXmlWithLevel(int level)
   {
     String bodyText = null;
-    if (!_text.equals(""))
+    if (!_text.isEmpty())
     {
       bodyText = _text;
     }

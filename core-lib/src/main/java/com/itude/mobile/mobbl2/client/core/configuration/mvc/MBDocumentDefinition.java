@@ -161,7 +161,7 @@ public class MBDocumentDefinition extends MBDefinition
       result += ed.getName();
     }
 
-    if (result.equals(""))
+    if (result.isEmpty())
     {
       result = "[none]";
     }

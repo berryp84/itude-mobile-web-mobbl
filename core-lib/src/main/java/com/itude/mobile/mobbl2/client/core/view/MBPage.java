@@ -145,7 +145,7 @@ public class MBPage extends MBPanel
       stripped = stripped + "/";
 
       String mustBe = pd.getRootPath();
-      if (mustBe == null || mustBe.equals(""))
+      if (mustBe == null || mustBe.isEmpty())
       {
         mustBe = "/";
       }

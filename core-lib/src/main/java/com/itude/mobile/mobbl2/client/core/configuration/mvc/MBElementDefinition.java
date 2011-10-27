@@ -124,7 +124,7 @@ public class MBElementDefinition extends MBDefinition
       result += elementDef.getName();
     }
 
-    if (result.equals(""))
+    if (result.isEmpty())
     {
       result = "[none]";
     }
