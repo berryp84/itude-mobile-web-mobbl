@@ -151,22 +151,22 @@ public class MBDocumentDefinition extends MBDefinition
 
   public String getChildElementNames()
   {
-    String result = "";
+    StringBuilder result = new StringBuilder();
     for (MBElementDefinition ed : _elementsSorted)
     {
       if (result.length() > 0)
       {
-        result += ", ";
+        result.append(", ");
       }
-      result += ed.getName();
+      result.append(ed.getName());
     }
 
-    if (result.isEmpty())
+    if (result.length() == 0)
     {
-      result = "[none]";
+      return "[none]";
     }
 
-    return result;
+    return result.toString();
   }
 
   public MBDocument createDocument()
