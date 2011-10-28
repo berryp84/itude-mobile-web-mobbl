@@ -1,5 +1,6 @@
 package com.itude.mobile.web.handlers;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
@@ -7,8 +8,10 @@ import javax.faces.context.FacesContext;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandler;
 
-public class SessionDataHandler implements MBDataHandler
+public class SessionDataHandler implements MBDataHandler, Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   private Map<String, Object> getSessionMap()
   {
     FacesContext ctx = FacesContext.getCurrentInstance();
