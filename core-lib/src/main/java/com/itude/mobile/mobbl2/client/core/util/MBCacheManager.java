@@ -2,7 +2,9 @@ package com.itude.mobile.mobbl2.client.core.util;
 
 import java.io.Serializable;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -21,6 +23,8 @@ public class MBCacheManager implements Serializable
 
   private static final Logger     _log             = Logger.getLogger(MBCacheManager.class);
 
+  private static MBCacheManager _globalInstance;
+
   private Map<String, MBDocument> _documents;
   private Map<String, Long>       _ttls;
 
@@ -31,23 +35,51 @@ public class MBCacheManager implements Serializable
     _documents = new Hashtable<String, MBDocument>();
   }
 
+  // Returns the SessionScoped MBCacheManager
   protected static MBCacheManager getInstance()
   {
     return ELUtil.getValue("CacheManager", MBCacheManager.class);
   }
-
-  protected synchronized void expire(String key)
+  
+  // Returns the global (equal to all users) MBCacheManager
+  protected static MBCacheManager getGlobalInstance()
   {
-    _ttls.remove(key);
-    _documents.remove(key);
+    if(_globalInstance == null)
+    {
+      MBCacheManager globalInstance = new MBCacheManager();
+      globalInstance.init();
+      _globalInstance = globalInstance;
+    }
+    return _globalInstance;
+  }
+
+  public synchronized void checkExpirationDates()
+  {
+    Iterator<Entry<String,Long>> it = _ttls.entrySet().iterator();
+    while (it.hasNext())
+    {
+        Map.Entry<String,Long> pair = it.next();
+        Long ttl = pair.getValue();
+        if(System.currentTimeMillis() > ttl)
+        {
+          it.remove();
+          _ttls.remove(pair.getKey());
+          _documents.remove(pair.getKey());
+        }
+    }
   }
 
   protected MBDocument doGetDocumentForKey(String key)
   {
-    _log.debug("Retreiving cache for " + key);
-    Long ttl = _ttls.get(key);
-    if (ttl != null && System.currentTimeMillis() > ttl) expire(key);
-    return _documents.get(key);
+    // Check all ttls in order to avoid items staying forever in the cache if they aren't retrieved again
+    checkExpirationDates();
+    
+    MBDocument toReturn = _documents.get(key);
+    if(toReturn != null)
+    {
+      _log.debug(key + " retreived from cache");
+    }
+    return toReturn;
   }
 
   protected synchronized void doSetDocument(MBDocument document, String key, int ttl)
@@ -57,14 +89,31 @@ public class MBCacheManager implements Serializable
     _documents.put(key, document);
   }
 
-  public static MBDocument documentForKey(String key)
+  public static MBDocument documentForKey(String key, boolean global)
   {
+    if(global)
+    {
+      return getGlobalInstance().doGetDocumentForKey(key);
+    }
     return getInstance().doGetDocumentForKey(key);
   }
 
-  public static void setDocument(MBDocument document, String key, int ttl)
+  public static void setDocument(MBDocument document, String key, int ttl, boolean global)
   {
-    getInstance().doSetDocument(document, key, ttl);
+    if(global)
+    {
+      getGlobalInstance().doSetDocument(document, key, ttl);
+    }
+    else
+    {
+      getInstance().doSetDocument(document, key, ttl);
+    }
+  }
+  
+  public static void flushGlobalCache()
+  {
+    // Just removing the global cache will do the trick
+    _globalInstance = null;
   }
 
 }

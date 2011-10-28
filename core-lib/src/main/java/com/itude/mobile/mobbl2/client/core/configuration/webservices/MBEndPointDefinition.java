@@ -13,6 +13,7 @@ public class MBEndPointDefinition extends MBDefinition
   private String                           _endPointUri;
   private List<MBResultListenerDefinition> _resultListeners;
   private boolean                          _cacheable;
+  private boolean                          _globalCacheable;
   private int                              _timeout;
   private int                              _ttl;
 
@@ -53,7 +54,7 @@ public class MBEndPointDefinition extends MBDefinition
     _endPointUri = endPointUri;
   }
 
-  public boolean getCacheable()
+  public boolean isCacheable()
   {
     return _cacheable;
   }
@@ -61,6 +62,16 @@ public class MBEndPointDefinition extends MBDefinition
   public void setCacheable(boolean cacheable)
   {
     _cacheable = cacheable;
+  }
+  
+  public boolean isGlobalCacheable()
+  {
+    return _globalCacheable;
+  }
+
+  public void setGlobalCacheable(boolean globalCacheable)
+  {
+    _globalCacheable = globalCacheable;
   }
 
   public int getTimeout()

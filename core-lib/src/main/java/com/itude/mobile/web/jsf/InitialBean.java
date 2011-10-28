@@ -12,18 +12,26 @@ import com.itude.mobile.web.controllers.ApplicationController;
 @SessionScoped
 public class InitialBean implements Serializable
 {
-  private static final long     serialVersionUID = 1L;
+  private static final long     serialVersionUID        = 1L;
 
   @Inject
   private ApplicationController _applicationController;
 
-  private boolean               _initialized     = false;
+  private boolean               _initialized            = false;
+  private static boolean        _applicationInitialized = false;
 
   public boolean isInitialized()
   {
-    if (!_initialized)
+    // Needs to be done once
+    if (!_applicationInitialized)
     {
       _applicationController.initialize();
+      _applicationInitialized = true;
+    }
+
+    // Needs to be done each session (which is why this bean is SessionScoped)
+    if (!_initialized)
+    {
       _applicationController.setInitialView();
       _initialized = true;
     }

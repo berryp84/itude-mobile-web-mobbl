@@ -34,6 +34,7 @@ public class MBWebservicesConfigurationParser extends MBConfigurationParser
       endpointDef.setDocumentOut(attributeDict.get("documentOut"));
       endpointDef.setEndPointUri(attributeDict.get("endPoint"));
       endpointDef.setCacheable(Boolean.parseBoolean(attributeDict.get("cacheable")));
+      endpointDef.setGlobalCacheable(Boolean.parseBoolean(attributeDict.get("globalCacheable")));
       if (attributeDict.containsKey("ttl"))
       {
         endpointDef.setTtl(Integer.parseInt(attributeDict.get("ttl")));

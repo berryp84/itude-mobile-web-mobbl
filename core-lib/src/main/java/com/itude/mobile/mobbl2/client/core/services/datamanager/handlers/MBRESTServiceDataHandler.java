@@ -74,10 +74,10 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
   }
 
   @Override
-  public MBDocument loadDocument(String documentName, MBDocument args)
+  public MBDocument doLoadDocument(String documentName, MBDocument args)
   {
     MBEndPointDefinition endPoint = getEndPointForDocument(documentName);
-
+    
     if (endPoint != null)
     {
       _log.debug("MBRESTServiceDataHandler:loadDocument " + documentName + " from " + endPoint.getEndPointUri());
@@ -224,8 +224,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
       }
     };
     ctx.init(null, new TrustManager[]{tm}, null);
-    SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-    ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+    SSLSocketFactory ssf = new SSLSocketFactory(ctx, SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
     ClientConnectionManager ccm = httpClient.getConnectionManager();
     SchemeRegistry sr = ccm.getSchemeRegistry();
     sr.register(new Scheme("https", 443, ssf));
