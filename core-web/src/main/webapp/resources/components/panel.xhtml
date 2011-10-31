@@ -227,7 +227,6 @@
 				<div class="TITLEMAIN">
 			 		<h:outputText value="#{cc.attrs.panel.title}" />
 			 	</div>
-				<h:outputText value="Hee daar"/>
 				<c:forEach transient="true" items="#{cc.attrs.panel.children}" var="child" varStatus="status">
 					<cc:component component="#{child}" />
 				</c:forEach>
