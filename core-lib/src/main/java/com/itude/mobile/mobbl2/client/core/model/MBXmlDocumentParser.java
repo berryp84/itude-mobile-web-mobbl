@@ -88,7 +88,8 @@ public class MBXmlDocumentParser extends DefaultHandler
         else
         {
           _rootElement = document;
-          _rootElementName = _definition.getName();
+          if (_definition.getRootElement() != null) _rootElementName = _definition.getRootElement();
+          else _rootElementName = _definition.getName();
         }
 
         parser.parse(new ByteArrayInputStream(data), this);

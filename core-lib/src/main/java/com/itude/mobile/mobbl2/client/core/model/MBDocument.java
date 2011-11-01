@@ -162,7 +162,7 @@ public class MBDocument extends MBElementContainer implements Cloneable
 
   public String asXmlWithLevel(int level)
   {
-    String result = StringUtilities.getIndentStringWithLevel(level) + "<" + _definition.getName();
+    String result = StringUtilities.getIndentStringWithLevel(level) + "<" + ((_definition.getRootElement() == null) ? _definition.getName() : _definition.getRootElement());
     if (getElements().size() == 0)
     {
       result += "/>\n";
