@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponseWrapper;
 /**
  * This filter class removes any whitespace from the response. It actually trims all leading and 
  * trailing spaces or tabs and newlines before writing to the response stream. This will greatly
- * save the network bandwith, but this will make the source of the response more hard to read.
+ * save the network bandwidth, but this will make the source of the response more hard to read.
  * <p>
  * This filter should be configured in the web.xml as follows:
  * <pre>
