@@ -40,6 +40,7 @@ public class MBForEach extends MBComponentContainer
       Object pathResult = document.getValueForPath(fullPath);
       if (pathResult != null)
       {
+        // TODO: this is Binck only. Should be removed from this project
         int rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Stijgers[0]/TopStijgersDalersTypeStijgersStijger".equals(definition.getValue()) ? 3 : ((List<?>) pathResult).size();
         rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Dalers[0]/TopStijgersDalersTypeDalersDaler".equals(definition.getValue()) ? 3 : rowAmount;
         
