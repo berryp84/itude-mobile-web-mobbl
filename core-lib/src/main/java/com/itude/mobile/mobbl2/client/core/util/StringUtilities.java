@@ -464,11 +464,11 @@ public class StringUtilities
 
   public static String replaceAdditionalHTMLTags(String str)
   {
-    str = str.replaceAll("&apos;", "'");
-    str = str.replaceAll("&amp;", "&");
-    str = str.replaceAll("&quot;", "\"");
+    str = str.replace("&apos;", "'");
+    str = str.replace("&amp;", "&");
+    str = str.replace("&quot;", "\"");
     // TODO: should be done in the iphone / android app as well
-    str = str.replaceAll("&apos;", "\'");
+    str = str.replace("&apos;", "\'");
     return str;
   }
 

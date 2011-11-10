@@ -135,7 +135,7 @@ public class PageHelper
   
   public static String doHTML(String htmlString)
   {
-    String newHtmlString = htmlString.replaceAll("<br />", "\n");
+    String newHtmlString = htmlString.replace("<br />", "\n");
     newHtmlString = newHtmlString.replaceAll("\\<.*?\\>", "");
     newHtmlString = newHtmlString.replaceAll("\n", "<br />");
     return newHtmlString;
@@ -143,8 +143,8 @@ public class PageHelper
   
   public static String unescapeHTML(String htmlString)
   {
-    String newHtmlString = htmlString.replaceAll("&lt;", "<");
-    newHtmlString = newHtmlString.replaceAll("&gt;", ">");
+    String newHtmlString = htmlString.replace("&lt;", "<");
+    newHtmlString = newHtmlString.replace("&gt;", ">");
     return newHtmlString;
   }
   
