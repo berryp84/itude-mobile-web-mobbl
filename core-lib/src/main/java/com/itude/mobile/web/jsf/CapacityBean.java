@@ -30,6 +30,8 @@ public class CapacityBean implements Serializable
   private boolean             _android;
   private boolean             _webkit;
   private boolean             _blackBerry;
+  private String _brandName;
+  private String _modelName;
 
   @PostConstruct
   protected void init()
@@ -45,12 +47,15 @@ public class CapacityBean implements Serializable
     HttpServletRequest hsr = (HttpServletRequest) ec.getRequest();
     String userAgent = hsr.getHeader("user-agent");
     Device device = wurfl.getDeviceForRequest(hsr);
-
+    
+    _brandName = device.getCapability("brand_name");
+    _modelName = device.getCapability("model_name");
+    
     _log.debug("user agent: " + userAgent);
-    _log.debug("Device: " + device.getCapability("brand_name") + " " + device.getCapability("model_name") + " (" + device.getId() + ")");
+    _log.debug("Device: " + _brandName + " " + _modelName + " (" + device.getId() + ")");
 
-    hsr.setAttribute("device_model", device.getCapability("model_name"));
-    hsr.setAttribute("device_brand", device.getCapability("brand_name"));
+    hsr.setAttribute("device_brand", _brandName);
+    hsr.setAttribute("device_model", _modelName);
 
     _imageWidth = Integer.parseInt(device.getCapability("max_image_width"));
     _width = Integer.parseInt(device.getCapability("resolution_width"));
@@ -90,6 +95,16 @@ public class CapacityBean implements Serializable
   public boolean isAndroid()
   {
     return _android;
+  }
+  
+  public String getBrandName()
+  {
+    return _brandName;
+  }
+  
+  public String getModelName()
+  {
+    return _modelName;
   }
 
 }
