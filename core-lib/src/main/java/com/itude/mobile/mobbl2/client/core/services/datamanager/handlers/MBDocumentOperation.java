@@ -99,7 +99,11 @@ public class MBDocumentOperation implements Runnable
       if (docDef.getAutoCreate()) doc = docDef.createDocument();
     }
     doc.setArgumentsUsed(getArguments());
-    _log.debug("Loading of document " + getDocumentName() + " took " + (System.currentTimeMillis() - startTime) + " ms");
+    long ms = System.currentTimeMillis() - startTime;
+    if(ms >= 10)
+      _log.debug("Loading of document " + getDocumentName() + " took " + ms + " ms");
+    else
+      _log.trace("Loading of document " + getDocumentName() + " took " + ms + " ms");
     return doc;
   }
 
