@@ -77,7 +77,7 @@ public class MBCacheManager implements Serializable
     MBDocument toReturn = _documents.get(key);
     if(toReturn != null)
     {
-      _log.debug(key + " retreived from cache");
+      _log.trace(key + " retreived from cache");
     }
     return toReturn;
   }
