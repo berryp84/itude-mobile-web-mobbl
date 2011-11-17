@@ -122,6 +122,7 @@ public class WhitespaceFilter implements Filter
       public void write(int c)
       {
         builder.append((char) c); // It is actually a char, not an int.
+        this.flush(); // Preflush it.
       }
 
       public void write(char[] chars, int offset, int length)
@@ -148,35 +149,37 @@ public class WhitespaceFilter implements Filter
           {
             while ((line = reader.readLine()) != null)
             {
-              if (startTrim(line))
+              if(!line.trim().isEmpty())
               {
-                trim = true;
-                out.write(line);
-              }
-              else if (trim)
-              {
-                if (line.endsWith(SPACE))
+                if (startTrim(line))
                 {
-                  out.write(line.trim() + SPACE);
+                  trim = true;
+                  out.write(line);
                 }
-                else if (line.startsWith(SPACE))
+                else if (trim)
                 {
-                  out.write(SPACE + line.trim());
+                  if (line.endsWith(SPACE))
+                  {
+                    out.write(line.trim() + SPACE);
+                  }
+                  else if (line.startsWith(SPACE))
+                  {
+                    out.write(SPACE + line.trim());
+                  }
+                  else
+                  {
+                    out.write(line.trim());
+                  }
+                  if (stopTrim(line))
+                  {
+                    trim = false;
+                    println();
+                  }
                 }
                 else
                 {
-                  out.write(line.trim());
+                  out.write(line);
                 }
-                if (stopTrim(line))
-                {
-                  trim = false;
-                  println();
-                }
-              }
-              else
-              {
-                out.write(line);
-                println();
               }
             }
           }
