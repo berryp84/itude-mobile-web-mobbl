@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,8 @@ import net.sourceforge.wurfl.core.WURFLHolder;
 import net.sourceforge.wurfl.core.WURFLManager;
 
 import org.apache.log4j.Logger;
+
+import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
 @RequestScoped
 @Named
@@ -32,6 +35,9 @@ public class CapacityBean implements Serializable
   private boolean             _blackBerry;
   private String _brandName;
   private String _modelName;
+  
+  @Inject
+  private PageBean _page;
 
   @PostConstruct
   protected void init()
@@ -54,8 +60,11 @@ public class CapacityBean implements Serializable
     _log.debug("user agent: " + userAgent);
     _log.debug("Device: " + _brandName + " " + _modelName + " (" + device.getId() + ")");
 
-    hsr.setAttribute("device_brand", _brandName);
-    hsr.setAttribute("device_model", _modelName);
+    // Set values in the request for statistics' sake
+    hsr.setAttribute("device-brand", _brandName);
+    hsr.setAttribute("device-model", _modelName);
+    hsr.setAttribute("pageID", _page.getPage().getName());
+    hsr.setAttribute("projectID", MobblEnvironment.getArtifactId());
 
     _imageWidth = Integer.parseInt(device.getCapability("max_image_width"));
     _width = Integer.parseInt(device.getCapability("resolution_width"));
