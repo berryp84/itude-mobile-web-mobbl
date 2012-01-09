@@ -80,8 +80,8 @@
     <properties>
 		<svnserver>http://repo.itude.com/repos/</svnserver>
 		<ciserver>http://macserver.itude.com/jenkins</ciserver>
-		<nexus>http://ci.itude.com/nexus/content/groups/public/</nexus>
-		<jira>http://dev.itude.com/jira/</jira>
+		<nexus>http://ci.itude.com/nexus/content/repositories/itude</nexus>
+		<jira>http://macserver.itude.com/jira/</jira>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
