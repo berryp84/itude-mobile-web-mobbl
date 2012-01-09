@@ -31,14 +31,6 @@
 			debug logs are shown) -->
 		<param-value>Production</param-value>
 	</context-param>
-	<context-param>
-		<param-name>wurfl</param-name>
-		<param-value>/WEB-INF/wurfl.zip</param-value>
-	</context-param>
-	<context-param>
-		<param-name>wurflPatch</param-name>
-		<param-value>/WEB-INF/wurfl_patch.xml</param-value>
-	</context-param>
 	<filter>
 		<description>Send emails of errors to the development team</description>
 		<display-name>ErrorLoggerFilter</display-name>
@@ -148,7 +140,7 @@
 		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>net.sourceforge.wurfl.core.web.WURFLServletContextListener</listener-class>
+		<listener-class>com.itude.mobile.web.servlet.WURFLServlet</listener-class>
 	</listener>
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
