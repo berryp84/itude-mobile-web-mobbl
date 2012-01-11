@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>com.itude.mobile.web.tools</groupId>
 			<artifactId>wurfl-service</artifactId>
-			<version>0.0.3.0</version>
+			<version>0.0.4.0</version>
 		</dependency>
 	</dependencies>
 
