@@ -2,7 +2,10 @@ package com.itude.mobile.web.util;
 
 import java.util.Collection;
 
+import javax.faces.context.FacesContext;
+
 import com.itude.commons.jsf.util.ELUtil;
+import com.itude.commons.util.Base64;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl2.client.core.view.MBComponent;
 import com.itude.mobile.mobbl2.client.core.view.MBComponentContainer;
@@ -15,7 +18,11 @@ import com.itude.mobile.web.controllers.ApplicationController;
 
 public class PageHelper
 {
-  
+  //Contants to avoid excessive garbage collection
+  public static final String CUSTOM_BEGIN = "C";
+  private static final char  COLON        = ':';
+  private static final int   CUSTOM_SIZE  = CUSTOM_BEGIN.length();
+
   public static String componentType(MBComponent component)
   {
     if (component instanceof MBPage) return "page";
@@ -40,7 +47,7 @@ public class PageHelper
 
     else return "";
   }
-  
+
   public static String getTranslatedPathValue(MBField field)
   {
     String path = field.getAbsoluteDataPath();
@@ -55,15 +62,14 @@ public class PageHelper
 
   public static Integer compareWithMarker(MBComponentContainer row, MBField column)
   {
-    
+
     MBField marker = null;
     MBField primary = null;
-    
+
     if (!"DIFFABLE_PRIMARY".equals(column.getStyle()) && !"DIFFABLE_SECONDARY".equals(column.getStyle())) return 0;
 
-    if (column.getValue() == null)
-      return 0;
-    
+    if (column.getValue() == null) return 0;
+
     for (MBComponent child : row.getChildren())
     {
       if (child instanceof MBField)
@@ -95,30 +101,32 @@ public class PageHelper
   {
     int delta = compareWithMarker(field.getParent(), field);
 
-    if (delta == 1 || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double.parseDouble(field.getValue()) > 0)) return "POSITIVE";
-    if (delta == -1 || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double.parseDouble(field.getValue()) < 0)) return "NEGATIVE";
+    if (delta == 1
+        || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double
+            .parseDouble(field.getValue()) > 0)) return "POSITIVE";
+    if (delta == -1
+        || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double
+            .parseDouble(field.getValue()) < 0)) return "NEGATIVE";
 
-    if (!"DIFFABLE_PRIMARY".equals(field.getStyle()) && !"DIFFABLE_SECONDARY".equals(field.getStyle()))
-      return "";
-    
-     return "NEUTRAL";
+    if (!"DIFFABLE_PRIMARY".equals(field.getStyle()) && !"DIFFABLE_SECONDARY".equals(field.getStyle())) return "";
+
+    return "NEUTRAL";
   }
-  
+
   public static Integer nonHiddenChildren(MBComponentContainer row)
   {
     int nonHidden = -2;
-    for (MBComponent child :  row.getChildren())
+    for (MBComponent child : row.getChildren())
     {
       if (child instanceof MBField)
       {
-        MBField field = (MBField)child;
-        if (!field.isHidden())
-          nonHidden++;
+        MBField field = (MBField) child;
+        if (!field.isHidden()) nonHidden++;
       }
     }
     return nonHidden;
   }
-  
+
   public static Integer nonHiddenChildren2(MBComponentContainer row)
   {
     int nonHidden = 0;
@@ -132,7 +140,7 @@ public class PageHelper
     }
     return nonHidden;
   }
-  
+
   public static String doHTML(String htmlString)
   {
     String newHtmlString = htmlString.replace("<br />", "\n");
@@ -140,21 +148,40 @@ public class PageHelper
     newHtmlString = newHtmlString.replaceAll("\n", "<br />");
     return newHtmlString;
   }
-  
+
   public static String unescapeHTML(String htmlString)
   {
     String newHtmlString = htmlString.replace("&lt;", "<");
     newHtmlString = newHtmlString.replace("&gt;", ">");
     return newHtmlString;
   }
-  
+
   public static String textForKey(String key)
   {
     return MBLocalizationService.getInstance().getTextForKey(key);
   }
-  
+
   public static String concat(String s1, String s2)
   {
     return s1.concat(s2);
+  }
+  
+  // Not used by facelets, but by renderers
+  public static String convertClientId(FacesContext context, String clientId)
+  {
+    if (clientId.contains(CUSTOM_BEGIN))
+    {
+      int beginPosition = clientId.indexOf(CUSTOM_BEGIN);
+      int endPosition = clientId.indexOf(COLON, beginPosition);
+      if (endPosition == -1)
+      {
+        endPosition = clientId.length() - 1;
+      }
+      return clientId.substring(beginPosition + CUSTOM_SIZE, endPosition);
+    }
+    else
+    {
+      return Base64.encodeLong(clientId.hashCode());
+    }
   }
 }

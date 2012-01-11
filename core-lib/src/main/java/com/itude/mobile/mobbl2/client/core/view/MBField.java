@@ -16,6 +16,7 @@ import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
+import com.itude.mobile.web.util.PageHelper;
 
 public class MBField extends MBComponent
 {
@@ -115,6 +116,40 @@ public class MBField extends MBComponent
   {
     _label = label;
   }
+  
+  public String getLabelKey()
+  {
+    return _label;
+  }
+  
+  public String getGeneratedId()
+  {
+//    _log.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
+//    _log.info("_label: "+_label);
+    if(_label != null)
+    {
+      // Return the _label (as it is assumed there aren't 2 buttons with the same label)
+      
+      // TODO: This can be way prettier with regular expressions
+      StringBuilder sb = new StringBuilder();
+      for(char c : _label.toCharArray())
+      {
+        if(c >= 48 && c <= 57 /* numbers */ || c >= 65 && c <= 90 /*uppercase characters*/ || c >= 97 && c <= 122 /* lowercase characters */)
+        {
+          sb.append(c);
+        }
+      }
+//      _log.info("=> "+ _label);
+      return PageHelper.CUSTOM_BEGIN + sb;
+    }
+    else
+    {
+      // In case of no label, the absoluteDataPath should be unique (in contrast to getPath, which is unevaluated)
+//      _log.info("=> "+ getAbsoluteDataPath().hashCode());
+      return PageHelper.CUSTOM_BEGIN + getAbsoluteDataPath().hashCode();
+    }
+  }
+
 
   public String getDataType()
   {

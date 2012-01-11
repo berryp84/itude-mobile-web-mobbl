@@ -4,7 +4,7 @@ import javax.faces.context.FacesContext;
 
 import com.itude.mobile.web.util.PageHelper;
 
-public class SecretRenderer extends com.sun.faces.renderkit.html_basic.SecretRenderer
+public class LinkRenderer extends com.sun.faces.renderkit.html_basic.OutputLinkRenderer
 {
 
   @Override
