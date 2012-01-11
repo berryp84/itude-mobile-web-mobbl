@@ -6,7 +6,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -36,9 +35,6 @@ public class CapacityBean implements Serializable
   private String _brandName;
   private String _modelName;
   
-  @Inject
-  private PageBean _page;
-
   @PostConstruct
   protected void init()
   {
@@ -63,7 +59,6 @@ public class CapacityBean implements Serializable
     // Set values in the request for statistics' sake
     hsr.setAttribute("device-brand", _brandName);
     hsr.setAttribute("device-model", _modelName);
-    hsr.setAttribute("pageID", _page.getPage().getName());
     hsr.setAttribute("projectID", MobblEnvironment.getArtifactId());
 
     _imageWidth = Integer.parseInt(device.getCapability("max_image_width"));
