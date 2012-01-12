@@ -158,46 +158,50 @@
 				<c:when test="#{cc.attrs.panel.style eq 'HALF'}">
 					<div class="halfLink">
 						<div style="overflow:hidden">
-						<h:link outcome="link" includeViewParams="yes">
+						<h:outputLink value="link.jsf" includeViewParams="yes" id="#{cc.attrs.panel.children[1].generatedId}">
 							<f:param name="docId" value="#{currentView.docId}" />
 							<f:param name="outcome"
 								value="#{cc.attrs.panel.children[0].outcomeName}" />
-							<f:param name="path"
-								value="#{cc.attrs.panel.children[0].path}" />
+							<c:if test="#{!empty cc.attrs.panel.children[0].path}">
+								<f:param name="path"
+									value="#{cc.attrs.panel.children[0].path}" />
+							</c:if>
 							<div style="float:#{cc.attrs.panel.children[0].style eq 'BACK' ? 'left' : 'right'}">
 								<cc:component component="#{cc.attrs.panel.children[0]}" />
 							</div>
 							<div style="overflow:auto;">
 								<cc:component component="#{cc.attrs.panel.children[1]}" />
 							</div>
-						</h:link>
+						</h:outputLink>
 						</div>
 					</div>
 				</c:when>
 				<c:when
 					test="#{cc.attrs.panel.children[1] ne null and i:componentType(cc.attrs.panel.children[1]) eq 'panel' and cc.attrs.panel.children[1].type eq 'SECTION'}">
-					<h:link outcome="link" includeViewParams="yes" style="text-decoration:none">
+					<h:outputLink value="link.jsf" includeViewParams="yes" style="text-decoration:none">
 						<f:param name="docId" value="#{currentView.docId}" />
 						<f:param name="outcome"
 							value="#{cc.attrs.panel.children[0].outcomeName}" />
 						<c:set value="#{cc.attrs.panel.children[1]}" var="child1"
 							scope="request" />
 						<cc:component component="#{child1}" />
-					</h:link>
+					</h:outputLink>
 				</c:when>
 				<c:when
 					test="#{cc.attrs.panel.children[0].children[0].outcomeName ne null}">
-					<div class="ROWLINK"><h:link outcome="link"
+					<div class="ROWLINK"><h:outputLink value="link.jsf" id="#{cc.attrs.panel.children[0].children[1].generatedId}"
 						includeViewParams="yes">
 						<f:param name="docId" value="#{currentView.docId}" />
 						<f:param name="outcome"
 							value="#{cc.attrs.panel.children[0].children[0].outcomeName}" />
-						<f:param name="path"
-							value="#{cc.attrs.panel.children[0].children[0].absoluteDataPath}" />
+						<c:if test="#{!empty cc.attrs.panel.children[0].children[0].absoluteDataPath}">
+							<f:param name="path"
+								value="#{cc.attrs.panel.children[0].children[0].absoluteDataPath}" />
+						</c:if>
 						<c:set value="#{cc.attrs.panel.children[0]}" var="child0"
 							scope="request" />
 						<cc:component component="#{child0}" />
-					</h:link></div>
+					</h:outputLink></div>
 				</c:when>
 				<c:otherwise>
 					<c:set value="#{cc.attrs.panel.children[0]}" var="child0"
@@ -246,12 +250,12 @@
 			<div class="TOPLISTROW #{cc.attrs.panel.style}">
 				<c:set value="#{cc.attrs.panel}" var="toplistrowpanel" />
 				<div class="TOPLISTROWLINK-REF">
-					<h:link outcome="link" includeViewParams="yes" class="ROWLINK">
+					<h:outputLink value="link.jsf" includeViewParams="yes" class="ROWLINK">
 						<f:param name="docId" value="#{currentView.docId}" />
 						<f:param name="outcome"
 							value="#{toplistrowpanel.children[0].outcomeName}" />
 						<b><h:outputText value="#{toplistrowpanel.children[1].label}" /></b>
-					</h:link>
+					</h:outputLink>
 				</div>
 			</div>
 		</c:when>

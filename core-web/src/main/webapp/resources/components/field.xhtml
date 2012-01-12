@@ -60,50 +60,50 @@
 						<td><cc:button label="#{cc.attrs.field.label}"
 							styleClass="#{change} #{cc.attrs.field.style}"
 							outcome="#{cc.attrs.field.outcomeName}"
-							path="#{cc.attrs.field.absoluteDataPath}" /></td>
+							path="#{cc.attrs.field.absoluteDataPath}" id="#{cc.attrs.field.generatedId}"/></td>
 					</c:when>
 					<c:otherwise>
 						<cc:button label="#{cc.attrs.field.label}"
 							styleClass="#{change} #{cc.attrs.field.style}"
 							outcome="#{cc.attrs.field.outcomeName}"
-							path="#{cc.attrs.field.absoluteDataPath}" />
+							path="#{cc.attrs.field.absoluteDataPath}" id="#{cc.attrs.field.generatedId}"/>
 					</c:otherwise>
 				</c:choose>
 			</c:when>
 			
 			<c:when test="#{cc.attrs.field.type eq 'EMAILFIELD'}">
 				<div class="inputContainer">
-					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="email"/>
+					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="email" id="#{cc.attrs.field.generatedId}"/>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'TELFIELD'}">
 				<div class="inputContainer">
-					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="tel"/>
+					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="tel" id="#{cc.attrs.field.generatedId}"/>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'NUMBERFIELD'}">
 				<div class="inputContainer">
-					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="number"/>
+					<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" type="number" id="#{cc.attrs.field.generatedId}"/>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'INPUTFIELD'}">
 				<div class="inputContainer">
 					<c:if test="#{empty cc.attrs.field.customTranslated}">
-						<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.style}"/>
+						<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.style}" id="#{cc.attrs.field.generatedId}"/>
 					</c:if>
 					<c:if test="#{!empty cc.attrs.field.customTranslated}">
-						<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" placeholder="#{cc.attrs.field.customTranslated}"/>
+						<h:inputText value="#{cc.attrs.field.value}" styleClass="#{cc.attrs.field.custom1}" placeholder="#{cc.attrs.field.customTranslated}" id="#{cc.attrs.field.generatedId}"/>
 					</c:if>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'USERNAMEFIELD'}">
 				<div class="inputContainer">
-					<h:inputText value="#{cc.attrs.field.value}"/>
+					<h:inputText value="#{cc.attrs.field.value}" id="#{cc.attrs.field.generatedId}"/>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'PASSWORDFIELD'}">
 				<div class="inputContainer">
-					<h:inputSecret value="#{cc.attrs.field.value}" />
+					<h:inputSecret value="#{cc.attrs.field.value}" id="#{cc.attrs.field.generatedId}"/>
 				</div>
 			</c:when>
 			<c:when test="#{cc.attrs.field.type eq 'CHECKBOX'}">
