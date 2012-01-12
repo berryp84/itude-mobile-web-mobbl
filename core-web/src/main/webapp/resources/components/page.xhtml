@@ -10,6 +10,7 @@
 <!-- INTERFACE -->
 <composite:interface>
 	<composite:attribute name="page" />
+	<composite:attribute name="id" />
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
@@ -19,7 +20,7 @@
 			<cc:component component="#{cc.attrs.page.page}" />
 		</c:when>
 		<c:otherwise>
-			<h:form prependId="false">
+			<h:form prependId="false" id="f">
 				<cc:component component="#{cc.attrs.page.page}" />
 			</h:form>
 		</c:otherwise>
