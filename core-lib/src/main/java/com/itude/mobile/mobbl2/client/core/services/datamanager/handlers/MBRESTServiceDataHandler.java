@@ -184,8 +184,8 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
       // TODO: clean up exception handling
       catch (Exception e)
       {
-        // Trace in stead of debug because it can contain a password
-        _log.trace("Sent xml:\n" + body);
+        // debug in stead of info because it can contain a password
+        _log.debug("Sent xml:\n" + body);
         _log.info("Received:\n" + dataString);
         if (e instanceof RuntimeException) throw (RuntimeException) e;
         else throw new ItudeRuntimeException(e);
