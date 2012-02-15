@@ -32,18 +32,20 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
     MBEndPointDefinition endPoint = getEndPointForDocument(documentName);
     boolean cacheable = endPoint.isCacheable();
     boolean globalCacheable = endPoint.isGlobalCacheable();
+    String documentIdentifier = null;
 
     if (cacheable)
     {
       MBDocument result;
       if (doc == null)
       {
-        result = MBCacheManager.documentForKey(documentName, globalCacheable);
+        documentIdentifier = documentName;
       }
       else
       {
-        result = MBCacheManager.documentForKey(documentName + doc.getUniqueId(), globalCacheable);
+        documentIdentifier = documentName + doc.getUniqueId();
       }
+      result = MBCacheManager.documentForKey(documentIdentifier, globalCacheable);
 
       if (result != null)
       {
@@ -57,11 +59,11 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
     {
       if (doc == null)
       {
-        MBCacheManager.setDocument(result, documentName, endPoint.getTtl(), globalCacheable);
+        MBCacheManager.setDocument(result, documentIdentifier, endPoint.getTtl(), globalCacheable);
       }
       else
       {
-        MBCacheManager.setDocument(result, documentName + doc.getUniqueId(), endPoint.getTtl(), globalCacheable);
+        MBCacheManager.setDocument(result, documentIdentifier, endPoint.getTtl(), globalCacheable);
       }
     }
     
