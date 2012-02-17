@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -20,7 +21,9 @@ import com.itude.mobile.web.util.PageHelper;
 
 public class MBField extends MBComponent
 {
-  private static final Logger   _log = Logger.getLogger(MBField.class);
+  private static final Logger   _log          = Logger.getLogger(MBField.class);
+
+  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]\\]");
 
   private Object                _responder;
   private MBAttributeDefinition _attributeDefinition;
@@ -116,40 +119,39 @@ public class MBField extends MBComponent
   {
     _label = label;
   }
-  
+
   public String getLabelKey()
   {
     return _label;
   }
-  
+
   public String getGeneratedId()
   {
-//    _log.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
-//    _log.info("_label: "+_label);
-    if(_label != null)
+    //    _log.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
+    //    _log.info("_label: "+_label);
+    if (_label != null)
     {
       // Return the _label (as it is assumed there aren't 2 buttons with the same label)
-      
+
       // TODO: This can be way prettier with regular expressions
       StringBuilder sb = new StringBuilder();
-      for(char c : _label.toCharArray())
+      for (char c : _label.toCharArray())
       {
-        if(c >= 48 && c <= 57 /* numbers */ || c >= 65 && c <= 90 /*uppercase characters*/ || c >= 97 && c <= 122 /* lowercase characters */)
+        if (c >= 48 && c <= 57 /* numbers */|| c >= 65 && c <= 90 /*uppercase characters*/|| c >= 97 && c <= 122 /* lowercase characters */)
         {
           sb.append(c);
         }
       }
-//      _log.info("=> "+ _label);
+      //      _log.info("=> "+ _label);
       return PageHelper.CUSTOM_BEGIN + sb;
     }
     else
     {
       // In case of no label, the absoluteDataPath should be unique (in contrast to getPath, which is unevaluated)
-//      _log.info("=> "+ getAbsoluteDataPath().hashCode());
+      //      _log.info("=> "+ getAbsoluteDataPath().hashCode());
       return PageHelper.CUSTOM_BEGIN + getAbsoluteDataPath().hashCode();
     }
   }
-
 
   public String getDataType()
   {
@@ -258,17 +260,17 @@ public class MBField extends MBComponent
   {
     _custom3 = custom3;
   }
-  
+
   public void setCustomTranslated(String customTranslated)
   {
     _customTranslated = customTranslated;
   }
-  
+
   public String getCustomTranslated()
   {
     return MBLocalizationService.getInstance().getTextForKey(_customTranslated);
   }
-  
+
   public String getValue()
   {
     if (_cachedValueSet)
@@ -287,7 +289,8 @@ public class MBField extends MBComponent
     _cachedValueSet = true;
     return result;
   }
-  private String _cachedValue = null;
+
+  private String  _cachedValue    = null;
   private boolean _cachedValueSet = false;
 
   public void setValue(String value)
@@ -354,7 +357,7 @@ public class MBField extends MBComponent
   {
     if (_attributeDefinition == null)
     {
-      String path = StringUtilities.normalizedPath(StringUtilities.stripCharacters(getAbsoluteDataPath(), "[]0123456789"));
+      String path = NUMBERPATTERN.matcher(getAbsoluteDataPath()).replaceAll("");
       if (path == null)
       {
         return null;
@@ -408,7 +411,7 @@ public class MBField extends MBComponent
   {
     String fieldValue = getValue();
     if ("NaN".equals(fieldValue)) fieldValue = null;
-    
+
     if (fieldValue == null) fieldValue = getValueIfNil();
 
     if (fieldValue == null) return "";
@@ -467,7 +470,7 @@ public class MBField extends MBComponent
     }
     else if (!fieldValueSameAsNilValue && getDataType().equals("nonNegativeDouble") && Integer.parseInt(fieldValue) < 0)
     {
-      fieldValue = String.valueOf(Integer.parseInt(fieldValue)*-1);
+      fieldValue = String.valueOf(Integer.parseInt(fieldValue) * -1);
     }
 
     // CURRENCY Symbols

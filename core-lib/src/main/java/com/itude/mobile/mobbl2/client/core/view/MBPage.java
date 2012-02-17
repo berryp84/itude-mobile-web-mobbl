@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -17,6 +18,8 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 public class MBPage extends MBPanel
 {
   private static final Logger                                    _log = Logger.getLogger(MBPage.class);
+  
+  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]\\]");
 
   private String                                                 _pageName;
   private String                                                 _rootPath;
@@ -141,7 +144,7 @@ public class MBPage extends MBPanel
     if (path.length() > 0)
     {
       MBPageDefinition pd = (MBPageDefinition) getDefinition();
-      String stripped = StringUtilities.normalizedPath(StringUtilities.stripCharacters(path, "[]0123456789"));
+      String stripped = StringUtilities.normalizedPath(NUMBERPATTERN.matcher(path).replaceAll(""));
       stripped = stripped + "/";
 
       String mustBe = pd.getRootPath();
