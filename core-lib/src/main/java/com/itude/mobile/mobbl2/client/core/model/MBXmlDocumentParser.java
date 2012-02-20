@@ -24,7 +24,7 @@ public class MBXmlDocumentParser extends DefaultHandler
 {
   private static final Logger       _log          = Logger.getLogger(MBXmlDocumentParser.class);
 
-  private static final Pattern      NUMBERPATTERN = Pattern.compile("\\[[0-9]\\]");
+  private static final Pattern      NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
   private Stack<MBElementContainer> _stack;
   private Stack<String>             _pathStack;
@@ -73,7 +73,7 @@ public class MBXmlDocumentParser extends DefaultHandler
 
         _stack = new Stack<MBElementContainer>();
         _pathStack = new Stack<String>();
-        _definition = (MBDocumentDefinition) document.getDefinition();
+        _definition = document.getDefinition();
         _characters = new StringBuilder();
         _copyRootAttributes = copyRootAttributes;
 

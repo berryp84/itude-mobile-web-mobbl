@@ -17,9 +17,9 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
 public class MBPage extends MBPanel
 {
-  private static final Logger                                    _log = Logger.getLogger(MBPage.class);
-  
-  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]\\]");
+  private static final Logger                                    _log          = Logger.getLogger(MBPage.class);
+
+  private static final Pattern                                   NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
   private String                                                 _pageName;
   private String                                                 _rootPath;
@@ -260,7 +260,6 @@ public class MBPage extends MBPanel
     rebuild();
   }
 
-
   @Override
   public MBPage getPage()
   {
@@ -292,7 +291,7 @@ public class MBPage extends MBPanel
   {
     return asXmlWithLevel(0);
   }
-  
+
   // The following function haven't been implemented:
   // getDocumentDiff, setDocumentDiff, getChildViewControllers, getView, setViewController, getViewController, getViewControllerOfType, diffDocument
   // registerOutcomeListener, unregisterOutcomeListener, handleException, unregisterAllViewControllers, registerViewController

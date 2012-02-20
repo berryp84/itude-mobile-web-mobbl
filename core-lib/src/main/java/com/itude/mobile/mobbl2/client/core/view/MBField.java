@@ -23,7 +23,7 @@ public class MBField extends MBComponent
 {
   private static final Logger   _log          = Logger.getLogger(MBField.class);
 
-  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]\\]");
+  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
   private Object                _responder;
   private MBAttributeDefinition _attributeDefinition;
