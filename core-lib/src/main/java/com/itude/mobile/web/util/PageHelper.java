@@ -1,11 +1,16 @@
 package com.itude.mobile.web.util;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
+
 import com.itude.commons.jsf.util.ELUtil;
 import com.itude.commons.util.Base64;
+import com.itude.mobile.mobbl2.client.core.model.MBElement;
+import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl2.client.core.view.MBComponent;
 import com.itude.mobile.mobbl2.client.core.view.MBComponentContainer;
@@ -18,6 +23,8 @@ import com.itude.mobile.web.controllers.ApplicationController;
 
 public class PageHelper
 {
+  private static final Logger _log = Logger.getLogger(PageHelper.class);
+  
   //Contants to avoid excessive garbage collection
   public static final String CUSTOM_BEGIN = "C";
   private static final char  COLON        = ':';
@@ -183,5 +190,22 @@ public class PageHelper
     {
       return Base64.encodeLong(clientId.hashCode());
     }
+  }
+  
+  // Can be removed when we can use Tomcat 7: you can replace it by .getValueForPath(
+  public static <T> T valueForPath(MBElementContainer element, String path)
+  {
+    if (element == null)
+    {
+      _log.warn("element is null when requesting the path " + path);
+      return null;
+    }
+    return element.getValueForPath(path);
+  }
+
+  //Can be removed when we can use Tomcat 7: you can replace it by .elementsWithName(
+  public static List<MBElement> elementsWithName(MBElementContainer container, String name)
+  {
+    return container.getElementsWithName(name);
   }
 }
