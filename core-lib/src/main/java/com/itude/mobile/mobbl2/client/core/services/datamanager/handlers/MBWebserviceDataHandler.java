@@ -1,5 +1,6 @@
 package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBEndPointDefinition;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBWebservicesConfiguration;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBWebservicesConfigurationParser;
@@ -30,6 +31,10 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
   public MBDocument loadDocument(String documentName, MBDocument doc)
   {
     MBEndPointDefinition endPoint = getEndPointForDocument(documentName);
+    if(endPoint == null)
+    {
+      throw new ItudeRuntimeException("No endpoint for document "+ documentName +" found");
+    }
     boolean cacheable = endPoint.isCacheable();
     boolean globalCacheable = endPoint.isGlobalCacheable();
     String documentIdentifier = null;
