@@ -131,7 +131,7 @@ public class MBElementContainer
       return target.createElementWithName(elementName);
     }
     else
-    {      
+    {
       MBElementDefinition childDef = null;
       if (getDefinition() instanceof MBElementDefinition) childDef = ((MBElementDefinition) getDefinition()).getChildWithName(name);
       else if (getDefinition() instanceof MBDocumentDefinition) childDef = ((MBDocumentDefinition) getDefinition()).getChildWithName(name);
@@ -188,7 +188,7 @@ public class MBElementContainer
   public <T> T getValueForPath(String path)
   {
     // explicit casts to T like this is in order to please javac
-    return (T)getValueForPath(path, null);
+    return (T) getValueForPath(path, null);
   }
 
   @SuppressWarnings("unchecked")
@@ -230,7 +230,7 @@ public class MBElementContainer
             pathComponents.remove(0);
           }
 
-          return (T)doc.getValueForPathComponents(pathComponents, path, true, translatedPathComponents);
+          return (T) doc.getValueForPathComponents(pathComponents, path, true, translatedPathComponents);
         }
         else
         {
@@ -239,7 +239,7 @@ public class MBElementContainer
       }
     }
 
-    return (T)getValueForPathComponents(pathComponents, path, true, translatedPathComponents);
+    return (T) getValueForPathComponents(pathComponents, path, true, translatedPathComponents);
   }
 
   public void setValue(String value, String path)
@@ -304,7 +304,7 @@ public class MBElementContainer
 
   @SuppressWarnings("unchecked")
   public <T> T getValueForPathComponents(List<String> pathComponents, String originalPath, boolean nillIfMissing,
-                                          List<String> translatedPathComponents)
+                                         List<String> translatedPathComponents)
   {
     if (pathComponents.size() > 0)
     {
@@ -334,7 +334,7 @@ public class MBElementContainer
       {
         if (pathComponents.size() == 0)
         {
-          return (T)rootList;
+          return (T) rootList;
         }
         String message = "No index specified for " + childElementName + " in path" + originalPath;
         throw new MBNoIndexSpecifiedException(message);
@@ -357,10 +357,10 @@ public class MBElementContainer
 
       MBElement root = rootList.get(idx);
       if (translatedPathComponents != null) translatedPathComponents.add(root.getName() + "[" + idx + "]");
-      return (T)root.getValueForPathComponents(pathComponents, originalPath, nillIfMissing, translatedPathComponents);
+      return (T) root.getValueForPathComponents(pathComponents, originalPath, nillIfMissing, translatedPathComponents);
     }
 
-    return (T)this;
+    return (T) this;
   }
 
   public String getName()
@@ -435,14 +435,18 @@ public class MBElementContainer
       result += expression.substring(0, position);
       expression = expression.substring(position + 2);
       subPartPosition = expression.indexOf('}');
-      
+
       if (subPartPosition != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
-        
+
         singleExpression = expression.substring(0, subPartPosition);
 
-        if (singleExpression.startsWith(".") && currentPath != null && currentPath.length() > 0)
+        /* 
+         * We check if the singleExpression starts with a '/' or contains a ':'
+         * If it doesn't, we can assume it's a relative path and we want to append the singleExpression to the currentPath
+        */
+        if (!singleExpression.startsWith("/") && !singleExpression.contains(":") && currentPath != null && currentPath.length() > 0)
         {
           singleExpression = currentPath + "/" + singleExpression;
         }
