@@ -1,6 +1,7 @@
 package com.itude.mobile.mobbl2.client.core.model;
 
 import java.io.ByteArrayInputStream;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 import java.util.regex.Pattern;
@@ -16,6 +17,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBDocumentDefinition;
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBElementDefinition;
+import com.itude.mobile.mobbl2.client.core.configuration.mvc.exceptions.MBElementNotExpectedException;
 import com.itude.mobile.mobbl2.client.core.model.exceptions.MBInvalidDocumentException;
 import com.itude.mobile.mobbl2.client.core.model.exceptions.MBParseErrorException;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
@@ -33,6 +35,7 @@ public class MBXmlDocumentParser extends DefaultHandler
   private String                    _rootElementName;
   private MBElementContainer        _rootElement;
   private boolean                   _copyRootAttributes;
+  private HashSet<String>           _ignoredPaths;
 
   public static MBDocument getDocumentWithData(byte[] data, MBDocumentDefinition definition)
   {
@@ -76,6 +79,7 @@ public class MBXmlDocumentParser extends DefaultHandler
         _definition = document.getDefinition();
         _characters = new StringBuilder();
         _copyRootAttributes = copyRootAttributes;
+        _ignoredPaths = new HashSet<String>();
 
         if (rootPath != null)
         {
@@ -117,8 +121,7 @@ public class MBXmlDocumentParser extends DefaultHandler
   @Override
   public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
   {
-
-    MBElementContainer element;
+    MBElementContainer element = null;
     boolean copyAttributes = true;
 
     // check that we have the correct document type
@@ -135,25 +138,41 @@ public class MBXmlDocumentParser extends DefaultHandler
       element = _rootElement;
       copyAttributes = _copyRootAttributes;
     }
-    else
+    else if (isValidPath(getCurrentPath()))
     {
       _pathStack.add(localName);
-      MBElementDefinition elemDef = _definition.getElementWithPath(getCurrentPath());
-      element = new MBElement(elemDef);
-
-      _stack.peek().addElement((MBElement) element);
-    }
-
-    // Do not process elements that are not defined; so also check for nil definition
-    if (copyAttributes && element.getDefinition() != null)
-    {
-
-      for (int i = 0; i < attributes.getLength(); i++)
+      try
       {
-        ((MBElement) element).setAttributeValue(attributes.getValue(i), attributes.getLocalName(i), false);
+        MBElementDefinition elemDef = _definition.getElementWithPath(getCurrentPath());
+        element = new MBElement(elemDef);
+
+        _stack.peek().addElement((MBElement) element);
+      }
+      catch (MBElementNotExpectedException e)
+      {
+        _log.warn("Skipping element with name " + localName + ". Element is not in definition " + _definition.getName());
+        _ignoredPaths.add(getCurrentPath());
       }
     }
-    _stack.add(element);
+    // add name to pathStack if a child element has the same name as an element that's already on an ignored path
+    else if (localName.equals(_pathStack.peek()))
+    {
+      _pathStack.add(localName);
+      _ignoredPaths.add(getCurrentPath());
+    }
+
+    if (element != null)
+    {
+      // Do not process elements that are not defined; so also check for nil definition
+      if (copyAttributes && element.getDefinition() != null)
+      {
+        for (int i = 0; i < attributes.getLength(); i++)
+        {
+          ((MBElement) element).setAttributeValue(attributes.getValue(i), attributes.getLocalName(i), false);
+        }
+      }
+      _stack.add(element);
+    }
   }
 
   @Override
@@ -161,25 +180,42 @@ public class MBXmlDocumentParser extends DefaultHandler
   {
     if (_stack.size() > 1)
     {
-      String string = _characters.toString().trim();
-      if (string.length() > 0)
+      if (isValidPath(getCurrentPath()))
       {
-        if (_stack.peek() instanceof MBElement && ((MBElement) _stack.peek()).isValidAttribute("text()"))
-        {
-          ((MBElement) _stack.peek()).setAttributeValue(string, "text()");
-        }
-        else
-        {
-          _log.warn("MBXmlDocumentParser.endElement: Text (" + string + ") specified in body of element " + localName
-                    + " is ignored because the element has no text() attribute defined");
-        }
+        endValidElement(uri, localName, qName);
       }
-
-      _stack.pop();
-      _pathStack.pop();
+      else if (localName.equals(_pathStack.peek()))
+      {
+        _pathStack.pop();
+      }
     }
 
     _characters = new StringBuilder();
+  }
+
+  private void endValidElement(String uri, String localName, String qName) throws SAXException
+  {
+    String string = _characters.toString().trim();
+    if (string.length() > 0)
+    {
+      if (_stack.peek() instanceof MBElement && ((MBElement) _stack.peek()).isValidAttribute("text()"))
+      {
+        ((MBElement) _stack.peek()).setAttributeValue(string, "text()");
+      }
+      else
+      {
+        _log.warn("MBXmlDocumentParser.endElement: Text (" + string + ") specified in body of element " + localName
+                  + " is ignored because the element has no text() attribute defined");
+      }
+    }
+
+    _stack.pop();
+    _pathStack.pop();
+  }
+
+  private boolean isValidPath(String path)
+  {
+    return !_ignoredPaths.contains(path);
   }
 
   @Override

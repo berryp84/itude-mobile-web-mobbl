@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.itude.mobile.mobbl2.client.core.configuration.MBDefinition;
+import com.itude.mobile.mobbl2.client.core.configuration.mvc.exceptions.MBElementNotExpectedException;
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
 import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
@@ -152,10 +153,9 @@ public class MBElementDefinition extends MBDefinition
     if (pathComponents.size() > 0)
     {
       MBElementDefinition root = getChildWithName(pathComponents.get(0));
-      if(root == null)
+      if (root == null)
       {
-        // TODO: We might want to simply ignore this element (configurable)
-        throw new RuntimeException("Can\'t find element with name "+ pathComponents.get(0));
+        throw new MBElementNotExpectedException("Can\'t find element with name " + pathComponents.get(0));
       }
       pathComponents.remove(0);
       return root.getElementWithPathComponents(pathComponents);
@@ -187,7 +187,7 @@ public class MBElementDefinition extends MBDefinition
       }
     }
 
-    element.toString ();
+    element.toString();
     return element;
   }
 
