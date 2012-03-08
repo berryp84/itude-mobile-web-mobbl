@@ -1,6 +1,8 @@
 package com.itude.mobile.web.jsf;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -15,7 +17,7 @@ public class AlertBean implements Serializable
   private boolean _shown;
   private boolean _notice;
   private String  _title;
-  private String  _message;
+  private List<String>  _messages;
 
   @PostConstruct
   protected void init()
@@ -23,7 +25,7 @@ public class AlertBean implements Serializable
     _shown = false;
     _notice = false;
     _title = "";
-    _message = "";
+    _messages = new ArrayList<String>();
   }
 
   public boolean isShown()
@@ -54,12 +56,23 @@ public class AlertBean implements Serializable
 
   public String getMessage()
   {
-    return _message;
+    return _messages.get(0);
+  }
+  
+  public List<String> getMessages()
+  {
+    return _messages;
   }
 
   public void setMessage(String message)
   {
-    _message = message;
+    _messages = new ArrayList<String>();
+    _messages.add(message);
+  }
+  
+  public void setMessages(List<String> messages)
+  {
+    _messages = messages;
   }
   
   public void setNotice(boolean notice)
