@@ -42,14 +42,8 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
     if (cacheable)
     {
       MBDocument result;
-      if (doc == null)
-      {
-        documentIdentifier = documentName;
-      }
-      else
-      {
-        documentIdentifier = documentName + doc.getUniqueId();
-      }
+      
+      documentIdentifier = doc == null ? documentName : documentName + doc.getUniqueId();
       result = MBCacheManager.documentForKey(documentIdentifier, globalCacheable);
 
       if (result != null)
