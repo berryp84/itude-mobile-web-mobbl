@@ -34,7 +34,7 @@ public class MBMetadataService implements Serializable
   private final MBConfigurationDefinition _cfg;
 
   private static MBMetadataService        _instance;
-  private static final String                   CONFIG_NAME      = "config";
+  private static final String             CONFIG_NAME      = "config";
 
   private Map<String, Object> getRequestMap()
   {
