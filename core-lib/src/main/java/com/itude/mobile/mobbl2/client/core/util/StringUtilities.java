@@ -1,6 +1,7 @@
 package com.itude.mobile.mobbl2.client.core.util;
 
 import java.security.MessageDigest;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -18,22 +19,24 @@ import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl2.client.core.util.exceptions.MBDateParsingException;
 import com.itude.mobile.mobbl2.client.core.util.exceptions.MBInvalidRelativePathException;
 
-public class StringUtilities
+public final class StringUtilities
 {
-  private static final Logger               _log            = Logger.getLogger(StringUtilities.class);
+  private static final Logger               _log                = Logger.getLogger(StringUtilities.class);
 
   private static Locale                     defaultFormattingLocale;
 
-  private static ThreadLocal<DecimalFormat> TLFormatter3Dec = new ThreadLocal<DecimalFormat>()
-                                                            {
-                                                              @Override
-                                                              protected DecimalFormat initialValue()
-                                                              {
-                                                                DecimalFormat formatter = new DecimalFormat();
-                                                                setupFormatter(formatter, 3);
-                                                                return formatter;
-                                                              }
-                                                            };
+  private static final String               DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+
+  private static ThreadLocal<DecimalFormat> TLFormatter3Dec     = new ThreadLocal<DecimalFormat>()
+                                                                {
+                                                                  @Override
+                                                                  protected DecimalFormat initialValue()
+                                                                  {
+                                                                    DecimalFormat formatter = new DecimalFormat();
+                                                                    setupFormatter(formatter, 3);
+                                                                    return formatter;
+                                                                  }
+                                                                };
 
   private static void setupFormatter(DecimalFormat formatter, int numDec)
   {
@@ -45,7 +48,6 @@ public class StringUtilities
     formatter.setGroupingSize(3);
   }
 
-  private static final String                  DEFAULT_DATE_FORMAT    = "yyyy-MM-dd'T'HH:mm:ss";
   private static ThreadLocal<SimpleDateFormat> TLDefaultDateFormatter = new ThreadLocal<SimpleDateFormat>()
                                                                       {
                                                                         @Override
@@ -225,8 +227,7 @@ public class StringUtilities
     String result = dateString;
     Date date = dateFromXML(dateString);
 
-    String dateFormatMask = "";
-
+    DateFormat df;
     // We can't just compare two dates, because the time is also compared.
     // Therefore the time is removed and the two dates without time are compared
     Calendar calendar = Calendar.getInstance();
@@ -238,19 +239,19 @@ public class StringUtilities
     if (calendar.get(Calendar.YEAR) == today.get(Calendar.YEAR) && calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH)
         && calendar.get(Calendar.DAY_OF_YEAR) == today.get(Calendar.DAY_OF_YEAR))
     {
-      dateFormatMask = "HH:mm:ss";
+      df = new SimpleDateFormat("HH:mm:ss");
+
     }
     else
     {
-      dateFormatMask = "dd-MM-yy";
+      df = DateFormat.getDateInstance(DateFormat.SHORT,
+                                      getDefaultFormattingLocale() != null ? getDefaultFormattingLocale() : Locale.getDefault());
     }
 
     // Format the date
     try
     {
-      SimpleDateFormat df = new SimpleDateFormat(dateFormatMask);
       result = df.format(date);
-
       return result;
     }
     catch (Exception e)
