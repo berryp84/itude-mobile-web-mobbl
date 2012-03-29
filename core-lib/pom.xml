@@ -56,10 +56,19 @@
 	</scm>
 
 	<build>
+		<testSourceDirectory>src/test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

@@ -1,14 +1,17 @@
 package com.itude.mobile.mobbl2.client.core.util;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.UnsupportedEncodingException;
 
-import org.apache.commons.codec.binary.Base64;
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-public class EncryptionUtilitiesTest
+public class EncryptionUtilitiesTest extends TestCase
 {
+
+  private final String TESTSTRING   = "toplinealex";
+  //  private final String TESTSTRING2  = "bladiebla3";
+  private final String ENCODINGTYPE = "Windows-1252";
 
   @Test
   public void testEncryptWiki1()
@@ -27,42 +30,49 @@ public class EncryptionUtilitiesTest
   @Test
   public void testEncrypt() throws UnsupportedEncodingException
   {
-    byte[] result = EncryptionUtilities.encrypt("TOPLINEALEX", "TOPLINEALEX");
-    assertEquals("ÝÕåòÈïÇÊ_Ð", ByteUtil.encodeBytesToString(result, "Windows-1252").trim());
+    byte[] result = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase(), TESTSTRING.toUpperCase());
+    assertEquals("ÝÕåòÈïÇÊ_Ð", ByteUtil.encodeBytesToString(result, ENCODINGTYPE).trim());
   }
 
-  @Test
-  public void testEncryptMetBase() throws UnsupportedEncodingException
-  {
-    byte[] result = EncryptionUtilities.encrypt("TOPLINEALEX", "TOPLINEALEX");
-    assertEquals("w53DlcOlw7LDiMOvw4fDil/DkA8=", Base64.encodeBase64String(ByteUtil.encodeBytes(result, "Windows-1252")).trim());
-  }
-
-  @Test
-  public void testEncryptSleutel() throws UnsupportedEncodingException
-  {
-    byte[] result = EncryptionUtilities.encrypt("toplinealex".toUpperCase(), "bladiebla3".toUpperCase());
-    byte[] result2 = EncryptionUtilities.encrypt("bladiebla3".toUpperCase(), "bladiebla3".toUpperCase());
-    byte[] result3 = EncryptionUtilities.encrypt("toplinealex".toUpperCase().getBytes(), result2);
-
-    String hashA = Base64.encodeBase64String(ByteUtil.encodeBytes(result, "Windows-1252"));
-    String hashB = Base64.encodeBase64String(ByteUtil.encodeBytes(result3, "Windows-1252"));
-    assertEquals("w4vDlsO0w7rDiMOkw4DDh1LCpg==", hashA.trim());
-    assertEquals("Qx7DtMOUKMO6LivDh3s=", hashB.trim());
-  }
-
-  @Test
-  public void testEncryptSleutel2() throws UnsupportedEncodingException
-  {
-    byte[] result = EncryptionUtilities.encrypt("bladiebla3".toUpperCase(), "toplinealex".toUpperCase());
-    byte[] result2 = EncryptionUtilities.encrypt("toplinealex".toUpperCase(), "toplinealex".toUpperCase());
-    byte[] result3 = EncryptionUtilities.encrypt("bladiebla3".toUpperCase().getBytes(), result2);
-
-    String hashA = Base64.encodeBase64String(ByteUtil.encodeBytes(result, "Windows-1252"));
-    String hashB = Base64.encodeBase64String(ByteUtil.encodeBytes(result3, "Windows-1252"));
-
-    assertEquals("w5zigKFQYsKpUMKrwq3Dmcuccw==", hashA.trim());
-    assertEquals("VR3DpcOcKMOxKSbDig0k", hashB.trim());
-  }
+  //  @Test
+  //  public void testEncryptMetBase() throws UnsupportedEncodingException
+  //  {
+  //    byte[] result = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase(), TESTSTRING.toUpperCase());
+  //    assertEquals("77+977+977+977+977+977+977+977+9X++/vQ8=", Base64.encodeBase64String(ByteUtil.encodeBytes(result, "UTF-8")).trim());
+  //  }
+  //
+  //  @Test
+  //  public void testEncryptMetBaseWindowsTyped() throws UnsupportedEncodingException
+  //  {
+  //    byte[] result = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase(), TESTSTRING.toUpperCase());
+  //    assertEquals("w53DlcOlw7LDiMOvw4fDil/DkA8=", Base64.encodeBase64String(ByteUtil.encodeBytes(result, ENCODINGTYPE)).trim());
+  //  }
+  //
+  //  @Test
+  //  public void testEncryptSleutel() throws UnsupportedEncodingException
+  //  {
+  //    byte[] result = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase(), TESTSTRING2.toUpperCase());
+  //    byte[] result2 = EncryptionUtilities.encrypt(TESTSTRING2.toUpperCase(), TESTSTRING2.toUpperCase());
+  //    byte[] result3 = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase().getBytes(), result2);
+  //
+  //    String hashA = Base64.encodeBase64String(ByteUtil.encodeBytes(result, ENCODINGTYPE));
+  //    String hashB = Base64.encodeBase64String(ByteUtil.encodeBytes(result3, ENCODINGTYPE));
+  //    assertEquals("w4vDlsO0w7rDiMOkw4DDh1LCpg==", hashA.trim());
+  //    assertEquals("Qx7DtMOUKMO6LivDh3s=", hashB.trim());
+  //  }
+  //
+  //  @Test
+  //  public void testEncryptSleutel2() throws UnsupportedEncodingException
+  //  {
+  //    byte[] result = EncryptionUtilities.encrypt(TESTSTRING2.toUpperCase(), TESTSTRING.toUpperCase());
+  //    byte[] result2 = EncryptionUtilities.encrypt(TESTSTRING.toUpperCase(), TESTSTRING.toUpperCase());
+  //    byte[] result3 = EncryptionUtilities.encrypt(TESTSTRING2.toUpperCase().getBytes(), result2);
+  //
+  //    String hashA = Base64.encodeBase64String(ByteUtil.encodeBytes(result, ENCODINGTYPE));
+  //    String hashB = Base64.encodeBase64String(ByteUtil.encodeBytes(result3, ENCODINGTYPE));
+  //
+  //    assertEquals("w5zigKFQYsKpUMKrwq3Dmcuccw==", hashA.trim());
+  //    assertEquals("VR3DpcOcKMOxKSbDig0k", hashB.trim());
+  //  }
 
 }
