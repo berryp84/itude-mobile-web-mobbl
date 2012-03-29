@@ -57,7 +57,7 @@ public class MBFileDataHandler extends MBDataHandlerBase
   }
 
   @Override
-  public MBDocument loadDocument(String documentName, MBDocument args)
+  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
   {
     return loadDocument(documentName);
   }

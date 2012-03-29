@@ -81,8 +81,8 @@ public class MBDocumentOperation implements Runnable
   {
     return _delegate;
   }
-
-  public MBDocument load()
+  
+  public MBDocument load(String uniqueAddition)
   {
     long startTime = System.currentTimeMillis();
 
@@ -90,7 +90,7 @@ public class MBDocumentOperation implements Runnable
     if (this.getArguments() == null) doc = getDataHandler().loadDocument(getDocumentName());
     else
     {
-      doc = getDataHandler().loadDocument(getDocumentName(), getArguments().clone());
+      doc = getDataHandler().loadDocument(getDocumentName(), getArguments().clone(), uniqueAddition);
     }
 
     if (doc == null)
@@ -105,6 +105,11 @@ public class MBDocumentOperation implements Runnable
     else
       _log.trace("Loading of document " + getDocumentName() + " took " + ms + " ms");
     return doc;
+  }
+
+  public MBDocument load()
+  {
+    return load(null);
   }
 
   public void store()

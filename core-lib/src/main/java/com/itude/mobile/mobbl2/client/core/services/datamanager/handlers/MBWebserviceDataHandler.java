@@ -24,11 +24,11 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
   @Override
   public MBDocument loadDocument(String documentName)
   {
-    return loadDocument(documentName, null);
+    return loadDocument(documentName, null, null);
   }
 
   @Override
-  public MBDocument loadDocument(String documentName, MBDocument doc)
+  public MBDocument loadDocument(String documentName, MBDocument doc, String uniqueAddition)
   {
     MBEndPointDefinition endPoint = getEndPointForDocument(documentName);
     if(endPoint == null)
@@ -44,6 +44,10 @@ public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
       MBDocument result;
       
       documentIdentifier = doc == null ? documentName : documentName + doc.getUniqueId();
+      if(uniqueAddition != null)
+      {
+        documentIdentifier = uniqueAddition +'|'+ documentIdentifier;
+      }
       result = MBCacheManager.documentForKey(documentIdentifier, globalCacheable);
 
       if (result != null)

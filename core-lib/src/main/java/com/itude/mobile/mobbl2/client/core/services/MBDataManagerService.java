@@ -83,6 +83,11 @@ public class MBDataManagerService implements Serializable
   {
     return getLoaderForDocumentName(documentName, args).load();
   }
+  
+  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
+  {
+    return getLoaderForDocumentName(documentName, args).load(uniqueAddition);
+  }
 
   public void loadDocument(String documentName, MBDocumentOperationDelegate delegate)
   {
