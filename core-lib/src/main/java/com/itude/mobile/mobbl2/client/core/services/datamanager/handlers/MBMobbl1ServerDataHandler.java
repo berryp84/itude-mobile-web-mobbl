@@ -19,7 +19,7 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
   //
   //expects an argument Document of type MBMobbl1Request
   @Override
-  public MBDocument doLoadDocument(String documentName, MBDocument doc)
+  public MBDocument doLoadDocument(String documentName, MBDocument args)
   {
     String universeID = MBProperties.getInstance().getValueForProperty("mobblUniverseID");
     String UIDPrefix = MBProperties.getInstance().getValueForProperty("UIDPrefix");
@@ -27,13 +27,13 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
     String secret = MBProperties.getInstance().getValueForProperty("mobblSecret");
 
     // package the incoming document in a StrayClient envelope
-    String applicationID = (String) doc.getValueForPath("Request[0]/@name");
+    String applicationID = (String) args.getValueForPath("Request[0]/@name");
     MBDocument mobblDoc = getRequestDocumentForApplicationID(applicationID);
     MBElement mobblRequest = (MBElement) mobblDoc.getValueForPath("StrayClient[0]/SendDataDetails[0]/request[0]");
 
     //
     @SuppressWarnings({"unchecked"})
-    List<MBElement> parameters = (List<MBElement>) doc.getValueForPath("Request[0]/Parameter");
+    List<MBElement> parameters = (List<MBElement>) args.getValueForPath("Request[0]/Parameter");
 
     for (MBElement parameter : parameters)
     {
@@ -71,9 +71,8 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
     sendData.setAttributeValue(UID, "iPhoneUID");
     sendData.setAttributeValue(messageID, "messageID");
     setDocumentFactoryType(MBDocumentFactory.PARSER_MOBBL1);
-    MBDocument result = super.doLoadDocument(documentName, mobblDoc);
 
-    return result;
+    return super.doLoadDocument(documentName, mobblDoc);
   }
 
   public MBDocument getRequestDocumentForApplicationID(String applicationID)
