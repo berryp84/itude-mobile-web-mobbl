@@ -494,17 +494,17 @@ public class MBElementContainer
 
   public String getUniqueId()
   {
-    String uid = "";
+    StringBuilder uid = new StringBuilder();
+    
     for (String elementName : _elements.keySet())
     {
-      int idx = 0;
       for (MBElement element : _elements.get(elementName))
       {
-        uid += "[" + idx + "_" + element.getUniqueId();
+        uid.append("["+ element.getUniqueId());
       }
     }
 
-    return uid;
+    return uid.toString();
   }
 
   //Sorts on the given attribute(s) Multiple attributes must be separated by ,
