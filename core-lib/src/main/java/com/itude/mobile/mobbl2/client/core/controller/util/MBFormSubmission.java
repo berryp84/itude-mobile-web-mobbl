@@ -11,14 +11,13 @@ import com.itude.mobile.mobbl2.client.core.model.MBElement;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.exceptions.MBServerErrorException;
 
-
 public class MBFormSubmission implements MBAction
 {
-  private static final long serialVersionUID = 1L;
-  
-  final static String C_GENERIC_REQUEST = "MBGenericRequest";
-  
-  protected static final org.apache.log4j.Logger _log = org.apache.log4j.Logger.getLogger(MBFormSubmission.class);
+  private static final long                      serialVersionUID  = 1L;
+
+  final static String                            C_GENERIC_REQUEST = "MBGenericRequest";
+
+  protected static final org.apache.log4j.Logger _log              = org.apache.log4j.Logger.getLogger(MBFormSubmission.class);
 
   public MBOutcome execute(MBDocument document, String path)
   {
@@ -80,15 +79,13 @@ public class MBFormSubmission implements MBAction
       response.setValue(outcomeOK, "Response[0]/@outcomeName");
 
       outcomeName = "OUTCOME-MBFormSubmissionOK";
-      outcome = new MBOutcome(outcomeName, response);
     }
     else
     {
       outcomeName = outcomeOK;
-      outcome = new MBOutcome(outcomeName, response);
     }
 
-    return outcome;
+    return new MBOutcome(outcomeName, response);
   }
 
   public void validateDocument(MBDocument document, String path)
@@ -104,9 +101,10 @@ public class MBFormSubmission implements MBAction
     parameter.setAttributeValue(value, "value");
   }
 
-	@Override
-	public MBOutcome execute(MBDocument document, String path, String outcomeName) {
-		return this.execute(document, path);
-	}
+  @Override
+  public MBOutcome execute(MBDocument document, String path, String outcomeName)
+  {
+    return this.execute(document, path);
+  }
 
 }

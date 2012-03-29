@@ -21,13 +21,13 @@ import com.itude.mobile.mobbl2.client.core.util.exceptions.MBInvalidRelativePath
 
 public final class StringUtilities
 {
-  private static final Logger               _log                = Logger.getLogger(StringUtilities.class);
+  private static final Logger               LOG                = Logger.getLogger(StringUtilities.class);
 
   private static Locale                     defaultFormattingLocale;
 
   private static final String               DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
 
-  private static ThreadLocal<DecimalFormat> TLFormatter3Dec     = new ThreadLocal<DecimalFormat>()
+  private static ThreadLocal<DecimalFormat> tLFormatter3Dec     = new ThreadLocal<DecimalFormat>()
                                                                 {
                                                                   @Override
                                                                   protected DecimalFormat initialValue()
@@ -37,6 +37,10 @@ public final class StringUtilities
                                                                     return formatter;
                                                                   }
                                                                 };
+
+  private StringUtilities()
+  {
+  }
 
   private static void setupFormatter(DecimalFormat formatter, int numDec)
   {
@@ -48,7 +52,7 @@ public final class StringUtilities
     formatter.setGroupingSize(3);
   }
 
-  private static ThreadLocal<SimpleDateFormat> TLDefaultDateFormatter = new ThreadLocal<SimpleDateFormat>()
+  private static ThreadLocal<SimpleDateFormat> tLDefaultDateFormatter = new ThreadLocal<SimpleDateFormat>()
                                                                       {
                                                                         @Override
                                                                         protected SimpleDateFormat initialValue()
@@ -211,7 +215,7 @@ public final class StringUtilities
     }
     catch (Exception e)
     {
-      _log.warn("Could not format string " + stringToFormat + " as number with original number of decimals (StringUtilities)", e);
+      LOG.warn("Could not format string " + stringToFormat + " as number with original number of decimals (StringUtilities)", e);
 
       return null;
     }
@@ -267,12 +271,12 @@ public final class StringUtilities
     {
       if (stringToFormat == null)
       {
-        _log.warn("stringToFormat == null!");
+        LOG.warn("stringToFormat == null!");
         return new Date();
       }
 
       String dateString = stringToFormat.substring(0, 19);
-      if (dateString != null) return TLDefaultDateFormatter.get().parse(dateString);
+      if (dateString != null) return tLDefaultDateFormatter.get().parse(dateString);
       else return null;
     }
     catch (Exception e)
@@ -305,7 +309,7 @@ public final class StringUtilities
 
   private static String dateToStringDefaultFormat(Date dateToFormat)
   {
-    return TLDefaultDateFormatter.get().format(dateToFormat);
+    return tLDefaultDateFormatter.get().format(dateToFormat);
   }
 
   // returns a string formatted as a number with two decimals assuming the receiver is a float string read from XML
@@ -387,7 +391,7 @@ public final class StringUtilities
     {
       return null;
     }
-    return TLFormatter3Dec.get().format(Double.parseDouble(stringToFormat));
+    return tLFormatter3Dec.get().format(Double.parseDouble(stringToFormat));
   }
 
   // returns a string formatted as a volume with group separators (eg, 131.224.000) assuming the receiver is an int string read from XML
@@ -442,7 +446,7 @@ public final class StringUtilities
     }
     catch (Exception e)
     {
-      _log.warn("Could not create hash of following string: " + stringToHash);
+      LOG.warn("Could not create hash of following string: " + stringToHash);
     }
 
     return null;
