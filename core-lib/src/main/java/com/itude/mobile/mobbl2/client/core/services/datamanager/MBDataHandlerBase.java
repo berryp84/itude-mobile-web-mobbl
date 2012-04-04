@@ -20,12 +20,6 @@ public class MBDataHandlerBase implements MBDataHandler
     return null;
   }
   
-  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
-  {
-    _log.warn("MBDataHandlerBase: No loadDocument implementation for " + documentName);
-    return null;
-  }
-
   public void storeDocument(MBDocument document)
   {
     _log.warn("MBDataHandlerBase: No storeDocument implementation for " + document.getDefinition().getName());

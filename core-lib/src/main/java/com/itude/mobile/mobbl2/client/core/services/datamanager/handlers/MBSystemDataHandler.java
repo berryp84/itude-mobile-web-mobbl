@@ -82,12 +82,6 @@ public class MBSystemDataHandler extends MBDataHandlerBase
   }
 
   @Override
-  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
-  {
-    return loadDocument(documentName);
-  }
-
-  @Override
   public void storeDocument(MBDocument document)
   {
     _dictionary.put(document.getName(), document);

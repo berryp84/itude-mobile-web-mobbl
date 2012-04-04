@@ -35,10 +35,4 @@ public class MBResourceDataHandler extends MBDataHandlerBase implements Serializ
 
   }
 
-  @Override
-  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
-  {
-    return loadDocument(documentName);
-  }
-
 }

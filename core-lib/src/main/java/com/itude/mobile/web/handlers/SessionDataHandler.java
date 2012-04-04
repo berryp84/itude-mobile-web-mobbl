@@ -36,12 +36,6 @@ public class SessionDataHandler implements MBDataHandler, Serializable
   }
   
   @Override
-  public MBDocument loadDocument(String documentName, MBDocument args, String uniqueAddition)
-  {
-    return loadDocument(documentName);
-  }
-
-  @Override
   public void storeDocument(MBDocument document)
   {
     getSessionMap().put(determineKey(document.getName()), document);

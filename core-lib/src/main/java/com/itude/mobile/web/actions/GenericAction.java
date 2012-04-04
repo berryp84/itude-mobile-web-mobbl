@@ -35,11 +35,6 @@ public abstract class GenericAction implements MBAction, Serializable
     return getDataManagerService().loadDocument(name, arguments);
   }
   
-  public MBDocument loadDocument(String name, MBDocument arguments, String uniqueAddition)
-  {
-    return getDataManagerService().loadDocument(name, arguments, uniqueAddition);
-  }
-
   protected MBMetadataService getMetadataService()
   {
     return _metadataService;
