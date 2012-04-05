@@ -22,7 +22,7 @@ import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
 public class MBResourceService
 {
-  private static final Logger      _log                      = Logger.getLogger(MBResourceService.class);
+  private static final Logger      LOGGER                      = Logger.getLogger(MBResourceService.class);
 
   public static final String       RESOURCE_CONFIG_FILE_NAME = MobblEnvironment.getResourcesFile();
 
@@ -81,14 +81,14 @@ public class MBResourceService
 
         if (data == null)
         {
-          _log.warn("Warning: could not load file=" + fileName + " based on URL=" + urlString);
+          LOGGER.warn("Warning: could not load file=" + fileName + " based on URL=" + urlString);
         }
 
         return data;
       }
       catch (Exception e)
       {
-        _log.warn("Warning: could not load file=" + fileName + " based on URL=" + urlString);
+        LOGGER.warn("Warning: could not load file=" + fileName + " based on URL=" + urlString);
       }
     }
 

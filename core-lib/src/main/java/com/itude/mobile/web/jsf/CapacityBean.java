@@ -1,6 +1,8 @@
 package com.itude.mobile.web.jsf;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -16,13 +18,14 @@ import net.sourceforge.wurfl.core.WURFLManager;
 
 import org.apache.log4j.Logger;
 
+import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
 
 @RequestScoped
 @Named
 public class CapacityBean implements Serializable
 {
-  private static final Logger _log             = Logger.getLogger(CapacityBean.class);
+  private static final Logger LOGGER           = Logger.getLogger(CapacityBean.class);
 
   private static final long   serialVersionUID = 1L;
 
@@ -32,9 +35,10 @@ public class CapacityBean implements Serializable
   private boolean             _android;
   private boolean             _webkit;
   private boolean             _blackBerry;
-  private String _brandName;
-  private String _modelName;
-  
+  private boolean             _iphone;
+  private String              _brandName;
+  private String              _modelName;
+
   @PostConstruct
   protected void init()
   {
@@ -42,19 +46,19 @@ public class CapacityBean implements Serializable
     ExternalContext ec = ci.getExternalContext();
     ServletContext sc = (ServletContext) ec.getContext();
 
-    WURFLHolder wurflHolder = (WURFLHolder) sc.getAttribute("net.sourceforge.wurfl.core.WURFLHolder");
+    WURFLHolder wurflHolder = (WURFLHolder) sc.getAttribute(WURFLHolder.class.getName());
 
     WURFLManager wurfl = wurflHolder.getWURFLManager();
 
     HttpServletRequest hsr = (HttpServletRequest) ec.getRequest();
     String userAgent = hsr.getHeader("user-agent");
     Device device = wurfl.getDeviceForRequest(hsr);
-    
+
     _brandName = device.getCapability("brand_name");
     _modelName = device.getCapability("model_name");
-    
-    _log.debug("user agent: " + userAgent);
-    _log.debug("Device: " + _brandName + " " + _modelName + " (" + device.getId() + ")");
+    //    
+    LOGGER.debug("user agent: " + userAgent);
+    LOGGER.debug("Device: " + _brandName + " " + _modelName + " (" + device.getId() + ")");
 
     // Set values in the request for statistics' sake
     hsr.setAttribute("device-brand", _brandName);
@@ -69,6 +73,28 @@ public class CapacityBean implements Serializable
     _android = userAgent.toLowerCase().contains("android");
     _blackBerry = device.getId().contains("blackberry");
 
+    // this returns true also with iPod touch. This is intentional.
+    _iphone = userAgent.toLowerCase().contains("iphone");
+  }
+
+  public String getHandsetName()
+  {
+    String encoding = "ISO-8859-1";
+
+    try
+    {
+      // Dirty fix for Blackberry games
+      return URLEncoder.encode(_brandName.replace("RIM", "") + " " + _modelName, encoding);
+    }
+    catch (UnsupportedEncodingException e)
+    {
+      throw new ItudeRuntimeException(e);
+    }
+  }
+
+  public String format(String toFormat)
+  {
+    return toFormat.replace("DEVICE[brand_name]", _brandName).replace("DEVICE[model_name]", _modelName);
   }
 
   public int getWidth()
@@ -80,7 +106,7 @@ public class CapacityBean implements Serializable
   {
     return _height;
   }
-  
+
   public int getImageWidth()
   {
     return _imageWidth;
@@ -100,12 +126,17 @@ public class CapacityBean implements Serializable
   {
     return _android;
   }
-  
+
+  public boolean isIphone()
+  {
+    return _iphone;
+  }
+
   public String getBrandName()
   {
     return _brandName;
   }
-  
+
   public String getModelName()
   {
     return _modelName;

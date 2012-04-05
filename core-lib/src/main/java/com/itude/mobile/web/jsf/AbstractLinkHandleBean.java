@@ -20,7 +20,7 @@ public abstract class AbstractLinkHandleBean
 
     doInit(fc, newSession);
   }
-  
+
   protected abstract void doInit(FacesContext fc, boolean newSession);
 
   public boolean isExists()

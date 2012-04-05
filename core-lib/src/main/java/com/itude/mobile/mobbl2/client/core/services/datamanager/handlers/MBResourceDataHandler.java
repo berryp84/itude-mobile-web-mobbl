@@ -14,12 +14,12 @@ import com.itude.mobile.mobbl2.client.core.util.DataUtil;
 public class MBResourceDataHandler extends MBDataHandlerBase implements Serializable
 {
   private static final long serialVersionUID = 1L;
-  private static final Logger _log = Logger.getLogger(MBResourceDataHandler.class);
+  private static final Logger LOGGER = Logger.getLogger(MBResourceDataHandler.class);
 
   @Override
   public MBDocument loadDocument(String documentName)
   {
-    _log.debug("MBResourceDataHandler.loadDocument: " + documentName);
+    LOGGER.debug("MBResourceDataHandler.loadDocument: " + documentName);
     String fileName = determineFileName(documentName);
     MBDocumentDefinition docDef = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
     byte[] data = DataUtil.getInstance().readResource(fileName);

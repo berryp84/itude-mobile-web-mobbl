@@ -12,44 +12,41 @@ import com.itude.mobile.mobbl2.client.core.util.exceptions.MBDataParsingExceptio
 
 public class MBMemoryDataHandler extends MBDataHandlerBase
 {
-  private static final Logger           _log = Logger.getLogger(MBMemoryDataHandler.class);
-
-//  private final Map<String, MBDocument> _dictionary;
+  private static final Logger LOGGER = Logger.getLogger(MBMemoryDataHandler.class);
 
   public MBMemoryDataHandler()
   {
     super();
-//    _dictionary = new Hashtable<String, MBDocument>();
   }
 
   @Override
   public MBDocument loadDocument(String documentName)
   {
     // TODO: disabled dictonary for now
-//    MBDocument doc = _dictionary.get(documentName);
-//    if (doc == null)
-//    {
-      // Not yet in the store; handle default construction of the document using a file as template
-      String fileName = "documents/" + documentName + ".xml";
-      byte[] data = null;
-      try
-      {
-        data = DataUtil.getInstance().readResource(fileName);
-      }
-      catch (MBDataParsingException e)
-      {
-        _log.debug("Unable to find file " + fileName + " in assets");
-      }
-      MBDocumentDefinition docDef = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
-      return MBDocumentFactory.getInstance().getDocumentWithData(data, MBDocumentFactory.PARSER_XML, docDef);
-//    }
-//    return doc;
+    //    MBDocument doc = _dictionary.get(documentName);
+    //    if (doc == null)
+    //    {
+    // Not yet in the store; handle default construction of the document using a file as template
+    String fileName = "documents/" + documentName + ".xml";
+    byte[] data = null;
+    try
+    {
+      data = DataUtil.getInstance().readResource(fileName);
+    }
+    catch (MBDataParsingException e)
+    {
+      LOGGER.debug("Unable to find file " + fileName + " in assets");
+    }
+    MBDocumentDefinition docDef = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
+    return MBDocumentFactory.getInstance().getDocumentWithData(data, MBDocumentFactory.PARSER_XML, docDef);
+    //    }
+    //    return doc;
   }
 
   @Override
   public void storeDocument(MBDocument document)
   {
-//    _dictionary.put(document.getName(), document);
+    //    _dictionary.put(document.getName(), document);
   }
 
 }

@@ -17,7 +17,7 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 public class MBElement extends MBElementContainer
 
 {
-  private static final Logger       _log           = Logger.getLogger(MBElement.class);
+  private static final Logger       LOGGER           = Logger.getLogger(MBElement.class);
   private static final String       TEXT_ATTRIBUTE = "text()";
 
   private final Map<String, String> _values;                                                    // Dictionaryofstrings
@@ -51,7 +51,7 @@ public class MBElement extends MBElementContainer
     {
       if (!path.startsWith("./@"))
       {
-        _log.debug("Path \"" + path + "\" didn't start wih @ or ./@. Perhaps setAttributeValue should have been called instead.");
+        LOGGER.debug("Path \"" + path + "\" didn't start wih @ or ./@. Perhaps setAttributeValue should have been called instead.");
       }
       super.setValue(value, path);
     }

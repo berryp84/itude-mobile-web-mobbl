@@ -17,7 +17,7 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
 public class MBPage extends MBPanel
 {
-  private static final Logger                                    _log          = Logger.getLogger(MBPage.class);
+  private static final Logger                                    LOGGER          = Logger.getLogger(MBPage.class);
 
   private static final Pattern                                   NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
@@ -157,7 +157,7 @@ public class MBPage extends MBPanel
       {
         if (mustBe.equals("/"))
         {
-          _log.warn("Ignoring path " + stripped + " because the document definition used root path " + mustBe);
+          LOGGER.warn("Ignoring path " + stripped + " because the document definition used root path " + mustBe);
           ignorePath = true;
         }
         else

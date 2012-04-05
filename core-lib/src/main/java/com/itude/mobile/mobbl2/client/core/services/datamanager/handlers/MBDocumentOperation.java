@@ -9,7 +9,7 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandler;
 
 public class MBDocumentOperation implements Runnable
 {
-  private static final Logger         _log = Logger.getLogger(MBDocumentOperation.class);
+  private static final Logger         LOGGER = Logger.getLogger(MBDocumentOperation.class);
 
   private MBDataHandler               _dataHandler;
   private String                      _documentName;
@@ -101,9 +101,9 @@ public class MBDocumentOperation implements Runnable
     doc.setArgumentsUsed(getArguments());
     long ms = System.currentTimeMillis() - startTime;
     if(ms >= 10)
-      _log.debug("Loading of document " + getDocumentName() + " took " + ms + " ms");
+      LOGGER.debug("Loading of document " + getDocumentName() + " took " + ms + " ms");
     else
-      _log.trace("Loading of document " + getDocumentName() + " took " + ms + " ms");
+      LOGGER.trace("Loading of document " + getDocumentName() + " took " + ms + " ms");
     return doc;
   }
 
@@ -129,7 +129,7 @@ public class MBDocumentOperation implements Runnable
     }
     catch (Exception e)
     {
-      _log.warn("Exception during Document Operation: " + e.getMessage(), e);
+      LOGGER.warn("Exception during Document Operation: " + e.getMessage(), e);
       getDelegate().processException(e);
     }
   }

@@ -13,11 +13,11 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.excepti
 
 public class MBFormSubmission implements MBAction
 {
-  private static final long                      serialVersionUID  = 1L;
+  //  private static final long                      serialVersionUID  = 1L;
 
   final static String                            C_GENERIC_REQUEST = "MBGenericRequest";
 
-  protected static final org.apache.log4j.Logger _log              = org.apache.log4j.Logger.getLogger(MBFormSubmission.class);
+  protected static final org.apache.log4j.Logger LOGGER              = org.apache.log4j.Logger.getLogger(MBFormSubmission.class);
 
   public MBOutcome execute(MBDocument document, String path)
   {
@@ -55,12 +55,12 @@ public class MBFormSubmission implements MBAction
       }
     }
     // Disabled logging as it displays the password of the user when he/she is changing his/her password
-    //_log.debug("REQUEST = " + request);
+    //LOGGER.debug("REQUEST = " + request);
 
     // retrieve generic response
     MBDocument response = MBDataManagerService.getInstance().loadDocument("MBGenericResponse", request);
 
-    _log.debug("RESPONSE = " + response);
+    LOGGER.debug("RESPONSE = " + response);
 
     String body = response.getValueForPath("Response[0]/@body");
     String error = response.getValueForPath("Response[0]/@error");
@@ -68,7 +68,7 @@ public class MBFormSubmission implements MBAction
     // if error, throw error with errormessage
     if (error != null && error.trim().length() > 0)
     {
-      _log.error("Error returned by server: " + error);
+      LOGGER.error("Error returned by server: " + error);
       // use body rather than error since server-side puts error code in error and error message in body
       throw new MBServerErrorException(body);
     }

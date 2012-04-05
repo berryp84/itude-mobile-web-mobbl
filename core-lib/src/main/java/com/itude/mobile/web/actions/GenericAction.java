@@ -1,7 +1,5 @@
 package com.itude.mobile.web.actions;
 
-import java.io.Serializable;
-
 import javax.inject.Inject;
 
 import com.itude.mobile.mobbl2.client.core.controller.MBAction;
@@ -9,16 +7,13 @@ import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
 
-public abstract class GenericAction implements MBAction, Serializable
+public abstract class GenericAction implements MBAction
 {
-  private static final long    serialVersionUID = 1L;
-
   @Inject
   private MBDataManagerService _dataManagerService;
 
   @Inject
   private MBMetadataService    _metadataService;
-
 
   protected MBDataManagerService getDataManagerService()
   {
@@ -34,7 +29,7 @@ public abstract class GenericAction implements MBAction, Serializable
   {
     return getDataManagerService().loadDocument(name, arguments);
   }
-  
+
   protected MBMetadataService getMetadataService()
   {
     return _metadataService;

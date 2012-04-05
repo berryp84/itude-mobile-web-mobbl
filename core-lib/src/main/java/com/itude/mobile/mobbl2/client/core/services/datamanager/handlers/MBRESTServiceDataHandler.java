@@ -45,7 +45,7 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.excepti
 public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements Serializable
 {
   private static final long    serialVersionUID          = 1L;
-  private static final Logger  _log                      = Logger.getLogger(MBRESTServiceDataHandler.class);
+  private static final Logger  LOGGER                      = Logger.getLogger(MBRESTServiceDataHandler.class);
 
   MBApplicationFactory         _applicationFactory = MBApplicationFactory.getInstance();
 
@@ -80,7 +80,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
     
     if (endPoint != null)
     {
-      _log.debug("MBRESTServiceDataHandler:loadDocument " + documentName + " from " + endPoint.getEndPointUri());
+      LOGGER.debug("MBRESTServiceDataHandler:loadDocument " + documentName + " from " + endPoint.getEndPointUri());
 
       String dataString = null;
       MBDocument responseDoc = null;
@@ -124,7 +124,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
         String responseMessage = httpResponse.getStatusLine().getReasonPhrase();
         if (responseCode != HttpStatus.SC_OK)
         {
-          _log.error("MBRESTServiceDataHandler.loadDocument: Received HTTP responseCode=" + responseCode + ": " + responseMessage);
+          LOGGER.error("MBRESTServiceDataHandler.loadDocument: Received HTTP responseCode=" + responseCode + ": " + responseMessage);
         }
 
         HttpEntity entity = httpResponse.getEntity();
@@ -185,8 +185,8 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
       catch (Exception e)
       {
         // debug in stead of info because it can contain a password
-        _log.debug("Sent xml:\n" + body);
-        _log.info("Received:\n" + dataString);
+        LOGGER.debug("Sent xml:\n" + body);
+        LOGGER.info("Received:\n" + dataString);
         if (e instanceof RuntimeException) throw (RuntimeException) e;
         else throw new ItudeRuntimeException(e);
       }
@@ -194,7 +194,7 @@ public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements
     }
     else
     {
-      _log.warn("No endpoint defined for document name " + documentName);
+      LOGGER.warn("No endpoint defined for document name " + documentName);
       return null;
     }
   }

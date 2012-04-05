@@ -13,11 +13,11 @@ import javax.inject.Named;
 public class AlertBean implements Serializable
 {
   private static final long serialVersionUID = 1L;
-  
-  private boolean _shown;
-  private boolean _notice;
-  private String  _title;
-  private List<String>  _messages;
+
+  private boolean           _shown;
+  private boolean           _notice;
+  private String            _title;
+  private List<String>      _messages;
 
   @PostConstruct
   protected void init()
@@ -37,7 +37,7 @@ public class AlertBean implements Serializable
   {
     _shown = shown;
   }
-  
+
   public boolean isDoHide()
   {
     _shown = false;
@@ -58,7 +58,7 @@ public class AlertBean implements Serializable
   {
     return _messages.get(0);
   }
-  
+
   public List<String> getMessages()
   {
     return _messages;
@@ -69,17 +69,17 @@ public class AlertBean implements Serializable
     _messages = new ArrayList<String>();
     _messages.add(message);
   }
-  
+
   public void setMessages(List<String> messages)
   {
     _messages = messages;
   }
-  
+
   public void setNotice(boolean notice)
   {
     _notice = notice;
   }
-  
+
   public boolean isNotice()
   {
     boolean notice = _notice;

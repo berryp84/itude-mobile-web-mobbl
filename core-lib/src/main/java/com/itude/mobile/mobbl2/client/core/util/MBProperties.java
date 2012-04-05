@@ -7,7 +7,7 @@ import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBConfigurationDefi
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
 
-public class MBProperties
+public final class MBProperties
 {
   private final MBDocument          _propertiesDoc;
   private final Map<String, String> _propertiesCache;
@@ -25,7 +25,10 @@ public class MBProperties
 
   public static MBProperties getInstance()
   {
-    if (_instance == null) _instance = new MBProperties();
+    if (_instance == null)
+    {
+      _instance = new MBProperties();
+    }
     return _instance;
   }
 
@@ -36,8 +39,7 @@ public class MBProperties
     {
       String path = "/Application[0]/Property[name='" + key + "']/@value";
       value = (String) _propertiesDoc.getValueForPath(path);
-      if(value != null)
-        _propertiesCache.put(key, value);
+      if (value != null) _propertiesCache.put(key, value);
     }
     return value;
   }

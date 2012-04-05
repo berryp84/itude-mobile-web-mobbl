@@ -9,41 +9,38 @@ import com.itude.mobile.template.jsf.SessionBean;
 import com.itude.mobile.web.actions.GenericAction;
 
 @Named("LoginAction")
-public class LoginAction extends GenericAction 
+public class LoginAction extends GenericAction
 {
-	private static final long serialVersionUID = 1L;
-	
-	@Inject
-	private SessionBean _session;
+  @Inject
+  private SessionBean _session;
 
-	@Override
-	public MBOutcome execute(MBDocument document, String path, String outcomeName) 
-	{
-		String username = document.getValueForPath("/LoginUser[0]/@username");
-		String password = document.getValueForPath("/LoginUser[0]/@password");
+  @Override
+  public MBOutcome execute(MBDocument document, String path, String outcomeName)
+  {
+    String username = document.getValueForPath("/LoginUser[0]/@username");
+    String password = document.getValueForPath("/LoginUser[0]/@password");
 
-	    
-		// TODO: you want to really login here like this:
-//		MBDocument loginRequestDoc = loadDocument("MBGenericRequest");
-//	    Utilities.setRequestParameter(username, "msisdn", loginRequestDoc);
-//	    Utilities.setRequestParameter(password, "password", loginRequestDoc);
-//	    Utilities.setRequestParameter("Z4_jlbFv2iwHCzP4aGwS", "token", loginRequestDoc);
-//	    // TODO: we probably want to make a setting of the scenario_id
-//	    Utilities.setRequestParameter("WhatsringingDirectBillingScenario", "scenario_id", loginRequestDoc);
-//	    MBDocument loginResultsDoc = loadDocument("client", loginRequestDoc);
-	    
-	    MBOutcome outcome;
-	    if(!username.isEmpty() && !password.isEmpty())
-	    {
-			outcome = new MBOutcome("OUTCOME-page_login_succeeded", document);
-			MBDocument sessionDocument = _session.getDocument();
-		    sessionDocument.setValue("true", "Session[0]/@loggedIn");
-	    }
-	    else
-	    {
-	      outcome = new MBOutcome("OUTCOME-page_login_failed", loadDocument("MBEmptyDoc"));
-	    }
-	    return outcome;
-	}
+    // TODO: you want to really login here like this:
+    //		MBDocument loginRequestDoc = loadDocument("MBGenericRequest");
+    //	    Utilities.setRequestParameter(username, "msisdn", loginRequestDoc);
+    //	    Utilities.setRequestParameter(password, "password", loginRequestDoc);
+    //	    Utilities.setRequestParameter("Z4_jlbFv2iwHCzP4aGwS", "token", loginRequestDoc);
+    //	    // TODO: we probably want to make a setting of the scenario_id
+    //	    Utilities.setRequestParameter("WhatsringingDirectBillingScenario", "scenario_id", loginRequestDoc);
+    //	    MBDocument loginResultsDoc = loadDocument("client", loginRequestDoc);
+
+    MBOutcome outcome;
+    if (!username.isEmpty() && !password.isEmpty())
+    {
+      outcome = new MBOutcome("OUTCOME-page_login_succeeded", document);
+      MBDocument sessionDocument = _session.getDocument();
+      sessionDocument.setValue("true", "Session[0]/@loggedIn");
+    }
+    else
+    {
+      outcome = new MBOutcome("OUTCOME-page_login_failed", loadDocument("MBEmptyDoc"));
+    }
+    return outcome;
+  }
 
 }

@@ -10,7 +10,6 @@ import com.itude.mobile.web.actions.GenericAction;
 @Named("GetHomePageContent")
 public class GetHomePageContent extends GenericAction
 {
-  private static final long serialVersionUID = 1L;
 
   @Override
   public MBOutcome execute(MBDocument document, String path, String outcomeName)
@@ -23,14 +22,12 @@ public class GetHomePageContent extends GenericAction
     MBDocument realtonesResponseDoc = loadDocument("realtones", realtonesRequestDoc);
     */
 
-    
-
     MBDocument homePageContentDoc = loadDocument("HomePageContentDocument");
 
     MBElement testgroup = homePageContentDoc.createElementWithName("testgroup");
-      MBElement testitem = testgroup.createElementWithName("testitem");
-        MBElement testelement = testitem.createElementWithName("testelement");
-          testelement.setBodyText("test");
+    MBElement testitem = testgroup.createElementWithName("testitem");
+    MBElement testelement = testitem.createElementWithName("testelement");
+    testelement.setBodyText("test");
 
     MBOutcome outcome = new MBOutcome("OUTCOME-page_home", homePageContentDoc);
 

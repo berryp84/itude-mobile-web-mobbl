@@ -9,9 +9,9 @@ import org.apache.log4j.Logger;
 
 import com.itude.mobile.mobbl2.client.core.util.exceptions.MBDataParsingException;
 
-public class FileUtil
+public final class FileUtil
 {
-  private static final Logger _log = Logger.getLogger(FileUtil.class);
+  private static final Logger LOGGER = Logger.getLogger(FileUtil.class);
 
   private static FileUtil     _instance;
 
@@ -55,7 +55,7 @@ public class FileUtil
     }
     catch (Exception e)
     {
-      _log.warn("Failed to serialize object, or to write to file", e);
+      LOGGER.warn("Failed to serialize object, or to write to file", e);
     }
     finally
     {
@@ -66,7 +66,7 @@ public class FileUtil
       }
       catch (Exception e)
       {
-        _log.warn("Unable to close streams", e);
+        LOGGER.warn("Unable to close streams", e);
       }
     }
     return success;
@@ -86,7 +86,7 @@ public class FileUtil
     }
     catch (Exception e)
     {
-      _log.warn("Failed to read from file, or to deserialize", e);
+      LOGGER.warn("Failed to read from file, or to deserialize", e);
     }
     finally
     {
@@ -97,7 +97,7 @@ public class FileUtil
       }
       catch (Exception e)
       {
-        _log.warn("Unable to close streams", e);
+        LOGGER.warn("Unable to close streams", e);
       }
     }
     return result;

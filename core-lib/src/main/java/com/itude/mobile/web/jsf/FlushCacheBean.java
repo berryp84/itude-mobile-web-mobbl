@@ -14,15 +14,15 @@ import com.itude.mobile.mobbl2.client.core.util.MBCacheManager;
 @Named
 public class FlushCacheBean implements Serializable
 {
-  private static final Logger _log             = Logger.getLogger(FlushCacheBean.class);
+  private static final Logger LOGGER             = Logger.getLogger(FlushCacheBean.class);
 
   private static final long   serialVersionUID = 1L;
 
   public String getFlushMessage()
   {
     MBCacheManager.flushGlobalCache();
-    String message = "Cache flushed at "+ new Date();
-    _log.info(message);
+    String message = "Cache flushed at " + new Date();
+    LOGGER.info(message);
     return message;
   }
 

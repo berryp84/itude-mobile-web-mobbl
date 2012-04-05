@@ -1,7 +1,5 @@
 package com.itude.mobile.template.jsf;
 
-import java.util.Map;
-
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
@@ -17,7 +15,6 @@ import com.itude.mobile.web.annotations.HttpParam;
 import com.itude.mobile.web.controllers.ApplicationController;
 import com.itude.mobile.web.controllers.CurrentView;
 import com.itude.mobile.web.jsf.AbstractLinkHandleBean;
-import com.itude.mobile.web.jsf.PageBean;
 
 @RequestScoped
 @Named
@@ -62,11 +59,11 @@ public class LinkHandleBean extends AbstractLinkHandleBean
   @Inject
   @HttpParam("tab")
   private String                _tab;
-  
+
   @Inject
   @HttpParam("title")
   private String                _title;
-  
+
   @Inject
   @HttpParam("message")
   private String                _message;
@@ -80,21 +77,18 @@ public class LinkHandleBean extends AbstractLinkHandleBean
   @Inject
   private SessionBean           _sessionBean;
 
-  @Inject
-  private PageBean              _pageBean;
-
   @Override
   protected void doInit(FacesContext fc, boolean newSession)
   {
     NavigationHandler nav = fc.getApplication().getNavigationHandler();
-    
+
     // Store referrer and ymid
     MBDocument sessionDoc = _sessionBean.getDocument();
     if (_ref != null) sessionDoc.setValue(_ref, "Session[0]/@referrer");
     if (_ymid != null) sessionDoc.setValue(_ymid, "Session[0]/@clickId");
     if (_click_id != null) sessionDoc.setValue(_click_id, "Session[0]/@clickId");
     if (_nakko_id != null) sessionDoc.setValue(_nakko_id, "Session[0]/@clickId");
-    
+
     // Store properties needed for PAGE-page_error
     if (_title != null) sessionDoc.setValue(MBLocalizationService.getInstance().getTextForKey(_title), "Session[0]/@title");
     if (_message != null) sessionDoc.setValue(MBLocalizationService.getInstance().getTextForKey(_message), "Session[0]/@message");
@@ -105,34 +99,7 @@ public class LinkHandleBean extends AbstractLinkHandleBean
 
     MBDataManagerService.getInstance().storeDocument(sessionDoc);
 
-    boolean sessionExpired = newSession;
-    if (!sessionExpired)
-    {
-      if (_pageBean.getPage() == null)
-      {
-        sessionExpired = true;
-      }
-      else
-      {
-        String pageName = _pageBean.getPage().getPageName();
-        sessionExpired = !_sessionBean.isLoggedOn() && !pageName.equals("PAGE-page_login")
-                         && !pageName.equals("PAGE-page_disclaimer_login") && !pageName.equals("PAGE-page_requestform")
-                         && !pageName.equals("PAGE-section_requestform") && !pageName.equals("PAGE-page_brochure_thanks")
-                         && !pageName.equals("PAGE-page_logged_out") && !pageName.equals("PAGE-page_accounts_summary");
-      }
-    }
-    sessionExpired = false;
-    if (sessionExpired)
-    {
-      Map<String, Object> requestMap = fc.getExternalContext().getRequestMap();
-      requestMap.put("sessionExpired", true);
-      MBOutcome outcome = new MBOutcome("OUTCOME-page_login", null);
-      _controller.handleOutcome(outcome);
-      nav.handleNavigation(fc, null, "default");
-      _outcome = null;
-      _tab = null;
-    }
-    else if (_view.getView() != null && _outcome != null)
+    if (_view.getView() != null && _outcome != null)
     {
       if (_param != null)
       {

@@ -11,9 +11,9 @@ import org.apache.log4j.Logger;
 
 import com.itude.mobile.mobbl2.client.core.util.exceptions.MBDataParsingException;
 
-public class DataUtil
+public final class DataUtil
 {
-  private static final Logger _log = Logger.getLogger(DataUtil.class);
+  private static final Logger LOGGER = Logger.getLogger(DataUtil.class);
 
   private static DataUtil     _instance;
 
@@ -56,7 +56,7 @@ public class DataUtil
       // This exception used to be thrown. There are situations where it's expected that no data will be returned.
       // E.g. a Session document file will only be there when you have been logged into a session.
       throw new MBDataParsingException(message);
-      //_log.info(message);
+      //LOGGER.info(message);
     }
 
     return data;
@@ -91,7 +91,7 @@ public class DataUtil
     }
     catch (IOException e)
     {
-      _log.warn("Unable to close stream");
+      LOGGER.warn("Unable to close stream");
     }
 
     // Get the compressed data 
@@ -129,7 +129,7 @@ public class DataUtil
     }
     catch (IOException e)
     {
-      _log.warn("Unable to close stream");
+      LOGGER.warn("Unable to close stream");
     }
 
     // Get the decompressed data 

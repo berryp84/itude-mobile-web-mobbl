@@ -21,7 +21,7 @@ import com.itude.mobile.web.util.PageHelper;
 
 public class MBField extends MBComponent
 {
-  private static final Logger   _log          = Logger.getLogger(MBField.class);
+  private static final Logger   LOGGER          = Logger.getLogger(MBField.class);
 
   private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
@@ -127,8 +127,8 @@ public class MBField extends MBComponent
 
   public String getGeneratedId()
   {
-    //    _log.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
-    //    _log.info("_label: "+_label);
+    //    LOGGER.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
+    //    LOGGER.info("_label: "+_label);
     if (_label != null)
     {
       // Return the _label (as it is assumed there aren't 2 buttons with the same label)
@@ -142,13 +142,13 @@ public class MBField extends MBComponent
           sb.append(c);
         }
       }
-      //      _log.info("=> "+ _label);
+      //      LOGGER.info("=> "+ _label);
       return PageHelper.CUSTOM_BEGIN + sb;
     }
     else
     {
       // In case of no label, the absoluteDataPath should be unique (in contrast to getPath, which is unevaluated)
-      //      _log.info("=> "+ getAbsoluteDataPath().hashCode());
+      //      LOGGER.info("=> "+ getAbsoluteDataPath().hashCode());
       return PageHelper.CUSTOM_BEGIN + getAbsoluteDataPath().hashCode();
     }
   }
@@ -369,7 +369,7 @@ public class MBField extends MBComponent
       catch (MBInvalidPathException e)
       {
         // Button outcomes do not map to an attribute
-        _log.debug("MBField.getAttributeDefinition() with path=" + path
+        LOGGER.debug("MBField.getAttributeDefinition() with path=" + path
                    + " does not map to an attribute. Probably an outcomePath for a Button.");
       }
     }
@@ -534,7 +534,7 @@ public class MBField extends MBComponent
     catch (Exception e)
     {
       result = "<MBField errorInDefinition='" + e.getClass().getSimpleName() + ", " + e.getCause() + "'/>\n";
-      _log.debug(e.getMessage(), e);
+      LOGGER.debug(e.getMessage(), e);
     }
 
     return result;

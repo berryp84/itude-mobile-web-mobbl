@@ -1,7 +1,6 @@
 package com.itude.mobile.mobbl2.client.core.util;
 
-
-public class DeviceUtil
+public final class DeviceUtil
 {
   private static DeviceUtil _instance;
 

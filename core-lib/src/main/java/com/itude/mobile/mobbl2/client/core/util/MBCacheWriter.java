@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 
 public class MBCacheWriter extends Thread
 {
-  private static final Logger       _log = Logger.getLogger(MBCacheWriter.class);
+  private static final Logger       LOGGER = Logger.getLogger(MBCacheWriter.class);
 
   private Map<String, String>       _registry;
   private Map<String, String>       _documentTypes;
@@ -56,9 +56,9 @@ public class MBCacheWriter extends Thread
       if (success && getData() != null)
       {
         success = FileUtil.getInstance().writeToFile(getData(), getFileName(), null);
-        if (!success) _log.error("Error caching data in " + getFileName());
+        if (!success) LOGGER.error("Error caching data in " + getFileName());
       }
-      else if (!success) _log.warn("Could not store the cache registry info in " + getRegistryFileName() + " and/or " + getTtlsFileName()
+      else if (!success) LOGGER.warn("Could not store the cache registry info in " + getRegistryFileName() + " and/or " + getTtlsFileName()
                                    + " skipping writing to the cache!");
 
     }

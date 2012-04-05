@@ -13,7 +13,7 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 public class MBConfigurationDefinition extends MBDefinition
 {
 
-  private static final Logger                     _log                              = Logger.getLogger(MBConfigurationDefinition.class);
+  private static final Logger                     LOGGER                              = Logger.getLogger(MBConfigurationDefinition.class);
 
   public static final String                      DOC_SYSTEM_EMPTY                  = "MBEmpty";
   public static final String                      DOC_SYSTEM_LANGUAGE               = "MBBundle";
@@ -177,7 +177,7 @@ public class MBConfigurationDefinition extends MBDefinition
   {
     if (_domainTypes.containsKey(domain))
     {
-      _log.warn("Domain definition overridden: multiple definitions for domain with name " + domain.getName());
+      LOGGER.warn("Domain definition overridden: multiple definitions for domain with name " + domain.getName());
     }
     _domainTypes.put(domain.getName(), domain);
   }
@@ -186,7 +186,7 @@ public class MBConfigurationDefinition extends MBDefinition
   {
     if (_documentTypes.containsKey(document))
     {
-      _log.warn("Document definition overridden: multiple definitions for document with name " + document.getName());
+      LOGGER.warn("Document definition overridden: multiple definitions for document with name " + document.getName());
     }
     _documentTypes.put(document.getName(), document);
   }
@@ -195,7 +195,7 @@ public class MBConfigurationDefinition extends MBDefinition
   {
     if (_actionTypes.containsKey(action))
     {
-      _log.warn("Action definition overridden: multiple definitions for action with name " + action.getName());
+      LOGGER.warn("Action definition overridden: multiple definitions for action with name " + action.getName());
     }
     _actionTypes.put(action.getName(), action);
   }
@@ -209,7 +209,7 @@ public class MBConfigurationDefinition extends MBDefinition
   {
     if (_pageTypes.containsKey(page))
     {
-      _log.warn("Page definition overridden: multiple definitions for page with name " + page.getName());
+      LOGGER.warn("Page definition overridden: multiple definitions for page with name " + page.getName());
     }
     _pageTypes.put(page.getName(), page);
   }
@@ -218,7 +218,7 @@ public class MBConfigurationDefinition extends MBDefinition
   {
     if (_dialogs.containsKey(dialog))
     {
-      _log.warn("Dialog definition overridden: multiple definitions for action with name " + dialog.getName());
+      LOGGER.warn("Dialog definition overridden: multiple definitions for action with name " + dialog.getName());
     }
 
     if (_firstDialog == null)

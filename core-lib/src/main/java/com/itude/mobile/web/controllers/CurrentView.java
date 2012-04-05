@@ -11,6 +11,7 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.itude.mobile.mobbl2.client.core.util.MBProperties;
 import com.itude.mobile.web.jsf.PageBean;
 
 @Named
@@ -19,12 +20,19 @@ public class CurrentView implements Serializable
 {
   private static final long             serialVersionUID = 1L;
 
+  // A map with the dialogs to enable multiple tabs. 
+  // When this is ignored, this will remain a hashmap with one entry: "HOME", the current dialog
   private Map<String, MBViewController> _dialogs;
 
+  // I think this is needed for pop-ups?
   private Stack<MBViewController>       _viewStack;
 
   private String                        _currentDialog;
 
+  // Required when navigating with paths
+  private static boolean                _keephistory;
+
+  // Needed when _keephistory == true
   private Map<Long, String>             _tabHistory;
   private Map<Long, MBViewController>   _controllerHistory;
 
@@ -38,6 +46,8 @@ public class CurrentView implements Serializable
   @PostConstruct
   protected void init()
   {
+    String keepHistory = MBProperties.getInstance().getValueForProperty("keepHistory");
+    _keephistory = "false".equals(keepHistory) ? false : true;
     _viewStack = new Stack<MBViewController>();
     _dialogs = new HashMap<String, MBViewController>();
     _currentDialog = "HOME";
@@ -58,7 +68,10 @@ public class CurrentView implements Serializable
   {
     _fakeController = null;
 
-    if (isTopLevel()) _dialogs.put(_currentDialog, controller);
+    if (isTopLevel())
+    {
+      _dialogs.put(_currentDialog, controller);
+    }
     else
     {
       _viewStack.pop();
@@ -118,21 +131,25 @@ public class CurrentView implements Serializable
 
   public void setDocId(long docId)
   {
-
-    if (_docId != docId)
-    {
-      // install a fake view, since someone pressed the back button
-      if (_controllerHistory.containsKey(docId) && _tabHistory.containsKey(docId))
-      {
-        _fakeController = _controllerHistory.get(docId);
-        _currentDialog = _tabHistory.get(docId);
-        _pageBean.get().setViewController(getView());
-      }
-    } else {
-      _controllerHistory.put (docId, getView ());
-      _tabHistory.put (docId, getCurrentDialog());
-    }
     _docId = docId;
+    if (_keephistory)
+    {
+      if (_docId != docId)
+      {
+        // install a fake view, since someone pressed the back button
+        if (_controllerHistory.containsKey(docId) && _tabHistory.containsKey(docId))
+        {
+          _fakeController = _controllerHistory.get(docId);
+          _currentDialog = _tabHistory.get(docId);
+          _pageBean.get().setViewController(getView());
+        }
+      }
+      else
+      {
+        _controllerHistory.put(docId, getView());
+        _tabHistory.put(docId, getCurrentDialog());
+      }
+    }
   }
 
 }

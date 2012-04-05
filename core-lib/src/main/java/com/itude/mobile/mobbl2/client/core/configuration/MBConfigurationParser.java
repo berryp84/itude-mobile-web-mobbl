@@ -29,7 +29,7 @@ import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBVariableDefinitio
 
 public class MBConfigurationParser extends DefaultHandler
 {
-  private static final Logger _log = Logger.getLogger(MBConfigurationParser.class);
+  private static final Logger LOGGER = Logger.getLogger(MBConfigurationParser.class);
 
   private Stack<MBDefinition> _stack;
   private StringBuilder        _characters;
@@ -62,7 +62,7 @@ public class MBConfigurationParser extends DefaultHandler
     }
     catch (Exception e)
     {
-      _log.error("Unable to parse document " + documentName, e);
+      LOGGER.error("Unable to parse document " + documentName, e);
     }
 
     return null;
@@ -102,7 +102,7 @@ public class MBConfigurationParser extends DefaultHandler
       nextKey = keys.next();
       if (!valids.contains(nextKey))
       {
-        _log.warn("****WARNING Invalid attribute " + nextKey + " for element " + elementName + " in document " + _documentName);
+        LOGGER.warn("****WARNING Invalid attribute " + nextKey + " for element " + elementName + " in document " + _documentName);
         result = false;
       }
     }

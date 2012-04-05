@@ -22,8 +22,8 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
   public MBDocument doLoadDocument(String documentName, MBDocument args)
   {
     String universeID = MBProperties.getInstance().getValueForProperty("mobblUniverseID");
-    String UIDPrefix = MBProperties.getInstance().getValueForProperty("UIDPrefix");
-    String UID = UIDPrefix + DeviceUtil.getInstance().getUniqueID();
+    String uIDPrefix = MBProperties.getInstance().getValueForProperty("UIDPrefix");
+    String uID = uIDPrefix + DeviceUtil.getInstance().getUniqueID();
     String secret = MBProperties.getInstance().getValueForProperty("mobblSecret");
 
     // package the incoming document in a StrayClient envelope
@@ -62,13 +62,13 @@ public class MBMobbl1ServerDataHandler extends MBRESTServiceDataHandler
     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     String dateTime = formatter.format(currentDate);
     
-    String messageID = StringUtilities.md5(dateTime + UID + secret);
+    String messageID = StringUtilities.md5(dateTime + uID + secret);
     //
     sendData.setAttributeValue("http://straysystems.com/xsd/strayclient", "xmlns");
     sendData.setAttributeValue("SendData", "command");
     sendData.setAttributeValue(universeID, "universeID");
     sendData.setAttributeValue(dateTime, "dateTime");
-    sendData.setAttributeValue(UID, "iPhoneUID");
+    sendData.setAttributeValue(uID, "iPhoneUID");
     sendData.setAttributeValue(messageID, "messageID");
     setDocumentFactoryType(MBDocumentFactory.PARSER_MOBBL1);
 

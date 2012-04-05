@@ -51,21 +51,20 @@ public class PageBean implements Serializable
   {
     return _viewController;
   }
-  
+
   public boolean isRefreshable()
   {
     return _viewController instanceof AbstractRefreshableViewController;
   }
-  
+
   public String refresh()
   {
-    if(isRefreshable())
+    if (isRefreshable())
     {
-      AbstractRefreshableViewController rfvc = (AbstractRefreshableViewController)_viewController;
+      AbstractRefreshableViewController rfvc = (AbstractRefreshableViewController) _viewController;
       rfvc.refresh();
     }
     return "default";
   }
 
 }
-

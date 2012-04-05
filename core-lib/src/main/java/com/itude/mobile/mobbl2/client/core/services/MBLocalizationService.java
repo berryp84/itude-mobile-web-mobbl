@@ -12,9 +12,9 @@ import com.itude.mobile.mobbl2.client.core.util.MBProperties;
 
 public class MBLocalizationService
 {
-  private static final Logger _log             = Logger.getLogger(MBLocalizationService.class);
-  
-  private final Map<String, Map<String, String>> _languages;      //DictionaryofDictionaries(languagecode->(key->value))
+  private static final Logger                    LOGGER = Logger.getLogger(MBLocalizationService.class);
+
+  private final Map<String, Map<String, String>> _languages;                                            //DictionaryofDictionaries(languagecode->(key->value))
   private String                                 _currentLanguage;
   protected Map<String, String>                  _currentLanguageMap;
   private String                                 _localeCode;
@@ -34,8 +34,7 @@ public class MBLocalizationService
 
   public static void setInstance(MBLocalizationService instance)
   {
-    if (instance != null)
-          _instance = instance;
+    if (instance != null) _instance = instance;
   }
 
   public static MBLocalizationService getInstance()
@@ -46,7 +45,9 @@ public class MBLocalizationService
       synchronized (MBLocalizationService.class)
       {
         if (_instance == null)
+        {
           _instance = new MBLocalizationService();
+        }
       }
     }
 
@@ -99,7 +100,7 @@ public class MBLocalizationService
     String text = dict.get(key);
     if (text == null)
     {
-      _log.warn("Warning: no translation defined for key '" + key + "' using languageCode=" + getCurrentLanguage());
+      LOGGER.warn("Warning: no translation defined for key '" + key + "' using languageCode=" + getCurrentLanguage());
       // add the missing translation to prevent future warnings
       dict.put(key, key);
       text = key;

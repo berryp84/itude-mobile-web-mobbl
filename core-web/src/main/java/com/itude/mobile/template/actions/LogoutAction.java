@@ -9,19 +9,17 @@ import com.itude.mobile.template.jsf.SessionBean;
 import com.itude.mobile.web.actions.GenericAction;
 
 @Named("LogoutAction")
-public class LogoutAction extends GenericAction 
+public class LogoutAction extends GenericAction
 {
-	private static final long serialVersionUID = 1L;
-	
-	@Inject
-    private SessionBean _session;
+  @Inject
+  private SessionBean _session;
 
-	@Override
-	public MBOutcome execute(MBDocument document, String path, String outcomeName) 
-	{
-		MBOutcome outcome =  new MBOutcome("OUTCOME-page_home", null);
-		_session.logOff();
-	    return outcome;
-	}
+  @Override
+  public MBOutcome execute(MBDocument document, String path, String outcomeName)
+  {
+    MBOutcome outcome = new MBOutcome("OUTCOME-page_home", null);
+    _session.logOff();
+    return outcome;
+  }
 
 }

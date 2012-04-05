@@ -1,6 +1,5 @@
 package com.itude.mobile.web.controllers;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -30,10 +29,8 @@ import com.itude.mobile.web.jsf.AlertBean;
 
 @RequestScoped
 @Named
-public abstract class ApplicationController implements Serializable
+public abstract class ApplicationController
 {
-  private static final long serialVersionUID = 1L;
-
   private Logger                     _log = Logger.getLogger(ApplicationController.class);
 
   @Inject
@@ -55,9 +52,9 @@ public abstract class ApplicationController implements Serializable
   @Inject
   @Any
   private Instance<MBViewController> _viewControllers;
-  
+
   public abstract void initialize();
-  
+
   public abstract void setInitialView();
 
   public abstract void initializeTab();
@@ -102,8 +99,7 @@ public abstract class ApplicationController implements Serializable
       outcomeToProcess.setDialogName(initialOutcome.getDialogName());
       outcomeToProcess.setNoBackgroundProcessing(initialOutcome.getNoBackgroundProcessing() || def.getNoBackgroundProcessing());
       // TODO: is this correct? Could this cause any problems?
-      if(initialOutcome.getTransferDocument())
-        outcomeToProcess.setTransferDocument(true);
+      if (initialOutcome.getTransferDocument()) outcomeToProcess.setTransferDocument(true);
 
       if (outcomeToProcess.isPreConditionValid()) outcome = outcomeToProcess;
 
@@ -115,10 +111,10 @@ public abstract class ApplicationController implements Serializable
     else if ("ENDMODAL".equals(outcome.getDisplayMode())) _view.popView();
 
     // find out if the outcome's action corresponds to an action object
-    Instance<MBAction> refined = _actions.select(new NamedQualifier(outcome.getAction()));
-    if (!refined.isUnsatisfied())
+    Instance<MBAction> action = _actions.select(new NamedQualifier(outcome.getAction()));
+    if (!action.isUnsatisfied())
     {
-      MBOutcome next = refined.get().execute(outcome.getDocument(), outcome.getPath(), outcome.getOutcomeName());
+      MBOutcome next = action.get().execute(outcome.getDocument(), outcome.getPath(), outcome.getOutcomeName());
       if (next != null)
       {
         next.setOriginName(outcome.getAction());
@@ -160,16 +156,16 @@ public abstract class ApplicationController implements Serializable
     _alert.setMessage(message);
     _alert.setTitle(title);
     _alert.setShown(true);
-   // _view.replaceView(_view.getView());
+    // _view.replaceView(_view.getView());
   }
 
   protected void handleException(MBOutcome outcome, Exception e)
   {
-      _log.warn("________EXCEPTION RAISED______________________________________________________________");
-      _log.warn(e.getClass().getSimpleName() + ": " + e.getMessage());
-      for (StackTraceElement ste : e.getStackTrace())
-        _log.warn(ste.toString());
-      _log.warn("______________________________________________________________________________________");
+    _log.warn("________EXCEPTION RAISED______________________________________________________________");
+    _log.warn(e.getClass().getSimpleName() + ": " + e.getMessage());
+    for (StackTraceElement ste : e.getStackTrace())
+      _log.warn(ste.toString());
+    _log.warn("______________________________________________________________________________________");
 
     String name;
     if (e instanceof MBException) name = ((MBException) e).getName();
@@ -235,12 +231,12 @@ public abstract class ApplicationController implements Serializable
       return refined.get();
     }
   }
-  
+
   public CurrentView getView()
   {
     return _view;
   }
-  
+
   public MBDataManagerService getDataManagerService()
   {
     return _dataManagerService;

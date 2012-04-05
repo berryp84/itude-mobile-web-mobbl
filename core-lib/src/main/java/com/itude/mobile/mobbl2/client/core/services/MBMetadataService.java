@@ -29,7 +29,7 @@ public class MBMetadataService implements Serializable
 {
   private static final long               serialVersionUID = 1L;
 
-  private static final Logger             _log             = Logger.getLogger(MBMetadataService.class);
+  private static final Logger             LOGGER             = Logger.getLogger(MBMetadataService.class);
 
   private final MBConfigurationDefinition _cfg;
 
@@ -171,7 +171,7 @@ public class MBMetadataService implements Serializable
     ArrayList<MBOutcomeDefinition> list = (ArrayList<MBOutcomeDefinition>) _cfg.getOutcomeDefinitionsForOrigin(originName);
     if (list == null || list.size() <= 0)
     {
-      _log.warn("WARNING No outcomes defined for origin " + originName + " ");
+      LOGGER.warn("WARNING No outcomes defined for origin " + originName + " ");
     }
 
     return list;

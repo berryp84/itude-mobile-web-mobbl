@@ -15,7 +15,7 @@ import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBDocumentDefinitio
 
 public class MBMobbl1DocumentParser extends DefaultHandler
 {
-  private static final Logger  _log = Logger.getLogger(MBMobbl1DocumentParser.class);
+  private static final Logger  LOGGER = Logger.getLogger(MBMobbl1DocumentParser.class);
 
   private Stack<MBDocument>    _stack;
   private MBDocumentDefinition _definition;
@@ -50,7 +50,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
     }
     catch (Exception e)
     {
-      _log.error(e);
+      LOGGER.error(e);
     }
 
     return null;
@@ -88,7 +88,7 @@ public class MBMobbl1DocumentParser extends DefaultHandler
     }
     else
     {
-      _log.warn("WARNING: Unexpected element during parsing of Mobbl document");
+      LOGGER.warn("WARNING: Unexpected element during parsing of Mobbl document");
     }
 
     _characters = null;

@@ -23,7 +23,7 @@ import com.itude.mobile.web.controllers.ApplicationController;
 
 public class PageHelper
 {
-  private static final Logger _log = Logger.getLogger(PageHelper.class);
+  private static final Logger LOGGER = Logger.getLogger(PageHelper.class);
   
   //Contants to avoid excessive garbage collection
   public static final String CUSTOM_BEGIN = "C";
@@ -197,7 +197,7 @@ public class PageHelper
   {
     if (element == null)
     {
-      _log.warn("element is null when requesting the path " + path);
+      LOGGER.warn("element is null when requesting the path " + path);
       return null;
     }
     return element.getValueForPath(path);

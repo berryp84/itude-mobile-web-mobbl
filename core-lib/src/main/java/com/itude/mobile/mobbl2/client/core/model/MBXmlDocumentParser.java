@@ -24,7 +24,7 @@ import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 
 public class MBXmlDocumentParser extends DefaultHandler
 {
-  private static final Logger       _log          = Logger.getLogger(MBXmlDocumentParser.class);
+  private static final Logger       LOGGER          = Logger.getLogger(MBXmlDocumentParser.class);
 
   private static final Pattern      NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
@@ -103,7 +103,7 @@ public class MBXmlDocumentParser extends DefaultHandler
       }
       catch (Exception e)
       {
-        _log.error("MBXmlDocumentParser.doParseFragment", e);
+        LOGGER.error("MBXmlDocumentParser.doParseFragment", e);
       }
     }
   }
@@ -150,7 +150,7 @@ public class MBXmlDocumentParser extends DefaultHandler
       }
       catch (MBElementNotExpectedException e)
       {
-        _log.warn("Skipping element with name " + localName + ". Element is not in definition " + _definition.getName());
+        LOGGER.warn("Skipping element with name " + localName + ". Element is not in definition " + _definition.getName());
         _ignoredPaths.add(getCurrentPath());
       }
     }
@@ -204,7 +204,7 @@ public class MBXmlDocumentParser extends DefaultHandler
       }
       else
       {
-        _log.warn("MBXmlDocumentParser.endElement: Text (" + string + ") specified in body of element " + localName
+        LOGGER.warn("MBXmlDocumentParser.endElement: Text (" + string + ") specified in body of element " + localName
                   + " is ignored because the element has no text() attribute defined");
       }
     }

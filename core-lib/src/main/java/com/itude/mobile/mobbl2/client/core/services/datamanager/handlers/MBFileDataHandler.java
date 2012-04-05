@@ -12,13 +12,13 @@ import com.itude.mobile.mobbl2.client.core.util.FileUtil;
 
 public class MBFileDataHandler extends MBDataHandlerBase
 {
-  private static final Logger _log = Logger.getLogger(MBFileDataHandler.class);
+  private static final Logger LOGGER = Logger.getLogger(MBFileDataHandler.class);
 
   @Override
   public MBDocument loadDocument(String documentName)
   {
 
-    _log.debug("MBFileDataHandler.loadDocument: " + documentName);
+    LOGGER.debug("MBFileDataHandler.loadDocument: " + documentName);
     String fileName = determineFileName(documentName);
     MBDocumentDefinition docDef = MBMetadataService.getInstance().getDefinitionForDocumentName(documentName);
     byte[] data = DataUtil.getInstance().readResource(fileName);
@@ -36,7 +36,7 @@ public class MBFileDataHandler extends MBDataHandlerBase
       String fileName = determineFileName(document.getName());
       String xml = document.asXmlWithLevel(0);
 
-      _log.debug("Writing document " + document.getName() + " to " + fileName);
+      LOGGER.debug("Writing document " + document.getName() + " to " + fileName);
 
       try
       {
@@ -45,7 +45,7 @@ public class MBFileDataHandler extends MBDataHandlerBase
       }
       catch (Exception e)
       {
-        _log.warn("MBFileDataHandler.storeDocument: Error writing document " + document.getName() + " to " + fileName, e);
+        LOGGER.warn("MBFileDataHandler.storeDocument: Error writing document " + document.getName() + " to " + fileName, e);
       }
     }
   }
