@@ -4,7 +4,7 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="mobbl-core-lib-0.0.19.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/itude-mobile-web-mobbl-core-lib/itude-mobile-web-mobbl-core-lib">
+        <dependent-module archiveName="mobbl-core-lib-0.0.20.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/itude-mobile-web-mobbl-core-lib/itude-mobile-web-mobbl-core-lib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path"/>
