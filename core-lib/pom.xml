@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.itude.mobile.web.mobbl</groupId>
 		<artifactId>mobbl-core</artifactId>
-		<version>0.0.20.0</version>
+		<version>0.0.21.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>mobbl-core-lib</artifactId>
 	<packaging>jar</packaging>
@@ -50,9 +50,9 @@
 	</dependencies>
 
 	<scm>
-		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.20.0/core-lib</connection>
-		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.20.0/core-lib</developerConnection>
-		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.20.0/core-lib</url>
+		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-lib</connection>
+		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-lib</developerConnection>
+		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-lib</url>
 	</scm>
 
 	<build>
