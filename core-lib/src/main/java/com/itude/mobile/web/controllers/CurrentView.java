@@ -131,7 +131,6 @@ public class CurrentView implements Serializable
 
   public void setDocId(long docId)
   {
-    _docId = docId;
     if (_keephistory)
     {
       if (_docId != docId)
@@ -150,6 +149,7 @@ public class CurrentView implements Serializable
         _tabHistory.put(docId, getCurrentDialog());
       }
     }
+    _docId = docId;
   }
 
 }
