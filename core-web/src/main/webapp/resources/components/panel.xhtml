@@ -189,8 +189,7 @@
 				</c:when>
 				<c:when
 					test="#{cc.attrs.panel.children[0].children[0].outcomeName ne null}">
-					<div class="ROWLINK"><h:outputLink value="link.jsf" id="#{cc.attrs.panel.children[0].children[1].generatedId}"
-						includeViewParams="yes">
+					<div class="ROWLINK"><h:outputLink value="link.jsf" includeViewParams="yes">
 						<f:param name="docId" value="#{currentView.docId}" />
 						<f:param name="outcome"
 							value="#{cc.attrs.panel.children[0].children[0].outcomeName}" />

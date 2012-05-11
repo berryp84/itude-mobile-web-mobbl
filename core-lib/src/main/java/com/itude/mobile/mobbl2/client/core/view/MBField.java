@@ -21,7 +21,7 @@ import com.itude.mobile.web.util.PageHelper;
 
 public class MBField extends MBComponent
 {
-  private static final Logger   LOGGER          = Logger.getLogger(MBField.class);
+  private static final Logger   LOGGER        = Logger.getLogger(MBField.class);
 
   private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
 
@@ -357,6 +357,12 @@ public class MBField extends MBComponent
   {
     if (_attributeDefinition == null)
     {
+      String absoluteDataPath = getAbsoluteDataPath();
+      if (absoluteDataPath == null)
+      {
+        return null;
+      }
+
       String path = NUMBERPATTERN.matcher(getAbsoluteDataPath()).replaceAll("");
       if (path == null)
       {
@@ -370,7 +376,7 @@ public class MBField extends MBComponent
       {
         // Button outcomes do not map to an attribute
         LOGGER.debug("MBField.getAttributeDefinition() with path=" + path
-                   + " does not map to an attribute. Probably an outcomePath for a Button.");
+                     + " does not map to an attribute. Probably an outcomePath for a Button.");
       }
     }
 
