@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.itude.mobile.web.mobbl</groupId>
 	<artifactId>mobbl-core</artifactId>
-	<version>0.0.23.0</version>
+	<version>0.0.23.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Web Mobbl Core</name>
 	<description>Web Mobbl Core</description>
@@ -52,9 +52,9 @@
     </profiles>
 	
 	<scm>
-		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.23.0</connection>
-		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.23.0</developerConnection>
-		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/tags/mobbl-core-0.0.23.0</url>
+		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</connection>
+		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</developerConnection>
+		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</url>
 	</scm>
 
 	<build>
