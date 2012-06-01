@@ -23,12 +23,12 @@ import com.itude.mobile.web.controllers.ApplicationController;
 
 public class PageHelper
 {
-  private static final Logger LOGGER = Logger.getLogger(PageHelper.class);
-  
+  private static final Logger LOGGER       = Logger.getLogger(PageHelper.class);
+
   //Contants to avoid excessive garbage collection
-  public static final String CUSTOM_BEGIN = "C";
-  private static final char  COLON        = ':';
-  private static final int   CUSTOM_SIZE  = CUSTOM_BEGIN.length();
+  public static final String  CUSTOM_BEGIN = "C";
+  private static final char   COLON        = ':';
+  private static final int    CUSTOM_SIZE  = CUSTOM_BEGIN.length();
 
   public static String componentType(MBComponent component)
   {
@@ -172,7 +172,7 @@ public class PageHelper
   {
     return s1.concat(s2);
   }
-  
+
   // Not used by facelets, but by renderers
   public static String convertClientId(FacesContext context, String clientId)
   {
@@ -191,7 +191,7 @@ public class PageHelper
       return Base64.encodeLong(clientId.hashCode());
     }
   }
-  
+
   // Can be removed when we can use Tomcat 7: you can replace it by .getValueForPath(
   public static <T> T valueForPath(MBElementContainer element, String path)
   {
@@ -201,6 +201,17 @@ public class PageHelper
       return null;
     }
     return element.getValueForPath(path);
+  }
+
+  //Can be removed when we can use Tomcat 7: you can replace it by .getValueForPath(
+  public static String valueForAttribute(MBElement element, String name)
+  {
+    if (element == null)
+    {
+      LOGGER.warn("element is null when requesting the name " + name);
+      return null;
+    }
+    return element.getValueForAttribute(name);
   }
 
   //Can be removed when we can use Tomcat 7: you can replace it by .elementsWithName(
