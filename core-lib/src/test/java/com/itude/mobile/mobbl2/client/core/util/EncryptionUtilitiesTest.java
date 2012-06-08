@@ -57,12 +57,11 @@ public class EncryptionUtilitiesTest extends TestCase
 
     byte[] ba2 = new byte[]{2, 55, 24, -61, -114, -62, -76, 56, -62, -115, 99, 14, -30, -128, -108, 68};
     assertEquals(Arrays.toString(ba2), Arrays.toString(ByteUtil.encodeBytes(ba, ENCODINGTYPE)));
-   
+
     assertTrue(Arrays.equals(ba2, ByteUtil.encodeBytes(ba, ENCODINGTYPE)));
     assertTrue(Arrays.equals(ba2, ByteUtil.encodeBytes(result, ENCODINGTYPE)));
 
     assertEquals("023718c38ec2b438c28d630ee2809444", EncryptionUtilities.byte2string((ByteUtil.encodeBytes(result, ENCODINGTYPE))));
     assertEquals("AjcYw47CtDjCjWMO4oCURA==", Base64.encodeBase64String(ByteUtil.encodeBytes(result, ENCODINGTYPE)).trim());
   }
-
 }
