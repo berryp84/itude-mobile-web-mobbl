@@ -71,7 +71,7 @@ public class CapacityBean implements Serializable
 
     _webkit = userAgent.toLowerCase().contains("webkit");
     _android = userAgent.toLowerCase().contains("android");
-    _blackBerry = device.getId().contains("blackberry");
+    _blackBerry = userAgent.toLowerCase().contains("blackberry");
 
     // this returns true also with iPod touch. This is intentional.
     _iphone = userAgent.toLowerCase().contains("iphone");
