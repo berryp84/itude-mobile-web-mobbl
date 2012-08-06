@@ -219,4 +219,9 @@ public class PageHelper
   {
     return container.getElementsWithName(name);
   }
+  
+  public static FieldSetter getFieldSetter(MBElementContainer container, String path)
+  {
+    return new FieldSetter(container, path);
+  }
 }
