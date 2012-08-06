@@ -413,12 +413,15 @@ public class MBElementContainer
 
   public String substituteExpressions(String expression, String nilMarker, String currentPath)
   {
+    String variableOpenTag = "${";
+    String variableCloseTag = "}";
+
     if (expression == null)
     {
       return null;
     }
 
-    if (!expression.contains("{"))
+    if (!expression.contains(variableOpenTag))
     {
       return expression;
     }
@@ -430,33 +433,27 @@ public class MBElementContainer
 
     int position = 0;
     int subPartPosition = -1;
-    while ((position = expression.indexOf("${")) > -1)
+
+    while ((position = expression.indexOf(variableOpenTag)) > -1)
     {
       result += expression.substring(0, position);
-      expression = expression.substring(position + 2);
-      subPartPosition = expression.indexOf('}');
+      expression = expression.substring(position + variableOpenTag.length());
 
-      if (subPartPosition != -1)
+      if ((subPartPosition = expression.indexOf(variableCloseTag)) != -1)
       {
         subPart = expression.substring(subPartPosition + 1);
 
         singleExpression = expression.substring(0, subPartPosition);
 
-        /* 
-         * We check if the singleExpression starts with a '/' or contains a ':'
-         * If it doesn't, we can assume it's a relative path and we want to append the singleExpression to the currentPath
-        */
-        if (!singleExpression.startsWith("/") && !singleExpression.contains(":") && currentPath != null && currentPath.length() > 0)
+        if (singleExpression.startsWith(".") && currentPath != null && currentPath.length() > 0)
         {
+
           singleExpression = currentPath + "/" + singleExpression;
         }
 
-        if (expression.length() > subPartPosition + 2)
+        if (expression.length() > subPartPosition + variableCloseTag.length() + 1)
         {
-          // TODO: This causes problems when evaluating the following:
-          // '${/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Stijgers[0]/TopStijgersDalersTypeStijgersStijger[0]/@Position}' != 'null' || '${/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Dalers[0]/TopStijgersDalersTypeDalersDaler[0]/@Position}'!='null'
-          // Why is it here?
-          expression = expression.substring(subPartPosition + 2);
+          expression = expression.substring(subPartPosition + variableCloseTag.length());
         }
         else
         {
