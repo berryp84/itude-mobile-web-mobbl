@@ -445,9 +445,13 @@ public class MBElementContainer
 
         singleExpression = expression.substring(0, subPartPosition);
 
-        if (singleExpression.startsWith(".") && currentPath != null && currentPath.length() > 0)
+        /* 
+         * We check if the singleExpression starts with a '/' or contains a ':'
+         * If it doesn't (and currentPath is present), we can assume it's a relative path and we want to append the singleExpression to the currentPath
+         * (as opposed to android, where it is checked whether the singleExpression.startsWith('.') and currentPath is present)
+        */
+        if (!singleExpression.startsWith("/") && !singleExpression.contains(":") && currentPath != null && currentPath.length() > 0)
         {
-
           singleExpression = currentPath + "/" + singleExpression;
         }
 
