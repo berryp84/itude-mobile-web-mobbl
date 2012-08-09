@@ -1,5 +1,6 @@
 package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -13,8 +14,10 @@ import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandlerBase;
 import com.itude.mobile.mobbl2.client.core.util.DataUtil;
 
-public class MBSystemDataHandler extends MBDataHandlerBase
+public class MBSystemDataHandler extends MBDataHandlerBase implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   private final Map<String, MBDocument> _dictionary;
 
   private String                        _fileName = "applicationproperties.xml";
