@@ -12,6 +12,7 @@ import com.itude.commons.util.Base64;
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
 import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
+import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
 import com.itude.mobile.mobbl2.client.core.view.MBComponent;
 import com.itude.mobile.mobbl2.client.core.view.MBComponentContainer;
 import com.itude.mobile.mobbl2.client.core.view.MBField;
@@ -69,7 +70,6 @@ public class PageHelper
 
   public static Integer compareWithMarker(MBComponentContainer row, MBField column)
   {
-
     MBField marker = null;
     MBField primary = null;
 
@@ -95,7 +95,8 @@ public class PageHelper
       double markerValue = Double.parseDouble(marker.getValue());
       double columnValueD = Double.parseDouble(primary.getValue());
 
-      if (markerValue > columnValueD) return -1;
+      if(markerValue == columnValueD) return 0;
+      else if (markerValue > columnValueD) return -1;
       else return 1;
     }
     catch (NumberFormatException e)
@@ -106,16 +107,30 @@ public class PageHelper
 
   public static String getStyleClassFor(MBField field)
   {
-    int delta = compareWithMarker(field.getParent(), field);
-
-    if (delta == 1
-        || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double
-            .parseDouble(field.getValue()) > 0)) return "POSITIVE";
-    if (delta == -1
-        || (field.getStyle() != null && field.getValue() != null && "DIFFABLE_SECONDARY".equals(field.getStyle()) && Double
-            .parseDouble(field.getValue()) < 0)) return "NEGATIVE";
-
     if (!"DIFFABLE_PRIMARY".equals(field.getStyle()) && !"DIFFABLE_SECONDARY".equals(field.getStyle())) return "";
+    
+    int delta = compareWithMarker(field.getParent(), field);
+    if (delta == 1)
+    {
+      return "POSITIVE";
+    }
+    else if (delta == -1)
+    {
+      return "NEGATIVE";
+    }
+    
+    else if("DIFFABLE_SECONDARY".equals(field.getStyle()) && !StringUtilities.isEmpty(field.getValue()))
+    {
+      double value = Double.parseDouble(field.getValue());
+      if(value > 0)
+      {
+        return "POSITIVE";
+      }
+      else if(value < 0)
+      {
+        return "NEGATIVE";
+      }
+    }
 
     return "NEUTRAL";
   }
