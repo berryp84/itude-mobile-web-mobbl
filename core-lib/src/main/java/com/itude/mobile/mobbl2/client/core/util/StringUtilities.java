@@ -421,17 +421,32 @@ public final class StringUtilities
   // the receiver's value should be "as displayed", eg for 30%, the receiver should be 30, not 0.3
   public static String formatPercentageWithTwoDecimals(String stringToFormat)
   {
-    return formatPriceWithTwoDecimals(stringToFormat) + "%";
+    String formatted = formatPriceWithTwoDecimals(stringToFormat);
+    if(formatted == null)
+    {
+      return null;
+    }
+    return formatted + "%";
   }
 
   public static String formatPercentageWithTwoDecimalsWithPlusSignInFrontOfIt(String stringToFormat)
   {
-    return "+" + formatPriceWithTwoDecimals(stringToFormat) + "%";
+    String formatted = formatPriceWithTwoDecimals(stringToFormat);
+    if(formatted == null)
+    {
+      return null;
+    }
+    return "+" + formatted + "%";
   }
 
   public static String formatPercentageWithTwoDecimalsWithMinSignInFrontOfIt(String stringToFormat)
   {
-    return "-" + formatPriceWithTwoDecimals(stringToFormat) + "%";
+    String formatted = formatPriceWithTwoDecimals(stringToFormat);
+    if(formatted == null)
+    {
+      return null;
+    }
+    return "-" + formatted + "%";
   }
 
   public static String md5(String stringToHash)
@@ -503,9 +518,9 @@ public final class StringUtilities
     return result.toString();
   }
 
-  private static boolean isEmpty(String value)
+  public static boolean isEmpty(String value)
   {
-    return (value == null || value.length() == 0);
+    return (value == null || value.isEmpty());
   }
 
 }
