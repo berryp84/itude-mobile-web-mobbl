@@ -228,6 +228,11 @@ public final class StringUtilities
   // If the date is NOT equal to the current date, then a a date is presented back as a string
   public static String formatDateDependingOnCurrentDate(String dateString)
   {
+    if(isEmpty(dateString))
+    {
+      return "";
+    }
+    
     String result = dateString;
     Date date = dateFromXML(dateString);
 
