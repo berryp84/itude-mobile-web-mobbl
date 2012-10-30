@@ -78,8 +78,8 @@
     </build>
     
     <properties>
-		<ciserver>http://macserver.itude.com/jenkins</ciserver>
-		<jira>http://macserver.itude.com/jira/</jira>
+		<ciserver>https://mobiledev.itude.com/jenkins</ciserver>
+		<jira>https://mobiledev.itude.com/jira/</jira>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
