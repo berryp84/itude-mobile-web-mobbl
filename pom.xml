@@ -93,7 +93,7 @@
 			</snapshots>
 			<id>itude-repos</id>
 			<name>itude-repos</name>
-			<url>https://mobiledev.itude.com/nexus/content/groups/public/</url>
+			<url>http://localhost:8765/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
 	
@@ -111,13 +111,13 @@
 		<repository>
 			<id>itude</id>
 			<name>itude</name>
-			<url>https://mobiledev.itude.com/nexus/content/repositories/releases/</url>
+			<url>http://localhost:8765/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>itude-snapshot</id>
 			<name>itude-snapshot</name>
-			<url>https://mobiledev.itude.com/nexus/content/repositories/snapshots/</url>
+			<url>http://localhost:8765/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
     
