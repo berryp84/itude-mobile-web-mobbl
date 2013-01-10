@@ -47,9 +47,9 @@
 	</dependencies>
 
 	<scm>
-		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</connection>
-		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</developerConnection>
-		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk/core-web</url>
+		<connection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git/core-web</connection>
+		<developerConnection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git/core-web</developerConnection>
+		<url>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git/core-web</url>
 	</scm>
 
 	<build>

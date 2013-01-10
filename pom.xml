@@ -51,10 +51,10 @@
         </profile>
     </profiles>
 	
-	<scm>
-		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</connection>
-		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</developerConnection>
-		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</url>
+   	<scm>
+		<connection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</connection>
+		<developerConnection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</developerConnection>
+		<url>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</url>
 	</scm>
 
 	<build>
