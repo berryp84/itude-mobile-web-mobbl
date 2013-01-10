@@ -21,22 +21,11 @@ import com.itude.mobile.mobbl2.client.core.util.exceptions.MBInvalidRelativePath
 
 public final class StringUtilities
 {
-  private static final Logger               LOG                = Logger.getLogger(StringUtilities.class);
+  private static final Logger LOG                 = Logger.getLogger(StringUtilities.class);
 
-  private static Locale                     defaultFormattingLocale;
+  private static Locale       defaultFormattingLocale;
 
-  private static final String               DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
-
-  private static ThreadLocal<DecimalFormat> tLFormatter3Dec     = new ThreadLocal<DecimalFormat>()
-                                                                {
-                                                                  @Override
-                                                                  protected DecimalFormat initialValue()
-                                                                  {
-                                                                    DecimalFormat formatter = new DecimalFormat();
-                                                                    setupFormatter(formatter, 3);
-                                                                    return formatter;
-                                                                  }
-                                                                };
+  private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
 
   private StringUtilities()
   {
@@ -228,11 +217,11 @@ public final class StringUtilities
   // If the date is NOT equal to the current date, then a a date is presented back as a string
   public static String formatDateDependingOnCurrentDate(String dateString)
   {
-    if(isEmpty(dateString))
+    if (isEmpty(dateString))
     {
       return "";
     }
-    
+
     String result = dateString;
     Date date = dateFromXML(dateString);
 
@@ -321,30 +310,23 @@ public final class StringUtilities
   // WARNING: Only use this method to present data to the screen (BINCKAPPS-32, BINCKMOBILE-35, BINCKMOBILE-113)
   public static String formatNumberWithTwoDecimals(String stringToFormat)
   {
-
-    if (stringToFormat == null || stringToFormat.length() == 0)
-    {
-      return null;
-    }
-
-    String result = null;
-
-    DecimalFormat formatter = new DecimalFormat();
-    formatter.setDecimalFormatSymbols(new DecimalFormatSymbols(getDefaultFormattingLocale()));
-    formatter.setMinimumIntegerDigits(1);
-    formatter.setMaximumFractionDigits(2);
-    formatter.setMinimumFractionDigits(2);
-    formatter.setGroupingUsed(true);
-    formatter.setGroupingSize(3);
-
-    result = formatter.format(Double.parseDouble(stringToFormat));
-
-    return result;
+    return formatNumberWithDecimals(stringToFormat, 2);
   }
 
   // returns a string formatted as a number with three decimals assuming the receiver is a float string read from XML
   // WARNING: Only use this method to present data to the screen (BINCKAPPS-32, BINCKMOBILE-35, BINCKMOBILE-113)
   public static String formatNumberWithThreeDecimals(String stringToFormat)
+  {
+    return formatNumberWithDecimals(stringToFormat, 3);
+  }
+
+  /***
+   * 
+   * @param stringToFormat
+   * @param numberOfDecimals can be any number, also negative as the used DecimalFormatter accepts it and makes it 0
+   * @return
+   */
+  public static String formatNumberWithDecimals(String stringToFormat, int numberOfDecimals)
   {
     if (stringToFormat == null || stringToFormat.length() == 0)
     {
@@ -354,11 +336,7 @@ public final class StringUtilities
     String result = null;
 
     DecimalFormat formatter = new DecimalFormat();
-    formatter.setDecimalFormatSymbols(new DecimalFormatSymbols(getDefaultFormattingLocale()));
-    formatter.setMinimumIntegerDigits(1);
-    formatter.setMaximumFractionDigits(3);
-    formatter.setGroupingUsed(true);
-    formatter.setGroupingSize(3);
+    setupFormatter(formatter, numberOfDecimals);
 
     result = formatter.format(Double.parseDouble(stringToFormat));
 
@@ -369,34 +347,12 @@ public final class StringUtilities
   // WARNING: Only use this method to present data to the screen (BINCKAPPS-32, BINCKMOBILE-35, BINCKMOBILE-113)
   public static String formatPriceWithTwoDecimals(String stringToFormat)
   {
-    if (stringToFormat == null || stringToFormat.length() == 0)
-    {
-      return null;
-    }
-
-    String result = null;
-
-    DecimalFormat formatter = new DecimalFormat();
-    formatter.setDecimalFormatSymbols(new DecimalFormatSymbols(getDefaultFormattingLocale()));
-    formatter.setMinimumIntegerDigits(1);
-    formatter.setMinimumFractionDigits(2);
-    formatter.setMaximumFractionDigits(2);
-
-    formatter.setGroupingUsed(true);
-    formatter.setGroupingSize(3);
-
-    result = formatter.format(Double.parseDouble(stringToFormat));
-
-    return result;
+    return formatNumberWithDecimals(stringToFormat, 2);
   }
 
   public static String formatPriceWithThreeDecimals(String stringToFormat)
   {
-    if (stringToFormat == null || stringToFormat.length() == 0)
-    {
-      return null;
-    }
-    return tLFormatter3Dec.get().format(Double.parseDouble(stringToFormat));
+    return formatNumberWithDecimals(stringToFormat, 3);
   }
 
   // returns a string formatted as a volume with group separators (eg, 131.224.000) assuming the receiver is an int string read from XML
@@ -427,7 +383,7 @@ public final class StringUtilities
   public static String formatPercentageWithTwoDecimals(String stringToFormat)
   {
     String formatted = formatPriceWithTwoDecimals(stringToFormat);
-    if(formatted == null)
+    if (formatted == null)
     {
       return null;
     }
@@ -437,7 +393,7 @@ public final class StringUtilities
   public static String formatPercentageWithTwoDecimalsWithPlusSignInFrontOfIt(String stringToFormat)
   {
     String formatted = formatPriceWithTwoDecimals(stringToFormat);
-    if(formatted == null)
+    if (formatted == null)
     {
       return null;
     }
@@ -447,7 +403,7 @@ public final class StringUtilities
   public static String formatPercentageWithTwoDecimalsWithMinSignInFrontOfIt(String stringToFormat)
   {
     String formatted = formatPriceWithTwoDecimals(stringToFormat);
-    if(formatted == null)
+    if (formatted == null)
     {
       return null;
     }
