@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.itude.mobile.web.mobbl</groupId>
 	<artifactId>mobbl-core</artifactId>
-	<version>0.0.28.1-SNAPSHOT</version>
+	<version>0.0.30.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Web Mobbl Core</name>
 	<description>Web Mobbl Core</description>
@@ -51,10 +51,10 @@
         </profile>
     </profiles>
 	
-	<scm>
-		<connection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</connection>
-		<developerConnection>scm:svn:http://repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</developerConnection>
-		<url>http://svn/repo.itude.com/repos/mobbl-client/itude-mobile-web-mobbl/trunk</url>
+   	<scm>
+		<connection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</connection>
+		<developerConnection>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</developerConnection>
+		<url>scm:git:git@127.0.0.1:itude-mobile-web-mobbl.git</url>
 	</scm>
 
 	<build>
@@ -93,7 +93,7 @@
 			</snapshots>
 			<id>itude-repos</id>
 			<name>itude-repos</name>
-			<url>https://mobiledev.itude.com/nexus/content/groups/public/</url>
+			<url>http://localhost:8765/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
 	
@@ -111,13 +111,13 @@
 		<repository>
 			<id>itude</id>
 			<name>itude</name>
-			<url>https://mobiledev.itude.com/nexus/content/repositories/releases/</url>
+			<url>http://localhost:8765/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>itude-snapshot</id>
 			<name>itude-snapshot</name>
-			<url>https://mobiledev.itude.com/nexus/content/repositories/snapshots/</url>
+			<url>http://localhost:8765/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
     
