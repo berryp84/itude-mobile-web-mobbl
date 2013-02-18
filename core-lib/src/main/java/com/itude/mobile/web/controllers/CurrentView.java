@@ -108,6 +108,9 @@ public class CurrentView implements Serializable
     _viewStack.clear();
     _dialogs.clear();
     _fakeController = null;
+    _docId = 0;
+    _controllerHistory.clear();
+    _tabHistory.clear ();
     setCurrentDialog("HOME");
   }
 
