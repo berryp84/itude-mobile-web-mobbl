@@ -3,6 +3,12 @@
                                 "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
 <facelet-taglib>
  <namespace>http://itude.com/facelets</namespace>
+  <tag>
+ 	<tag-name>error</tag-name>
+ 	<component>
+ 		<component-type>MOBBL.Error</component-type>
+ 	</component>
+ </tag> 
  <function>
   <function-name>componentType</function-name>
   <function-class>com.itude.mobile.web.util.PageHelper</function-class>
