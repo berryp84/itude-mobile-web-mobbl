@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.itude.mobile.web.mobbl</groupId>
 	<artifactId>mobbl-core</artifactId>
-	<version>0.0.30.0</version>
+	<version>0.0.31.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Web Mobbl Core</name>
 	<description>Web Mobbl Core</description>
