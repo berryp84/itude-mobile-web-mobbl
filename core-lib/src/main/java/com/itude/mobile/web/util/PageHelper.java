@@ -67,6 +67,11 @@ public class PageHelper
   {
     return component.size();
   }
+  
+  public static String concat(Object o1, Object o2)
+  {
+    return(o1.toString() + o2.toString());
+  }
 
   public static Integer compareWithMarker(MBComponentContainer row, MBField column)
   {
