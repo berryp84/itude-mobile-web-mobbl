@@ -10,6 +10,8 @@ public class MBFieldDefinition extends MBConditionalDefinition
   private String _style;
   private String _displayType;
   private String _dataType;
+  private String _minimumDecimals;
+  private String _maximumDecimals;
   private String _text;
   private String _outcomeName;
   private String _width;
@@ -24,6 +26,7 @@ public class MBFieldDefinition extends MBConditionalDefinition
   private String _customTranslated;
   private String _required;
 
+  @Override
   public String asXmlWithLevel(int level)
   {
     String bodyText = null;
@@ -118,9 +121,29 @@ public class MBFieldDefinition extends MBConditionalDefinition
     return _dataType;
   }
 
+  public String getMinimumDecimals()
+  {
+    return _minimumDecimals;
+  }
+
+  public String getMaximumDecimals()
+  {
+    return _maximumDecimals;
+  }
+
   public void setDataType(String dataType)
   {
     _dataType = dataType;
+  }
+
+  public void setMinimumDecimals(String minimumDecimals)
+  {
+    _minimumDecimals = minimumDecimals;
+  }
+
+  public void setMaximumDecimals(String maximumDecimals)
+  {
+    _maximumDecimals = maximumDecimals;
   }
 
   public String getRequired()
@@ -222,12 +245,12 @@ public class MBFieldDefinition extends MBConditionalDefinition
   {
     _custom3 = custom3;
   }
-  
+
   public String getCustomTranslated()
   {
     return _customTranslated;
   }
-  
+
   public void setCustomTranslated(String customTranslated)
   {
     _customTranslated = customTranslated;

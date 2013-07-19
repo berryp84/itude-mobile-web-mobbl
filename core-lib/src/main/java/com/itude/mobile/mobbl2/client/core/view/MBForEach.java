@@ -41,23 +41,25 @@ public class MBForEach extends MBComponentContainer
       if (pathResult != null)
       {
         // TODO: this is Binck only. Should be removed from this project
-        int rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Stijgers[0]/TopStijgersDalersTypeStijgersStijger".equals(definition.getValue()) ? 3 : ((List<?>) pathResult).size();
-        rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Dalers[0]/TopStijgersDalersTypeDalersDaler".equals(definition.getValue()) ? 3 : rowAmount;
-        
+        int rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Stijgers[0]/TopStijgersDalersTypeStijgersStijger"
+            .equals(definition.getValue()) ? 3 : ((List<?>) pathResult).size();
+        rowAmount = "/EXT-SchermenHomeResult[0]/Topstijgersdalers[0]/Dalers[0]/TopStijgersDalersTypeDalersDaler".equals(definition
+            .getValue()) ? 3 : rowAmount;
+
         if (!(pathResult instanceof List<?>)) throw new MBInvalidPathException(_value);
         for (int i = 0; i < rowAmount; i++)
         {
-          
+
           MBRow row = new MBRow(getDefinition(), getDocument(), this);
           addRow(row);
-          
+
           for (MBDefinition childDef : (ArrayList<MBDefinition>) def.getChildren())
           {
-            String path;
-            if (parent != null) path = getParent().getAbsoluteDataPath();
-            else path = getAbsoluteDataPath();
-            if (childDef.isPreConditionValid(document, path)) row.addChild(MBComponentFactory
-                .getComponentFromDefinition(childDef, document, row));
+            if (childDef.isPreConditionValid(document, row.getAbsoluteDataPath()))
+            {
+              row.addChild(MBComponentFactory.getComponentFromDefinition(childDef, document, row));
+            }
+
           }
         }
         if (definition.getSuppressRowComponent())
@@ -117,7 +119,7 @@ public class MBForEach extends MBComponentContainer
     for (MBRow child : _rows)
     {
 
-      if (clazz.isInstance(child)) result.add((T)child);
+      if (clazz.isInstance(child)) result.add((T) child);
       result.addAll(child.getDescendantsOfKind(clazz));
     }
     return result;
@@ -131,7 +133,7 @@ public class MBForEach extends MBComponentContainer
     List<T> result = super.getChildrenOfKind(clazz);
     for (MBComponent child : _rows)
     {
-      if (clazz.isInstance(child)) result.add((T)child);
+      if (clazz.isInstance(child)) result.add((T) child);
     }
     return result;
   }

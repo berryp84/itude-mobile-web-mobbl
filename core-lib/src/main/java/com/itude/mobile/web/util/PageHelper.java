@@ -50,10 +50,16 @@ public class PageHelper
 
   public static String value(MBField field)
   {
-    if (field.getLabel() != null) return field.getLabel();
-    else if (field.getValue() != null || field.getValueIfNil() != null) return field.getFormattedValue();
+    if (field.getLabel() != null)
+    {
+      return field.getLabel();
+    }
+    else if (field.getValue() != null || field.getValueIfNil() != null)
+    {
+      return field.getFormattedValue();
+    }
 
-    else return "";
+    return "";
   }
 
   public static String getTranslatedPathValue(MBField field)
@@ -67,10 +73,10 @@ public class PageHelper
   {
     return component.size();
   }
-  
+
   public static String concat(Object o1, Object o2)
   {
-    return(o1.toString() + o2.toString());
+    return (o1.toString() + o2.toString());
   }
 
   public static Integer compareWithMarker(MBComponentContainer row, MBField column)
@@ -100,7 +106,7 @@ public class PageHelper
       double markerValue = Double.parseDouble(marker.getValue());
       double columnValueD = Double.parseDouble(primary.getValue());
 
-      if(markerValue == columnValueD) return 0;
+      if (markerValue == columnValueD) return 0;
       else if (markerValue > columnValueD) return -1;
       else return 1;
     }
@@ -113,7 +119,7 @@ public class PageHelper
   public static String getStyleClassFor(MBField field)
   {
     if (!"DIFFABLE_PRIMARY".equals(field.getStyle()) && !"DIFFABLE_SECONDARY".equals(field.getStyle())) return "";
-    
+
     int delta = compareWithMarker(field.getParent(), field);
     if (delta == 1)
     {
@@ -123,15 +129,15 @@ public class PageHelper
     {
       return "NEGATIVE";
     }
-    
-    else if("DIFFABLE_SECONDARY".equals(field.getStyle()) && !StringUtilities.isEmpty(field.getValue()))
+
+    else if ("DIFFABLE_SECONDARY".equals(field.getStyle()) && !StringUtilities.isEmpty(field.getValue()))
     {
       double value = Double.parseDouble(field.getValue());
-      if(value > 0)
+      if (value > 0)
       {
         return "POSITIVE";
       }
-      else if(value < 0)
+      else if (value < 0)
       {
         return "NEGATIVE";
       }
@@ -239,7 +245,7 @@ public class PageHelper
   {
     return container.getElementsWithName(name);
   }
-  
+
   public static FieldSetter getFieldSetter(MBElementContainer container, String path)
   {
     return new FieldSetter(container, path);

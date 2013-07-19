@@ -21,9 +21,9 @@ import com.itude.mobile.web.util.PageHelper;
 
 public class MBField extends MBComponent
 {
-  private static final Logger   LOGGER        = Logger.getLogger(MBField.class);
+  private static final Logger   LOGGER           = Logger.getLogger(MBField.class);
 
-  private static final Pattern  NUMBERPATTERN = Pattern.compile("\\[[0-9]+\\]");
+  private static final Pattern  NUMBERPATTERN    = Pattern.compile("\\[[0-9]+\\]");
 
   private Object                _responder;
   private MBAttributeDefinition _attributeDefinition;
@@ -32,6 +32,8 @@ public class MBField extends MBComponent
   private String                _translatedPath;
   private String                _label;
   private String                _dataType;
+  private int                   _minimumDecimals = -1;
+  private int                   _maximumDecimals = -1;
   private String                _formatMask;
   private String                _alignment;
   private String                _valueIfNil;
@@ -57,12 +59,38 @@ public class MBField extends MBComponent
     if (fieldDef.getWidth() != null)
     {
       String evaluatedWidth = substituteExpressions(fieldDef.getWidth());
-      if (evaluatedWidth != null && !evaluatedWidth.isEmpty()) setWidth(Integer.parseInt(evaluatedWidth));
+      if (evaluatedWidth != null && !evaluatedWidth.isEmpty())
+      {
+        setWidth(Integer.parseInt(evaluatedWidth));
+      }
     }
     if (fieldDef.getHeight() != null)
     {
       String evaluatedHeight = substituteExpressions(fieldDef.getHeight());
-      if (evaluatedHeight != null && !evaluatedHeight.isEmpty()) setHeight(Integer.parseInt(evaluatedHeight));
+      if (evaluatedHeight != null && !evaluatedHeight.isEmpty())
+      {
+        setHeight(Integer.parseInt(evaluatedHeight));
+      }
+    }
+
+    if (fieldDef.getMinimumDecimals() != null)
+    {
+      String evaluatedDecimals = substituteExpressions(fieldDef.getMinimumDecimals());
+      if (evaluatedDecimals != null && !evaluatedDecimals.isEmpty())
+      {
+        setMinimumDecimals(Integer.parseInt(evaluatedDecimals));
+      }
+
+    }
+
+    if (fieldDef.getMaximumDecimals() != null)
+    {
+      String evaluatedDecimals = substituteExpressions(fieldDef.getMaximumDecimals());
+      if (evaluatedDecimals != null && !evaluatedDecimals.isEmpty())
+      {
+        setMaximumDecimals(Integer.parseInt(evaluatedDecimals));
+      }
+
     }
 
     setStyle(substituteExpressions(fieldDef.getStyle()));
@@ -179,6 +207,16 @@ public class MBField extends MBComponent
   public void setDataType(String dataType)
   {
     _dataType = dataType;
+  }
+
+  public void setMinimumDecimals(int minimumDecimals)
+  {
+    _minimumDecimals = minimumDecimals;
+  }
+
+  public void setMaximumDecimals(int maximumDecimals)
+  {
+    _maximumDecimals = maximumDecimals;
   }
 
   public String getFormatMask()
@@ -416,11 +454,21 @@ public class MBField extends MBComponent
   public String getFormattedValue()
   {
     String fieldValue = getValue();
-    if ("NaN".equals(fieldValue)) fieldValue = null;
+    if ("NaN".equals(fieldValue))
+    {
+      fieldValue = null;
+    }
 
-    if (fieldValue == null) fieldValue = getValueIfNil();
+    if (fieldValue == null)
+    {
+      fieldValue = getValueIfNil();
+    }
 
-    if (fieldValue == null) return "";
+    if (fieldValue == null)
+    {
+      return "";
+    }
+
     boolean fieldValueSameAsNilValue = fieldValue.equals(getValueIfNil());
 
     if (getFormatMask() != null && getDataType().equals("dateTime"))
@@ -461,6 +509,11 @@ public class MBField extends MBComponent
     else if (!fieldValueSameAsNilValue && getDataType().equals("priceWithFourDecimals"))
     {
       fieldValue = StringUtilities.formatNumberWithDecimals(fieldValue, 4);
+    }
+    else if (!fieldValueSameAsNilValue && getDataType().equals("priceWithDynamicDecimals")
+             && (_minimumDecimals > -1 || _maximumDecimals > -1))
+    {
+      fieldValue = StringUtilities.formatNumberWithDecimals(fieldValue, _minimumDecimals, _maximumDecimals);
     }
     else if (!fieldValueSameAsNilValue && getDataType().equals("volume"))
     {

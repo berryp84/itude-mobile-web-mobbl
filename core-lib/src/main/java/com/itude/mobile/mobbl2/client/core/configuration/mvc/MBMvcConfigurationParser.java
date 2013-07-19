@@ -147,6 +147,8 @@ public class MBMvcConfigurationParser extends MBConfigurationParser
       _fieldAttributes.add("path");
       _fieldAttributes.add("type");
       _fieldAttributes.add("dataType");
+      _fieldAttributes.add("minimumDecimals");
+      _fieldAttributes.add("maximumDecimals");
       _fieldAttributes.add("required");
       _fieldAttributes.add("outcome");
       _fieldAttributes.add("style");
@@ -399,6 +401,8 @@ public class MBMvcConfigurationParser extends MBConfigurationParser
       fieldDef.setPath(attributeDict.get("path"));
       fieldDef.setDisplayType(attributeDict.get("type"));
       fieldDef.setDataType(attributeDict.get("dataType"));
+      fieldDef.setMinimumDecimals(attributeDict.get("minimumDecimals"));
+      fieldDef.setMaximumDecimals(attributeDict.get("maximumDecimals"));
       fieldDef.setStyle(attributeDict.get("style"));
       fieldDef.setRequired(attributeDict.get("required"));
       fieldDef.setOutcomeName(attributeDict.get("outcome"));

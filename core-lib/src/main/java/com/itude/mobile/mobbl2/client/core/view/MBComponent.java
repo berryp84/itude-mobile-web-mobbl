@@ -10,6 +10,7 @@ import com.itude.commons.util.CollectionUtil;
 import com.itude.mobile.mobbl2.client.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
+import com.itude.mobile.mobbl2.client.core.util.Constants;
 import com.itude.mobile.mobbl2.client.core.view.helpers.MBSelector;
 
 public class MBComponent
@@ -133,40 +134,48 @@ public class MBComponent
   {
     if (expression == null)
     {
-      return null;
+      return expression;
     }
 
-    if (!expression.contains("{"))
+    if (expression.equalsIgnoreCase("YES"))
+    {
+      return Constants.C_TRUE;
+    }
+
+    if (expression.equalsIgnoreCase("NO"))
+    {
+      return Constants.C_FALSE;
+    }
+
+    if (expression.indexOf('{') < 0)
     {
       return expression;
     }
 
-    String subPart = "";
-    String singleExpression;
+    StringBuilder result = new StringBuilder(); // we really want to end this statement
 
-    String result = "";
-
-    int position = 0;
-    int subPartPosition = -1;
+    int positionOf = 0;
+    int previousPositionOf = 0;
 
     boolean evalToNil = false;
-    while ((position = expression.indexOf("${")) > -1)
+    while ((positionOf = expression.indexOf("${", previousPositionOf)) > -1)
     {
-      result += expression.substring(0, position);
-      expression = expression.substring(position + 2);
-      subPartPosition = expression.indexOf('}');
-      
-      if (subPartPosition != -1)
-      {
-        subPart = expression.substring(subPartPosition + 1);
-        singleExpression = expression.substring(0, subPartPosition);
+      // get everything before the ${
+      result.append(expression.substring(previousPositionOf, positionOf));
+      // for the next while-iteration, make sure we skip the ${ we are now processing
+      previousPositionOf = positionOf + 2;
 
-        if (expression.length() < (subPartPosition + 1)) expression = "";
-        else expression = expression.substring(subPartPosition + 1);
-        String value = evaluateExpression(singleExpression);
-        if (value != null)
+      int endingAccolade = expression.indexOf('}', positionOf + 2);
+      if (endingAccolade != -1)
+      {
+        previousPositionOf = endingAccolade + 1;
+        String theExpressionFound = expression.substring(positionOf + 2, endingAccolade);
+
+        // change expression or possible variable actual value
+        String resultOfTheExpresion = evaluateExpression(theExpressionFound);
+        if (resultOfTheExpresion != null)
         {
-          result += value;
+          result.append(resultOfTheExpresion);
         }
         else
         {
@@ -175,14 +184,18 @@ public class MBComponent
       }
     }
 
-    result += subPart;
+    // append the remainder of the original expression to the result String
+    result.append(expression.substring(previousPositionOf));
 
     if (result.length() == 0 && evalToNil)
     {
-      result = null;
+      return null;
+    }
+    else
+    {
+      return result.toString();
     }
 
-    return result;
   }
 
   public String getComponentDataPath()
@@ -228,14 +241,26 @@ public class MBComponent
   public MBDocument getDocument()
   {
     MBPage page = getPage();
-    if (page != null) return getPage().getDocument();
-    else return null;
+    if (page != null)
+    {
+      return getPage().getDocument();
+    }
+    else
+    {
+      return null;
+    }
   }
 
   public MBPage getPage()
   {
-    if (_parent != null) return _parent.getPage();
-    else return null;
+    if (_parent != null)
+    {
+      return _parent.getPage();
+    }
+    else
+    {
+      return null;
+    }
   }
 
   public void setViewData(Object value, String key)
@@ -339,8 +364,14 @@ public class MBComponent
   public <T extends MBComponent, S> T getFirstChildOfKind(Class<T> clazz, MBSelector<T, S> selector, S value)
   {
     List<T> result = getChildrenOfKind(clazz, selector, value);
-    if (result.isEmpty()) return null;
-    else return result.get(0);
+    if (result.isEmpty())
+    {
+      return null;
+    }
+    else
+    {
+      return result.get(0);
+    }
   }
 
   // Listener logic is handled by the page; so delegate to parent until the page is reached:
@@ -378,24 +409,27 @@ public class MBComponent
   {
     return !getPage().getListenersForPath(getAbsoluteDataPath()).isEmpty();
   }
-  
+
   public boolean isFirstSibling()
   {
     return isFirstSibling(this, getParent());
   }
-  
+
   private boolean isFirstSibling(MBComponent zeComponent, MBComponentContainer parent)
   {
     MBComponent firstChild = parent.getChildren().get(0);
-    if(firstChild.equals(zeComponent))
+    if (firstChild.equals(zeComponent))
     {
-      if(parent.getParent() == null)
+      if (parent.getParent() == null)
+      {
         return true;
+      }
       else
+      {
         return isFirstSibling(parent, parent.getParent());
+      }
     }
-    else
-      return false;
+    else return false;
   }
 
 }
