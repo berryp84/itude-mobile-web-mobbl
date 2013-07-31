@@ -18,6 +18,7 @@ public class AlertBean implements Serializable
   private boolean           _notice;
   private String            _title;
   private List<String>      _messages;
+  private boolean           _escapeHtml;
 
   @PostConstruct
   protected void init()
@@ -26,6 +27,7 @@ public class AlertBean implements Serializable
     _notice = false;
     _title = "";
     _messages = new ArrayList<String>();
+    _escapeHtml = true;
   }
 
   public boolean isShown()
@@ -85,5 +87,15 @@ public class AlertBean implements Serializable
     boolean notice = _notice;
     _notice = false;
     return notice;
+  }
+
+  public boolean isEscapeHtml()
+  {
+    return _escapeHtml;
+  }
+
+  public void setEscapeHtml(boolean escapeHtml)
+  {
+    _escapeHtml = escapeHtml;
   }
 }

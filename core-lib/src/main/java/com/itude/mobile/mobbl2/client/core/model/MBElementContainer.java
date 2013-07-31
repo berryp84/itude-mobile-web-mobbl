@@ -441,6 +441,13 @@ public class MBElementContainer
 
       if ((subPartPosition = expression.indexOf(variableCloseTag)) != -1)
       {
+        String substring = expression.substring(0, subPartPosition);
+        if (substring.contains(variableOpenTag))
+        {
+          expression = substituteExpressions(expression, nilMarker, currentPath);
+          subPartPosition = expression.indexOf(variableCloseTag);
+        }
+
         subPart = expression.substring(subPartPosition + 1);
 
         singleExpression = expression.substring(0, subPartPosition);
@@ -496,12 +503,12 @@ public class MBElementContainer
   public String getUniqueId()
   {
     StringBuilder uid = new StringBuilder();
-    
+
     for (String elementName : _elements.keySet())
     {
       for (MBElement element : _elements.get(elementName))
       {
-        uid.append("["+ element.getUniqueId());
+        uid.append("[" + element.getUniqueId());
       }
     }
 
