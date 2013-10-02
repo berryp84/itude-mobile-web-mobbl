@@ -1,3 +1,18 @@
+/*
+ * (C) Copyright ItudeMobile.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.itude.mobile.mobbl2.client.core.configuration.webservices;
 
 import java.util.ArrayList;
@@ -8,17 +23,15 @@ import com.itude.mobile.mobbl2.client.core.services.MBResultListenerDefinition;
 
 public class MBEndPointDefinition extends MBDefinition
 {
-  private String                           _documentIn;
-  private String                           _documentOut;
-  private String                           _endPointUri;
-  private List<MBResultListenerDefinition> _resultListeners;
-  private boolean                          _cacheable;
-  private boolean                          _globalCacheable;
-  private int                              _timeout;
-  private int                              _ttl;
+  private String                                 _documentIn;
+  private String                                 _documentOut;
+  private String                                 _endPointUri;
+  private final List<MBResultListenerDefinition> _resultListeners;
+  private boolean                                _cacheable;
+  private boolean                                _globalCacheable;
+  private int                                    _timeout;
+  private int                                    _ttl;
 
-  
-  
   public MBEndPointDefinition()
   {
     _resultListeners = new ArrayList<MBResultListenerDefinition>();
@@ -63,7 +76,7 @@ public class MBEndPointDefinition extends MBDefinition
   {
     _cacheable = cacheable;
   }
-  
+
   public boolean isGlobalCacheable()
   {
     return _globalCacheable;
@@ -94,6 +107,7 @@ public class MBEndPointDefinition extends MBDefinition
     _ttl = ttl;
   }
 
+  @Override
   public void addResultListener(MBResultListenerDefinition lsnr)
   {
     _resultListeners.add(lsnr);

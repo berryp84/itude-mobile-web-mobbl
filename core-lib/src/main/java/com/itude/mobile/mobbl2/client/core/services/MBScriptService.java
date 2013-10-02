@@ -1,3 +1,18 @@
+/*
+ * (C) Copyright ItudeMobile.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.itude.mobile.mobbl2.client.core.services;
 
 import java.util.Collections;
@@ -11,10 +26,10 @@ import com.itude.mobile.mobbl2.client.core.services.exceptions.MBScriptErrorExce
 
 public class MBScriptService
 {
-  private static MBScriptService _instance = null;
-  
-  private static final int      MAX_ENTRIES     = 1000;
-  private static final String   ERROR_MARKER    = "SCRIPT_ERROR: ";
+  private static MBScriptService _instance    = null;
+
+  private static final int       MAX_ENTRIES  = 1000;
+  private static final String    ERROR_MARKER = "SCRIPT_ERROR: ";
 
   private MBScriptService()
   {
@@ -40,17 +55,21 @@ public class MBScriptService
 
     return _instance;
   }
-  
-//map needs synchronization because it is not read-only in the evaluate function
-  private static Map<String, String> KNOWN_EXPRESSIONS = Collections.synchronizedMap(new LinkedHashMap<String,String>(MAX_ENTRIES, .75F, true) {  
-    private static final long serialVersionUID = 1L;
 
-    protected boolean removeEldestEntry(Map.Entry<String,String> eldest)
-    {
-      return size() > MAX_ENTRIES;
-    };
-  });
-  static {
+  //map needs synchronization because it is not read-only in the evaluate function
+  private static Map<String, String> KNOWN_EXPRESSIONS = Collections.synchronizedMap(new LinkedHashMap<String, String>(MAX_ENTRIES, .75F,
+                                                           true)
+                                                       {
+                                                         private static final long serialVersionUID = 1L;
+
+                                                         @Override
+                                                         protected boolean removeEldestEntry(Map.Entry<String, String> eldest)
+                                                         {
+                                                           return size() > MAX_ENTRIES;
+                                                         };
+                                                       });
+  static
+  {
     KNOWN_EXPRESSIONS.put("false", "false");
     KNOWN_EXPRESSIONS.put("!false", "true");
     KNOWN_EXPRESSIONS.put("true", "true");
@@ -71,8 +90,7 @@ public class MBScriptService
   public String evaluate(String expression)
   {
     String result = KNOWN_EXPRESSIONS.get(expression);
-    if (result != null)
-      return result;
+    if (result != null) return result;
     String stub = "function x(){ try { return " + expression + "; } catch(e) { return '" + ERROR_MARKER + "'+e; } } x(); ";
     result = "";
 

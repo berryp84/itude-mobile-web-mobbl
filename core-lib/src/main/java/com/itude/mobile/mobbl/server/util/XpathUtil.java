@@ -1,3 +1,18 @@
+/*
+ * (C) Copyright ItudeMobile.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.itude.mobile.mobbl.server.util;
 
 import java.io.ByteArrayInputStream;
@@ -16,8 +31,7 @@ public class XpathUtil
   public static String getValueForKey(byte[] document, String xPath)
   {
     Object result = doEvaluate(document, xPath, XPathConstants.STRING);
-    if (result instanceof String && ((String)result).length() > 0)
-      return (String)result;
+    if (result instanceof String && ((String) result).length() > 0) return (String) result;
 
     return null;
   }
@@ -25,17 +39,15 @@ public class XpathUtil
   public static NodeList getNodeList(byte[] document, String xPath)
   {
     Object result = doEvaluate(document, xPath, XPathConstants.NODESET);
-    if (result instanceof NodeList && ((NodeList)result).getLength() > 0)
-      return (NodeList)result;
+    if (result instanceof NodeList && ((NodeList) result).getLength() > 0) return (NodeList) result;
 
     return null;
   }
-  
+
   public static String getValueForKey(Object item, String xPath)
   {
     String result = doEvaluate(item, xPath);
-    if (result != null && result.length() > 0)
-      return result;
+    if (result != null && result.length() > 0) return result;
 
     return null;
   }
@@ -63,15 +75,15 @@ public class XpathUtil
 
     return null;
   }
-  
+
   private static String doEvaluate(Object item, String xPath)
   {
     // 1. Instantiate an XPathFactory.
     javax.xml.xpath.XPathFactory factory = javax.xml.xpath.XPathFactory.newInstance();
-    
+
     // 2. Use the XPathFactory to create a new XPath object
     javax.xml.xpath.XPath xpath = factory.newXPath();
-    
+
     // 3. Compile an XPath string into an XPathExpression
     javax.xml.xpath.XPathExpression expression;
     try
@@ -83,7 +95,7 @@ public class XpathUtil
     {
       logger.error(e);
     }
-    
+
     return null;
   }
 }

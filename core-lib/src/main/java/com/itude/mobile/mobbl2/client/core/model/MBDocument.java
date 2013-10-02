@@ -1,3 +1,18 @@
+/*
+ * (C) Copyright ItudeMobile.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.itude.mobile.mobbl2.client.core.model;
 
 import java.util.HashMap;
@@ -118,11 +133,10 @@ public class MBDocument extends MBElementContainer implements Cloneable
     if (path != null)
     {
       int posAt = path.indexOf('@');
-      if (posAt<0 || path.indexOf('@',posAt + 1)>=0)
-        return (T)getValueForPath(path, null);
-     
+      if (posAt < 0 || path.indexOf('@', posAt + 1) >= 0) return (T) getValueForPath(path, null);
+
       String componentBeforeAt = path.substring(0, posAt);
-//      assert path.substring(posAt + 1).length() > 0;
+      //      assert path.substring(posAt + 1).length() > 0;
       MBElement element = _pathCache.get(componentBeforeAt);
 
       if (element == null)
@@ -162,7 +176,8 @@ public class MBDocument extends MBElementContainer implements Cloneable
 
   public String asXmlWithLevel(int level)
   {
-    String result = StringUtilities.getIndentStringWithLevel(level) + "<" + ((_definition.getRootElement() == null) ? _definition.getName() : _definition.getRootElement());
+    String result = StringUtilities.getIndentStringWithLevel(level) + "<"
+                    + ((_definition.getRootElement() == null) ? _definition.getName() : _definition.getRootElement());
     if (getElements().size() == 0)
     {
       result += "/>\n";
@@ -201,7 +216,7 @@ public class MBDocument extends MBElementContainer implements Cloneable
   {
     return this;
   }
-  
+
   @Override
   public MBDocument clone()
   {

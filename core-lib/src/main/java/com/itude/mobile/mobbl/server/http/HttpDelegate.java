@@ -1,3 +1,18 @@
+/*
+ * (C) Copyright ItudeMobile.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.itude.mobile.mobbl.server.http;
 
 import java.io.ByteArrayOutputStream;
@@ -38,8 +53,7 @@ public class HttpDelegate
 
   public static HttpDelegate getInstance()
   {
-    if (_instance == null)
-      _instance = new HttpDelegate();
+    if (_instance == null) _instance = new HttpDelegate();
     return _instance;
   }
 
@@ -81,8 +95,7 @@ public class HttpDelegate
     try
     {
       prepareConnection(get, userAgent, reqCookies, requestHeaders, !url.contains("acceptxml=false"), followRedirects);
-      if (logger.isDebugEnabled())
-        HeaderUtil.printRequestHeaders(logger, get);
+      if (logger.isDebugEnabled()) HeaderUtil.printRequestHeaders(logger, get);
 
       return executeHttpMethod(get);
     }
@@ -103,7 +116,7 @@ public class HttpDelegate
 
     return null;
   }
-  
+
   public HttpResponse connectPost(String url, NameValuePair[] postData)
   {
     return connectPost(url, postData, new Header[0]);
@@ -119,7 +132,7 @@ public class HttpDelegate
   {
     return connectPost(url, null, null, postData, requestHeaders, false);
   }
-  
+
   public HttpResponse connectPost(String url, String userAgent, ArrayList<Cookie> reqCookies, NameValuePair[] postData,
                                   Header[] requestHeaders, boolean followRedirects)
   {
@@ -129,8 +142,7 @@ public class HttpDelegate
     try
     {
       prepareConnection(post, userAgent, reqCookies, requestHeaders, !url.contains("acceptxml=false"), followRedirects);
-      if (postData != null)
-        post.setRequestBody(postData);
+      if (postData != null) post.setRequestBody(postData);
 
       return executeHttpMethod(post);
     }
@@ -167,14 +179,12 @@ public class HttpDelegate
       logger.debug("ResponseHeader was null");
     }
 
-    if (responseHeader != null)
-      response.setContentType(responseHeader);
+    if (responseHeader != null) response.setContentType(responseHeader);
     //    response.setResponseBody(method.getResponseBody());
     response.setResponseHeaders(method.getResponseHeaders());
     response.setResponseStatusLine(response.getResponseStatusLine());
     Header contentLength = method.getResponseHeader(Constants.CONTENT_LENGTH);
-    if (contentLength != null)
-      response.setContentLength(contentLength.getValue());
+    if (contentLength != null) response.setContentLength(contentLength.getValue());
 
     if (response.getContentLength() > -1)
     {
@@ -196,20 +206,19 @@ public class HttpDelegate
       }
       finally
       {
-        if (stream != null)
-          stream.close();
+        if (stream != null) stream.close();
       }
     }
     else
     {
       logger.debug("Content-length unknown");
-      
+
       InputStream stream = null;
       ByteArrayOutputStream body = new ByteArrayOutputStream();
       try
       {
         stream = method.getResponseBodyAsStream();
-        
+
         int i = -1;
         while ((i = stream.read()) != -1)
           body.write(i);
@@ -224,8 +233,7 @@ public class HttpDelegate
       finally
       {
         body.close();
-        if (stream != null)
-          stream.close();
+        if (stream != null) stream.close();
       }
     }
 
@@ -237,11 +245,9 @@ public class HttpDelegate
   {
     logger.debug("HttpDelegate.prepareConnection()");
 
-    if (logger.isDebugEnabled())
-      HeaderUtil.printRequestHeaders(logger, method);
+    if (logger.isDebugEnabled()) HeaderUtil.printRequestHeaders(logger, method);
 
-    if (acceptXml)
-      method.addRequestHeader("Accept", "application/xml, */*");
+    if (acceptXml) method.addRequestHeader("Accept", "application/xml, */*");
 
     if (cookies != null)
     {
@@ -249,21 +255,18 @@ public class HttpDelegate
         method.addRequestHeader("Cookie", cookie.getName() + "=" + cookie.getValue());
     }
 
-    if (userAgent != null)
-      method.addRequestHeader(Constants.USER_AGENT, userAgent);
+    if (userAgent != null) method.addRequestHeader(Constants.USER_AGENT, userAgent);
 
     method.setFollowRedirects(followRedirects);
 
-    if (requestHeaders != null)
-      for (Header h : requestHeaders)
-        method.addRequestHeader(h);
+    if (requestHeaders != null) for (Header h : requestHeaders)
+      method.addRequestHeader(h);
 
   }
 
   private synchronized Header[] transformToHeader(TreeMap<String, String[]> headers)
   {
-    if (headers == null)
-      return null;
+    if (headers == null) return null;
 
     Header[] result = new Header[headers.size()];
     Iterator<Entry<String, String[]>> iterator = headers.entrySet().iterator();
