@@ -78,48 +78,8 @@
     </build>
     
     <properties>
-		<ciserver>https://mobiledev.itude.com/jenkins</ciserver>
-		<jira>https://mobiledev.itude.com/jira/</jira>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
-	<repositories>
-		<repository>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<id>itude-repos</id>
-			<name>itude-repos</name>
-			<url>http://localhost:8765/nexus/content/groups/public/</url>
-		</repository>
-	</repositories>
-	
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>${ciserver}</url>
-	</ciManagement>
-	
-	<issueManagement>
-		<system>jira</system>
-		<url>${jira}</url>
-	</issueManagement>
-    
-    <distributionManagement>
-		<repository>
-			<id>itude</id>
-			<name>itude</name>
-			<url>http://localhost:8765/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>itude-snapshot</id>
-			<name>itude-snapshot</name>
-			<url>http://localhost:8765/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
     
 </project>
 
