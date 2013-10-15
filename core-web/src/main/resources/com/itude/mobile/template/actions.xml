@@ -1,9 +1,0 @@
-<Configuration xmlns="http://itude.com/schemas/MB/2.0">
-	<Controller>
-        <Actions>
-        	<Action name="GetHomePageContent" className="GetHomePageContent"/>
-        	<Action name="LoginAction" className="LoginAction"/>
-        	<Action name="LogoutAction" className="LogoutAction"/>
-		</Actions>
-	</Controller>
-</Configuration>

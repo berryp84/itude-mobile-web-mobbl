@@ -1,8 +1,0 @@
-<Application>
-	<Property name="keepHistory" value="false"/>
-	
-	<!-- MOBBL required settings: DO NOT TOUCH -->
-	<Property name="UIDPrefix" value="Mobile"/>
-	<Property name="mobblUniverseID" value="19"/>
-	<Property name="mobblSecret" value="jIFR6nq5gr9tF6V3Jx7o0poRZ3YTYbkvQEpuZ5IIKcqlQAVfedgYIdxrHwsLcsJhqAJT4Q2vT4dNtyPozdwXol0cP57vU5IgLofIQ5V5ArUZauf8RVxlpJ8106aEtUNu"/>
-</Application>
