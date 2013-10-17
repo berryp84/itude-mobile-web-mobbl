@@ -27,8 +27,8 @@ import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
-import com.itude.commons.jsf.util.ELUtil;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
+import com.itude.mobile.web.jsf.util.ELUtil;
 
 @SessionScoped
 @Named("CacheManager")

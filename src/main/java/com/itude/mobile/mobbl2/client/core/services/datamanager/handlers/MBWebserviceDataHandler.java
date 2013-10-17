@@ -15,7 +15,6 @@
  */
 package com.itude.mobile.mobbl2.client.core.services.datamanager.handlers;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBEndPointDefinition;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBWebservicesConfiguration;
 import com.itude.mobile.mobbl2.client.core.configuration.webservices.MBWebservicesConfigurationParser;
@@ -23,6 +22,7 @@ import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.MBResourceService;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandlerBase;
 import com.itude.mobile.mobbl2.client.core.util.MBCacheManager;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public abstract class MBWebserviceDataHandler extends MBDataHandlerBase
 {

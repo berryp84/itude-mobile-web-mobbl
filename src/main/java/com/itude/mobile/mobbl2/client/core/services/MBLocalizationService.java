@@ -22,8 +22,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.util.MBProperties;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public class MBLocalizationService
 {

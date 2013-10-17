@@ -22,8 +22,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
-import com.itude.commons.jsf.util.ELUtil;
-import com.itude.commons.util.Base64;
 import com.itude.mobile.mobbl2.client.core.model.MBElement;
 import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;
 import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
@@ -36,6 +34,7 @@ import com.itude.mobile.mobbl2.client.core.view.MBPage;
 import com.itude.mobile.mobbl2.client.core.view.MBPanel;
 import com.itude.mobile.mobbl2.client.core.view.MBRow;
 import com.itude.mobile.web.controllers.ApplicationController;
+import com.itude.mobile.web.jsf.util.ELUtil;
 
 public class PageHelper
 {

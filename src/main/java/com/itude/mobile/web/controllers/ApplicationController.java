@@ -25,7 +25,6 @@ import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.MBException;
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBOutcomeDefinition;
 import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBPageDefinition.MBPageType;
@@ -40,6 +39,7 @@ import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
 import com.itude.mobile.mobbl2.client.core.view.MBPage;
 import com.itude.mobile.web.annotations.NamedQualifier;
 import com.itude.mobile.web.annotations.PageQualifier;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 import com.itude.mobile.web.jsf.AlertBean;
 
 @RequestScoped

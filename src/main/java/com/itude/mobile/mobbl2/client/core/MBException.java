@@ -18,7 +18,7 @@ package com.itude.mobile.mobbl2.client.core;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public class MBException extends ItudeRuntimeException
 {

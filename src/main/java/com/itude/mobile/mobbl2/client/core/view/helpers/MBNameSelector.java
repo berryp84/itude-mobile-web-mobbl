@@ -15,8 +15,8 @@
  */
 package com.itude.mobile.mobbl2.client.core.view.helpers;
 
-import com.itude.commons.util.ComparisonUtil;
 import com.itude.mobile.mobbl2.client.core.view.MBComponent;
+import com.itude.mobile.web.util.ComparisonUtil;
 
 public class MBNameSelector<T extends MBComponent> implements MBSelector<T, String>
 {

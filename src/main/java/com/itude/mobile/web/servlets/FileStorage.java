@@ -28,8 +28,8 @@ import org.quartz.SchedulerFactory;
 import org.quartz.Trigger;
 import org.quartz.TriggerUtils;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
-import com.itude.commons.util.Base64;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
+import com.itude.mobile.web.util.Base64;
 
 public class FileStorage
 {

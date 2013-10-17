@@ -1,11 +1,6 @@
 /*
  * (C) Copyright ItudeMobile.
  * 
- * Licimport com.itude.commons.exceptions.ItudeRuntimeException;
-import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperationDelegate;
-0
- * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,9 +9,9 @@ import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocum
  */
 package com.itude.mobile.web.controllers;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.model.MBDocument;
 import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperationDelegate;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public abstract class AbstractRefreshableViewController extends MBViewController implements MBDocumentOperationDelegate
 {

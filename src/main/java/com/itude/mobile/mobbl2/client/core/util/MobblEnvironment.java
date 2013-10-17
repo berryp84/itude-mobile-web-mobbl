@@ -15,7 +15,7 @@
  */
 package com.itude.mobile.mobbl2.client.core.util;
 
-import com.itude.commons.environment.ItudeEnvironment;
+import com.itude.mobile.web.environment.ItudeEnvironment;
 
 public class MobblEnvironment extends ItudeEnvironment
 {

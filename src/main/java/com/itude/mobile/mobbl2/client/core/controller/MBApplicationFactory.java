@@ -17,9 +17,9 @@ package com.itude.mobile.mobbl2.client.core.controller;
 
 import java.io.Serializable;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
 import com.itude.mobile.mobbl2.client.core.services.MBResultListener;
 import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public class MBApplicationFactory implements Serializable
 {

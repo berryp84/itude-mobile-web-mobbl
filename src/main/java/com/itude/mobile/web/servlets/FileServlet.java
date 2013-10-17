@@ -24,8 +24,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itude.commons.exceptions.ItudeRuntimeException;
-import com.itude.commons.util.FileUtil;
+import com.itude.mobile.web.exceptions.ItudeRuntimeException;
+import com.itude.mobile.web.util.FileUtil;
 
 public class FileServlet extends HttpServlet
 {

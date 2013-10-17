@@ -24,8 +24,8 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-import com.itude.commons.jsf.util.ELUtil;
 import com.itude.mobile.web.controllers.CurrentView;
+import com.itude.mobile.web.jsf.util.ELUtil;
 
 public class HistoryPhaseListener implements PhaseListener
 {

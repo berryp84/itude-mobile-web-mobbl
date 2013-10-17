@@ -28,52 +28,64 @@
 
 	<dependencies>
 		<dependency>
-				<groupId>com.itude.commons</groupId>
-				<artifactId>itude-commons-webutil</artifactId>
-				<version>1.0.55</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>rhino</groupId>
-				<artifactId>js</artifactId>
-				<version>1.7R1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-				<version>4.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.itude.sun</groupId>
-				<artifactId>servlet</artifactId>
-				<version>2.5</version>
-				<scope>provided</scope>
-				<type>pom</type>
-			</dependency>
-			<dependency>
-				<groupId>com.itude.sun</groupId>
-				<artifactId>jsf</artifactId>
-				<version>2.0.2</version>
-				<type>pom</type>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shale</groupId>
-				<artifactId>shale-test</artifactId>
-				<version>1.0.5</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.weld.servlet</groupId>
-				<artifactId>weld-servlet</artifactId>
-				<version>1.1.0.Final</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.el</groupId>
-				<artifactId>el-api</artifactId>
-				<version>2.2</version>
-				<scope>provided</scope>
-			</dependency>
+			<groupId>com.itude.mobile.web.util</groupId>
+			<artifactId>web-util-lib</artifactId>
+			<version>${util.lib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opensymphony.quartz</groupId>
+			<artifactId>quartz</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode</groupId>
+			<artifactId>google-api-translate-java</artifactId>
+			<version>0.92</version>
+		</dependency>
+		<dependency>
+			<groupId>rhino</groupId>
+			<artifactId>js</artifactId>
+			<version>1.7R1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.itude.sun</groupId>
+			<artifactId>jsf</artifactId>
+			<version>2.0.2</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shale</groupId>
+			<artifactId>shale-test</artifactId>
+			<version>1.0.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<issueManagement>
@@ -118,6 +130,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<util.lib.version>0.0.1.0</util.lib.version>
 	</properties>
 
 	<repositories>

@@ -17,7 +17,7 @@ package com.itude.mobile.web.jsf.renderers;
 
 import javax.faces.context.FacesContext;
 
-import com.itude.commons.util.Base64;
+import com.itude.mobile.web.util.Base64;
 
 public class FormRenderer extends com.sun.faces.renderkit.html_basic.FormRenderer
 {

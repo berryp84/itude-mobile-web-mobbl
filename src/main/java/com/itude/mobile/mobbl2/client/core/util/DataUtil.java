@@ -51,12 +51,12 @@ public final class DataUtil
     boolean foundData = false;
     byte[] data = null;
 
-    InputStream stream = com.itude.commons.util.FileUtil.getResourceAsStream(fileName);
+    InputStream stream = com.itude.mobile.web.util.FileUtil.getResourceAsStream(fileName);
     if (stream != null)
     {
       try
       {
-        data = com.itude.commons.util.FileUtil.readBytes(stream);
+        data = com.itude.mobile.web.util.FileUtil.readBytes(stream);
         foundData = true;
       }
       catch (IOException e)
