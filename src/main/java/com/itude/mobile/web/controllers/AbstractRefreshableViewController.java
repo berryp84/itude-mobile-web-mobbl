@@ -1,5 +1,5 @@
 /*
- * (C) Copyright ItudeMobile.
+ * (C) Copyright Itude Mobile B.V., The Netherlands
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,

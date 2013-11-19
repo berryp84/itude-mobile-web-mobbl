@@ -1,5 +1,5 @@
 /*
- * (C) Copyright ItudeMobile.
+ * (C) Copyright Itude Mobile B.V., The Netherlands
  * 
  * Licimport java.io.Serializable;
 

@@ -1,5 +1,5 @@
 /*
- * (C) Copyright ItudeMobile.
+ * (C) Copyright Itude Mobile B.V., The Netherlands
  * 
  * Licimport static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
