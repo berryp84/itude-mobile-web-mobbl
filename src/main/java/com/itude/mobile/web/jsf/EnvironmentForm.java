@@ -18,7 +18,7 @@ package com.itude.mobile.web.jsf;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-import com.itude.mobile.mobbl2.client.core.util.MobblEnvironment;
+import com.itude.mobile.mobbl.core.util.MobblEnvironment;
 import com.itude.mobile.web.util.VersionUtil;
 
 /**

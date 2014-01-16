@@ -20,8 +20,8 @@ import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
-import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.services.datamanager.MBDataHandler;
+import com.itude.mobile.mobbl.core.model.MBDocument;
+import com.itude.mobile.mobbl.core.services.datamanager.MBDataHandler;
 
 public class SessionDataHandler implements MBDataHandler, Serializable
 {

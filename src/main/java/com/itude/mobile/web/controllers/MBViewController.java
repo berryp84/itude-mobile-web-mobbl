@@ -19,15 +19,15 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import com.itude.mobile.mobbl2.client.core.configuration.mvc.MBPageDefinition;
-import com.itude.mobile.mobbl2.client.core.controller.MBOutcome;
-import com.itude.mobile.mobbl2.client.core.controller.exceptions.MBInvalidOutcomeException;
-import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.model.MBElement;
-import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
-import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
-import com.itude.mobile.mobbl2.client.core.view.MBPage;
-import com.itude.mobile.mobbl2.client.core.view.MBValueChangeListenerProtocol;
+import com.itude.mobile.mobbl.core.configuration.mvc.MBPageDefinition;
+import com.itude.mobile.mobbl.core.controller.MBOutcome;
+import com.itude.mobile.mobbl.core.controller.exceptions.MBInvalidOutcomeException;
+import com.itude.mobile.mobbl.core.model.MBDocument;
+import com.itude.mobile.mobbl.core.model.MBElement;
+import com.itude.mobile.mobbl.core.services.MBDataManagerService;
+import com.itude.mobile.mobbl.core.services.MBMetadataService;
+import com.itude.mobile.mobbl.core.view.MBPage;
+import com.itude.mobile.mobbl.core.view.MBValueChangeListenerProtocol;
 
 public abstract class MBViewController implements Serializable, MBValueChangeListenerProtocol
 {

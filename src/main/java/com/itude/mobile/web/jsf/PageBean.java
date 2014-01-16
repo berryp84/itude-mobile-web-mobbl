@@ -23,7 +23,7 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.itude.mobile.mobbl2.client.core.view.MBPage;
+import com.itude.mobile.mobbl.core.view.MBPage;
 import com.itude.mobile.web.controllers.AbstractRefreshableViewController;
 import com.itude.mobile.web.controllers.CurrentView;
 import com.itude.mobile.web.controllers.MBViewController;

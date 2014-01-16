@@ -15,7 +15,7 @@
  */
 package com.itude.mobile.web.util;
 
-import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;
+import com.itude.mobile.mobbl.core.model.MBElementContainer;
 
 public class FieldSetter
 {

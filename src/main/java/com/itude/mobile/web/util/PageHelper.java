@@ -22,17 +22,17 @@ import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
-import com.itude.mobile.mobbl2.client.core.model.MBElement;
-import com.itude.mobile.mobbl2.client.core.model.MBElementContainer;
-import com.itude.mobile.mobbl2.client.core.services.MBLocalizationService;
-import com.itude.mobile.mobbl2.client.core.util.StringUtilities;
-import com.itude.mobile.mobbl2.client.core.view.MBComponent;
-import com.itude.mobile.mobbl2.client.core.view.MBComponentContainer;
-import com.itude.mobile.mobbl2.client.core.view.MBField;
-import com.itude.mobile.mobbl2.client.core.view.MBForEach;
-import com.itude.mobile.mobbl2.client.core.view.MBPage;
-import com.itude.mobile.mobbl2.client.core.view.MBPanel;
-import com.itude.mobile.mobbl2.client.core.view.MBRow;
+import com.itude.mobile.mobbl.core.model.MBElement;
+import com.itude.mobile.mobbl.core.model.MBElementContainer;
+import com.itude.mobile.mobbl.core.services.MBLocalizationService;
+import com.itude.mobile.mobbl.core.util.StringUtilities;
+import com.itude.mobile.mobbl.core.view.MBComponent;
+import com.itude.mobile.mobbl.core.view.MBComponentContainer;
+import com.itude.mobile.mobbl.core.view.MBField;
+import com.itude.mobile.mobbl.core.view.MBForEach;
+import com.itude.mobile.mobbl.core.view.MBPage;
+import com.itude.mobile.mobbl.core.view.MBPanel;
+import com.itude.mobile.mobbl.core.view.MBRow;
 import com.itude.mobile.web.controllers.ApplicationController;
 import com.itude.mobile.web.jsf.util.ELUtil;
 

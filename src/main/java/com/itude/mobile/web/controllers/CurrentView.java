@@ -26,7 +26,7 @@ import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.itude.mobile.mobbl2.client.core.util.MBProperties;
+import com.itude.mobile.mobbl.core.util.MBProperties;
 import com.itude.mobile.web.jsf.PageBean;
 
 @Named

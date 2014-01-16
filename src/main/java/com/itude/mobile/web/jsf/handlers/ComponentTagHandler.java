@@ -24,7 +24,7 @@ import javax.faces.view.facelets.TagAttribute;
 import javax.faces.view.facelets.TagConfig;
 import javax.faces.view.facelets.TagHandler;
 
-import com.itude.mobile.mobbl2.client.core.view.MBComponent;
+import com.itude.mobile.mobbl.core.view.MBComponent;
 
 public class ComponentTagHandler extends TagHandler
 {

@@ -17,10 +17,10 @@ package com.itude.mobile.web.actions;
 
 import javax.inject.Inject;
 
-import com.itude.mobile.mobbl2.client.core.controller.MBAction;
-import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.services.MBDataManagerService;
-import com.itude.mobile.mobbl2.client.core.services.MBMetadataService;
+import com.itude.mobile.mobbl.core.controller.MBAction;
+import com.itude.mobile.mobbl.core.model.MBDocument;
+import com.itude.mobile.mobbl.core.services.MBDataManagerService;
+import com.itude.mobile.mobbl.core.services.MBMetadataService;
 
 public abstract class GenericAction implements MBAction
 {

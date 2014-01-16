@@ -9,8 +9,8 @@
  */
 package com.itude.mobile.web.controllers;
 
-import com.itude.mobile.mobbl2.client.core.model.MBDocument;
-import com.itude.mobile.mobbl2.client.core.services.datamanager.handlers.MBDocumentOperationDelegate;
+import com.itude.mobile.mobbl.core.model.MBDocument;
+import com.itude.mobile.mobbl.core.services.datamanager.handlers.MBDocumentOperationDelegate;
 import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 public abstract class AbstractRefreshableViewController extends MBViewController implements MBDocumentOperationDelegate

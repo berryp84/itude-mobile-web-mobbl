@@ -23,7 +23,7 @@ import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
-import com.itude.mobile.mobbl2.client.core.util.MBCacheManager;
+import com.itude.mobile.mobbl.core.util.MBCacheManager;
 
 @RequestScoped
 @Named
