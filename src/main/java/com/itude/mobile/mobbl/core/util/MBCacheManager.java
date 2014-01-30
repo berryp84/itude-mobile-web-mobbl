@@ -100,7 +100,7 @@ public class MBCacheManager implements Serializable
   protected synchronized void doSetDocument(MBDocument document, String key, int ttl)
   {
     LOGGER.debug("Setting cache for " + key);
-    if (ttl != 0) _ttls.put(key, System.currentTimeMillis() + ttl);
+    if (ttl != 0) _ttls.put(key, System.currentTimeMillis() + (ttl * 1000));
     _documents.put(key, document);
   }
 
