@@ -33,19 +33,6 @@ public class FileServlet extends HttpServlet
 
   private void addCacheControl(HttpServletResponse response, long now, long ttl)
   {
-    //    if (ttl == 0)
-    //    {
-    //      response.setDateHeader("Expires", new Date().getTime() + 24 * 60 * 60 * 1000);
-    //      response.setDateHeader("Last-Modified", 0);
-    //      response.setHeader("Cache-Control", "public, max-age=31536000");
-    //    }
-    //    else
-    //    {
-    //      response.setDateHeader("Expires", ttl);
-    //      response.setDateHeader("Last-Modified", 0);
-    //      response.setHeader("Cache-Control", "public, max-age=" + (ttl - now) / 1000);
-    //    }
-
   }
 
   @Override
