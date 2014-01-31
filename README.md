@@ -1,4 +1,4 @@
-# Android MOBBL
+# Web MOBBL
 
 A development framework for data centric mobile web apps.
 
