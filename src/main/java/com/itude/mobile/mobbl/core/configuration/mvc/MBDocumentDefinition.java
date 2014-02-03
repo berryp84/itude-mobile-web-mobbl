@@ -29,6 +29,10 @@ import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.services.MBMetadataService;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a document
+ *
+ */
 public class MBDocumentDefinition extends MBDefinition
 {
   private final List<MBElementDefinition>        _elementsSorted;

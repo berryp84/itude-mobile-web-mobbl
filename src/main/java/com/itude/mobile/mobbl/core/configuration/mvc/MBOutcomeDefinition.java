@@ -18,6 +18,10 @@ package com.itude.mobile.mobbl.core.configuration.mvc;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a outcome
+ *
+ */
 public class MBOutcomeDefinition extends MBDefinition
 {
   private String  _origin;

@@ -42,12 +42,15 @@ import com.itude.mobile.mobbl.core.configuration.mvc.MBOutcomeDefinition;
 import com.itude.mobile.mobbl.core.configuration.mvc.MBPageDefinition;
 import com.itude.mobile.mobbl.core.configuration.mvc.MBVariableDefinition;
 
+/**
+* Parsers the configuration file
+*/
 public class MBConfigurationParser extends DefaultHandler
 {
   private static final Logger LOGGER = Logger.getLogger(MBConfigurationParser.class);
 
   private Stack<MBDefinition> _stack;
-  private StringBuilder        _characters;
+  private StringBuilder       _characters;
   private String              _documentName;
 
   public String getDocumentName()

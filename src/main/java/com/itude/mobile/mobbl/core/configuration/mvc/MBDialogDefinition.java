@@ -19,6 +19,10 @@ import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.configuration.mvc.exceptions.MBInvalidDialogDefinitionException;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a dialog
+ *
+ */
 public class MBDialogDefinition extends MBDefinition
 {
   private String _title;

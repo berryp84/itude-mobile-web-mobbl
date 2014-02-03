@@ -17,6 +17,10 @@ package com.itude.mobile.mobbl.core.configuration.mvc.exceptions;
 
 import com.itude.mobile.mobbl.core.MBException;
 
+/**
+ * {@link MBException} class used when the dialog definition is invalid
+ *
+ */
 public class MBInvalidDialogDefinitionException extends MBException
 {
 
@@ -25,14 +29,25 @@ public class MBInvalidDialogDefinitionException extends MBException
    */
   private static final long serialVersionUID = -4024284646115464732L;
 
-  public MBInvalidDialogDefinitionException(String msg, Throwable throwable)
-  {
-    super(msg, throwable);
-  }
-
+  /**
+   * Constructor for MBFileNotFoundException.
+   * 
+   * @param msg exception message
+   */
   public MBInvalidDialogDefinitionException(String msg)
   {
     super(msg);
+  }
+
+  /**
+   * Constructor for MBInvalidDialogDefinitionException.
+   * 
+   * @param msg exception message
+   * @param throwable throwable {@link Throwable}
+   */
+  public MBInvalidDialogDefinitionException(String msg, Throwable throwable)
+  {
+    super(msg, throwable);
   }
 
 }

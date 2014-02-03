@@ -21,6 +21,10 @@ import com.itude.mobile.mobbl.core.configuration.MBConfigurationParser;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.services.MBResultListenerDefinition;
 
+/**
+ * {@link MBConfigurationParser} Class to parse a webservice configuration file
+ *
+ */
 public class MBWebservicesConfigurationParser extends MBConfigurationParser
 {
 

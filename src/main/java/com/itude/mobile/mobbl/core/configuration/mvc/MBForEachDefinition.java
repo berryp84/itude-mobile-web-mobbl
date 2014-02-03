@@ -23,6 +23,10 @@ import java.util.Map;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.view.MBConditionalDefinition;
 
+/**
+ * {@link MBDefinition} Class for a for each
+ *
+ */
 public class MBForEachDefinition extends MBConditionalDefinition
 {
   private String                            _value;

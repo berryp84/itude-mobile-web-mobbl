@@ -17,6 +17,10 @@ package com.itude.mobile.mobbl.core.configuration.mvc.exceptions;
 
 import com.itude.mobile.mobbl.core.MBException;
 
+/**
+ * {@link MBException} class used when elements aren't being expected
+ *
+ */
 public class MBElementNotExpectedException extends MBException
 {
 
@@ -25,11 +29,22 @@ public class MBElementNotExpectedException extends MBException
    */
   private static final long serialVersionUID = -8755637266607855612L;
 
+  /**
+   * Constructor for MBElementNotExpectedException.
+   * 
+   * @param msg exception message
+   */
   public MBElementNotExpectedException(String msg)
   {
     super(msg);
   }
 
+  /**
+   * Constructor for MBElementNotExpectedException.
+   * 
+   * @param msg exception message
+   * @param throwable throwable {@link Throwable}
+   */
   public MBElementNotExpectedException(String msg, Throwable throwable)
   {
     super(msg, throwable);

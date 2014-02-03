@@ -23,6 +23,10 @@ import java.util.Map;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.MBBundleDefinition;
 
+/**
+ * {@link MBDefinition} Class for a resource configuration file
+ *
+ */
 public class MBResourceConfiguration extends MBDefinition
 {
   private final Map<String, MBResourceDefinition> _resources;

@@ -20,6 +20,10 @@ import java.math.BigDecimal;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a domain validator
+ *
+ */
 public class MBDomainValidatorDefinition extends MBDefinition
 {
   private String     _title;

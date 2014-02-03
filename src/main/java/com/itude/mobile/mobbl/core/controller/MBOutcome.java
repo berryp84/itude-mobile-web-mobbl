@@ -21,6 +21,9 @@ import com.itude.mobile.mobbl.core.controller.exceptions.MBExpressionNotBooleanE
 import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.services.MBDataManagerService;
 
+/**
+ * Defines an outcome
+ */
 public class MBOutcome
 {
   private String     _originName;

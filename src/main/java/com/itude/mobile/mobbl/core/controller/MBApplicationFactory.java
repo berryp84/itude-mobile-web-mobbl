@@ -21,6 +21,19 @@ import com.itude.mobile.mobbl.core.services.MBResultListener;
 import com.itude.mobile.mobbl.core.util.MobblEnvironment;
 import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
+/**
+ * Factory class for creating custom MBViewControllers, MBResultListeners and MBActions
+ *  
+ * In short there are three steps to using custom code with MOBBL framework:
+ * <ol>
+ *  <li>Create Pages, Actions and ResultListeners in the application definition files  (config.xml and endpoints.xml).</li>
+ *  <li>Create a subclass of the MBApplicationFactory which can create custom ViewControllers, MBActions and MBResultListeners,,/li>
+ *  <li>set the instance to your MBApplicationFactory subclass:
+ *  <code>
+ *      MBApplicationFactory.setInstance(new CustomApplicationFactory());
+ *  </code>
+ *  </ol>
+ */
 public class MBApplicationFactory implements Serializable
 {
   private static final long           serialVersionUID = 1L;

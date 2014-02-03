@@ -20,6 +20,10 @@ import java.util.regex.Pattern;
 
 import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
+/**
+ * Default Exception Class
+ *
+ */
 public class MBException extends ItudeRuntimeException
 {
   private static final long    serialVersionUID = 1271249723743935918L;
@@ -28,6 +32,10 @@ public class MBException extends ItudeRuntimeException
 
   private final String         _name;
 
+  /**
+   * Get the name of the Class
+   * @return name
+   */
   private String extractName()
   {
     Matcher matcher = NAME_PATTERN.matcher(this.getClass().getName());
@@ -35,18 +43,32 @@ public class MBException extends ItudeRuntimeException
     return matcher.group(1);
   }
 
+  /**
+   * Constructor for MBException.
+   * 
+   * @param msg exception message
+   */
   public MBException(String msg)
   {
     super(msg);
     _name = extractName();
   }
 
+  /**
+   * Constructor for MBException.
+   * 
+   * @param msg exception message
+   * @param throwable throwable {@link Throwable}
+   */
   public MBException(String msg, Throwable throwable)
   {
     super(msg, throwable);
     _name = extractName();
   }
 
+  /**
+   * @return name
+   */
   public String getName()
   {
     return _name;

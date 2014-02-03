@@ -20,6 +20,10 @@ import java.util.List;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a page
+ *
+ */
 public class MBPageDefinition extends MBPanelDefinition
 {
   public enum MBPageType {

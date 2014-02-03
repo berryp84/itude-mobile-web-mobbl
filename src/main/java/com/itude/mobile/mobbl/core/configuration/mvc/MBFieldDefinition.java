@@ -18,6 +18,10 @@ package com.itude.mobile.mobbl.core.configuration.mvc;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 import com.itude.mobile.mobbl.core.view.MBConditionalDefinition;
 
+/**
+ * {@link MBConditionalDefinition} Class for a field
+ *
+ */
 public class MBFieldDefinition extends MBConditionalDefinition
 {
   private String _label;

@@ -28,6 +28,10 @@ import com.itude.mobile.mobbl.core.configuration.mvc.exceptions.MBInvalidPageTyp
 import com.itude.mobile.mobbl.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl.core.util.DataUtil;
 
+/**
+ * {@link MBDefinition} Class for a configuration file
+ *
+ */
 public class MBMvcConfigurationParser extends MBConfigurationParser
 {
   private List<String>              _configAttributes;

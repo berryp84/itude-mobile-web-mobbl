@@ -17,6 +17,10 @@ package com.itude.mobile.mobbl.core.configuration.resources;
 
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 
+/**
+ * {@link MBDefinition} Class for a resource file
+ *
+ */
 public class MBResourceDefinition extends MBDefinition
 {
   private String  _resourceId;

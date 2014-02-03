@@ -19,6 +19,10 @@ import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.services.MBMetadataService;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for an attribute
+ *
+ */
 public class MBAttributeDefinition extends MBDefinition
 {
   private String             _type;

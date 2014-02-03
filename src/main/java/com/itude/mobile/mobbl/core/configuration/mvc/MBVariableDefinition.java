@@ -18,6 +18,10 @@ package com.itude.mobile.mobbl.core.configuration.mvc;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a variable
+ *
+ */
 public class MBVariableDefinition extends MBDefinition
 {
   private String _expression;

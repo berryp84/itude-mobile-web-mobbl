@@ -25,6 +25,14 @@ import com.itude.mobile.mobbl.core.configuration.mvc.exceptions.MBElementNotExpe
 import com.itude.mobile.mobbl.core.model.MBElement;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for an element. An ElementDefinition is a node in a tree
+ * of MBElementDefinitions, corresponding to the tree of MBElementContainer instances that it defines.
+ *
+ * Typically, all ElementDefinitions are read at startup from the configuration files, like
+ * `documents.xml` for MBDocument trees. When constructing MBElementContainer structures, the
+ * framework checks that the structures conform to the Definition.
+ */
 public class MBElementDefinition extends MBDefinition
 {
   private final Map<String, MBAttributeDefinition> _attributes;

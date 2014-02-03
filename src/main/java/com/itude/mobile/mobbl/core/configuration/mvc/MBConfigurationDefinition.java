@@ -25,6 +25,10 @@ import org.apache.log4j.Logger;
 import com.itude.mobile.mobbl.core.configuration.MBDefinition;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * {@link MBDefinition} Class for a configuration
+ *
+ */
 public class MBConfigurationDefinition extends MBDefinition
 {
 

@@ -26,10 +26,12 @@ import com.itude.mobile.mobbl.core.model.MBElement;
 import com.itude.mobile.mobbl.core.services.MBDataManagerService;
 import com.itude.mobile.mobbl.core.services.datamanager.handlers.exceptions.MBServerErrorException;
 
+/**
+ * Class that can do a form submission
+ *
+ */
 public class MBFormSubmission implements MBAction
 {
-  //  private static final long                      serialVersionUID  = 1L;
-
   final static String                            C_GENERIC_REQUEST = "MBGenericRequest";
 
   protected static final org.apache.log4j.Logger LOGGER            = org.apache.log4j.Logger.getLogger(MBFormSubmission.class);
