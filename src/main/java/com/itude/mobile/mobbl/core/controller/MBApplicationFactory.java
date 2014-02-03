@@ -23,7 +23,7 @@ import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
 /**
  * Factory class for creating custom MBViewControllers, MBResultListeners and MBActions
- *  
+ * <br/> 
  * In short there are three steps to using custom code with MOBBL framework:
  * <ol>
  *  <li>Create Pages, Actions and ResultListeners in the application definition files  (config.xml and endpoints.xml).</li>

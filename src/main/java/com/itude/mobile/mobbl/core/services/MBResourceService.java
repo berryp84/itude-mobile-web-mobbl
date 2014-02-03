@@ -35,6 +35,10 @@ import com.itude.mobile.mobbl.core.util.DataUtil;
 import com.itude.mobile.mobbl.core.util.MBBundleDefinition;
 import com.itude.mobile.mobbl.core.util.MobblEnvironment;
 
+/** 
+ * Service for accessing resources over the network or on the file system.
+ * retrieves images or files and caches them.
+ */
 public class MBResourceService
 {
   private static final Logger      LOGGER                    = Logger.getLogger(MBResourceService.class);

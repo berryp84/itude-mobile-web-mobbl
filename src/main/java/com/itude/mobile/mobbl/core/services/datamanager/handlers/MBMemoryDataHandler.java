@@ -25,6 +25,9 @@ import com.itude.mobile.mobbl.core.services.datamanager.MBDataHandlerBase;
 import com.itude.mobile.mobbl.core.util.DataUtil;
 import com.itude.mobile.mobbl.core.util.exceptions.MBDataParsingException;
 
+/**
+ * Retrieves and stores MBDocument instances in memory only
+ */
 public class MBMemoryDataHandler extends MBDataHandlerBase
 {
   private static final Logger LOGGER = Logger.getLogger(MBMemoryDataHandler.class);

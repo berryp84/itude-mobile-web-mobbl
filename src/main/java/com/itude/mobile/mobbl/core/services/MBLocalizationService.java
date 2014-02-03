@@ -25,6 +25,10 @@ import org.apache.log4j.Logger;
 import com.itude.mobile.mobbl.core.util.MBProperties;
 import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
+/**
+ * Service Class containing localization methods
+ *
+ */
 public class MBLocalizationService
 {
   private static final Logger                    LOGGER = Logger.getLogger(MBLocalizationService.class);

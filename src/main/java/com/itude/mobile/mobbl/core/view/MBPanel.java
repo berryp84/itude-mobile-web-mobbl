@@ -21,6 +21,12 @@ import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * Basic building block of an MBPage.
+ * <br/>
+ * MBPanel instances are defined in a page definition in the application definition file(s).
+ * 
+ */
 public class MBPanel extends MBComponentContainer
 {
   private String  _type;

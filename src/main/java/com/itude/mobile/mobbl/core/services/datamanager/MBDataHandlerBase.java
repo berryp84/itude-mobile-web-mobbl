@@ -19,6 +19,9 @@ import org.apache.log4j.Logger;
 
 import com.itude.mobile.mobbl.core.model.MBDocument;
 
+/**
+ * Base data handler
+ */
 public class MBDataHandlerBase implements MBDataHandler
 {
   private static final Logger LOGGER = Logger.getLogger(MBDataHandlerBase.class);

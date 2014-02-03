@@ -31,6 +31,21 @@ import com.itude.mobile.mobbl.core.services.datamanager.handlers.MBResourceDataH
 import com.itude.mobile.mobbl.core.services.datamanager.handlers.MBSystemDataHandler;
 import com.itude.mobile.mobbl.core.services.exceptions.MBNoDataManagerException;
 
+/** 
+ * Service Class for loading and storing MBDocument instances.
+ * The MBDataManagerService handles MBDocument instantiation and storage. Depending on the options defined in the configuration and endpoints files it (and the MBDataHandlers it uses) also handles:
+ * <ul>
+ * <li>caching</li>
+ * <li>background threading and callback on completion</li>
+ * <li>concurrent requests</li>
+ * <li>network errors</li>
+ * <li>reachability</li>
+ * <li>cancellable network requests</li>
+ * </ul>
+ * Every MBDocument is associated with a specific MBDataHandler in the document definition (see MBDocumentDefinition). 
+ * When accessing documents using for instance loadDocument,  its associated DataHandler is used to perform the actual operation. 
+ * For this to work, the name of the DataHandler must be registered using registerDataHandler(withName) first.
+ */
 @Alternative
 public class MBDataManagerService implements Serializable
 {
@@ -50,7 +65,6 @@ public class MBDataManagerService implements Serializable
   {
     _registeredHandlers = new Hashtable<String, MBDataHandler>();
 
-    // TODO: these might need to be persisted somewhere
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_FILE);
     registerDataHandler(new MBSystemDataHandler(), DATA_HANDLER_SYSTEM);
     registerDataHandler(new MBMemoryDataHandler(), DATA_HANDLER_MEMORY);

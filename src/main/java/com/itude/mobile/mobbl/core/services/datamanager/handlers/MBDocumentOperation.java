@@ -22,6 +22,9 @@ import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.services.MBMetadataService;
 import com.itude.mobile.mobbl.core.services.datamanager.MBDataHandler;
 
+/**
+ * Class containing document operations.
+ */
 public class MBDocumentOperation implements Runnable
 {
   private static final Logger         LOGGER = Logger.getLogger(MBDocumentOperation.class);

@@ -34,6 +34,9 @@ import com.itude.mobile.mobbl.core.services.MBMetadataService;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 import com.itude.mobile.web.util.PageHelper;
 
+/**
+ * Smallest user interface element definition in MOBBL framework. Typically an input field, label or button
+ */
 public class MBField extends MBComponent
 {
   private static final Logger   LOGGER           = Logger.getLogger(MBField.class);

@@ -24,6 +24,10 @@ import org.mozilla.javascript.ContextFactory;
 
 import com.itude.mobile.mobbl.core.services.exceptions.MBScriptErrorException;
 
+/**
+ * Service class for evaluating Javascript expressions
+ * 
+ */
 public class MBScriptService
 {
   private static MBScriptService _instance    = null;

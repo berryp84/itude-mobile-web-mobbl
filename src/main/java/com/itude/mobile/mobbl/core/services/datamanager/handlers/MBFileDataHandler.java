@@ -25,6 +25,9 @@ import com.itude.mobile.mobbl.core.services.datamanager.MBDataHandlerBase;
 import com.itude.mobile.mobbl.core.util.DataUtil;
 import com.itude.mobile.mobbl.core.util.FileUtil;
 
+/**
+ * Retrieves and stores MBDocument instances using the device Filesystem 
+ */
 public class MBFileDataHandler extends MBDataHandlerBase
 {
   private static final Logger LOGGER = Logger.getLogger(MBFileDataHandler.class);

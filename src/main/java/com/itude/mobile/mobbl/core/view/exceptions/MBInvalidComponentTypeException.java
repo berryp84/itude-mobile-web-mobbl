@@ -17,6 +17,10 @@ package com.itude.mobile.mobbl.core.view.exceptions;
 
 import com.itude.mobile.mobbl.core.MBException;
 
+/**
+ * {@link MBException} class used when a component type is not valid
+ *
+ */
 public class MBInvalidComponentTypeException extends MBException
 {
 
@@ -25,11 +29,22 @@ public class MBInvalidComponentTypeException extends MBException
    */
   private static final long serialVersionUID = 3539917309987523513L;
 
+  /**
+   * Constructor for MBInvalidComponentTypeException.
+   * 
+   * @param msg exception message
+   */
   public MBInvalidComponentTypeException(String msg)
   {
     super(msg);
   }
 
+  /**
+   * Constructor for MBInvalidComponentTypeException.
+   * 
+   * @param msg exception message
+   * @param throwable throwable {@link Throwable}
+   */
   public MBInvalidComponentTypeException(String msg, Throwable throwable)
   {
     super(msg, throwable);

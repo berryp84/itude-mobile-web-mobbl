@@ -17,6 +17,9 @@ package com.itude.mobile.mobbl.core.services.datamanager;
 
 import com.itude.mobile.mobbl.core.model.MBDocument;
 
+/**
+ * Data handler interface
+ */
 public interface MBDataHandler
 {
   public MBDocument loadDocument(String documentName);

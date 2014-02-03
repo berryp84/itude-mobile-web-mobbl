@@ -40,6 +40,10 @@ import com.itude.mobile.mobbl.core.model.exceptions.MBInvalidDocumentException;
 import com.itude.mobile.mobbl.core.model.exceptions.MBParseErrorException;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * Parser for XML type documents
+ *
+ */
 public class MBXmlDocumentParser extends DefaultHandler implements MBDocumentParser
 {
   private static final Logger       LOGGER        = Logger.getLogger(MBXmlDocumentParser.class);

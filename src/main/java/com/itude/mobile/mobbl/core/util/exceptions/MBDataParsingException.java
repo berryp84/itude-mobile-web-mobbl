@@ -17,6 +17,9 @@ package com.itude.mobile.mobbl.core.util.exceptions;
 
 import com.itude.mobile.mobbl.core.MBException;
 
+/**
+ * {@link MBException} that indicates that data can't be parsed
+ */
 public class MBDataParsingException extends MBException
 {
 
@@ -25,11 +28,22 @@ public class MBDataParsingException extends MBException
    */
   private static final long serialVersionUID = -1726186662862494940L;
 
+  /**
+   * Constructor for MBDataParsingException.
+   * 
+   * @param msg exception message
+   */
   public MBDataParsingException(String msg)
   {
     super(msg);
   }
 
+  /**
+   * Constructor for MBDataParsingException.
+   * 
+   * @param msg exception message
+   * @param throwable throwable {@link Throwable}
+   */
   public MBDataParsingException(String msg, Throwable throwable)
   {
     super(msg, throwable);

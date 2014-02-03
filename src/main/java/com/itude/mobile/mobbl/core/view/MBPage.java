@@ -30,6 +30,12 @@ import com.itude.mobile.mobbl.core.controller.MBOutcome;
 import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * Main unit of navigation within the application. 
+ * <br/>
+ * Associated with exactly one ViewController subclass.
+ *
+ */
 public class MBPage extends MBPanel
 {
   private static final Logger                                    LOGGER        = Logger.getLogger(MBPage.class);

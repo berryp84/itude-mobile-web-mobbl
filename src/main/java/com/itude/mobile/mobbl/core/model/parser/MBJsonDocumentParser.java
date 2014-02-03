@@ -29,6 +29,10 @@ import com.itude.mobile.mobbl.core.model.MBElement;
 import com.itude.mobile.mobbl.core.model.MBElementContainer;
 import com.itude.mobile.mobbl.core.model.exceptions.MBParseErrorException;
 
+/**
+ * Parser for JSON type documents
+ *
+ */
 public class MBJsonDocumentParser implements MBDocumentParser
 {
 

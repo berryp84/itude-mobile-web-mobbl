@@ -25,6 +25,11 @@ import com.itude.mobile.mobbl.core.configuration.mvc.exceptions.MBInvalidPathExc
 import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * Iterator for creating MBPanel instances based on the data in an MBPage.
+ * <br/> 
+ * MBForEach instances are defined in a page definition in the application definition file(s).
+ */
 public class MBForEach extends MBComponentContainer
 {
   private ArrayList<MBRow> _rows; // arrayofMBRows

@@ -39,6 +39,14 @@ import com.itude.mobile.mobbl.core.services.exceptions.MBDocumentNotDefinedExcep
 import com.itude.mobile.mobbl.core.services.exceptions.MBDomainNotDefinedException;
 import com.itude.mobile.mobbl.core.services.exceptions.MBPageNotDefinedException;
 
+/** 
+ * Service class for working with Model, View and Controller definition objects.
+ * Use this class to:
+ * <ul>
+ * <li>Set which configuration and webservice-endpoint files to use.</li>
+ * <li>Retrieve definitions for programmatically creating MBDocument, MBDomain, MBDomainValidator objects.</li>
+ * </ul>
+ */
 @Alternative
 public class MBMetadataService implements Serializable
 {

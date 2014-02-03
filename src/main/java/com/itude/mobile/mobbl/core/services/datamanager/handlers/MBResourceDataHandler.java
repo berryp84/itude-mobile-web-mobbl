@@ -26,6 +26,10 @@ import com.itude.mobile.mobbl.core.services.MBMetadataService;
 import com.itude.mobile.mobbl.core.services.datamanager.MBDataHandlerBase;
 import com.itude.mobile.mobbl.core.util.DataUtil;
 
+/**
+ * Retrieves and stores MBDocument instances in a resource file
+ *
+ */
 public class MBResourceDataHandler extends MBDataHandlerBase implements Serializable
 {
   private static final long   serialVersionUID = 1L;

@@ -17,10 +17,19 @@ package com.itude.mobile.mobbl.core.services.datamanager.handlers.exceptions;
 
 import com.itude.mobile.mobbl.core.MBException;
 
+/**
+ * {@link MBException} class used when an server problem occurs 
+ *
+ */
 public class MBServerErrorException extends MBException
 {
   private static final long serialVersionUID = 2100678925497392898L;
 
+  /**
+   * Constructor for MBServerErrorException.
+   * 
+   * @param msg exception message
+   */
   public MBServerErrorException(String msg)
   {
     super(msg);

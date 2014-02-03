@@ -36,6 +36,14 @@ import com.itude.mobile.mobbl.core.services.MBScriptService;
 import com.itude.mobile.mobbl.core.util.MBDynamicAttributeComparator;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
 
+/**
+ * A node in a tree of MBElement instances.
+ * <br/>
+ * In MOBBL, data is represented in MBDocuments and MBElements. An MBDocument is a lightweight xml-like structure, optimised for mobile use.
+ * 
+ * MBDocuments and MBElements are both MBElementContainers. Each ElementContainer has an associated MBElementDefinition which defines its structure. 
+ * The most frequently used methods are valueForPath:, setValue: forPath: and elementsWithName:
+ */
 public class MBElementContainer
 {
   private Map<String, List<MBElement>> _elements; // Dictionaryoflistsofelements

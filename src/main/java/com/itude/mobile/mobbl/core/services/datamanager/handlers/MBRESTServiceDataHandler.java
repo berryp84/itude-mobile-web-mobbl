@@ -57,6 +57,10 @@ import com.itude.mobile.mobbl.core.services.MBResultListenerDefinition;
 import com.itude.mobile.mobbl.core.services.datamanager.handlers.exceptions.MBServerErrorException;
 import com.itude.mobile.web.exceptions.ItudeRuntimeException;
 
+/**
+ * Retrieves and sends MBDocument instances to and from a webservice using HTTP operations
+ *
+ */
 public class MBRESTServiceDataHandler extends MBWebserviceDataHandler implements Serializable
 {
   private static final long    serialVersionUID          = 1L;

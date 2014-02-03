@@ -15,6 +15,10 @@
  */
 package com.itude.mobile.mobbl.core.model;
 
+/**
+ * Class responsible for the session
+ *
+ */
 public class MBSession implements MBSessionInterface
 {
 
@@ -25,6 +29,11 @@ public class MBSession implements MBSessionInterface
 
   }
 
+  /**
+   * Returns the current session instance
+   * 
+   * @return {@link MBSessionInterface}
+   */
   public static MBSessionInterface getInstance()
   {
     if (_instance == null)
@@ -35,20 +44,34 @@ public class MBSession implements MBSessionInterface
     return _instance;
   }
 
+  /**
+   * Sets the given sessions as the instance
+   * 
+   * @param session {@link MBSessionInterface}
+   */
   public static void setInstance(MBSessionInterface session)
   {
     _instance = session;
   }
 
-  //
-  //Override the following methods in an instance specific for your app; and register it app startup with setSharedInstance
-  //
+  /**
+   * Should return the session document that stores the current session state
+   * 
+   * IMPORTANT: THIS METHOD IS NOT IMPLEMENTED! It needs to be overridden in a superclass
+   * 
+   * @return a {@link MBDocument} that keeps track of the current session state (e.g. A MBDocument that stores the current session state)
+   */
   @Override
   public MBDocument getDocument()
   {
     return null;
   }
 
+  /**
+   * Should logOff the current session (e.g. clear the current session state from the session document)
+   * 
+   * IMPORTANT: THIS METHOD IS NOT IMPLEMENTED! It needs to be overridden in a superclass
+   */
   @Override
   public void logOff()
   {
