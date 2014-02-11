@@ -20,6 +20,7 @@ import com.itude.mobile.mobbl.core.configuration.mvc.MBPanelDefinition;
 import com.itude.mobile.mobbl.core.model.MBDocument;
 import com.itude.mobile.mobbl.core.services.MBLocalizationService;
 import com.itude.mobile.mobbl.core.util.StringUtilities;
+import com.itude.mobile.web.util.PageHelper;
 
 public class MBPanel extends MBComponentContainer
 {
@@ -177,6 +178,11 @@ public class MBPanel extends MBComponentContainer
         addChild(MBComponentFactory.getComponentFromDefinition(def, getDocument(), this));
       }
     }
+  }
+
+  public String getGeneratedId()
+  {
+    return PageHelper.CUSTOM_BEGIN + getAbsoluteDataPath().hashCode();
   }
 
   @Override
