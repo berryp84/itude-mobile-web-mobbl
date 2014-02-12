@@ -54,6 +54,7 @@ public class MBComponentContainer extends MBComponent
   @Override
   public void translatePath()
   {
+    super.translatePath();
     for (MBComponent child : _children)
     {
       child.translatePath();

@@ -47,7 +47,6 @@ public class MBField extends MBComponent
   private MBAttributeDefinition _attributeDefinition;
   private boolean               _domainDetermined;
   private MBDomainDefinition    _domainDefinition;
-  private String                _translatedPath;
   private String                _label;
   private String                _dataType;
   private int                   _minimumDecimals = -1;
@@ -439,13 +438,6 @@ public class MBField extends MBComponent
     return _attributeDefinition;
   }
 
-  // This will translate any expression that are part of the path to their actual values
-  @Override
-  public void translatePath()
-  {
-    _translatedPath = substituteExpressions(getAbsoluteDataPath());
-  }
-
   @Override
   public String getComponentDataPath()
   {
@@ -455,17 +447,6 @@ public class MBField extends MBComponent
       return null;
     }
     return substituteExpressions(path);
-  }
-
-  @Override
-  public String getAbsoluteDataPath()
-  {
-    if (_translatedPath != null)
-    {
-      return _translatedPath;
-    }
-
-    return super.getAbsoluteDataPath();
   }
 
   // Apply a formatmask
