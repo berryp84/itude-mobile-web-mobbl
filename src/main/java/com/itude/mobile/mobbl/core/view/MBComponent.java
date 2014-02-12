@@ -39,6 +39,7 @@ public class MBComponent
   private int                  _rightInset;
   private int                  _topInset;
   private int                  _bottomInset;
+  private String               _translatedPath;
 
   public MBComponent(MBDefinition definition, MBDocument document, MBComponentContainer parent)
   {
@@ -220,6 +221,11 @@ public class MBComponent
 
   public String getAbsoluteDataPath()
   {
+    if (_translatedPath != null)
+    {
+      return _translatedPath;
+    }
+
     String componentPath = getComponentDataPath();
 
     // If the path is not set (a field without a path specified for instance) return nil; since it then also does not have an absolute path:
@@ -315,6 +321,7 @@ public class MBComponent
 
   public void translatePath()
   {
+    _translatedPath = substituteExpressions(getAbsoluteDataPath());
   }
 
   public <T extends MBComponent> List<T> getDescendantsOfKind(Class<T> clazz)
