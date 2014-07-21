@@ -25,6 +25,7 @@ import com.itude.mobile.mobbl.core.view.MBConditionalDefinition;
 public class MBFieldDefinition extends MBConditionalDefinition
 {
   private String _label;
+  private String _labelAttrs;
   private String _path;
   private String _style;
   private String _displayType;
@@ -54,11 +55,20 @@ public class MBFieldDefinition extends MBConditionalDefinition
       bodyText = _text;
     }
 
-    String result = StringUtilities.getIndentStringWithLevel(level) + "<Field" + getAttributeAsXml("label", _label)
-                    + getAttributeAsXml("path", _path) + getAttributeAsXml("type", _displayType) + getAttributeAsXml("dataType", _dataType)
-                    + getAttributeAsXml("outcome", _outcomeName) + getAttributeAsXml("formatMask", _formatMask)
-                    + getAttributeAsXml("alignment", _alignment) + getAttributeAsXml("valueIfNil", _valueIfNil)
-                    + getAttributeAsXml("width", _width) + getAttributeAsXml("height", _height) + getAttributeAsXml("hidden", _hidden)
+    String result = StringUtilities.getIndentStringWithLevel(level) //
+                    + "<Field"
+                    + getAttributeAsXml("label", _label)
+                    + getAttributeAsXml("labelAttrs", _labelAttrs)
+                    + getAttributeAsXml("path", _path) //
+                    + getAttributeAsXml("type", _displayType)
+                    + getAttributeAsXml("dataType", _dataType)
+                    + getAttributeAsXml("outcome", _outcomeName)
+                    + getAttributeAsXml("formatMask", _formatMask)
+                    + getAttributeAsXml("alignment", _alignment)
+                    + getAttributeAsXml("valueIfNil", _valueIfNil)
+                    + getAttributeAsXml("width", _width) //
+                    + getAttributeAsXml("height", _height)
+                    + getAttributeAsXml("hidden", _hidden)
                     + getAttributeAsXml("required", _required);
 
     if (bodyText != null)
@@ -93,6 +103,16 @@ public class MBFieldDefinition extends MBConditionalDefinition
   public void setLabel(String label)
   {
     _label = label;
+  }
+
+  public void setLabelAttrs(String labelAttrs)
+  {
+    _labelAttrs = labelAttrs;
+  }
+
+  public String getLabelAttrs()
+  {
+    return _labelAttrs;
   }
 
   public String getPath()

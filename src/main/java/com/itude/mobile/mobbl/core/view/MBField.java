@@ -48,6 +48,7 @@ public class MBField extends MBComponent
   private boolean               _domainDetermined;
   private MBDomainDefinition    _domainDefinition;
   private String                _label;
+  private String[]              _labelAttrs;
   private String                _dataType;
   private int                   _minimumDecimals = -1;
   private int                   _maximumDecimals = -1;
@@ -113,6 +114,8 @@ public class MBField extends MBComponent
     setStyle(substituteExpressions(fieldDef.getStyle()));
     setDataType(substituteExpressions(fieldDef.getDataType()));
     setLabel(substituteExpressions(fieldDef.getLabel()));
+    String labelAttrs = fieldDef.getLabelAttrs();
+    setLabelAttrs((labelAttrs != null) ? labelAttrs.split(",") : null);
     setFormatMask(substituteExpressions(fieldDef.getFormatMask()));
     setAlignment(substituteExpressions(fieldDef.getAlignment()));
     setValueIfNil(substituteExpressions(fieldDef.getValueIfNil()));
@@ -157,7 +160,14 @@ public class MBField extends MBComponent
 
   public String getLabel()
   {
-    return MBLocalizationService.getInstance().getTextForKey(_label);
+    if (getLabelAttrs() == null)
+    {
+      return MBLocalizationService.getInstance().getTextForKey(_label);
+    }
+    else
+    {
+      return MBLocalizationService.getInstance().getText(_label, (Object[]) getLabelAttrs());
+    }
   }
 
   public void setLabel(String label)
@@ -170,14 +180,31 @@ public class MBField extends MBComponent
     return _label;
   }
 
+  public void setLabelAttrs(String[] labelAttrs)
+  {
+    if (labelAttrs != null && labelAttrs.length > 0)
+    {
+      String[] substitutes = new String[labelAttrs.length];
+      for (int i = 0; i < substitutes.length; i++)
+      {
+        String attr = labelAttrs[i];
+        String substituded = substituteExpressions(attr);
+        substitutes[i] = (substituded == null) ? getValueIfNil() : substituded;
+      }
+      labelAttrs = substitutes;
+    }
+    _labelAttrs = labelAttrs;
+  }
+
+  public String[] getLabelAttrs()
+  {
+    return _labelAttrs;
+  }
+
   public String getGeneratedId()
   {
-    //    LOGGER.info("getAbsoluteDataPath: "+getAbsoluteDataPath());
-    //    LOGGER.info("_label: "+_label);
     if (_label != null)
     {
-      // Return the _label (as it is assumed there aren't 2 buttons with the same label)
-
       // TODO: This can be way prettier with regular expressions
       StringBuilder sb = new StringBuilder();
       for (char c : _label.toCharArray())
@@ -187,13 +214,11 @@ public class MBField extends MBComponent
           sb.append(c);
         }
       }
-      //      LOGGER.info("=> "+ _label);
       return PageHelper.CUSTOM_BEGIN + sb;
     }
     else
     {
       // In case of no label, the absoluteDataPath should be unique (in contrast to getPath, which is unevaluated)
-      //      LOGGER.info("=> "+ getAbsoluteDataPath().hashCode());
       return PageHelper.CUSTOM_BEGIN + getAbsoluteDataPath().hashCode();
     }
   }

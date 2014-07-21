@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Map;
+import java.util.MissingFormatArgumentException;
 
 import org.apache.log4j.Logger;
 
@@ -126,6 +127,40 @@ public class MBLocalizationService
     }
 
     return text;
+  }
+
+  public static String getLocalizedString(String key)
+  {
+    return getInstance().getTextForKey(key);
+  }
+
+  /***
+   * @see java.util.Formatter.format(String, Object ...)
+   * @param key
+   * @param args
+   * @return
+   */
+  public String getText(String key, Object... args)
+  {
+    if (key == null)
+    {
+      return null;
+    }
+
+    String text = getTextForKey(key);
+    String result = "";
+    try
+    {
+      result = String.format(text, args);
+    }
+    catch (MissingFormatArgumentException e)
+    {
+      LOGGER.warn("Warning: no translation defined for key '" + key);
+      result = text;
+    }
+
+    return result;
+
   }
 
   public String getLocaleCode()

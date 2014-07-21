@@ -163,6 +163,7 @@ public class MBMvcConfigurationParser extends MBConfigurationParser
       _fieldAttributes.add("xmlns");
       _fieldAttributes.add("name");
       _fieldAttributes.add("label");
+      _fieldAttributes.add("labelAttrs");
       _fieldAttributes.add("path");
       _fieldAttributes.add("type");
       _fieldAttributes.add("dataType");
@@ -417,6 +418,7 @@ public class MBMvcConfigurationParser extends MBConfigurationParser
       MBFieldDefinition fieldDef = new MBFieldDefinition();
       fieldDef.setName(attributeDict.get("name"));
       fieldDef.setLabel(attributeDict.get("label"));
+      fieldDef.setLabelAttrs(attributeDict.get("labelAttrs"));
       fieldDef.setPath(attributeDict.get("path"));
       fieldDef.setDisplayType(attributeDict.get("type"));
       fieldDef.setDataType(attributeDict.get("dataType"));
