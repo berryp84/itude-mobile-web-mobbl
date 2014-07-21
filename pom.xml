@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.itude.mobile.web.mobbl</groupId>
-	<version>0.1.1.4-SNAPSHOT</version>
+	<version>0.1.1.4</version>
 	<artifactId>mobbl-core-lib</artifactId>
 	<packaging>jar</packaging>
 	<name>Web Mobbl Core lib</name>
@@ -131,7 +131,8 @@
 		<url>https://github.com/ItudeMobile/itude-mobile-android-web-mobbl</url>
 		<connection>scm:git:git://github.com/ItudeMobile/itude-mobile-web-mobbl.git</connection>
 		<developerConnection>scm:git:git@github.com:ItudeMobile/itude-mobile-web-mobbl.git</developerConnection>
-	</scm>
+	  <tag>mobbl-core-lib-0.1.1.4</tag>
+  </scm>
 
 	<build>
 	    <plugins>
