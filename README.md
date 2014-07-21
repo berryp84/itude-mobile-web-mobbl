@@ -14,7 +14,7 @@ Documentation about how to get started can be [here](http://mobbl.org/mobileweb.
 For Api documentation, see the [Web API Reference](http://mobbl.org/apis/mobileweb/index.html).
 
 ## [Changelog](https://github.com/ItudeMobile/itude-mobile-web-mobbl/wiki/Changelog)
-Current version: 0.1.1.3
+Current version: 0.1.1.4
 
 ## Build
 #### Maven
